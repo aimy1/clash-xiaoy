@@ -1,0 +1,89 @@
+{
+  "$schema": "../../node_modules/@tauri-apps/cli/config.schema.json",
+  "mainBinaryName": "clash-xiaoy",
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "",
+      "webviewInstallMode": {
+        "type": "embedBootstrapper"
+      },
+      "wix": {
+        "language": ["en-US", "ru-RU", "zh-CN", "zh-TW"],
+        "template": "./templates/installer.wxs",
+        "fragmentPaths": ["./templates/cleanup.wxs"]
+      },
+      "nsis": {
+        "displayLanguageSelector": true,
+        "installerIcon": "icons/icon.ico",
+        "languages": ["English", "Russian", "SimpChinese", "TradChinese"],
+        "template": "./templates/installer.nsi",
+        "installMode": "both"
+      }
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": ["resources"],
+    "externalBin": [
+      "sidecar/clash",
+      "sidecar/mihomo",
+      "sidecar/mihomo-alpha",
+      "sidecar/clash-rs",
+      "sidecar/clash-rs-alpha",
+      "sidecar/nyanpasu-service"
+    ],
+    "copyright": "© 2025 clash-xiaoy All Rights Reserved",
+    "category": "DeveloperTool",
+    "shortDescription": "clash-xiaoy! (∠・ω< )⌒☆",
+    "longDescription": "clash-xiaoy! (∠・ω< )⌒☆",
+    "macOS": {
+      "frameworks": [],
+      "minimumSystemVersion": "12.6",
+      "exceptionDomain": "",
+      "signingIdentity": null,
+      "entitlements": null
+    },
+    "linux": {
+      "deb": {
+        "depends": []
+      }
+    },
+    "licenseFile": "../../LICENSE",
+    "createUpdaterArtifacts": false
+  },
+  "build": {
+    "beforeBuildCommand": "pnpm run-p web:build generate:git-info",
+    "frontendDist": "./tmp/dist",
+    "beforeDevCommand": "pnpm run web:dev",
+    "devUrl": "http://localhost:3000/"
+  },
+  "productName": "clash-xiaoy",
+  "version": "1.6.0",
+  "identifier": "com.clash-xiaoy.app",
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDlBMUM0NjMxREZCNDRGMjYKUldRbVQ3VGZNVVljbW43N0FlWjA4UkNrbTgxSWxSSXJQcExXNkZjUTlTQkIyYkJzL0tsSWF2d0cK",
+      "endpoints": [
+        "https://deno.elaina.moe/updater/update-proxy.json",
+        "https://nyanpasu.surge.sh/updater/update-proxy.json",
+        "https://gh-proxy.com/https://github.com/libnyanpasu/clash-nyanpasu/releases/download/updater/update-proxy.json",
+        "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/updater/update.json"
+      ]
+    }
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": "script-src 'unsafe-eval' 'self'; default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self'; img-src 'self' data: asset: blob: http://localhost:* https:; connect-src ipc: http://ipc.localhost http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:* wss://*",
+      "capabilities": ["main-capability"]
+    }
+  }
+}

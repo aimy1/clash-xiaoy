@@ -1,0 +1,177 @@
+:root {
+  /* Cyberpunk Color Palette */
+  --cyber-primary: #00E5FF;
+  --cyber-secondary: #B26CFF;
+  --cyber-accent: #3CFFFF;
+  --cyber-warning: #FF9F43;
+  --cyber-bg-start: #0A0E17;
+  --cyber-bg-end: #0F1422;
+  
+  /* Glassmorphism Variables */
+  --cyber-glass-bg: rgba(20, 25, 40, 0.6);
+  --cyber-glass-border: rgba(0, 229, 255, 0.3);
+  --cyber-glass-blur: 20px;
+  
+  /* Text Colors */
+  --cyber-text-main: #FFFFFF;
+  --cyber-text-muted: rgba(255, 255, 255, 0.7);
+  --cyber-text-highlight: var(--cyber-accent);
+
+  /* Overrides for Material Design Variables to enforce dark theme & cyberpunk colors */
+  --color-md-primary: var(--cyber-primary);
+  --color-md-on-primary: #000000;
+  --color-md-primary-container: rgba(0, 229, 255, 0.2);
+  --color-md-on-primary-container: var(--cyber-accent);
+  
+  --color-md-background: var(--cyber-bg-start);
+  --color-md-on-background: var(--cyber-text-main);
+  
+  --color-md-surface: rgba(255, 255, 255, 0.05); /* Glassy surface */
+  --color-md-on-surface: var(--cyber-text-main);
+  
+  --color-md-outline: var(--cyber-glass-border);
+}
+
+/* Global Background */
+body, #root {
+  background: linear-gradient(135deg, var(--cyber-bg-start) 0%, var(--cyber-bg-end) 100%);
+  color: var(--cyber-text-main);
+}
+
+/* Glassmorphism Utility Class */
+.cyber-glass {
+  background: var(--cyber-glass-bg) !important;
+  backdrop-filter: blur(var(--cyber-glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--cyber-glass-blur)) !important;
+  border: 1px solid var(--cyber-glass-border) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 16px;
+}
+
+/* Neon Text Glow */
+.cyber-text-glow {
+  text-shadow: 0 0 5px var(--cyber-primary), 0 0 10px var(--cyber-primary);
+}
+
+/* Neon Box Glow */
+.cyber-box-glow {
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3), inset 0 0 5px rgba(0, 229, 255, 0.1);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-primary);
+  border-radius: 3px;
+  box-shadow: 0 0 5px var(--cyber-primary);
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', 'Inter', sans-serif !important;
+  letter-spacing: 1px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Animations                                   */
+/* -------------------------------------------------------------------------- */
+
+/* 1. Subtle Floating Animation for Panels */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 2. Neon Pulse Animation */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3), inset 0 0 5px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.6), inset 0 0 10px rgba(0, 229, 255, 0.3);
+  }
+}
+
+.animate-pulse-neon {
+  animation: neon-pulse 3s infinite alternate;
+}
+
+/* 3. Glitch Effect for Text on Hover */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.hover-glitch:hover {
+  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  color: var(--cyber-accent);
+}
+
+/* 4. Scanning Line Background */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.bg-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 229, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 5. Cyber Button Hover Effect */
+.cyber-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--cyber-primary);
+}

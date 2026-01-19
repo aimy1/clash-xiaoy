@@ -1,0 +1,42 @@
+[workspace]
+resolver = "2"
+members = ["tauri", "boa_utils", "nyanpasu-macro", "nyanpasu-egui"]
+
+[patch.crates-io]
+tray-icon = { git = "https://github.com/tauri-apps/tray-icon.git", rev = "34a3442" }
+
+[workspace.package]
+repository = "https://github.com/keiko233/clash-nyanpasu.git"
+edition = "2024"
+license = "GPL-3.0"
+authors = ["zzzgydi", "keiko233"]
+
+[workspace.dependencies]
+thiserror = "2"
+tracing = "0.1"
+boa_engine = { version = "0.21", features = ["annex-b"] }
+reqwest = { version = "0.12", default-features = false, features = [
+  "charset",
+  "http2",
+  "system-proxy",
+  "json",
+  "stream",
+  "rustls-tls",
+] }
+tokio = { version = "1", features = ["full"] }
+nyanpasu-utils = { git = "https://github.com/libnyanpasu/nyanpasu-utils.git", features = [
+  "specta",
+] }
+test-log = { version = "0.2.16", features = ["trace"] }
+tracing-test = { git = "https://github.com/Frando/tracing-test.git", rev = "e81ec65", features = [
+  "no-env-filter",
+  "pretty-log-printing",
+] }
+fs4 = { version = "0.13.1", features = ["fs-err3-tokio", "fs-err3"] }
+fs-err = { version = "3.1.2", features = ["tokio"] }
+
+[profile.release]
+panic = "unwind"
+codegen-units = 1
+lto = true
+opt-level = "s"
