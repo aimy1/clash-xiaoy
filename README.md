@@ -1,101 +1,103 @@
-<h1 align="center">
-  <img src="https://nyanpasu.elaina.moe/images/banner/nyanpasu_banner.png" alt="Clash Nyanpasu Banner" />
-</h1>
+# clash-xiaoy
 
-<h3>Clash Nyanpasu</h3>
+## clash-xiaoy 是一个基于 Clash Nyanpasu 的深度 UI 增强分支版本。
+在完全不修改 Clash 核心代理逻辑的前提下，对用户界面、内核下载与安装流程、视觉标识系统进行系统性重构，提升整体稳定性、可用性与完成度。
 
-<h3>
-  A <a href="https://github.com/Dreamacro/clash">Clash</a> GUI based on <a href="https://github.com/tauri-apps/tauri">Tauri</a>.
-</h3>
+本项目定位为：
+> 工程级 UI 重构 + 安装体验优化版本
+而不是简单的“换皮”或功能魔改。
 
-<p>
-  <a href="https://github.com/libnyanpasu/clash-nyanpasu/releases/latest"><img src="https://img.shields.io/github/v/release/libnyanpasu/clash-nyanpasu?style=flat-square" alt="Nyanpasu Release" /></a>
-  <a href="https://github.com/libnyanpasu/clash-nyanpasu/releases/pre-release"><img src="https://img.shields.io/github/actions/workflow/status/libnyanpasu/clash-nyanpasu/target-dev-build.yaml?style=flat-square" alt="Dev Build Status" /></a>
-  <a href="https://github.com/libnyanpasu/clash-nyanpasu/stargazers"><img src="https://img.shields.io/github/stars/libnyanpasu/clash-nyanpasu?style=flat-square" alt="Nyanpasu Stars" /></a>
-  <a href="https://github.com/libnyanpasu/clash-nyanpasu/releases/latest"><img src="https://img.shields.io/github/downloads/libnyanpasu/clash-nyanpasu/total?style=flat-square" alt="GitHub Downloads (all assets, all releases)" /></a>
-  <a href="https://github.com/libnyanpasu/clash-nyanpasu/blob/main/LICENSE"><img src="https://img.shields.io/github/license/libnyanpasu/clash-nyanpasu?style=flat-square" alt="Nyanpasu License" /></a>
-  <a href="https://twitter.com/ClashNyanpasu"><img src="https://img.shields.io/twitter/follow/ClashNyanpasu?style=flat-square" alt="Nyanpasu Twitter" /></a>
-  <a href="https://deepwiki.com/libnyanpasu/clash-nyanpasu"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
-</p>
+---
 
-## Features
+## ✨ 特性
 
-- Built-in support [Clash Premium](https://github.com/Dreamacro/clash), [Mihomo](https://github.com/MetaCubeX/mihomo) & [Clash Rust](https://github.com/Watfaq/clash-rs).
-- Profiles management and enhancement (by YAML, JavaScript & Lua). [Doc](https://nyanpasu.elaina.moe/tutorial/proxy-chain)
-- Provider management support.
-- Google Material You Design UI and animation support.
+- 🔧 重构内核下载与安装机制
+  - 使用更稳定的下载源
+  - 安装流程更自动化
+  - 下载失败提示更清晰
+  - 提高整体成功率与可靠性
 
-## Preview
+- 🎨 clash-xiaoy UI
+  - 全新界面结构
+  - 现代化深色主题
+  - 更清晰的信息层级
+  - 更高的视觉完成度与一致性
 
-![preview-light](https://nyanpasu.elaina.moe/images/screenshot/app-dashboard-light.png)
+- 🖼 全新 Logo
+  - 与 UI 风格统一
+  - 适配窗口、托盘、启动图标
 
-![preview-dark](https://nyanpasu.elaina.moe/images/screenshot/app-dashboard-dark.png)
+- 🔗 所有链接已验证
+  - 内核下载链接可用
+  - 更新与资源地址稳定
 
-## Links
+---
 
-- [Install](https://nyanpasu.elaina.moe/tutorial/install)
-- [FAQ](https://nyanpasu.elaina.moe/others/faq)
-- [Q&A Convention](https://nyanpasu.elaina.moe/others/issues)
-- [How To Ask Questions](https://nyanpasu.elaina.moe/others/how-to-ask)
+## 🧠 设计原则
 
-## Development
+> 只增强体验，不破坏原有功能。
 
-### Configure your development environment
+- 不修改 Clash 核心行为
+- 不修改规则系统
+- 不修改策略组逻辑
+- 不改变配置文件格式
+- 完全兼容 Clash Nyanpasu 原生态
 
-You should install Rust and Node.js, see [here](https://v2.tauri.app/start/prerequisites/) for more details.
+---
 
-Clash Nyanpasu uses the pnpm package manager. See [here](https://pnpm.io/installation) for installation instructions. Then, install Node.js packages.
+## 📦 功能完整性
 
-```shell
+以下功能全部保持与原版一致：
+
+- 节点管理与切换
+- 策略组
+- 配置加载
+- 订阅更新
+- 流量统计
+- 系统托盘
+- 开机启动
+- 启动 / 停止代理
+
+---
+
+## 📸 界面预览
+
+> 在这里放你的截图
+建议：
+- 主界面
+- 节点列表
+- 设置界面
+- 托盘图标
+
+---
+
+## ⚠️ 免责声明
+
+- 本项目不提供任何代理服务
+- 不包含任何节点资源
+- 不对网络内容进行推荐或引导
+- 仅对 Clash Nyanpasu 的界面与使用体验进行增强
+- 请遵守当地法律法规使用
+
+---
+
+## ❤️ 鸣谢
+
+- Clash 项目
+- Clash Nyanpasu 原作者
+- 所有开源贡献者
+
+---
+
+## 开发与构建
+
+```bash
 pnpm i
-```
-
-### Download the Clash binary & other dependencies
-
-```shell
-# force update to latest version
-# pnpm prepare:check --force
-
 pnpm prepare:check
-```
-
-### Run dev
-
-```shell
 pnpm dev
-
-# run it in another way if app instance exists
-pnpm dev:diff
-```
-
-### Build application
-
-```shell
 pnpm build
 ```
 
-## Contributions
-
-Issue and PR welcome!
-
-## Acknowledgement
-
-Clash Nyanpasu was based on or inspired by these projects and so on:
-
-- [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge): A Clash GUI based on Tauri. Supports Windows, macOS and Linux.
-- [clash-verge-rev/clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev): Another fork of Clash Verge. Some patches are included for bug fixes.
-- [tauri-apps/tauri](https://github.com/tauri-apps/tauri): Build smaller, faster, and more secure desktop applications with a web frontend.
-- [Dreamacro/clash](https://github.com/Dreamacro/clash): A rule-based tunnel in Go.
-- [MetaCubeX/mihomo](https://github.com/MetaCubeX/mihomo): A rule-based tunnel in Go.
-- [Watfaq/clash-rs](https://github.com/Watfaq/clash-rs): A custom protocol, rule based network proxy software.
-- [Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg): A Windows/macOS GUI based on Clash.
-- [vitejs/vite](https://github.com/vitejs/vite): Next generation frontend tooling. It's fast!
-- [mui/material-ui](https://github.com/mui/material-ui): Ready-to-use foundational React components, free forever.
-
-## Contributors
-
-![Contributors](https://contrib.rocks/image?repo=libnyanpasu/clash-nyanpasu)
-
-## License
-
-GPL-3.0 License. See [License here](./LICENSE) for details.
+构建完成后（Windows）：
+- 可运行 exe：`backend/target/release/clash-xiaoy.exe`
+- 安装器 exe：`backend/target/release/bundle/nsis/clash-xiaoy_1.6.0_x64-setup.exe`

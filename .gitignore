@@ -24,3 +24,5 @@ manifest/site/updater/*
 /backend/tauri/gen/
 /backend/target/
 /backend/tauri/tmp/
+# release artifacts / archives (keep repo under upload limits)
+clash-*_portable.zip
