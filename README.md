@@ -8,8 +8,10 @@
 而不是简单的“换皮”或功能魔改。
 
 ---
-<img width="1057" height="777" alt="image" src="https://github.com/user-attachments/assets/727fa563-443c-48c5-bb78-a8eb406fa707" />
-<img width="1057" height="777" alt="image" src="https://github.com/user-attachments/assets/616ebd4f-7e00-4ffb-b468-1a61f80ba62e" />
+<img width="1200" height="795" alt="image" src="https://github.com/user-attachments/assets/3690f0f5-6c96-4fb9-a698-269a5c628121" />
+
+<img width="1200" height="795" alt="image" src="https://github.com/user-attachments/assets/eb3dd979-5fe8-48bd-94e9-98032fc4aeb0" />
+
 
 ## ✨ 特性
 
