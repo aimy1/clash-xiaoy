@@ -1,0 +1,190 @@
+/* Global Background */
+html.dark body,
+html.dark #root,
+html[data-theme='dark'] body,
+html[data-theme='dark'] #root {
+  background:
+    var(--app-wallpaper, none) center / cover no-repeat fixed,
+    radial-gradient(900px 600px at 20% 0%, var(--primary-soft), transparent 60%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+html.light body,
+html.light #root,
+html[data-theme='light'] body,
+html[data-theme='light'] #root {
+  background:
+    var(--app-wallpaper, none) center / cover no-repeat fixed,
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Glassmorphism Utility Class */
+.cyber-glass {
+  background: var(--cyber-glass-bg) !important;
+  backdrop-filter: blur(var(--cyber-glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--cyber-glass-blur)) !important;
+  border: 1px solid var(--cyber-glass-border) !important;
+  box-shadow: var(--shadow-card, 0 4px 30px rgba(0, 0, 0, 0.1)) !important;
+  border-radius: 16px;
+}
+
+html[data-wallpaper='1'] .cyber-glass,
+html[data-wallpaper='1'] .MuiCard-root.cyber-glass,
+html[data-wallpaper='1'] .MuiPaper-root.cyber-glass {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+html[data-wallpaper='1'] .MuiCard-root {
+  background-color: transparent !important;
+}
+
+html[data-wallpaper='1'] .bg-surface,
+html[data-wallpaper='1'] .bg-primary-container,
+html[data-wallpaper='1'] .bg-on-primary {
+  background-color: transparent !important;
+}
+
+/* Neon Text Glow */
+html.dark .cyber-text-glow,
+html[data-theme='dark'] .cyber-text-glow {
+  text-shadow: 0 0 12px rgba(77, 163, 255, 0.32);
+}
+
+html.light .cyber-text-glow,
+html[data-theme='light'] .cyber-text-glow {
+  text-shadow: none;
+}
+
+/* Neon Box Glow */
+html.dark .cyber-box-glow,
+html[data-theme='dark'] .cyber-box-glow {
+  box-shadow: var(--glow-primary), inset 0 0 0 1px var(--primary-strong);
+}
+
+html.light .cyber-box-glow,
+html[data-theme='light'] .cyber-box-glow {
+  box-shadow: var(--shadow-card);
+}
+
+/* Scrollbar Customization */
+html.dark ::-webkit-scrollbar,
+html[data-theme='dark'] ::-webkit-scrollbar {
+  width: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+html.dark ::-webkit-scrollbar-thumb,
+html[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: var(--cyber-primary);
+  border-radius: 3px;
+  box-shadow: 0 0 8px var(--primary-soft);
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', 'Inter', sans-serif !important;
+  letter-spacing: 1px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Animations                                   */
+/* -------------------------------------------------------------------------- */
+
+/* 1. Subtle Floating Animation for Panels */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+html.dark .animate-float,
+html[data-theme='dark'] .animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+html.light .animate-float,
+html[data-theme='light'] .animate-float {
+  animation: none;
+}
+
+/* 2. Neon Pulse Animation */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px var(--primary-soft), inset 0 0 6px var(--primary-soft);
+  }
+  50% {
+    box-shadow: 0 0 18px var(--primary-strong), inset 0 0 10px var(--primary-soft);
+  }
+}
+
+html.dark .animate-pulse-neon,
+html[data-theme='dark'] .animate-pulse-neon {
+  animation: neon-pulse 3s infinite alternate;
+}
+
+html.light .animate-pulse-neon,
+html[data-theme='light'] .animate-pulse-neon {
+  animation: none;
+}
+
+/* 3. Glitch Effect for Text on Hover */
+@keyframes glitch {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 rgba(77, 163, 255, 0.0));
+    text-shadow: none;
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(77, 163, 255, 0.25));
+    text-shadow: 0 0 14px rgba(77, 163, 255, 0.22);
+  }
+}
+
+html.dark .hover-glitch:hover,
+html[data-theme='dark'] .hover-glitch:hover {
+  animation: glitch 0.45s ease-in-out both;
+  color: var(--primary);
+}
+
+html.light .hover-glitch:hover,
+html[data-theme='light'] .hover-glitch:hover {
+  animation: none;
+  color: var(--primary);
+}
+
+/* 4. Scanning Line Background */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.bg-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+html.dark .bg-scanline::after,
+html[data-theme='dark'] .bg-scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--primary-soft) 50%,
+    transparent 100%
+  );
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+html.light .bg-scanline::after,
+html[data-theme='light'] .bg-scanline::after {
+  content: none;
+}
