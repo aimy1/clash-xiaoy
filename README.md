@@ -8,6 +8,8 @@
 而不是简单的“换皮”或功能魔改。
 
 ---
+<img width="1057" height="777" alt="image" src="https://github.com/user-attachments/assets/727fa563-443c-48c5-bb78-a8eb406fa707" />
+<img width="1057" height="777" alt="image" src="https://github.com/user-attachments/assets/616ebd4f-7e00-4ffb-b468-1a61f80ba62e" />
 
 ## ✨ 特性
 
@@ -61,13 +63,10 @@
 ---
 
 ## 📸 界面预览
+<img width="1627" height="1010" alt="image" src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" />
 
-> 在这里放你的截图
-建议：
-- 主界面
-- 节点列表
-- 设置界面
-- 托盘图标
+<img width="1627" height="1010" alt="image" src="https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527" />
+
 
 ---
 
@@ -86,18 +85,3 @@
 - Clash 项目
 - Clash Nyanpasu 原作者
 - 所有开源贡献者
-
----
-
-## 开发与构建
-
-```bash
-pnpm i
-pnpm prepare:check
-pnpm dev
-pnpm build
-```
-
-构建完成后（Windows）：
-- 可运行 exe：`backend/target/release/clash-xiaoy.exe`
-- 安装器 exe：`backend/target/release/bundle/nsis/clash-xiaoy_1.6.0_x64-setup.exe`
