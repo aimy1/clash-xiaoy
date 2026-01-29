@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+    <string name="launch_name_meta">clash-xiaoy</string>
+    <string name="launch_name_alpha">clash-xiaoy Alpha</string>
+    <string name="application_name_meta">clash-xiaoy for Android</string>
+    <string name="application_name_alpha">clash-xiaoy for Android Alpha</string>
+
+    <string name="stopped">停止</string>
+    <string name="tap_to_start">タップして開始</string>
+    <string name="running">実行中</string>
+    <string name="format_traffic_forwarded">%s 転送済み</string>
+
+    <string name="proxy">プロキシ</string>
+    <string name="direct_mode">ダイレクトモード</string>
+    <string name="rule_mode">ルールモード</string>
+    <string name="script_mode">スクリプトモード</string>
+    <string name="global_mode">グローバルモード</string>
+    <string name="proxy_empty_tips">表示できるグループがありません</string>
+
+    <string name="profiles">プロファイル</string>
+    <string name="not_selected">未選択</string>
+    <string name="format_profile_activated">%s がアクティブです</string>
+
+    <string name="logs">ログ</string>
+    <string name="settings">設定</string>
+    <string name="help">ヘルプ</string>
+    <string name="about">情報</string>
+
+    <string name="copied">コピーしました</string>
+
+    <string name="recently">最近</string>
+
+    <string name="format_minutes">%d 分</string>
+    <string name="format_elements">%d 要素</string>
+
+    <string name="format_minutes_ago">%d 分前</string>
+    <string name="format_hours_ago">%d 時間前</string>
+    <string name="format_days_ago">%d 日前</string>
+    <string name="format_months_ago">%d ヶ月前</string>
+    <string name="format_years_ago">%d 年前</string>
+
+    <string name="create_profile">プロファイル作成</string>
+    <string name="file">ファイル</string>
+    <string name="import_from_file">ファイルからインポート</string>
+    <string name="url">URL</string>
+    <string name="qr" translatable="false">QRコード</string>
+    <string name="import_from_url">URLからインポート</string>
+    <string name="import_from_qr">QRコードからインポート</string>
+    <string name="external">外部</string>
+    <string name="format_type_unsaved">%s (未保存)</string>
+
+    <string name="application_broken">アプリケーション破損</string>
+    <string name="application_crashed">アプリケーションクラッシュ</string>
+    <string name="application_broken_tips">アプリに必要なランタイムコンポーネントが不足しています。通常、不完全なAPKをダウンロードした場合に発生します。</string>
+    <string name="reinstall">再インストール</string>
+    <string name="github_releases">GitHubリリース</string>
+
+    <string name="profile">プロファイル</string>
+    <string name="name">名前</string>
+    <string name="profile_name">プロファイル名</string>
+    <string name="profile_url">プロファイルURL</string>
+    <string name="auto_update">自動更新</string>
+    <string name="auto_update_minutes">自動更新 (分)</string>
+
+    <string name="accept_http_content">http(s)のみ許可</string>
+    <string name="at_least_15_minutes">15分以上または空欄</string>
+    <string name="should_not_be_blank">空欄にできません</string>
+    <string name="detail">詳細</string>
+    <string name="update">更新</string>
+    <string name="edit">編集</string>
+    <string name="delete">削除</string>
+    <string name="export">エクスポート</string>
+    <string name="import_">インポート</string>
+    <string name="properties">プロパティ</string>
+    <string name="duplicate">複製</string>
+    <string name="active_unsaved_tips">有効化する前にプロファイルを保存してください</string>
+
+    <string name="exit_without_save">保存せずに終了</string>
+    <string name="exit_without_save_warning">変更内容はすべて *失われます*</string>
+
+    <string name="raw_cn" translatable="false">cn</string>
+    <string name="disabled">無効</string>
+    <string name="unavailable">利用不可</string>
+    <string name="empty_name">名前が空です</string>
+    <string name="invalid_url">無効なURL</string>
+    <string name="loading">読み込み中</string>
+
+    <string name="format_fetching_configuration">\'%s\' から設定を取得中</string>
+    <string name="format_fetching_provider">プロバイダ \'%s\' を取得中</string>
+    <string name="initializing">初期化中</string>
+    <string name="verifying">検証中</string>
+
+    <string name="new_profile">新規プロファイル</string>
+
+    <string name="delay">遅延</string>
+    <string name="sort">並び替え</string>
+    <string name="default_">デフォルト</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="reset">リセット</string>
+
+    <string name="clash_logcat">Clash Logcat</string>
+    <string name="history">履歴</string>
+    <string name="logcat">Logcat</string>
+
+    <string name="delete_all_logs">すべてのログを削除</string>
+    <string name="delete_all_logs_warn">すべての履歴ログが *失われます*</string>
+    <string name="file_exported">ファイルをエクスポートしました</string>
+
+    <string name="behavior">動作</string>
+    <string name="network">ネットワーク</string>
+    <string name="interface_">インターフェース</string>
+    <string name="override">オーバーライド</string>
+
+    <string name="auto_restart">自動再起動</string>
+    <string name="allow_clash_auto_restart">Clashの自動再起動を許可</string>
+
+    <string name="route_system_traffic">システムトラフィックをルーティング</string>
+    <string name="routing_via_vpn_service">VpnService経由ですべてのシステムトラフィックを自動ルーティング</string>
+
+    <string name="vpn_service_options">VpnServiceオプション</string>
+    <string name="bypass_private_network">プライベートネットワークをバイパス</string>
+    <string name="bypass_private_network_summary">プライベートネットワークアドレスをバイパスする</string>
+    <string name="dns_hijacking">DNSハイジャック</string>
+    <string name="dns_hijacking_summary">すべてのDNSパケットを処理する</string>
+    <string name="block_loopback">ループバックをブロック</string>
+    <string name="block_loopback_summary">ループバック接続をブロックする</string>
+    <string name="allow_bypass">バイパスを許可</string>
+    <string name="allow_bypass_summary">すべてのアプリにこのVPN接続のバイパスを許可する</string>
+    <string name="allow_ipv6">IPv6を許可</string>
+    <string name="allow_ipv6_summary">VpnService経由のIPv6トラフィックを許可する</string>
+    <string name="system_proxy">システムプロキシ</string>
+    <string name="system_proxy_summary">HTTPプロキシをVpnServiceにアタッチする</string>
+    <string name="access_control_mode">アクセス制御モード</string>
+    <string name="access_control_packages">アクセス制御パッケージ</string>
+    <string name="access_control_packages_summary">アプリのアクセス権限を設定する</string>
+
+    <string name="options_unavailable">Clashが停止するまでオプションは利用できません</string>
+
+    <string name="general">一般</string>
+    <string name="dns">DNS</string>
+    <string name="prefer_h3">HTTP/3を優先</string>
+    <string name="http_port">HTTPポート</string>
+    <string name="socks_port">Socksポート</string>
+    <string name="redirect_port">リダイレクトポート</string>
+    <string name="mixed_port">混合ポート</string>
+    <string name="tproxy_port">TProxyポート</string>
+    <string name="authentication">認証</string>
+    <string name="allow_lan">LAN接続を許可</string>
+    <string name="bind_address">バインドアドレス</string>
+    <string name="mode">モード</string>
+    <string name="log_level">ログレベル</string>
+    <string name="ipv6">IPv6</string>
+    <string name="external_controller">外部コントローラ</string>
+    <string name="external_controller_tls">外部コントローラTLS</string>
+    <string name="allow_origins">外部コントローラ許可オリジン</string>
+    <string name="allow_private_network">外部コントローラ プライベートNW許可</string>
+    <string name="secret">シークレット</string>
+    <string name="hosts">Hosts</string>
+    <string name="_new">新規</string>
+    <string name="value">値</string>
+
+    <string name="strategy">戦略</string>
+    <string name="listen">リッスン</string>
+    <string name="append_system_dns">システムDNSを追加</string>
+    <string name="use_hosts">Hostsを使用</string>
+    <string name="enhanced_mode">拡張モード</string>
+    <string name="name_server">ネームサーバー</string>
+    <string name="fallback">フォールバックネームサーバー</string>
+    <string name="default_name_server">デフォルトネームサーバー</string>
+    <string name="fakeip_filter">Fake-IPフィルター</string>
+    <string name="fakeip_filter_mode">Fake-IPフィルターモード</string>
+    <string name="geoip_fallback">GeoIPフォールバック</string>
+    <string name="geoip_fallback_code">GeoIPフォールバックコード</string>
+    <string name="ipcidr_fallback">IPCIDRフォールバック</string>
+    <string name="domain_fallback">ドメインフォールバック</string>
+    <string name="name_server_policy">ネームサーバーポリシー</string>
+
+    <string name="dont_modify">変更しない</string>
+    <string name="empty">空</string>
+
+    <string name="enabled">有効</string>
+
+    <string name="info">情報</string>
+    <string name="warning">警告</string>
+    <string name="error">エラー</string>
+    <string name="debug">デバッグ</string>
+    <string name="silent">サイレント</string>
+
+    <string name="force_enable">強制有効化</string>
+
+    <string name="mapping">Real-IPからドメインへのマッピング</string>
+    <string name="fakeip">Fake-IPからドメインへのマッピング</string>
+
+    <string name="blacklist">ブラックリスト</string>
+    <string name="whitelist">ホワイトリスト</string>
+
+    <string name="off">オフ</string>
+    <string name="strict">厳格</string>
+    <string name="always">常時</string>
+
+    <string name="system_apps">システムアプリ</string>
+    <string name="filter">フィルター</string>
+    <string name="package_name">パッケージ名</string>
+    <string name="update_time">更新日時</string>
+    <string name="install_time">インストール日時</string>
+    <string name="reverse">反転</string>
+    <string name="search">検索</string>
+    <string name="select_all">すべて選択</string>
+    <string name="select_invert">選択を反転</string>
+    <string name="select_none">選択解除</string>
+    <string name="import_from_clipboard">クリップボードからインポート</string>
+    <string name="export_to_clipboard">クリップボードにエクスポート</string>
+
+    <string name="clash_meta_for_android">clash-xiaoy for Android</string>
+
+    <string name="document">ドキュメント</string>
+    <string name="feedback">フィードバック</string>
+    <string name="sources">ソースコード</string>
+    <string name="donate">寄付</string>
+    <string name="clash_wiki">Clash Wiki</string>
+    <string name="github_issues">GitHub Issues</string>
+    <string name="google_play">Google Play</string>
+    <string name="clash_meta_core">Clash Meta Core</string>
+    <string name="clash_wiki_url" translatable="false">https://github.com/Dreamacro/clash/wiki</string>
+    <string name="meta_github_url" translatable="false">https://github.com/MetaCubeX/ClashMetaForAndroid</string>
+    <string name="clash_meta_core_url" translatable="false">https://github.com/MetaCubeX/Clash.Meta</string>
+
+    <string name="tips_properties"><![CDATA[<strong>Clash設定</strong>のみ許可 (<strong>プロキシ</strong>/<strong>ルール</strong>を含む)]]></string>
+    <string name="tips_help"><![CDATA[clash-xiaoy for Android は<strong>フリーウェア</strong>です。いかなるサービスも提供<strong>しません</strong>。]]></string>
+
+    <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=com.github.kr328.clash</string>
+
+    <string name="app">アプリ</string>
+    <string name="service">サービス</string>
+
+    <string name="dark_mode">ダークモード</string>
+
+    <string name="show_traffic">トラフィックを表示</string>
+    <string name="show_traffic_summary">通知でトラフィックを自動更新する</string>
+
+    <string name="follow_system_android_10">システムに従う (Android 10+)</string>
+    <string name="always_dark">常にダーク</string>
+    <string name="always_light">常にライト</string>
+
+    <string name="tun_stack_mode">スタックモード</string>
+    <string name="tun_stack_system">Systemスタック</string>
+    <string name="tun_stack_gvisor">Gvisorスタック</string>
+    <string name="tun_stack_mixed">Mixedスタック</string>
+
+    <string name="allow_all_apps">すべてのアプリを許可</string>
+    <string name="allow_selected_apps">選択したアプリのみ許可</string>
+    <string name="deny_selected_apps">選択したアプリを拒否</string>
+
+    <string name="no_profile_selected">プロファイルが選択されていません</string>
+
+    <string name="layout">レイアウト</string>
+    <string name="single">シングル</string>
+    <string name="doubles">ダブル</string>
+    <string name="multiple">マルチ</string>
+    <string name="not_selectable">選択不可</string>
+
+    <string name="providers">プロバイダ</string>
+
+    <string name="files">ファイル</string>
+    <string name="browse_files">ファイルを参照</string>
+    <string name="browse_configuration_providers"><![CDATA[設定とプロバイダを参照]]></string>
+    <string name="rename">名前変更</string>
+    <string name="file_name">ファイル名</string>
+    <string name="invalid_file_name">無効なファイル名</string>
+
+    <string name="reset_override_settings">オーバーライド設定をリセット</string>
+    <string name="reset_override_settings_message">すべてのオーバーライド設定が破棄されます</string>
+    <string name="key">キー</string>
+
+    <string name="use_built_in">ビルトインを使用</string>
+    <string name="more">その他</string>
+    <string name="save">保存</string>
+    <string name="delay_test">遅延テスト</string>
+
+    <string name="format_provider_type">%1$s(%2$s)</string>
+    <string name="rule">ルール</string>
+    <string name="http">HTTP</string>
+    <string name="inline">インライン</string>
+    <string name="compatible">互換</string>
+    <string name="format_update_provider_failure">更新 %1$s: %2$s</string>
+    <string name="update_all">すべて更新</string>
+
+    <string name="close">閉じる</string>
+    <string name="keyword">キーワード</string>
+
+    <string name="invalid_log_file">無効なログファイル</string>
+    <string name="unable_to_start_vpn">VPNコンポーネントを開始できません</string>
+
+    <string name="version_updated">アプリが更新されました</string>
+    <string name="version_updated_tips">設定がリセットされました。古いプロファイルを再度保存する必要があります。</string>
+
+    <string name="mode_switch_tips">現在のセッションのみ有効</string>
+
+    <string name="clash_meta_wiki">Clash Meta Wiki</string>
+    <string name="clash_meta_wiki_url" translatable="false">https://wiki.metacubex.one</string>
+
+    <string name="meta_features">Meta 機能</string>
+    <string name="unified_delay">統合遅延</string>
+    <string name="geodata_mode">Geodataモード</string>
+    <string name="tcp_concurrent">TCP同時接続</string>
+    <string name="find_process_mode">プロセス検出モード</string>
+
+    <string name="sniffer_setting">スニファー設定</string>
+    <string name="sniffer">スニファー</string>
+    <string name="force_dns_mapping">DNSマッピングを強制</string>
+    <string name="parse_pure_ip">Pure IPを解析</string>
+    <string name="override_destination">宛先をオーバーライド</string>
+    <string name="force_domain">ドメインを強制</string>
+    <string name="skip_domain">ドメインをスキップ</string>
+    <string name="skip_src_address">送信元アドレスをスキップ</string>
+    <string name="skip_dst_address">宛先アドレスをスキップ</string>
+    <string name="sniff_http_ports">HTTPポートのスニッフィング</string>
+    <string name="sniff_tls_ports">TLSポートのスニッフィング</string>
+    <string name="sniff_quic_ports">QUICポートのスニッフィング</string>
+    <string name="sniff_http_override_destination">HTTP宛先オーバーライドのスニッフィング</string>
+    <string name="sniff_tls_override_destination">TLS宛先オーバーライドのスニッフィング</string>
+    <string name="sniff_quic_override_destination">QUIC宛先オーバーライドのスニッフィング</string>
+
+    <string name="geox_url_setting">GeoX URL設定</string>
+    <string name="geox_geoip">GeoIp URL</string>
+    <string name="geox_mmdb">MMDB URL</string>
+    <string name="geox_geosite">Geosite URL</string>
+    <string name="geoip_url" translatable="false">https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat</string>
+    <string name="mmdb_url" translatable="false">https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/country.mmdb</string>
+    <string name="geosite_url" translatable="false">https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat</string>
+    <string name="geox_files" >Geoファイル</string>
+    <string name="sideload_geoip">サイドロード GeoIP</string>
+    <string name="sideload_geoip_summary">GeoIPデータベースをサイドロードする</string>
+    <string name="import_geoip_file">GeoIPデータベースをインポート</string>
+    <string name="import_geosite_file">GeoSiteデータベースをインポート</string>
+    <string name="import_country_file">Countryデータベースをインポート</string>
+    <string name="import_asn_file">ASNデータベースをインポート</string>
+    <string name="press_to_import">押してインポート...</string>
+    <string name="geofile_import_failed">インポート失敗</string>
+    <string name="geofile_unknown_db_format">不明なデータベース形式</string>
+    <string name="geofile_unknown_db_format_message">%1$s のみがサポートされています</string>
+    <string name="geofile_imported">%1$s をインポートしました</string>
+    <string name="toast_profile_updated_complete">プロファイル %s の更新完了</string>
+    <string name="toast_profile_updated_failed">プロファイル %1$s の更新失敗: %2$s</string>
+    <string name="external_control_activity">外部制御</string>
+    <string name="external_control_started">Clash.Metaサービスを開始しました</string>
+    <string name="external_control_stopped">Clash.Metaサービスを停止しました</string>
+
+    <string name="language">言語</string>
+    <string name="language_en">English</string>
+    <string name="language_cn">简体中文</string>
+    <string name="language_tw">繁體中文</string>
+    <string name="follow_system">システムに従う</string>
+
+    <string name="hide_app_icon_title">アプリアイコンを隠す</string>
+    <string name="hide_app_icon_desc">*#*#252746382#*#* にダイヤルするとアプリを開けます</string>
+    <string name="import_from_qr_no_permission">カメラへのアクセスが制限されています。設定で有効にしてください。</string>
+    <string name="import_from_qr_exception">未処理のシステム例外が発生しました。</string>
+
+    <string name="settings_app_subtitle">アプリケーションの動作設定</string>
+    <string name="settings_network_subtitle">DNS、スタック、およびネットワーク動作</string>
+    <string name="settings_override_subtitle">設定のオーバーライド</string>
+    <string name="settings_meta_subtitle">Clash Meta 固有の設定</string>
+</resources>

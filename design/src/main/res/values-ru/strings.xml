@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+    <string name="launch_name_meta">clash-xiaoy</string>
+    <string name="launch_name_alpha">clash-xiaoy Alpha</string>
+    <string name="application_name_meta">clash-xiaoy для Android</string>
+    <string name="application_name_alpha">clash-xiaoy для Android Alpha</string>
+
+    <string name="stopped">Остановлено</string>
+    <string name="tap_to_start">Нажмите для запуска</string>
+    <string name="running">Запущено</string>
+    <string name="format_traffic_forwarded">%s Передано</string>
+
+    <string name="proxy">Прокси</string>
+    <string name="direct_mode">Режим Direct</string>
+    <string name="rule_mode">Режим Rule</string>
+    <string name="script_mode">Режим Script</string>
+    <string name="global_mode">Режим Global</string>
+    <string name="proxy_empty_tips">Нет групп для отображения</string>
+
+    <string name="profiles">Профили</string>
+    <string name="not_selected">Не выбрано</string>
+    <string name="format_profile_activated">%s Активировано</string>
+
+    <string name="logs">Логи</string>
+    <string name="settings">Настройки</string>
+    <string name="help">Помощь</string>
+    <string name="about">О программе</string>
+
+    <string name="copied">Скопировано</string>
+
+    <string name="recently">Недавно</string>
+
+    <string name="format_minutes">%d мин</string>
+    <string name="format_elements">%d элементов</string>
+
+    <string name="format_minutes_ago">%d мин назад</string>
+    <string name="format_hours_ago">%d ч назад</string>
+    <string name="format_days_ago">%d дн назад</string>
+    <string name="format_months_ago">%d мес назад</string>
+    <string name="format_years_ago">%d лет назад</string>
+
+    <string name="create_profile">Создать профиль</string>
+    <string name="file">Файл</string>
+    <string name="import_from_file">Импорт из файла</string>
+    <string name="url">URL</string>
+    <string name="qr" translatable="false">QR-код</string>
+    <string name="import_from_url">Импорт по URL</string>
+    <string name="import_from_qr">Импорт через QR</string>
+    <string name="external">Внешний</string>
+    <string name="format_type_unsaved">%s (Не сохранено)</string>
+
+    <string name="application_broken">Приложение повреждено</string>
+    <string name="application_crashed">Ошибка приложения</string>
+    <string name="application_broken_tips">В приложении отсутствуют необходимые компоненты среды выполнения. Обычно это вызвано загрузкой неполного APK.</string>
+    <string name="reinstall">Переустановить</string>
+    <string name="github_releases">Релизы Github</string>
+
+    <string name="profile">Профиль</string>
+    <string name="name">Имя</string>
+    <string name="profile_name">Имя профиля</string>
+    <string name="profile_url">URL профиля</string>
+    <string name="auto_update">Автообновление</string>
+    <string name="auto_update_minutes">Автообновление (мин)</string>
+
+    <string name="accept_http_content">Только http(s)</string>
+    <string name="at_least_15_minutes">Минимум 15 минут или пусто</string>
+    <string name="should_not_be_blank">Не должно быть пустым</string>
+    <string name="detail">Подробности</string>
+    <string name="update">Обновить</string>
+    <string name="edit">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="export">Экспорт</string>
+    <string name="import_">Импорт</string>
+    <string name="properties">Свойства</string>
+    <string name="duplicate">Дублировать</string>
+    <string name="active_unsaved_tips">Профиль необходимо сохранить перед активацией</string>
+
+    <string name="exit_without_save">Выход без сохранения</string>
+    <string name="exit_without_save_warning">Все изменения будут *ПОТЕРЯНЫ*</string>
+
+    <string name="raw_cn" translatable="false">cn</string>
+    <string name="disabled">Отключено</string>
+    <string name="unavailable">Недоступно</string>
+    <string name="empty_name">Пустое имя</string>
+    <string name="invalid_url">Неверный URL</string>
+    <string name="loading">Загрузка</string>
+
+    <string name="format_fetching_configuration">Получение конфигурации из \'%s\'</string>
+    <string name="format_fetching_provider">Получение провайдера \'%s\'</string>
+    <string name="initializing">Инициализация</string>
+    <string name="verifying">Проверка</string>
+
+    <string name="new_profile">Новый профиль</string>
+
+    <string name="delay">Задержка</string>
+    <string name="sort">Сортировка</string>
+    <string name="default_">По умолчанию</string>
+
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="reset">Сброс</string>
+
+    <string name="clash_logcat">Logcat Clash</string>
+    <string name="history">История</string>
+    <string name="logcat">Logcat</string>
+
+    <string name="delete_all_logs">Удалить все логи</string>
+    <string name="delete_all_logs_warn">Вся история логов будет *ПОТЕРЯНА*</string>
+    <string name="file_exported">Файл экспортирован</string>
+
+    <string name="behavior">Поведение</string>
+    <string name="network">Сеть</string>
+    <string name="interface_">Интерфейс</string>
+    <string name="override">Переопределение</string>
+
+    <string name="auto_restart">Автоперезапуск</string>
+    <string name="allow_clash_auto_restart">Разрешить автоперезапуск Clash</string>
+
+    <string name="route_system_traffic">Маршрутизация системного трафика</string>
+    <string name="routing_via_vpn_service">Автоматическая маршрутизация всего трафика через VpnService</string>
+
+    <string name="vpn_service_options">Опции VpnService</string>
+    <string name="bypass_private_network">Обход частных сетей</string>
+    <string name="bypass_private_network_summary">Обаходить адреса частных сетей</string>
+    <string name="dns_hijacking">Перехват DNS</string>
+    <string name="dns_hijacking_summary">Обрабатывать все DNS пакеты</string>
+    <string name="block_loopback">Блокировка Loopback</string>
+    <string name="block_loopback_summary">Блокировать соединения loopback</string>
+    <string name="allow_bypass">Разрешить обход</string>
+    <string name="allow_bypass_summary">Разрешить всем приложениям обходить это VPN-соединение</string>
+    <string name="allow_ipv6">Разрешить IPv6</string>
+    <string name="allow_ipv6_summary">Разрешить трафик IPv6 через VpnService</string>
+    <string name="system_proxy">Системный прокси</string>
+    <string name="system_proxy_summary">Подключить HTTP прокси к VpnService</string>
+    <string name="access_control_mode">Режим контроля доступа</string>
+    <string name="access_control_packages">Пакеты контроля доступа</string>
+    <string name="access_control_packages_summary">Настройка прав доступа для приложений</string>
+
+    <string name="options_unavailable">Опции недоступны, пока Clash не остановлен</string>
+
+    <string name="general">Общее</string>
+    <string name="dns">DNS</string>
+    <string name="prefer_h3">Предпочитать H3</string>
+    <string name="http_port">HTTP Порт</string>
+    <string name="socks_port">Socks Порт</string>
+    <string name="redirect_port">Redirect Порт</string>
+    <string name="mixed_port">Mixed Порт</string>
+    <string name="tproxy_port">TProxy Порт</string>
+    <string name="authentication">Аутентификация</string>
+    <string name="allow_lan">Разрешить LAN</string>
+    <string name="bind_address">Адрес привязки</string>
+    <string name="mode">Режим</string>
+    <string name="log_level">Уровень логов</string>
+    <string name="ipv6">IPv6</string>
+    <string name="external_controller">Внешний контроллер</string>
+    <string name="external_controller_tls">TLS внешнего контроллера</string>
+    <string name="allow_origins">Разрешенные Origins</string>
+    <string name="allow_private_network">Разрешить частную сеть для внеш. контр.</string>
+    <string name="secret">Секрет</string>
+    <string name="hosts">Hosts</string>
+    <string name="_new">Новый</string>
+    <string name="value">Значение</string>
+
+    <string name="strategy">Стратегия</string>
+    <string name="listen">Слушать</string>
+    <string name="append_system_dns">Добавить системный DNS</string>
+    <string name="use_hosts">Использовать Hosts</string>
+    <string name="enhanced_mode">Улучшенный режим</string>
+    <string name="name_server">Name Server</string>
+    <string name="fallback">Fallback Name Server</string>
+    <string name="default_name_server">Default Name Server</string>
+    <string name="fakeip_filter">Фильтр Fake-IP</string>
+    <string name="fakeip_filter_mode">Режим фильтра Fake-IP</string>
+    <string name="geoip_fallback">GeoIP Fallback</string>
+    <string name="geoip_fallback_code">Код GeoIP Fallback</string>
+    <string name="ipcidr_fallback">IPCIDR Fallback</string>
+    <string name="domain_fallback">Domain Fallback</string>
+    <string name="name_server_policy">Политика Name Server</string>
+
+    <string name="dont_modify">Не изменять</string>
+    <string name="empty">Пусто</string>
+
+    <string name="enabled">Включено</string>
+
+    <string name="info">Инфо</string>
+    <string name="warning">Предупреждение</string>
+    <string name="error">Ошибка</string>
+    <string name="debug">Отладка</string>
+    <string name="silent">Тихо</string>
+
+    <string name="force_enable">Принудительно включить</string>
+
+    <string name="mapping">Сопоставление Real-IP с доменом</string>
+    <string name="fakeip">Сопоставление Fake-IP с доменом</string>
+
+    <string name="blacklist">Черный список</string>
+    <string name="whitelist">Белый список</string>
+
+    <string name="off">ВЫКЛ</string>
+    <string name="strict">Строго</string>
+    <string name="always">Всегда</string>
+
+    <string name="system_apps">Системные приложения</string>
+    <string name="filter">Фильтр</string>
+    <string name="package_name">Имя пакета</string>
+    <string name="update_time">Время обновления</string>
+    <string name="install_time">Время установки</string>
+    <string name="reverse">Обратно</string>
+    <string name="search">Поиск</string>
+    <string name="select_all">Выбрать все</string>
+    <string name="select_invert">Инвертировать выбор</string>
+    <string name="select_none">Снять выделение</string>
+    <string name="import_from_clipboard">Импорт из буфера обмена</string>
+    <string name="export_to_clipboard">Экспорт в буфер обмена</string>
+
+    <string name="clash_meta_for_android">clash-xiaoy для Android</string>
+
+    <string name="document">Документация</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="sources">Исходный код</string>
+    <string name="donate">Пожертвовать</string>
+    <string name="clash_wiki">Clash Wiki</string>
+    <string name="github_issues">Github Issues</string>
+    <string name="google_play">Google Play</string>
+    <string name="clash_meta_core">Ядро Clash Meta</string>
+    <string name="clash_wiki_url" translatable="false">https://github.com/Dreamacro/clash/wiki</string>
+    <string name="meta_github_url" translatable="false">https://github.com/MetaCubeX/ClashMetaForAndroid</string>
+    <string name="clash_meta_core_url" translatable="false">https://github.com/MetaCubeX/Clash.Meta</string>
+
+    <string name="tips_properties"><![CDATA[Принимаются только <strong>конфигурации Clash</strong>(включая <strong>Proxy</strong>/<strong>Rules</strong>)]]></string>
+    <string name="tips_help"><![CDATA[clash-xiaoy для Android является <strong>бесплатным ПО</strong>, и мы <strong>НЕ</strong> предоставляем никаких услуг]]></string>
+
+    <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=com.github.kr328.clash</string>
+
+    <string name="app">Приложение</string>
+    <string name="service">Сервис</string>
+
+    <string name="dark_mode">Темная тема</string>
+
+    <string name="show_traffic">Показывать трафик</string>
+    <string name="show_traffic_summary">Автообновление трафика в уведомлении</string>
+
+    <string name="follow_system_android_10">Системная тема (Android 10+)</string>
+    <string name="always_dark">Всегда темная</string>
+    <string name="always_light">Всегда светлая</string>
+
+    <string name="tun_stack_mode">Режим стека</string>
+    <string name="tun_stack_system">Стек System</string>
+    <string name="tun_stack_gvisor">Стек Gvisor</string>
+    <string name="tun_stack_mixed">Стек Mixed</string>
+
+    <string name="allow_all_apps">Разрешить все приложения</string>
+    <string name="allow_selected_apps">Разрешить выбранные</string>
+    <string name="deny_selected_apps">Запретить выбранные</string>
+
+    <string name="no_profile_selected">Профиль не выбран</string>
+
+    <string name="layout">Макет</string>
+    <string name="single">Одинарный</string>
+    <string name="doubles">Двойной</string>
+    <string name="multiple">Множественный</string>
+    <string name="not_selectable">Не выбирается</string>
+
+    <string name="providers">Провайдеры</string>
+
+    <string name="files">Файлы</string>
+    <string name="browse_files">Обзор файлов</string>
+    <string name="browse_configuration_providers"><![CDATA[Обзор конфигурации и провайдеров]]></string>
+    <string name="rename">Переименовать</string>
+    <string name="file_name">Имя файла</string>
+    <string name="invalid_file_name">Неверное имя файла</string>
+
+    <string name="reset_override_settings">Сброс настроек переопределения</string>
+    <string name="reset_override_settings_message">Все настройки переопределения будут сброшены</string>
+    <string name="key">Ключ</string>
+
+    <string name="use_built_in">Встроенный</string>
+    <string name="more">Еще</string>
+    <string name="save">Сохранить</string>
+    <string name="delay_test">Тест задержки</string>
+
+    <string name="format_provider_type">%1$s(%2$s)</string>
+    <string name="rule">Правило</string>
+    <string name="http">HTTP</string>
+    <string name="inline">Встроенный</string>
+    <string name="compatible">Совместимый</string>
+    <string name="format_update_provider_failure">Обновление %1$s: %2$s</string>
+    <string name="update_all">Обновить все</string>
+
+    <string name="close">Закрыть</string>
+    <string name="keyword">Ключевое слово</string>
+
+    <string name="invalid_log_file">Неверный файл лога</string>
+    <string name="unable_to_start_vpn">Не удалось запустить компонент VPN</string>
+
+    <string name="version_updated">Приложение обновлено</string>
+    <string name="version_updated_tips">Настройки были сброшены, старые профили необходимо сохранить заново.</string>
+
+    <string name="mode_switch_tips">Действует только для текущей сессии</string>
+
+    <string name="clash_meta_wiki">Clash Meta Wiki</string>
+    <string name="clash_meta_wiki_url" translatable="false">https://wiki.metacubex.one</string>
+
+    <string name="meta_features">Функции Meta</string>
+    <string name="unified_delay">Единая задержка</string>
+    <string name="geodata_mode">Режим Geodata</string>
+    <string name="tcp_concurrent">TCP Concurrent</string>
+    <string name="find_process_mode">Режим поиска процесса</string>
+
+    <string name="sniffer_setting">Настройки сниффера</string>
+    <string name="sniffer">Сниффер</string>
+    <string name="force_dns_mapping">Принудительное сопоставление DNS</string>
+    <string name="parse_pure_ip">Парсить Pure IP</string>
+    <string name="override_destination">Переопределить назначение</string>
+    <string name="force_domain">Принудительный домен</string>
+    <string name="skip_domain">Пропустить домен</string>
+    <string name="skip_src_address">Пропустить исх. адрес</string>
+    <string name="skip_dst_address">Пропустить адрес назн.</string>
+    <string name="sniff_http_ports">Сниффинг HTTP портов</string>
+    <string name="sniff_tls_ports">Сниффинг TLS портов</string>
+    <string name="sniff_quic_ports">Сниффинг QUIC портов</string>
+    <string name="sniff_http_override_destination">Сниффинг HTTP переопределения назн.</string>
+    <string name="sniff_tls_override_destination">Сниффинг TLS переопределения назн.</string>
+    <string name="sniff_quic_override_destination">Сниффинг QUIC переопределения назн.</string>
+
+    <string name="geox_url_setting">Настройки URL GeoX</string>
+    <string name="geox_geoip">URL GeoIp</string>
+    <string name="geox_mmdb">URL MMDB</string>
+    <string name="geox_geosite">URL Geosite</string>
+    <string name="geoip_url" translatable="false">https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat</string>
+    <string name="mmdb_url" translatable="false">https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/country.mmdb</string>
+    <string name="geosite_url" translatable="false">https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat</string>
+    <string name="geox_files" >Geo файлы</string>
+    <string name="sideload_geoip">Sideload GeoIP</string>
+    <string name="sideload_geoip_summary">Загрузить базу данных GeoIP</string>
+    <string name="import_geoip_file">Импорт базы данных GeoIP</string>
+    <string name="import_geosite_file">Импорт базы данных GeoSite</string>
+    <string name="import_country_file">Импорт базы данных Country</string>
+    <string name="import_asn_file">Импорт базы данных ASN</string>
+    <string name="press_to_import">Нажмите для импорта...</string>
+    <string name="geofile_import_failed">Ошибка импорта</string>
+    <string name="geofile_unknown_db_format">Неизвестный формат базы данных</string>
+    <string name="geofile_unknown_db_format_message">Поддерживаются только %1$s</string>
+    <string name="geofile_imported">%1$s импортировано</string>
+    <string name="toast_profile_updated_complete">Обновление профиля %s завершено</string>
+    <string name="toast_profile_updated_failed">Ошибка обновления профиля %1$s: %2$s</string>
+    <string name="external_control_activity">Внешнее управление</string>
+    <string name="external_control_started">Служба Clash.Meta запущена</string>
+    <string name="external_control_stopped">Служба Clash.Meta остановлена</string>
+
+    <string name="language">Язык</string>
+    <string name="language_en">English</string>
+    <string name="language_cn">简体中文</string>
+    <string name="language_tw">繁體中文</string>
+    <string name="follow_system">Как в системе</string>
+
+    <string name="hide_app_icon_title">Скрыть иконку приложения</string>
+    <string name="hide_app_icon_desc">Наберите *#*#252746382#*#*, чтобы открыть это приложение</string>
+    <string name="import_from_qr_no_permission">Доступ к камере ограничен. Пожалуйста, включите его в настройках.</string>
+    <string name="import_from_qr_exception">Произошла необработанная системная ошибка.</string>
+
+    <string name="settings_app_subtitle">Настройки поведения приложения</string>
+    <string name="settings_network_subtitle">DNS, стек и поведение сети</string>
+    <string name="settings_override_subtitle">Переопределение конфигурации</string>
+    <string name="settings_meta_subtitle">Эксклюзивные настройки Clash Meta</string>
+</resources>
