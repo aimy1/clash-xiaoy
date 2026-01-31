@@ -69,7 +69,7 @@ unsafe extern "system" fn callback(hwnd: HWND, msg: u32, wparam: WPARAM, lparam:
                     let err = Error::from_win32();
                     tracing::error!("Failed to create shutdown block reason: {err}");
                 }
-                tx.send(()).unwrap();
+                tx.send(()).ok();
                 while SHUTDOWN_STATE.load(std::sync::atomic::Ordering::Relaxed)
                     != ShutdownState::ReadyForShutdown
                 {

@@ -1,6 +1,6 @@
 {
   "name": "clash-xiaoy-monorepo",
-  "version": "2.0.0",
+  "version": "2.6.13",
   "repository": "https://github.com/clash-xiaoy/clash-xiaoy.git",
   "license": "GPL-3.0",
   "type": "module",

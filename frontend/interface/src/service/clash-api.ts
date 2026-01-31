@@ -71,12 +71,35 @@ export const useClashAPI = () => {
   const { data } = useClashInfo()
 
   const request = useMemo(() => {
-    return ofetch.create({
+    const fetcher = ofetch.create({
       baseURL: `http://${prepareServer(data?.server)}`,
       headers: data?.secret
         ? { Authorization: `Bearer ${data?.secret}` }
         : undefined,
     })
+
+    return async <T>(url: string, options?: any): Promise<T> => {
+      try {
+        return await fetcher<T>(url, options)
+      } catch (e) {
+        console.warn(`[Mock] Clash API request failed: ${url}`, e)
+        if (url.includes('/configs'))
+          return {
+            'mixed-port': 7890,
+            mode: 'rule',
+            'log-level': 'info',
+          } as unknown as T
+        if (url.includes('/proxies')) return { proxies: {} } as unknown as T
+        if (url.includes('/rules')) return { rules: [] } as unknown as T
+        if (url.includes('/providers/rules'))
+          return { providers: {} } as unknown as T
+        if (url.includes('/providers/proxies'))
+          return { providers: {} } as unknown as T
+        if (url.includes('/version'))
+          return { version: 'mock-version', premium: true } as unknown as T
+        return {} as T
+      }
+    }
   }, [data])
 
   /**

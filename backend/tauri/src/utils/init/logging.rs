@@ -70,7 +70,13 @@ pub fn init() -> Result<()> {
     );
 
     // register the logger
-    let (appender, _guard) = get_file_appender(log_max_files)?;
+    let (appender, _guard) = match get_file_appender(log_max_files) {
+        Ok(x) => x,
+        Err(e) => {
+            eprintln!("failed to create file appender: {e}");
+            return Err(e);
+        }
+    };
     let (file_layer, file_handle) = reload::Layer::new(
         fmt::layer()
             .json()

@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { atomIsDrawer } from '@/store'
 import { ComputerOutlined } from '@mui/icons-material'
@@ -7,7 +7,7 @@ import { Box, CircularProgress, Paper } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { collectEnvs, EnvInfos } from '@nyanpasu/interface'
 
-const InfoItem = ({ label, value }: { label: string; value: string }) => {
+const InfoItem = memo(({ label, value }: { label: string; value: string }) => {
   return (
     <div className="flex items-center justify-between gap-2 text-sm">
       <div className="text-[var(--text-sub)]">{label}:</div>
@@ -16,7 +16,7 @@ const InfoItem = ({ label, value }: { label: string; value: string }) => {
       </div>
     </div>
   )
-}
+})
 
 function formatUptime(seconds: number) {
   const d = Math.floor(seconds / (3600 * 24))
@@ -30,7 +30,7 @@ function formatUptime(seconds: number) {
   return parts.join(' ')
 }
 
-export const SystemInfoPanel = () => {
+export const SystemInfoPanel = memo(() => {
   const { t } = useTranslation()
   const isDrawer = useAtomValue(atomIsDrawer)
   const [envs, setEnvs] = useState<EnvInfos | null>(null)
@@ -72,6 +72,6 @@ export const SystemInfoPanel = () => {
       )}
     </Paper>
   )
-}
+})
 
 export default SystemInfoPanel

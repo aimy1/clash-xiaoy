@@ -126,7 +126,7 @@ pub fn init_config() -> Result<()> {
     // }
 
     // init log
-    logging::init().unwrap();
+    logging::init().context("failed to initialize logging")?;
 
     crate::log_err!(dirs::app_profiles_dir().map(|profiles_dir| {
         if !profiles_dir.exists() {

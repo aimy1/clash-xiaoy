@@ -40,56 +40,59 @@ export const useDataPanelItems = ({ visible = true }: { visible?: boolean }) => 
       .fill(0)
       .concat(data.slice(-max))
 
-  const Datalines: (DatalineProps & { visible?: boolean; id: string })[] = [
-    {
-      id: 'traffic-down',
-      data: padData(
-        clashTraffic?.map((item) => item.down),
-        MAX_TRAFFIC_HISTORY,
-      ),
-      icon: ArrowDownward,
-      title: t('Download Traffic'),
-      total: clashConnections?.at(-1)?.downloadTotal,
-      type: 'speed',
-      visible,
-    },
-    {
-      id: 'traffic-up',
-      data: padData(
-        clashTraffic?.map((item) => item.up),
-        MAX_TRAFFIC_HISTORY,
-      ),
-      icon: ArrowUpward,
-      title: t('Upload Traffic'),
-      total: clashConnections?.at(-1)?.uploadTotal,
-      type: 'speed',
-      visible,
-    },
-    {
-      id: 'connections',
-      data: padData(
-        clashConnections?.map((item) => item.connections?.length ?? 0),
-        MAX_CONNECTIONS_HISTORY,
-      ),
-      icon: SettingsEthernet,
-      title: t('Active Connections'),
-      type: 'raw',
-      visible,
-    },
-  ]
+  const Datalines = useMemo(() => {
+    const items: (DatalineProps & { visible?: boolean; id: string })[] = [
+      {
+        id: 'traffic-down',
+        data: padData(
+          clashTraffic?.map((item) => item.down),
+          MAX_TRAFFIC_HISTORY,
+        ),
+        icon: ArrowDownward,
+        title: t('Download Traffic'),
+        total: clashConnections?.at(-1)?.downloadTotal,
+        type: 'speed',
+        visible,
+      },
+      {
+        id: 'traffic-up',
+        data: padData(
+          clashTraffic?.map((item) => item.up),
+          MAX_TRAFFIC_HISTORY,
+        ),
+        icon: ArrowUpward,
+        title: t('Upload Traffic'),
+        total: clashConnections?.at(-1)?.uploadTotal,
+        type: 'speed',
+        visible,
+      },
+      {
+        id: 'connections',
+        data: padData(
+          clashConnections?.map((item) => item.connections?.length ?? 0),
+          MAX_CONNECTIONS_HISTORY,
+        ),
+        icon: SettingsEthernet,
+        title: t('Active Connections'),
+        type: 'raw',
+        visible,
+      },
+    ]
 
-  if (supportMemory) {
-    Datalines.splice(2, 0, {
-      id: 'memory',
-      data: padData(
-        clashMemory?.map((item) => item.inuse),
-        MAX_MEMORY_HISTORY,
-      ),
-      icon: MemoryOutlined,
-      title: t('Memory'),
-      visible,
-    })
-  }
+    if (supportMemory) {
+      items.splice(2, 0, {
+        id: 'memory',
+        data: padData(
+          clashMemory?.map((item) => item.inuse),
+          MAX_MEMORY_HISTORY,
+        ),
+        icon: MemoryOutlined,
+        title: t('Memory'),
+        visible,
+      })
+    }
+    return items
+  }, [clashTraffic, clashConnections, clashMemory, supportMemory, t, visible])
 
   const isDrawer = useAtomValue(atomIsDrawer)
 

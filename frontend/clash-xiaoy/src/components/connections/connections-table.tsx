@@ -98,16 +98,20 @@ export const ConnectionsTable = ({ searchTerm }: { searchTerm?: string }) => {
 
   const columns = useColumns()
   const tableColsOrder = useAtomValue(connectionTableColumnsAtom)
+  const safeTableColsOrder = useMemo(
+    () => (Array.isArray(tableColsOrder) ? tableColsOrder : []),
+    [tableColsOrder],
+  )
   const filteredColumns = useMemo(
     () =>
       columns
         .filter(
           (column) =>
-            tableColsOrder.find((o) => o[0] === column.id)?.[1] ?? true,
+            safeTableColsOrder.find((o) => o[0] === column.id)?.[1] ?? true,
         )
         .sort((a, b) => {
-          const aIndex = tableColsOrder.findIndex((o) => o[0] === a.id)
-          const bIndex = tableColsOrder.findIndex((o) => o[0] === b.id)
+          const aIndex = safeTableColsOrder.findIndex((o) => o[0] === a.id)
+          const bIndex = safeTableColsOrder.findIndex((o) => o[0] === b.id)
           if (aIndex === -1 && bIndex === -1) {
             return 0
           }
@@ -119,7 +123,7 @@ export const ConnectionsTable = ({ searchTerm }: { searchTerm?: string }) => {
           }
           return aIndex - bIndex
         }),
-    [columns, tableColsOrder],
+    [columns, safeTableColsOrder],
   )
   const columnOrder = useMemo(
     () => filteredColumns.map((column) => column.id) as string[],
@@ -130,12 +134,12 @@ export const ConnectionsTable = ({ searchTerm }: { searchTerm?: string }) => {
     return filteredColumns.reduce(
       (acc, column) => {
         acc[column.id as string] =
-          tableColsOrder.find((o) => o[0] === column.id)?.[1] ?? true
+          safeTableColsOrder.find((o) => o[0] === column.id)?.[1] ?? true
         return acc
       },
       {} as Record<string, boolean>,
     )
-  }, [filteredColumns, tableColsOrder])
+  }, [filteredColumns, safeTableColsOrder])
 
   const [connectionDetailDialogOpen, setConnectionDetailDialogOpen] =
     useState(false)

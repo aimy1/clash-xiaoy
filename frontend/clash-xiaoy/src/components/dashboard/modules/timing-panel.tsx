@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useColorSxForDelay } from '@/hooks/theme'
 import { Box, Paper } from '@mui/material'
@@ -20,7 +21,7 @@ function LatencyTag({ name, value }: { name: string; value: number }) {
   )
 }
 
-export const TimingPanel = ({ data }: { data: { [key: string]: number } }) => {
+export const TimingPanel = memo(({ data }: { data: { [key: string]: number } }) => {
   return (
     <Paper className="!h-full !rounded-3xl p-4 cyber-glass">
       <div className="flex h-full flex-col gap-2">
@@ -30,6 +31,6 @@ export const TimingPanel = ({ data }: { data: { [key: string]: number } }) => {
       </div>
     </Paper>
   )
-}
+})
 
 export default TimingPanel

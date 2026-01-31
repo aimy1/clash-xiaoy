@@ -80,16 +80,13 @@
     "devUrl": "http://localhost:3000/"
   },
   "productName": "clash-xiaoy",
-  "version": "2.0.0",
+  "version": "2.6.13",
   "identifier": "com.clash-xiaoy.app",
   "plugins": {
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDlBMUM0NjMxREZCNDRGMjYKUldRbVQ3VGZNVVljbW43N0FlWjA4UkNrbTgxSWxSSXJQcExXNkZjUTlTQkIyYkJzL0tsSWF2d0cK",
       "endpoints": [
-        "https://deno.elaina.moe/updater/update-proxy.json",
-        "https://nyanpasu.surge.sh/updater/update-proxy.json",
-        "https://gh-proxy.com/https://github.com/libnyanpasu/clash-nyanpasu/releases/download/updater/update-proxy.json",
-        "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/updater/update.json"
+        "https://github.com/aimy1/clash-xiaoy/releases/latest/download/latest.json"
       ]
     }
   },

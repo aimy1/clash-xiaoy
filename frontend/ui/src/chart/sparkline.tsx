@@ -26,25 +26,30 @@ export const Sparkline: FC<SparklineProps> = ({
   )
 
   const svgRef = useRef<SVGSVGElement | null>(null)
+  const initializedRef = useRef(false)
 
   useEffect(() => {
     if (!svgRef.current) return
 
     const svg = d3.select(svgRef.current)
+    const node = svg.node()
+    if (!node) return
 
-    const { width, height } = svg.node()?.getBoundingClientRect() ?? {
-      width: 0,
-      height: 0,
-    }
+    const width = node.clientWidth || node.getBoundingClientRect().width
+    const height = node.clientHeight || node.getBoundingClientRect().height
+
+    if (width === 0 || height === 0) return
 
     const maxHeight = () => {
-      const dataRange = d3.max(data)! - d3.min(data)!
+      const maxVal = d3.max(data) || 0
+      const minVal = d3.min(data) || 0
+      const dataRange = maxVal - minVal
 
-      if (dataRange / d3.max(data)! < 0.1) {
+      if (maxVal > 0 && dataRange / maxVal < 0.1) {
         return height * 0.65
       }
 
-      if (d3.max(data)) {
+      if (maxVal > 0) {
         return height * 0.35
       } else {
         return height
@@ -63,74 +68,66 @@ export const Sparkline: FC<SparklineProps> = ({
 
     const line = d3
       .line<number>()
-      .x((d, i) => xScale(i))
+      .x((_, i) => xScale(i))
       .y((d) => yScale(d))
       .curve(d3.curveCatmullRom.alpha(0.5))
 
     const area = d3
       .area<number>()
-      .x((d, i) => xScale(i))
+      .x((_, i) => xScale(i))
       .y0(height)
       .y1((d) => yScale(d))
       .curve(d3.curveCatmullRom.alpha(0.5))
 
-    svg.selectAll('*').remove()
+    if (!initializedRef.current) {
+      svg.selectAll('*').remove()
 
-    svg
-      .append('path')
-      .datum(data)
-      .attr('class', 'area')
-      .attr('fill', colors.area)
-      .attr('fill-opacity', colors.areaOpacity)
-      .attr('d', area)
-
-    svg
-      .append('path')
-      .datum(data)
-      .attr('class', 'line')
-      .attr('fill', 'none')
-      .attr('stroke', colors.line)
-      .attr('stroke-opacity', colors.lineOpacity)
-      .attr('stroke-width', 2)
-      .attr('stroke-linecap', 'round')
-      .attr('stroke-linejoin', 'round')
-      .attr('d', line)
-
-    const updateChart = () => {
-      // Skip animation if component is not visible to prevent performance issues
-      if (!visible) {
-        // Update without animation
-        svg.select('.area').datum(data).attr('d', area)
-        svg.select('.line').datum(data).attr('d', line)
-        return
-      }
-
-      xScale.domain([0, data.length - 1])
-      yScale.domain([0, d3.max(data) ?? 0])
-
-      const t = svg.transition().duration(750).ease(d3.easeCubic)
       svg
-        .select('.area')
+        .append('path')
+        .attr('class', 'area')
+        .attr('fill', colors.area)
+        .attr('fill-opacity', colors.areaOpacity)
+
+      svg
+        .append('path')
+        .attr('class', 'line')
+        .attr('fill', 'none')
+        .attr('stroke', colors.line)
+        .attr('stroke-opacity', colors.lineOpacity)
+        .attr('stroke-width', 2)
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round')
+
+      initializedRef.current = true
+    }
+
+    const areaPath = svg.select<SVGPathElement>('.area')
+    const linePath = svg.select<SVGPathElement>('.line')
+
+    if (!visible) {
+      areaPath.datum(data).attr('d', area)
+      linePath.datum(data).attr('d', line)
+    } else {
+      const t = svg.transition().duration(500).ease(d3.easeLinear)
+
+      areaPath
         .datum(data)
         .transition(t as any)
         .attrTween('d', function (d) {
           const previous = d3.select(this).attr('d')
           const current = area(d)
-          return interpolatePath(previous, current as string)
+          return interpolatePath(previous || '', current as string)
         })
 
-      svg
-        .select('.line')
+      linePath
         .datum(data)
         .transition(t as any)
         .attrTween('d', function (d) {
           const previous = d3.select(this).attr('d')
           const current = line(d)
-          return interpolatePath(previous, current as string)
+          return interpolatePath(previous || '', current as string)
         })
     }
-
-    updateChart()
   }, [colors, data, visible])
 
   return (

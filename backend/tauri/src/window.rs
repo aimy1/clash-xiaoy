@@ -133,18 +133,19 @@ pub trait AppWindow {
                 if win_state.is_some() {
                     let state = win_state.as_ref().unwrap();
                     tray_debug_log::log("AppWindow.create before set_position");
-                    win.set_position(PhysicalPosition {
+                    let _ = win.set_position(PhysicalPosition {
                         x: state.x,
                         y: state.y,
-                    })
-                    .unwrap();
+                    });
                     tray_debug_log::log("AppWindow.create before set_size");
-                    win.set_size(PhysicalSize {
+                    let _ = win.set_size(PhysicalSize {
                         width: state.width,
                         height: state.height,
-                    })
-                    .unwrap();
-                    tray_debug_log::log_webview_window_state("AppWindow.create after set_position/size", &win);
+                    });
+                    tray_debug_log::log_webview_window_state(
+                        "AppWindow.create after set_position/size",
+                        &win,
+                    );
                 }
 
                 if let Some(state) = win_state {
@@ -234,21 +235,18 @@ pub trait AppWindow {
             use webview2_com::Microsoft::Web::WebView2::Win32::ICoreWebView2Settings6;
             use windows_core::Interface;
 
-            app_handle
-                .get_webview_window(self.label())
-                .ok_or(anyhow::anyhow!("failed to get window"))?
-                .with_webview(|webview| unsafe {
-                    let settings = webview
-                        .controller()
-                        .CoreWebView2()
-                        .unwrap()
-                        .Settings()
-                        .unwrap();
-                    let settings: ICoreWebView2Settings6 =
-                        settings.cast::<ICoreWebView2Settings6>().unwrap();
-                    settings.SetIsSwipeNavigationEnabled(false).unwrap();
-                })
-                .unwrap();
+            if let Some(window) = app_handle.get_webview_window(self.label()) {
+                let _ = window.with_webview(|webview| unsafe {
+                    let core = webview.controller().CoreWebView2();
+                    if let Ok(core) = core {
+                        if let Ok(settings) = core.Settings() {
+                            if let Ok(settings6) = settings.cast::<ICoreWebView2Settings6>() {
+                                let _ = settings6.SetIsSwipeNavigationEnabled(false);
+                            }
+                        }
+                    }
+                });
+            }
         }
 
         Ok(())

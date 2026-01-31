@@ -1,4 +1,4 @@
-import { cloneElement, FC } from 'react'
+import { cloneElement, FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import parseTraffic from '@/utils/parse-traffic'
 import { type SvgIconComponent } from '@mui/icons-material'
@@ -15,7 +15,7 @@ export interface DatalineProps {
   visible?: boolean
 }
 
-export const Dataline: FC<DatalineProps> = ({
+export const Dataline: FC<DatalineProps> = memo(({
   data,
   icon,
   title,
@@ -61,6 +61,6 @@ export const Dataline: FC<DatalineProps> = ({
       </div>
     </Paper>
   )
-}
+})
 
 export default Dataline

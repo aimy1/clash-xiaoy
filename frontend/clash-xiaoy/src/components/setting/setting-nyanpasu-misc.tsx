@@ -12,6 +12,11 @@ import {
   BreakWhenProfileChangeSetting,
   BreakWhenProxyChangeSetting,
 } from './setting-nyanpasu-auto-reload'
+import {
+  AutoCheckUpdatesSetting,
+  CheckForUpdatesSetting,
+  SoftwareVersionSetting,
+} from './modules/software-update'
 
 const EnableBuiltinEnhanced = () => {
   const { t } = useTranslation()
@@ -163,6 +168,12 @@ export const SettingNyanpasuMisc = () => {
         <EnableBuiltinEnhanced />
 
         <LightenAnimationEffects />
+        
+        <AutoCheckUpdatesSetting />
+
+        <CheckForUpdatesSetting />
+
+        <SoftwareVersionSetting />
 
         <DefaultLatencyTest />
       </List>

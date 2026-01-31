@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { useAtomValue } from 'jotai'
 import { isObject } from 'lodash-es'
-import { useMemo } from 'react'
+import { useMemo, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import useSWR from 'swr'
 import { atomIsDrawer } from '@/store'
@@ -15,7 +15,7 @@ type Status = {
   sx: SxProps<Theme>
 }
 
-export const ServiceShortcuts = () => {
+export const ServiceShortcuts = memo(() => {
   const { t } = useTranslation()
 
   const {
@@ -154,6 +154,6 @@ export const ServiceShortcuts = () => {
       )}
     </Paper>
   )
-}
+})
 
 export default ServiceShortcuts

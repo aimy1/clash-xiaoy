@@ -204,13 +204,17 @@ export default function ConnectionColumnFilterDialog(
   const { t } = useTranslation()
   const columns = useColumns()
   const [filteredCols, setFilteredCols] = useAtom(connectionTableColumnsAtom)
+  const safeFilteredCols = useMemo(
+    () => (Array.isArray(filteredCols) ? filteredCols : []),
+    [filteredCols],
+  )
   const sortedCols = useMemo(
     () =>
       columns
         .filter((o) => o.id !== 'actions')
         .sort((a, b) => {
-          const aIndex = filteredCols.findIndex((o) => o[0] === a.id)
-          const bIndex = filteredCols.findIndex((o) => o[0] === b.id)
+          const aIndex = safeFilteredCols.findIndex((o) => o[0] === a.id)
+          const bIndex = safeFilteredCols.findIndex((o) => o[0] === b.id)
           if (aIndex === -1 && bIndex === -1) {
             return 0
           }
@@ -222,12 +226,12 @@ export default function ConnectionColumnFilterDialog(
           }
           return aIndex - bIndex
         }),
-    [columns, filteredCols],
+    [columns, safeFilteredCols],
   )
 
   const latestFilteredCols = sortedCols.map((column) => [
     column.id,
-    filteredCols.find((o) => o[0] === column.id)?.[1] ?? true,
+    safeFilteredCols.find((o) => o[0] === column.id)?.[1] ?? true,
   ]) as Array<[string, boolean]>
 
   return (
@@ -243,11 +247,11 @@ export default function ConnectionColumnFilterDialog(
                 key={column.id}
                 column={column}
                 checked={
-                  filteredCols.find((o) => o[0] === column.id)?.[1] ?? true
+                  safeFilteredCols.find((o) => o[0] === column.id)?.[1] ?? true
                 }
                 onChange={(e) => {
                   console.log(e.target.checked)
-                  const newCols = [...filteredCols]
+                  const newCols = [...safeFilteredCols]
                   newCols[index] = [newCols[index][0], e.target.checked]
                   console.log(newCols)
                   setFilteredCols(newCols)

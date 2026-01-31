@@ -1,6 +1,6 @@
 [package]
 name = "clash-xiaoy"
-version = "0.1.0"
+version = "2.6.13"
 description = "clash xiaoy"
 authors = { workspace = true }
 license = { workspace = true }

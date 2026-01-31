@@ -1,5 +1,5 @@
 import { flag as countryCodeEmoji } from 'country-emoji'
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import {
@@ -32,7 +32,7 @@ const EmojiCounty = ({ countryCode }: { countryCode: string }) => {
 
 const MAX_WIDTH = 'calc(100% - 48px - 16px)'
 
-export const IPASNPanel = ({ refreshCount }: { refreshCount: number }) => {
+export const IPASNPanel = memo(({ refreshCount }: { refreshCount: number }) => {
   const { t } = useTranslation()
 
   const { data, mutate, isValidating } = useIPSB()
@@ -130,6 +130,6 @@ export const IPASNPanel = ({ refreshCount }: { refreshCount: number }) => {
       )}
     </Paper>
   )
-}
+})
 
 export default IPASNPanel

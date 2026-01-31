@@ -1,5 +1,5 @@
 import { useLockFn } from 'ahooks'
-import { useMemo } from 'react'
+import { useMemo, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Notice } from '@/components/base'
 import { formatError } from '@/utils'
@@ -9,7 +9,7 @@ import { Chip, Paper, type ChipProps } from '@mui/material'
 import { useClashConfig, useSetting, useSystemProxy } from '@nyanpasu/interface'
 import { PaperSwitchButton } from '../setting/modules/system-proxy'
 
-const TitleComp = () => {
+const TitleComp = memo(() => {
   const { t } = useTranslation()
 
   const { data } = useSystemProxy()
@@ -63,9 +63,9 @@ const TitleComp = () => {
       />
     </div>
   )
-}
+})
 
-export const ProxyShortcuts = () => {
+export const ProxyShortcuts = memo(() => {
   const { t } = useTranslation()
 
   const systemProxy = useSetting('enable_system_proxy')
@@ -173,6 +173,6 @@ export const ProxyShortcuts = () => {
       </div>
     </Paper>
   )
-}
+})
 
 export default ProxyShortcuts

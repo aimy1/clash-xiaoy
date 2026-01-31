@@ -16,17 +16,62 @@ const invoke = async <T>(cmd: string, args?: any): Promise<T> => {
   try {
     return await tauriInvoke<T>(cmd, args)
   } catch (e) {
-    console.warn(`[Mock] Invoke command '${cmd}' failed or not available in browser:`, e)
+    console.warn(
+      `[Mock] Invoke command '${cmd}' failed or not available in browser:`,
+      e,
+    )
     // Return appropriate mock data based on command
-    if (cmd === 'get_verge_config') return {} as T
+    if (cmd === 'get_verge_config')
+      return {
+        language: 'en',
+        theme_mode: 'system',
+        clash_core: 'mihomo',
+      } as unknown as T
     if (cmd === 'get_clash_info') return null as T
     if (cmd === 'get_profiles') return { items: [] } as unknown as T
-    if (cmd === 'get_proxies') return { proxies: {}, groups: {}, global: null } as unknown as T
-    if (cmd === 'get_sys_proxy') return { enable: false, server: '', bypass: '' } as unknown as T
-    if (cmd === 'get_core_status') return [{ Stopped: 'Browser Mode' }, 0, 'normal'] as unknown as T
-    if (cmd === 'status_service') return { status: 'not_installed' } as unknown as T
+    if (cmd === 'get_proxies')
+      return { proxies: {}, groups: {}, global: null } as unknown as T
+    if (cmd === 'get_sys_proxy')
+      return { enable: false, server: '', bypass: '' } as unknown as T
+    if (cmd === 'get_core_status')
+      return [{ Stopped: 'Browser Mode' }, 0, 'normal'] as unknown as T
+    if (cmd === 'url_delay_test') return 100 as unknown as T
+    if (cmd === 'get_ipsb_asn')
+      return { ip: '1.1.1.1', asn: '0000', isp: 'Mock ISP' } as unknown as T
+    if (cmd === 'status_service')
+      return { status: 'not_installed' } as unknown as T
     if (cmd === 'get_runtime_logs') return {} as T
-    
+    if (cmd === 'get_core_dir') return '/mock/core/dir' as unknown as T
+    if (cmd === 'get_app_config_dir') return '/mock/app/config' as unknown as T
+    if (cmd === 'get_app_data_dir') return '/mock/app/data' as unknown as T
+    if (cmd === 'get_runtime_yaml') return '' as unknown as T
+    if (cmd === 'get_core_version') return 'mock-v1.0.0' as unknown as T
+    if (cmd === 'get_runtime_exists') return [] as unknown as T
+    if (cmd === 'get_storage_item')
+      return localStorage.getItem(args.key) as unknown as T
+    if (cmd === 'set_storage_item') {
+      localStorage.setItem(args.key, args.value)
+      return null as unknown as T
+    }
+    if (cmd === 'remove_storage_item') {
+      localStorage.removeItem(args.key)
+      return null as unknown as T
+    }
+    if (cmd === 'collect_envs')
+      return {
+        os: 'mock-os',
+        arch: 'mock-arch',
+        core: {},
+        device: {
+          cpu: [],
+          gpu: [],
+          memory: '0',
+          uptime: 0,
+          kernel: 'mock-kernel',
+        },
+        build_info: {},
+      } as unknown as T
+
     // For void returns or others, return undefined or null
     return null as T
   }

@@ -96,4 +96,23 @@ export const connectionTableColumnsAtom = atomWithStorage<
   createJSONStorage(() => NyanpasuStorage),
 )
 
+export const dashboardOrderAtom = atomWithStorage<string[]>(
+  'dashboard_order_v2',
+  [
+    'traffic-down',
+    'traffic-up',
+    'connections',
+    'memory',
+    'timing',
+    'ipasn',
+    'proxy-shortcuts',
+    'service-shortcuts',
+    'system-info',
+    'calendar',
+    'memo',
+  ],
+  createJSONStorage(() => NyanpasuStorage),
+  { getOnInit: true },
+)
+
 // export const themeSchemeAtom = atom<MDYTheme["schemes"] | null>(null);
