@@ -62,9 +62,9 @@
 ---
 
 ## 📸 界面预览
-<img width="1627" height="1010" alt="image" src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" />
 
-<img width="1627" height="1010" alt="image" src="https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527" />
+<img width="1638" height="1147" alt="in" src="https://github.com/user-attachments/assets/9c65d4f9-a222-4a86-bd91-9a059255adb3" />
+
 
 
 ---
