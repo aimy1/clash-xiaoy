@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopiuj Env (CMD)",
+      "ps": "Kopiuj Env (PS)",
+      "sh": "Kopiuj Env (sh)"
+    },
+    "no_proxies": "Brak Proxy",
+    "select_proxies": "Wybierz Proxy",
+    "dashboard": "Panel",
+    "direct_mode": "Tryb Bezpośredni",
+    "global_mode": "Tryb Globalny",
+    "more": {
+      "menu": "Więcej",
+      "restart_app": "Uruchom Ponownie Aplikację",
+      "restart_clash": "Uruchom Ponownie Clash"
+    },
+    "open_dir": {
+      "menu": "Otwórz Katalog",
+      "app_config_dir": "Katalog Konfiguracji",
+      "app_data_dir": "Katalog Danych",
+      "core_dir": "Katalog Core",
+      "log_dir": "Katalog Logów"
+    },
+    "proxy_action": {
+      "on": "Włącz",
+      "off": "Wyłącz"
+    },
+    "quit": "Wyjdź",
+    "rule_mode": "Tryb Reguł",
+    "script_mode": "Tryb Skryptu",
+    "system_proxy": "Proxy Systemowe",
+    "tun_mode": "Tryb TUN"
+  },
+  "dialog": {
+    "panic": "Proszę zgłosić ten problem na Github issue tracker.",
+    "migrate": "Wykryto plik konfiguracyjny starej wersji. Przenieść do nowej wersji?\nOSTRZEŻENIE: Nadpisze to twoją obecną konfigurację, jeśli istnieje",
+    "custom_app_dir_migrate": "Ustawisz niestandardowy katalog aplikacji na %{path}\nCzy przenieść obecny katalog aplikacji do nowego?",
+    "warning": {
+      "enable_tun_with_no_permission": "Tryb TUN wymaga uprawnień administratora lub trybu usługi, żaden nie jest włączony, tryb TUN nie będzie działać poprawnie."
+    },
+    "info": {
+      "grant_core_permission": "Clash core potrzebuje uprawnień administratora, aby tryb TUN działał poprawnie, przyznać?\nNależy pamiętać, że ta operacja wymaga podania hasła."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Przerywaj połączenia przy zmianie proxy"
+        },
+        "profile": {
+          "label": "Przerywaj połączenia przy zmianie profilu"
+        },
+        "mode": {
+          "label": "Przerywaj połączenia przy zmianie trybu"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Przerywaj połączenia przy zmianie proxy",
+  "break_when_profile_change": "Przerywaj połączenia przy zmianie profilu",
+  "break_when_mode_change": "Przerywaj połączenia przy zmianie trybu"
+}

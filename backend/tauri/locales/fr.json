@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copier Env (CMD)",
+      "ps": "Copier Env (PS)",
+      "sh": "Copier Env (sh)"
+    },
+    "no_proxies": "Pas de Proxies",
+    "select_proxies": "Sélectionner Proxies",
+    "dashboard": "Tableau de bord",
+    "direct_mode": "Mode Direct",
+    "global_mode": "Mode Global",
+    "more": {
+      "menu": "Plus",
+      "restart_app": "Redémarrer App",
+      "restart_clash": "Redémarrer Clash"
+    },
+    "open_dir": {
+      "menu": "Ouvrir Dossier",
+      "app_config_dir": "Dossier Config",
+      "app_data_dir": "Dossier Données",
+      "core_dir": "Dossier Noyau",
+      "log_dir": "Dossier Logs"
+    },
+    "proxy_action": {
+      "on": "On",
+      "off": "Off"
+    },
+    "quit": "Quitter",
+    "rule_mode": "Mode Règle",
+    "script_mode": "Mode Script",
+    "system_proxy": "Proxy Système",
+    "tun_mode": "Mode TUN"
+  },
+  "dialog": {
+    "panic": "Veuillez signaler ce problème sur le tracker Github.",
+    "migrate": "Ancienne version de configuration détectée. Migrer vers la nouvelle version ?\nATTENTION: Cela écrasera votre configuration actuelle si elle existe",
+    "custom_app_dir_migrate": "Vous allez définir un dossier d'application personnalisé vers %{path}\nDevons-nous déplacer le dossier actuel vers le nouveau ?",
+    "warning": {
+      "enable_tun_with_no_permission": "Le mode TUN nécessite une permission administrateur ou le mode service, aucun n'est activé, le mode TUN ne fonctionnera pas correctement."
+    },
+    "info": {
+      "grant_core_permission": "Le noyau Clash a besoin de la permission administrateur pour faire fonctionner le mode TUN, l'accorder ?\nNotez que cette opération nécessite la saisie du mot de passe."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Interrompre les connexions lors du changement de proxy"
+        },
+        "profile": {
+          "label": "Interrompre les connexions lors du changement de profil"
+        },
+        "mode": {
+          "label": "Interrompre les connexions lors du changement de mode"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Interrompre les connexions lors du changement de proxy",
+  "break_when_profile_change": "Interrompre les connexions lors du changement de profil",
+  "break_when_mode_change": "Interrompre les connexions lors du changement de mode"
+}

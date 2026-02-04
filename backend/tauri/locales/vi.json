@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Sao chép Env (CMD)",
+      "ps": "Sao chép Env (PS)",
+      "sh": "Sao chép Env (sh)"
+    },
+    "no_proxies": "Không Proxy",
+    "select_proxies": "Chọn Proxy",
+    "dashboard": "Bảng điều khiển",
+    "direct_mode": "Chế độ Trực tiếp",
+    "global_mode": "Chế độ Toàn cầu",
+    "more": {
+      "menu": "Thêm",
+      "restart_app": "Khởi động lại App",
+      "restart_clash": "Khởi động lại Clash"
+    },
+    "open_dir": {
+      "menu": "Mở Thư mục",
+      "app_config_dir": "Thư mục Cấu hình",
+      "app_data_dir": "Thư mục Dữ liệu",
+      "core_dir": "Thư mục Core",
+      "log_dir": "Thư mục Log"
+    },
+    "proxy_action": {
+      "on": "Bật",
+      "off": "Tắt"
+    },
+    "quit": "Thoát",
+    "rule_mode": "Chế độ Quy tắc",
+    "script_mode": "Chế độ Kịch bản",
+    "system_proxy": "Proxy Hệ thống",
+    "tun_mode": "Chế độ TUN"
+  },
+  "dialog": {
+    "panic": "Vui lòng báo cáo vấn đề này lên Github issue tracker.",
+    "migrate": "Phát hiện tệp cấu hình phiên bản cũ. Di chuyển sang phiên bản mới hay không?\nCẢNH BÁO: Điều này sẽ ghi đè cấu hình hiện tại của bạn nếu tồn tại",
+    "custom_app_dir_migrate": "Bạn sẽ đặt thư mục ứng dụng tùy chỉnh thành %{path}\nChúng tôi có nên di chuyển thư mục ứng dụng hiện tại sang thư mục mới không?",
+    "warning": {
+      "enable_tun_with_no_permission": "Chế độ TUN yêu cầu quyền quản trị viên hoặc chế độ dịch vụ, cả hai đều không được bật, chế độ TUN sẽ không hoạt động bình thường."
+    },
+    "info": {
+      "grant_core_permission": "Clash core cần quyền quản trị viên để chế độ TUN hoạt động bình thường, cấp quyền không?\nXin lưu ý rằng thao tác này yêu cầu nhập mật khẩu."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Ngắt kết nối khi thay đổi proxy"
+        },
+        "profile": {
+          "label": "Ngắt kết nối khi thay đổi hồ sơ"
+        },
+        "mode": {
+          "label": "Ngắt kết nối khi thay đổi chế độ"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Ngắt kết nối khi thay đổi proxy",
+  "break_when_profile_change": "Ngắt kết nối khi thay đổi hồ sơ",
+  "break_when_mode_change": "Ngắt kết nối khi thay đổi chế độ"
+}

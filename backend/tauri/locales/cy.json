@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copïo Env (CMD)",
+      "ps": "Copïo Env (PS)",
+      "sh": "Copïo Env (sh)"
+    },
+    "no_proxies": "Dim Proxies",
+    "select_proxies": "Dewis Proxies",
+    "dashboard": "Dangosfwrdd",
+    "direct_mode": "Modd Uniongyrchol",
+    "global_mode": "Modd Byd-eang",
+    "more": {
+      "menu": "Mwy",
+      "restart_app": "Ailgychwyn Ap",
+      "restart_clash": "Ailgychwyn Clash"
+    },
+    "open_dir": {
+      "menu": "Agor Cyfeiriadur",
+      "app_config_dir": "Cyfeiriadur Ffurfweddu",
+      "app_data_dir": "Cyfeiriadur Data",
+      "core_dir": "Cyfeiriadur Craidd",
+      "log_dir": "Cyfeiriadur Log"
+    },
+    "proxy_action": {
+      "on": "Ymlaen",
+      "off": "I Ffwrdd"
+    },
+    "quit": "Gadael",
+    "rule_mode": "Modd Rheol",
+    "script_mode": "Modd Sgript",
+    "system_proxy": "Proxy System",
+    "tun_mode": "Modd TUN"
+  },
+  "dialog": {
+    "panic": "Rhowch wybod am y mater hwn i draciwr materion Github.",
+    "migrate": "Canfuwyd ffeil ffurfweddu hen fersiwn. Mudo i fersiwn newydd?\nRHYBUDD: Bydd hyn yn trosysgrifo'ch ffurfweddiad presennol os yw'n bodoli",
+    "custom_app_dir_migrate": "Rydych chi'n mynd i osod cyfeiriadur ap personol i %{path}\nA ddylem ni symud y cyfeiriadur ap presennol i'r un newydd?",
+    "warning": {
+      "enable_tun_with_no_permission": "Mae angen caniatâd gweinyddwr neu fodd gwasanaeth ar fodd TUN, nid oes un wedi'i alluogi, ni fydd modd TUN yn gweithio'n iawn."
+    },
+    "info": {
+      "grant_core_permission": "Mae angen caniatâd gweinyddwr ar graidd Clash i wneud i fodd TUN weithio'n iawn, ei roi?\nSylwch fod y weithred hon yn gofyn am fewnbynnu cyfrinair."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Torri cysylltiadau pan fydd proxy yn newid"
+        },
+        "profile": {
+          "label": "Torri cysylltiadau pan fydd proffil yn newid"
+        },
+        "mode": {
+          "label": "Torri cysylltiadau pan fydd modd yn newid"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Torri cysylltiadau pan fydd proxy yn newid",
+  "break_when_profile_change": "Torri cysylltiadau pan fydd proffil yn newid",
+  "break_when_mode_change": "Torri cysylltiadau pan fydd modd yn newid"
+}

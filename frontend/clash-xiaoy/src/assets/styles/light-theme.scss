@@ -1,0 +1,157 @@
+:root[data-theme='light'],
+:root.light {
+  --bg-main: #f6f7f9;
+  --bg-card: #ffffff;
+  --bg-hover: #f1f5ff;
+  --bg-active: #e8f0ff;
+  --border: #e4e7ed;
+
+  --text-title: #1f2328;
+  --text-main: #2e3136;
+  --text-sub: #6b7280;
+  --text-disable: #9ca3af;
+
+<<<<<<< HEAD
+  --primary: var(--primary-main, #eb00ff);
+  --primary-soft: var(--background-color-alpha, rgba(235, 0, 255, 0.12));
+=======
+  --primary: var(--primary-main, #3b82f6);
+  --primary-soft: var(--background-color-alpha, rgba(59, 130, 246, 0.12));
+>>>>>>> cca0f91e5b3534817b94d9736a4ac8fadf96b5b1
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  --background-color: var(--bg-main);
+  --selection-color: #eef2ff;
+  --scroller-color: rgba(107, 114, 128, 0.35);
+  --border-radius: 12px;
+  --text-primary: var(--text-sub);
+
+  --cyber-primary: var(--primary);
+  --cyber-secondary: var(--primary);
+  --cyber-accent: var(--primary);
+  --cyber-warning: var(--warning);
+  --cyber-bg-start: var(--bg-main);
+  --cyber-bg-end: var(--bg-main);
+
+  --cyber-glass-bg: rgba(255, 255, 255, 0.78);
+  --cyber-glass-border: var(--border);
+  --cyber-glass-blur: 18px;
+
+  --cyber-text-main: var(--text-main);
+  --cyber-text-muted: var(--text-sub);
+  --cyber-text-highlight: var(--text-title);
+
+  --color-md-primary: var(--primary);
+  --color-md-on-primary: #f8fbff;
+  --color-md-primary-container: var(--bg-active);
+  --color-md-on-primary-container: var(--text-title);
+
+  --color-md-secondary: var(--text-sub);
+  --color-md-on-secondary: #f8fbff;
+  --color-md-secondary-container: var(--bg-hover);
+  --color-md-on-secondary-container: var(--text-title);
+
+  --color-md-tertiary: var(--text-sub);
+  --color-md-on-tertiary: #f8fbff;
+  --color-md-tertiary-container: var(--bg-hover);
+  --color-md-on-tertiary-container: var(--text-title);
+
+  --color-md-error: var(--danger);
+  --color-md-on-error: #fef2f2;
+  --color-md-error-container: rgba(239, 68, 68, 0.12);
+  --color-md-on-error-container: var(--text-title);
+
+  --color-md-background: var(--bg-main);
+  --color-md-on-background: var(--text-main);
+
+  --color-md-surface: var(--bg-card);
+  --color-md-on-surface: var(--text-main);
+  --color-md-surface-variant: var(--bg-hover);
+  --color-md-on-surface-variant: var(--text-sub);
+
+  --color-md-outline: var(--border);
+  --color-md-outline-variant: var(--border);
+  --color-md-shadow: rgba(0, 0, 0, 0.18);
+  --color-md-scrim: rgba(0, 0, 0, 0.25);
+  --color-md-inverse-surface: #1f2328;
+  --color-md-inverse-on-surface: #f6f7f9;
+  --color-md-inverse-primary: var(--primary);
+}
+
+html.light .MuiPaper-root.MuiPaper-rounded,
+html[data-theme='light'] .MuiPaper-root.MuiPaper-rounded {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+html.light .MuiButton-root,
+html[data-theme='light'] .MuiButton-root {
+  text-transform: none;
+}
+
+html.light .MuiButton-containedPrimary,
+html[data-theme='light'] .MuiButton-containedPrimary {
+  background-color: var(--primary);
+  color: var(--color-md-on-primary);
+  box-shadow: var(--shadow-card);
+}
+
+html.light .MuiButton-containedPrimary:hover,
+html[data-theme='light'] .MuiButton-containedPrimary:hover {
+  filter: brightness(0.96);
+  box-shadow: var(--shadow-card);
+}
+
+html.light .MuiButton-outlinedPrimary,
+html[data-theme='light'] .MuiButton-outlinedPrimary {
+  border-color: var(--border);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+html.light .MuiButton-outlinedPrimary:hover,
+html[data-theme='light'] .MuiButton-outlinedPrimary:hover,
+html.light .MuiButton-textPrimary:hover,
+html[data-theme='light'] .MuiButton-textPrimary:hover {
+  background-color: var(--primary-soft);
+}
+
+html.light .MuiListItemButton-root,
+html[data-theme='light'] .MuiListItemButton-root {
+  color: var(--text-main);
+}
+
+html.light .MuiListItemButton-root:hover,
+html[data-theme='light'] .MuiListItemButton-root:hover {
+  background-color: var(--bg-hover) !important;
+  box-shadow: none !important;
+}
+
+html.light .MuiListItemButton-root.cyber-box-glow,
+html[data-theme='light'] .MuiListItemButton-root.cyber-box-glow {
+  background-color: var(--bg-active) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+html.light .MuiListItemButton-root[aria-current='page'],
+html[data-theme='light'] .MuiListItemButton-root[aria-current='page'] {
+  background-color: var(--bg-active);
+  border-color: var(--border);
+}
+
+html.light .bg-\[rgba\(0\,0\,0\,0\.2\)\],
+html[data-theme='light'] .bg-\[rgba\(0\,0\,0\,0\.2\)\] {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.light .bg-\[rgba\(0\,0\,0\,0\.3\)\],
+html[data-theme='light'] .bg-\[rgba\(0\,0\,0\,0\.3\)\] {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}

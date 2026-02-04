@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Nakili Env (CMD)",
+      "ps": "Nakili Env (PS)",
+      "sh": "Nakili Env (sh)"
+    },
+    "no_proxies": "Hakuna Proksi",
+    "select_proxies": "Chagua Proksi",
+    "dashboard": "Dashibodi",
+    "direct_mode": "Hali ya Moja kwa Moja",
+    "global_mode": "Hali ya Kimataifa",
+    "more": {
+      "menu": "Zaidi",
+      "restart_app": "Anzisha Upya Programu",
+      "restart_clash": "Anzisha Upya Clash"
+    },
+    "open_dir": {
+      "menu": "Fungua Saraka",
+      "app_config_dir": "Saraka ya Usanidi",
+      "app_data_dir": "Saraka ya Data",
+      "core_dir": "Saraka ya Msingi",
+      "log_dir": "Saraka ya Kumbukumbu"
+    },
+    "proxy_action": {
+      "on": "Washa",
+      "off": "Zima"
+    },
+    "quit": "Ondoka",
+    "rule_mode": "Hali ya Sheria",
+    "script_mode": "Hali ya Hati",
+    "system_proxy": "Proksi ya Mfumo",
+    "tun_mode": "Hali ya TUN"
+  },
+  "dialog": {
+    "panic": "Tafadhali ripoti suala hili kwa Github issue tracker.",
+    "migrate": "Faili ya usanidi wa toleo la zamani imegunduliwa. Hamia toleo jipya?\nONYO: Hii itaandika juu ya usanidi wako wa sasa ikiwa upo",
+    "custom_app_dir_migrate": "Utaweka saraka maalum ya programu kuwa %{path}\nJe, tuhamishe saraka ya sasa ya programu kwenda mpya?",
+    "warning": {
+      "enable_tun_with_no_permission": "Hali ya TUN inahitaji ruhusa ya msimamizi au hali ya huduma, hakuna iliyowezeshwa, hali ya TUN haitafanya kazi vizuri."
+    },
+    "info": {
+      "grant_core_permission": "Clash core inahitaji ruhusa ya msimamizi ili hali ya TUN ifanye kazi vizuri, toa?\nTafadhali kumbuka kuwa operesheni hii inahitaji uingizaji wa nenosiri."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Vunja miunganisho wakati proksi inabadilika"
+        },
+        "profile": {
+          "label": "Vunja miunganisho wakati wasifu unabadilika"
+        },
+        "mode": {
+          "label": "Vunja miunganisho wakati hali inabadilika"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Vunja miunganisho wakati proksi inabadilika",
+  "break_when_profile_change": "Vunja miunganisho wakati wasifu unabadilika",
+  "break_when_mode_change": "Vunja miunganisho wakati hali inabadilika"
+}

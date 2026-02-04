@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Salin Env (CMD)",
+      "ps": "Salin Env (PS)",
+      "sh": "Salin Env (sh)"
+    },
+    "no_proxies": "Tiada Proksi",
+    "select_proxies": "Pilih Proksi",
+    "dashboard": "Papan Pemuka",
+    "direct_mode": "Mod Terus",
+    "global_mode": "Mod Global",
+    "more": {
+      "menu": "Lagi",
+      "restart_app": "Mula Semula Apl",
+      "restart_clash": "Mula Semula Clash"
+    },
+    "open_dir": {
+      "menu": "Buka Dir",
+      "app_config_dir": "Dir Konfigurasi",
+      "app_data_dir": "Dir Data",
+      "core_dir": "Dir Teras",
+      "log_dir": "Dir Log"
+    },
+    "proxy_action": {
+      "on": "Hidup",
+      "off": "Mati"
+    },
+    "quit": "Keluar",
+    "rule_mode": "Mod Peraturan",
+    "script_mode": "Mod Skrip",
+    "system_proxy": "Proksi Sistem",
+    "tun_mode": "Mod TUN"
+  },
+  "dialog": {
+    "panic": "Sila laporkan isu ini ke penjejak isu Github.",
+    "migrate": "Fail konfigurasi versi lama dikesan. Hijrah ke versi baharu atau tidak?\nAMARAN: Ini akan menggantikan konfigurasi semasa anda jika wujud",
+    "custom_app_dir_migrate": "Anda akan menetapkan dir apl tersuai ke %{path}\nAdakah kita perlu memindahkan dir apl semasa ke yang baharu?",
+    "warning": {
+      "enable_tun_with_no_permission": "Mod TUN memerlukan kebenaran admin atau mod perkhidmatan, kedua-duanya tidak didayakan, mod TUN tidak akan berfungsi dengan betul."
+    },
+    "info": {
+      "grant_core_permission": "Teras Clash memerlukan kebenaran admin untuk menjadikan mod TUN berfungsi dengan betul, berikan?\nSila ambil perhatian bahawa operasi ini memerlukan input kata laluan."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Ganggu sambungan apabila proksi berubah"
+        },
+        "profile": {
+          "label": "Ganggu sambungan apabila profil berubah"
+        },
+        "mode": {
+          "label": "Ganggu sambungan apabila mod berubah"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Ganggu sambungan apabila proksi berubah",
+  "break_when_profile_change": "Ganggu sambungan apabila profil berubah",
+  "break_when_mode_change": "Ganggu sambungan apabila mod berubah"
+}

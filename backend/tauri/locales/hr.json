@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopiraj Env (CMD)",
+      "ps": "Kopiraj Env (PS)",
+      "sh": "Kopiraj Env (sh)"
+    },
+    "no_proxies": "Bez Proxyja",
+    "select_proxies": "Odaberi Proxy",
+    "dashboard": "Nadzorna Ploča",
+    "direct_mode": "Izravni Način",
+    "global_mode": "Globalni Način",
+    "more": {
+      "menu": "Više",
+      "restart_app": "Ponovno Pokreni App",
+      "restart_clash": "Ponovno Pokreni Clash"
+    },
+    "open_dir": {
+      "menu": "Otvori Mapu",
+      "app_config_dir": "Konfig Mapa",
+      "app_data_dir": "Podatkovna Mapa",
+      "core_dir": "Jezgra Mapa",
+      "log_dir": "Log Mapa"
+    },
+    "proxy_action": {
+      "on": "Uklj",
+      "off": "Isklj"
+    },
+    "quit": "Izlaz",
+    "rule_mode": "Način Pravila",
+    "script_mode": "Način Skripte",
+    "system_proxy": "Sustavski Proxy",
+    "tun_mode": "TUN Način"
+  },
+  "dialog": {
+    "panic": "Molimo prijavite ovaj problem na Github issue tracker.",
+    "migrate": "Otkrivena stara verzija konfiguracijske datoteke. Migrirati na novu verziju?\nUPOZORENJE: Ovo će prebrisati vašu trenutnu konfiguraciju ako postoji",
+    "custom_app_dir_migrate": "Postavit ćete prilagođeni direktorij aplikacije na %{path}\nHoćemo li premjestiti trenutni direktorij aplikacije u novi?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN način zahtijeva administratorska prava ili servisni način, nijedno nije omogućeno, TUN način neće ispravno raditi."
+    },
+    "info": {
+      "grant_core_permission": "Clash jezgra treba administratorska prava da bi TUN način ispravno radio, odobriti?\nImajte na umu da ova operacija zahtijeva unos lozinke."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Prekini veze pri promjeni proxyja"
+        },
+        "profile": {
+          "label": "Prekini veze pri promjeni profila"
+        },
+        "mode": {
+          "label": "Prekini veze pri promjeni načina"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Prekini veze pri promjeni proxyja",
+  "break_when_profile_change": "Prekini veze pri promjeni profila",
+  "break_when_mode_change": "Prekini veze pri promjeni načina"
+}

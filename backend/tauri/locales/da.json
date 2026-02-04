@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopier Env (CMD)",
+      "ps": "Kopier Env (PS)",
+      "sh": "Kopier Env (sh)"
+    },
+    "no_proxies": "Ingen Proxyer",
+    "select_proxies": "Vælg Proxyer",
+    "dashboard": "Betjeningspanel",
+    "direct_mode": "Direkte Tilstand",
+    "global_mode": "Global Tilstand",
+    "more": {
+      "menu": "Mere",
+      "restart_app": "Genstart App",
+      "restart_clash": "Genstart Clash"
+    },
+    "open_dir": {
+      "menu": "Åbn Mappe",
+      "app_config_dir": "Konfig Mappe",
+      "app_data_dir": "Data Mappe",
+      "core_dir": "Kerne Mappe",
+      "log_dir": "Log Mappe"
+    },
+    "proxy_action": {
+      "on": "Til",
+      "off": "Fra"
+    },
+    "quit": "Afslut",
+    "rule_mode": "Regel Tilstand",
+    "script_mode": "Script Tilstand",
+    "system_proxy": "System Proxy",
+    "tun_mode": "TUN Tilstand"
+  },
+  "dialog": {
+    "panic": "Rapporter venligst dette problem til Github issue tracker.",
+    "migrate": "Gammel versionskonfiguration fundet. Migrer til ny version?\nADVARSEL: Dette vil overskrive din nuværende konfiguration, hvis den findes",
+    "custom_app_dir_migrate": "Du vil indstille brugerdefineret app-mappe til %{path}\nSkal vi flytte den nuværende app-mappe til den nye?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN-tilstand kræver administratorrettigheder eller servicetilstand, ingen er aktiveret, TUN-tilstand vil ikke fungere korrekt."
+    },
+    "info": {
+      "grant_core_permission": "Clash-kernen har brug for administratorrettigheder for at få TUN-tilstand til at fungere korrekt, giv det?\nBemærk venligst, at denne handling kræver indtastning af adgangskode."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Afbryd forbindelser når proxy ændres"
+        },
+        "profile": {
+          "label": "Afbryd forbindelser når profil ændres"
+        },
+        "mode": {
+          "label": "Afbryd forbindelser når tilstand ændres"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Afbryd forbindelser når proxy ændres",
+  "break_when_profile_change": "Afbryd forbindelser når profil ændres",
+  "break_when_mode_change": "Afbryd forbindelser når tilstand ændres"
+}

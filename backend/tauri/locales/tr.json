@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Env Kopyala (CMD)",
+      "ps": "Env Kopyala (PS)",
+      "sh": "Env Kopyala (sh)"
+    },
+    "no_proxies": "Proxy Yok",
+    "select_proxies": "Proxy Seç",
+    "dashboard": "Panel",
+    "direct_mode": "Doğrudan Mod",
+    "global_mode": "Küresel Mod",
+    "more": {
+      "menu": "Daha Fazla",
+      "restart_app": "Uygulamayı Yeniden Başlat",
+      "restart_clash": "Clash'i Yeniden Başlat"
+    },
+    "open_dir": {
+      "menu": "Dizini Aç",
+      "app_config_dir": "Yapılandırma Dizini",
+      "app_data_dir": "Veri Dizini",
+      "core_dir": "Çekirdek Dizini",
+      "log_dir": "Günlük Dizini"
+    },
+    "proxy_action": {
+      "on": "Açık",
+      "off": "Kapalı"
+    },
+    "quit": "Çıkış",
+    "rule_mode": "Kural Modu",
+    "script_mode": "Komut Dosyası Modu",
+    "system_proxy": "Sistem Proxy",
+    "tun_mode": "TUN Modu"
+  },
+  "dialog": {
+    "panic": "Lütfen bu sorunu Github sorun izleyicisine bildirin.",
+    "migrate": "Eski sürüm yapılandırma dosyası algılandı. Yeni sürüme geçilsin mi?\nUYARI: Bu, varsa mevcut yapılandırmanızın üzerine yazacaktır",
+    "custom_app_dir_migrate": "Özel uygulama dizinini %{path} olarak ayarlayacaksınız\nMevcut uygulama dizinini yeni olana taşıyalım mı?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN modu yönetici izni veya hizmet modu gerektirir, hiçbiri etkin değil, TUN modu düzgün çalışmayacaktır."
+    },
+    "info": {
+      "grant_core_permission": "Clash çekirdeğinin TUN modunun düzgün çalışması için yönetici iznine ihtiyacı var, verilsin mi?\nLütfen bu işlemin parola girişi gerektirdiğini unutmayın."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Proxy değiştiğinde bağlantıları kes"
+        },
+        "profile": {
+          "label": "Profil değiştiğinde bağlantıları kes"
+        },
+        "mode": {
+          "label": "Mod değiştiğinde bağlantıları kes"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Proxy değiştiğinde bağlantıları kes",
+  "break_when_profile_change": "Profil değiştiğinde bağlantıları kes",
+  "break_when_mode_change": "Mod değiştiğinde bağlantıları kes"
+}

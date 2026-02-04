@@ -1,0 +1,50 @@
+{
+  "name": "@nyanpasu/ui",
+<<<<<<< HEAD
+  "version": "2.0.0",
+=======
+  "version": "2.6.13",
+>>>>>>> cca0f91e5b3534817b94d9736a4ac8fadf96b5b1
+  "type": "module",
+  "main": "./src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build --sourcemap"
+  },
+  "dependencies": {
+    "@material/material-color-utilities": "0.3.0",
+    "@mui/icons-material": "7.3.6",
+    "@mui/lab": "7.0.0-beta.17",
+    "@mui/material": "7.3.6",
+    "@radix-ui/react-portal": "1.1.10",
+    "@radix-ui/react-scroll-area": "1.2.10",
+    "@tauri-apps/api": "2.8.0",
+    "@types/d3": "7.4.3",
+    "@types/react": "19.2.7",
+    "@vitejs/plugin-react": "5.1.2",
+    "ahooks": "3.9.6",
+    "d3": "7.9.0",
+    "framer-motion": "12.23.26",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-error-boundary": "6.0.0",
+    "react-i18next": "15.7.4",
+    "react-use": "17.6.0",
+    "tailwindcss": "4.1.18",
+    "vite": "7.3.0",
+    "vite-tsconfig-paths": "5.1.4"
+  },
+  "devDependencies": {
+    "@emotion/react": "11.14.0",
+    "@types/d3-interpolate-path": "2.0.3",
+    "clsx": "2.1.1",
+    "d3-interpolate-path": "2.3.0",
+    "sass-embedded": "1.97.1",
+    "tailwind-merge": "3.4.0",
+    "typescript-plugin-css-modules": "5.2.0",
+    "vite-plugin-dts": "4.5.4"
+  }
+}

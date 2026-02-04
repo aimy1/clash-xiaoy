@@ -1,0 +1,365 @@
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - release-*
+  push:
+    branches:
+      - main
+      - dev
+      - release-*
+
+# the name of our workflow
+name: CI
+
+jobs:
+  lint:
+    name: Lint
+    strategy:
+      matrix:
+        targets:
+          - os: ubuntu-latest
+          - os: macos-latest
+          - os: windows-latest
+    runs-on: ${{ matrix.targets.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Rust
+        run: |
+          rustup toolchain install nightly --profile minimal --no-self-update
+          rustup default nightly
+          rustup component add clippy rustfmt
+          rustc --version
+          cargo --version
+          rustup show
+
+      - name: Tauri dependencies
+        if: startsWith(matrix.targets.os, 'ubuntu-')
+        run: >-
+          sudo apt-get update &&
+          sudo apt-get install -y
+          libgtk-3-dev
+          libayatana-appindicator3-dev
+          libwebkit2gtk-4.1-dev
+          librsvg2-dev
+          libxdo-dev
+          webkit2gtk-driver
+          xvfb
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        if: startsWith(matrix.targets.os, 'macos-')
+        with:
+          xcode-version: 'latest-stable'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - uses: actions/cache@v4
+        name: Cache Rust dependencies
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Prepare fronend
+        run: pnpm -r build # Build frontend
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+      - name: Prepare sidecar and resources
+        run: pnpm prepare:check
+      - name: Lint
+        if: startsWith(matrix.targets.os, 'ubuntu-')
+        run: pnpm lint # Lint
+      - name: Lint
+        if: startsWith(matrix.targets.os, 'ubuntu-') == false
+        run: pnpm run-p lint:clippy lint:rustfmt # Lint
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
+  # TODO: support test cross-platform
+  build:
+    name: Build Tauri
+    strategy:
+      matrix:
+        targets:
+          - os: ubuntu-latest
+          - os: macos-latest
+          - os: windows-latest
+      fail-fast: false
+    if: >
+      github.event_name != 'pull_request' || 
+      contains(github.event.pull_request.title, 'crate') || 
+      github.event.pull_request.user.login != 'renovate[bot]'
+    runs-on: ${{ matrix.targets.os }}
+    needs: lint
+    steps:
+      - uses: actions/checkout@v5
+      - name: Tauri dependencies
+        if: startsWith(matrix.targets.os, 'ubuntu-')
+        run: >-
+          sudo apt-get update &&
+          sudo apt-get install -y
+          libgtk-3-dev
+          libayatana-appindicator3-dev
+          libwebkit2gtk-4.1-dev
+          librsvg2-dev
+          libxdo-dev
+          webkit2gtk-driver
+          xvfb
+      - uses: maxim-lobanov/setup-xcode@v1
+        if: startsWith(matrix.targets.os, 'macos-')
+        with:
+          xcode-version: 'latest-stable'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - uses: actions/cache@v4
+        name: Cache Rust dependencies
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Prepare sidecar and resources
+        run: pnpm prepare:check
+
+      - name: Prepare frontend
+        run: pnpm -r build
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
+      - name: Build Backend
+        run: cargo build --release --manifest-path backend/Cargo.toml
+
+  test_unit:
+    name: Unit Test
+    needs: lint
+    if: >
+      github.event_name != 'pull_request' || 
+      contains(github.event.pull_request.title, 'crate') || 
+      github.event.pull_request.user.login != 'renovate[bot]'
+
+    # we want to run on the latest linux environment
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+
+    # the steps our job runs **in order**
+    steps:
+      # checkout the code on the workflow runner
+      - uses: actions/checkout@v5
+
+      # install system dependencies that Tauri needs to compile on Linux.
+      # note the extra dependencies for `tauri-driver` to run which are: `webkit2gtk-driver` and `xvfb`
+      - name: Tauri dependencies
+        if: startsWith(matrix.os, 'ubuntu-')
+        run: >-
+          sudo apt-get update &&
+          sudo apt-get install -y
+          libgtk-3-dev
+          libayatana-appindicator3-dev
+          libwebkit2gtk-4.1-dev
+          librsvg2-dev
+          libxdo-dev
+          webkit2gtk-driver
+          xvfb
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        if: startsWith(matrix.os, 'macos-')
+        with:
+          xcode-version: 'latest-stable'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - uses: actions/cache@v4
+        name: Cache Rust dependencies
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Prepare sidecar and resources
+        run: pnpm prepare:check
+
+      - name: Prepare frontend
+        run: pnpm -r build
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
+      - name: Free up disk space
+        if: startsWith(matrix.os, 'ubuntu-')
+        run: |
+          df -h
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force
+          df -h
+
+      - name: Test
+        run: pnpm test
+
+  # test_e2e:
+  #   # the display name of the test job
+  #   name: E2E Test
+  #   needs: lint
+  #   # we want to run on the latest linux environment
+  #   runs-on: ubuntu-latest
+
+  #   # the steps our job runs **in order**
+  #   steps:
+  #     # checkout the code on the workflow runner
+  #     - uses: actions/checkout@v4
+
+  #     # install system dependencies that Tauri needs to compile on Linux.
+  #     # note the extra dependencies for `tauri-driver` to run which are: `webkit2gtk-driver` and `xvfb`
+  #     - name: Tauri dependencies
+  #       run: >-
+  #         sudo apt-get update &&
+  #         sudo apt-get install -y
+  #         libgtk-3-dev
+  #         libayatana-appindicator3-dev
+  #         libwebkit2gtk-4.0-dev
+  #         webkit2gtk-driver
+  #         xvfb
+
+  #     # install the latest Rust stable
+  #     - name: Rust stable
+  #       run: rustup toolchain install stable --profile minimal
+  #     - uses: Swatinem/rust-cache@v2
+  #       with:
+  #         workspaces: "./backend/"
+  #         prefix-key: "rust-stable"
+  #         shared-key: "ci"
+  #         save-if: ${{ github.ref == 'refs/heads/main' }}
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+
+  #     - uses: pnpm/action-setup@v2
+  #       name: Install pnpm
+  #       with:
+  #         version: 8
+  #         run_install: false
+
+  #     - name: Get pnpm store directory
+  #       shell: bash
+  #       run: |
+  #         echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+  #     - uses: actions/cache@v3
+  #       name: Setup pnpm cache
+  #       with:
+  #         path: ${{ env.STORE_PATH }}
+  #         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+  #         restore-keys: |
+  #             ${{ runner.os }}-pnpm-store-
+
+  #     - name: Install dependencies
+  #       run: pnpm install
+
+  #     # install the latest version of `tauri-driver`.
+  #     # note: the tauri-driver version is independent of any other Tauri versions
+  #     - name: Install tauri-driver
+  #       uses: actions-rs/cargo@v1
+  #       with:
+  #         command: install
+  #         args: tauri-driver
+  #     - name: Prepare fronend
+  #       run: pnpm build # Build frontend
+  #     # run the WebdriverIO test suite.
+  #     # we run it through `xvfb-run` (the dependency we installed earlier) to have a fake
+  #     # display server which allows our application to run headless without any changes to the code
+  #     - name: Test
+  #       run: xvfb-run pnpm test:e2e
