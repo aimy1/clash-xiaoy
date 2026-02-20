@@ -1,0 +1,12 @@
+*.rs
+*.lock
+**/target/
+dist/
+**/node_modules/
+pnpm-lock.yaml
+*.lock
+*.wxs
+frontend/nyanpasu/src/route-tree.gen.ts
+frontend/nyanpasu/auto-imports.d.ts
+frontend/nyanpasu/src/paraglide/
+backend/tauri/gen/schemas/

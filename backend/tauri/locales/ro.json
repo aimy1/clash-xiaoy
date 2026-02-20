@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copiază Env (CMD)",
+      "ps": "Copiază Env (PS)",
+      "sh": "Copiază Env (sh)"
+    },
+    "no_proxies": "Fără Proxy-uri",
+    "select_proxies": "Selectează Proxy-uri",
+    "dashboard": "Panou de control",
+    "direct_mode": "Mod Direct",
+    "global_mode": "Mod Global",
+    "more": {
+      "menu": "Mai mult",
+      "restart_app": "Repornește Aplicația",
+      "restart_clash": "Repornește Clash"
+    },
+    "open_dir": {
+      "menu": "Deschide Director",
+      "app_config_dir": "Director Configurare",
+      "app_data_dir": "Director Date",
+      "core_dir": "Director Core",
+      "log_dir": "Director Jurnale"
+    },
+    "proxy_action": {
+      "on": "Pornit",
+      "off": "Oprit"
+    },
+    "quit": "Ieșire",
+    "rule_mode": "Mod Reguli",
+    "script_mode": "Mod Script",
+    "system_proxy": "Proxy Sistem",
+    "tun_mode": "Mod TUN"
+  },
+  "dialog": {
+    "panic": "Vă rugăm să raportați această problemă pe Github issue tracker.",
+    "migrate": "S-a detectat un fișier de configurare versiune veche. Migrați la versiunea nouă?\nATENȚIE: Aceasta va suprascrie configurația curentă dacă există",
+    "custom_app_dir_migrate": "Veți seta directorul personalizat al aplicației la %{path}\nMutăm directorul curent al aplicației la cel nou?",
+    "warning": {
+      "enable_tun_with_no_permission": "Modul TUN necesită permisiunea de administrator sau modul serviciu, niciunul nu este activat, modul TUN nu va funcționa corect."
+    },
+    "info": {
+      "grant_core_permission": "Clash core necesită permisiunea de administrator pentru ca modul TUN să funcționeze corect, acordați?\nVă rugăm să rețineți că această operațiune necesită introducerea parolei."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Întrerupe conexiunile la schimbarea proxy-ului"
+        },
+        "profile": {
+          "label": "Întrerupe conexiunile la schimbarea profilului"
+        },
+        "mode": {
+          "label": "Întrerupe conexiunile la schimbarea modului"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Întrerupe conexiunile la schimbarea proxy-ului",
+  "break_when_profile_change": "Întrerupe conexiunile la schimbarea profilului",
+  "break_when_mode_change": "Întrerupe conexiunile la schimbarea modului"
+}

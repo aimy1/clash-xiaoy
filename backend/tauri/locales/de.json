@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Env kopieren (CMD)",
+      "ps": "Env kopieren (PS)",
+      "sh": "Env kopieren (sh)"
+    },
+    "no_proxies": "Keine Proxies",
+    "select_proxies": "Proxies auswählen",
+    "dashboard": "Übersicht",
+    "direct_mode": "Direkter Modus",
+    "global_mode": "Globaler Modus",
+    "more": {
+      "menu": "Mehr",
+      "restart_app": "App neu starten",
+      "restart_clash": "Clash neu starten"
+    },
+    "open_dir": {
+      "menu": "Verzeichnis öffnen",
+      "app_config_dir": "Konfig-Verzeichnis",
+      "app_data_dir": "Daten-Verzeichnis",
+      "core_dir": "Core-Verzeichnis",
+      "log_dir": "Log-Verzeichnis"
+    },
+    "proxy_action": {
+      "on": "Ein",
+      "off": "Aus"
+    },
+    "quit": "Beenden",
+    "rule_mode": "Regel-Modus",
+    "script_mode": "Skript-Modus",
+    "system_proxy": "System-Proxy",
+    "tun_mode": "TUN-Modus"
+  },
+  "dialog": {
+    "panic": "Bitte melden Sie dieses Problem im Github Issue Tracker.",
+    "migrate": "Konfigurationsdatei einer alten Version gefunden. Auf neue Version migrieren?\nWARNUNG: Dies überschreibt Ihre aktuelle Konfiguration, falls vorhanden",
+    "custom_app_dir_migrate": "Sie setzen das benutzerdefinierte App-Verzeichnis auf %{path}\nSollen wir das aktuelle App-Verzeichnis in das neue verschieben?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN-Modus erfordert Administratorrechte oder Service-Modus, beides ist nicht aktiviert, TUN-Modus wird nicht korrekt funktionieren."
+    },
+    "info": {
+      "grant_core_permission": "Der Clash-Core benötigt Administratorrechte, damit der TUN-Modus korrekt funktioniert. Gewähren?\nBitte beachten Sie, dass für diesen Vorgang ein Passwort eingegeben werden muss."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Verbindungen unterbrechen, wenn sich der Proxy ändert"
+        },
+        "profile": {
+          "label": "Verbindungen unterbrechen, wenn sich das Profil ändert"
+        },
+        "mode": {
+          "label": "Verbindungen unterbrechen, wenn sich der Modus ändert"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Verbindungen unterbrechen, wenn sich der Proxy ändert",
+  "break_when_profile_change": "Verbindungen unterbrechen, wenn sich das Profil ändert",
+  "break_when_mode_change": "Verbindungen unterbrechen, wenn sich der Modus ändert"
+}

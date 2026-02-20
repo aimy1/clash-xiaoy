@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copiar Env (CMD)",
+      "ps": "Copiar Env (PS)",
+      "sh": "Copiar Env (sh)"
+    },
+    "no_proxies": "Sin Proxies",
+    "select_proxies": "Seleccionar Proxies",
+    "dashboard": "Panel de Control",
+    "direct_mode": "Modo Directo",
+    "global_mode": "Modo Global",
+    "more": {
+      "menu": "Más",
+      "restart_app": "Reiniciar App",
+      "restart_clash": "Reiniciar Clash"
+    },
+    "open_dir": {
+      "menu": "Abrir Carpeta",
+      "app_config_dir": "Carpeta Config",
+      "app_data_dir": "Carpeta Datos",
+      "core_dir": "Carpeta Núcleo",
+      "log_dir": "Carpeta Logs"
+    },
+    "proxy_action": {
+      "on": "Encendido",
+      "off": "Apagado"
+    },
+    "quit": "Salir",
+    "rule_mode": "Modo Regla",
+    "script_mode": "Modo Script",
+    "system_proxy": "Proxy del Sistema",
+    "tun_mode": "Modo TUN"
+  },
+  "dialog": {
+    "panic": "Por favor reporte este problema en el tracker de Github.",
+    "migrate": "Configuración de versión antigua detectada. ¿Migrar a la nueva versión?\nADVERTENCIA: Esto sobrescribirá su configuración actual si existe",
+    "custom_app_dir_migrate": "Va a establecer el directorio de la aplicación personalizado en %{path}\n¿Deberíamos mover el directorio actual al nuevo?",
+    "warning": {
+      "enable_tun_with_no_permission": "El modo TUN requiere permiso de administrador o modo servicio, ninguno está habilitado, el modo TUN no funcionará correctamente."
+    },
+    "info": {
+      "grant_core_permission": "El núcleo Clash necesita permiso de administrador para que el modo TUN funcione correctamente, ¿concederlo?\nTenga en cuenta que esta operación requiere ingresar la contraseña."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Interrumpir conexiones al cambiar proxy"
+        },
+        "profile": {
+          "label": "Interrumpir conexiones al cambiar perfil"
+        },
+        "mode": {
+          "label": "Interrumpir conexiones al cambiar modo"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Interrumpir conexiones al cambiar proxy",
+  "break_when_profile_change": "Interrumpir conexiones al cambiar perfil",
+  "break_when_mode_change": "Interrumpir conexiones al cambiar modo"
+}

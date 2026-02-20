@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copiar Env (CMD)",
+      "ps": "Copiar Env (PS)",
+      "sh": "Copiar Env (sh)"
+    },
+    "no_proxies": "Sense Proxies",
+    "select_proxies": "Seleccionar Proxies",
+    "dashboard": "Tauler de Control",
+    "direct_mode": "Mode Directe",
+    "global_mode": "Mode Global",
+    "more": {
+      "menu": "Més",
+      "restart_app": "Reiniciar App",
+      "restart_clash": "Reiniciar Clash"
+    },
+    "open_dir": {
+      "menu": "Obrir Directori",
+      "app_config_dir": "Directori Config",
+      "app_data_dir": "Directori Dades",
+      "core_dir": "Directori Nucli",
+      "log_dir": "Directori Registres"
+    },
+    "proxy_action": {
+      "on": "Encès",
+      "off": "Apagat"
+    },
+    "quit": "Sortir",
+    "rule_mode": "Mode Regla",
+    "script_mode": "Mode Script",
+    "system_proxy": "Proxy del Sistema",
+    "tun_mode": "Mode TUN"
+  },
+  "dialog": {
+    "panic": "Si us plau, informeu d'aquest problema al rastrejador de problemes de Github.",
+    "migrate": "S'ha detectat una versió antiga del fitxer de configuració. Voleu migrar a la nova versió?\nADVERTÈNCIA: Això sobreescriurà la vostra configuració actual si existeix",
+    "custom_app_dir_migrate": "Esteu a punt d'establir el directori d'aplicació personalitzat a %{path}\nMovem el directori actual de l'aplicació al nou?",
+    "warning": {
+      "enable_tun_with_no_permission": "El mode TUN requereix permís d'administrador o mode servei, cap dels dos està habilitat, el mode TUN no funcionarà correctament."
+    },
+    "info": {
+      "grant_core_permission": "El nucli de Clash necessita permís d'administrador perquè el mode TUN funcioni correctament, voleu concedir-lo?\nTingueu en compte que aquesta operació requereix introduir la contrasenya."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Interrompre connexions en canviar proxy"
+        },
+        "profile": {
+          "label": "Interrompre connexions en canviar perfil"
+        },
+        "mode": {
+          "label": "Interrompre connexions en canviar mode"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Interrompre connexions en canviar proxy",
+  "break_when_profile_change": "Interrompre connexions en canviar perfil",
+  "break_when_mode_change": "Interrompre connexions en canviar mode"
+}

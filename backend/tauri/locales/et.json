@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopeeri Env (CMD)",
+      "ps": "Kopeeri Env (PS)",
+      "sh": "Kopeeri Env (sh)"
+    },
+    "no_proxies": "Puhverserverid Puuduvad",
+    "select_proxies": "Vali Puhverserverid",
+    "dashboard": "Töölaud",
+    "direct_mode": "Otse Režiim",
+    "global_mode": "Globaalne Režiim",
+    "more": {
+      "menu": "Rohkem",
+      "restart_app": "Taaskäivita Rakendus",
+      "restart_clash": "Taaskäivita Clash"
+    },
+    "open_dir": {
+      "menu": "Ava Kaust",
+      "app_config_dir": "Konfig Kaust",
+      "app_data_dir": "Andmete Kaust",
+      "core_dir": "Tuuma Kaust",
+      "log_dir": "Logi Kaust"
+    },
+    "proxy_action": {
+      "on": "Sees",
+      "off": "Väljas"
+    },
+    "quit": "Välju",
+    "rule_mode": "Reegli Režiim",
+    "script_mode": "Skripti Režiim",
+    "system_proxy": "Süsteemi Puhverserver",
+    "tun_mode": "TUN Režiim"
+  },
+  "dialog": {
+    "panic": "Palun teata sellest probleemist Githubi probleemide jälgijas.",
+    "migrate": "Tuvastati vana versiooni konfiguratsioonifail. Kas migreeruda uuele versioonile?\nHOIATUS: See kirjutab teie praeguse konfiguratsiooni üle, kui see on olemas",
+    "custom_app_dir_migrate": "Määrate kohandatud rakenduse kataloogi asukohaks %{path}\nKas liigutame praeguse rakenduse kataloogi uude?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN režiim nõuab administraatori õigusi või teenuse režiimi, kumbki pole lubatud, TUN režiim ei tööta korralikult."
+    },
+    "info": {
+      "grant_core_permission": "Clash tuum vajab TUN režiimi korralikuks toimimiseks administraatori õigusi, kas anda?\nPange tähele, et see toiming nõuab parooli sisestamist."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Katkesta ühendused puhverserveri muutumisel"
+        },
+        "profile": {
+          "label": "Katkesta ühendused profiili muutumisel"
+        },
+        "mode": {
+          "label": "Katkesta ühendused režiimi muutumisel"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Katkesta ühendused puhverserveri muutumisel",
+  "break_when_profile_change": "Katkesta ühendused profiili muutumisel",
+  "break_when_mode_change": "Katkesta ühendused režiimi muutumisel"
+}

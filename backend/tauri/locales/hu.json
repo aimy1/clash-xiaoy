@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Env Másolása (CMD)",
+      "ps": "Env Másolása (PS)",
+      "sh": "Env Másolása (sh)"
+    },
+    "no_proxies": "Nincs Proxy",
+    "select_proxies": "Proxy Választása",
+    "dashboard": "Irányítópult",
+    "direct_mode": "Közvetlen Mód",
+    "global_mode": "Globális Mód",
+    "more": {
+      "menu": "Több",
+      "restart_app": "App Újraindítása",
+      "restart_clash": "Clash Újraindítása"
+    },
+    "open_dir": {
+      "menu": "Mappa Megnyitása",
+      "app_config_dir": "Konfig Mappa",
+      "app_data_dir": "Adat Mappa",
+      "core_dir": "Mag Mappa",
+      "log_dir": "Napló Mappa"
+    },
+    "proxy_action": {
+      "on": "Be",
+      "off": "Ki"
+    },
+    "quit": "Kilépés",
+    "rule_mode": "Szabály Mód",
+    "script_mode": "Szkript Mód",
+    "system_proxy": "Rendszer Proxy",
+    "tun_mode": "TUN Mód"
+  },
+  "dialog": {
+    "panic": "Kérjük, jelentse ezt a problémát a Github hibakövetőjében.",
+    "migrate": "Régi verziójú konfigurációs fájl észlelve. Migrálás új verzióra?\nFIGYELEM: Ez felülírja a jelenlegi konfigurációját, ha létezik",
+    "custom_app_dir_migrate": "Az egyéni alkalmazás könyvtárat erre állítja: %{path}\nÁthelyezzük a jelenlegi alkalmazás könyvtárat az újra?",
+    "warning": {
+      "enable_tun_with_no_permission": "A TUN módhoz rendszergazdai jogosultság vagy szolgáltatás mód szükséges, egyik sincs engedélyezve, a TUN mód nem fog megfelelően működni."
+    },
+    "info": {
+      "grant_core_permission": "A Clash magnak rendszergazdai jogosultságra van szüksége a TUN mód megfelelő működéséhez, megadja?\nKérjük, vegye figyelembe, hogy ez a művelet jelszó megadását igényli."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Kapcsolatok megszakítása proxy váltáskor"
+        },
+        "profile": {
+          "label": "Kapcsolatok megszakítása profil váltáskor"
+        },
+        "mode": {
+          "label": "Kapcsolatok megszakítása mód váltáskor"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Kapcsolatok megszakítása proxy váltáskor",
+  "break_when_profile_change": "Kapcsolatok megszakítása profil váltáskor",
+  "break_when_mode_change": "Kapcsolatok megszakítása mód váltáskor"
+}

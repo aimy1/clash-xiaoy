@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopiraj Env (CMD)",
+      "ps": "Kopiraj Env (PS)",
+      "sh": "Kopiraj Env (sh)"
+    },
+    "no_proxies": "Ni posrednikov",
+    "select_proxies": "Izberi posrednike",
+    "dashboard": "Nadzorna plošča",
+    "direct_mode": "Neposredni način",
+    "global_mode": "Globalni način",
+    "more": {
+      "menu": "Več",
+      "restart_app": "Znova zaženi aplikacijo",
+      "restart_clash": "Znova zaženi Clash"
+    },
+    "open_dir": {
+      "menu": "Odpri mapo",
+      "app_config_dir": "Mapa konfiguracije",
+      "app_data_dir": "Mapa podatkov",
+      "core_dir": "Mapa jedra",
+      "log_dir": "Mapa dnevnikov"
+    },
+    "proxy_action": {
+      "on": "Vklop",
+      "off": "Izklop"
+    },
+    "quit": "Izhod",
+    "rule_mode": "Način pravil",
+    "script_mode": "Način skripta",
+    "system_proxy": "Sistemski posrednik",
+    "tun_mode": "Način TUN"
+  },
+  "dialog": {
+    "panic": "Prosimo, prijavite to težavo na sledilniku težav Github.",
+    "migrate": "Zaznana je bila konfiguracijska datoteka stare različice. Ali želite preseliti na novo različico?\nOPOZORILO: To bo prepisalo vašo trenutno konfiguracijo, če obstaja",
+    "custom_app_dir_migrate": "Nastavili boste mapo aplikacije po meri na %{path}\nAli naj premaknemo trenutno mapo aplikacije v novo?",
+    "warning": {
+      "enable_tun_with_no_permission": "Način TUN zahteva skrbniško dovoljenje ali način storitve, noben ni omogočen, način TUN ne bo deloval pravilno."
+    },
+    "info": {
+      "grant_core_permission": "Clash jedro potrebuje skrbniško dovoljenje za pravilno delovanje načina TUN, odobri?\nUpoštevajte, da ta operacija zahteva vnos gesla."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Prekini povezave ob spremembi posrednika"
+        },
+        "profile": {
+          "label": "Prekini povezave ob spremembi profila"
+        },
+        "mode": {
+          "label": "Prekini povezave ob spremembi načina"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Prekini povezave ob spremembi posrednika",
+  "break_when_profile_change": "Prekini povezave ob spremembi profila",
+  "break_when_mode_change": "Prekini povezave ob spremembi načina"
+}

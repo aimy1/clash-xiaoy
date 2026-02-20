@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "環境変数をコピー (CMD)",
+      "ps": "環境変数をコピー (PS)",
+      "sh": "環境変数をコピー (sh)"
+    },
+    "no_proxies": "プロキシなし",
+    "select_proxies": "プロキシ選択",
+    "dashboard": "ダッシュボード",
+    "direct_mode": "ダイレクトモード",
+    "global_mode": "グローバルモード",
+    "more": {
+      "menu": "その他",
+      "restart_app": "アプリを再起動",
+      "restart_clash": "Clashを再起動"
+    },
+    "open_dir": {
+      "menu": "ディレクトリを開く",
+      "app_config_dir": "設定ディレクトリ",
+      "app_data_dir": "データディレクトリ",
+      "core_dir": "コアディレクトリ",
+      "log_dir": "ログディレクトリ"
+    },
+    "proxy_action": {
+      "on": "オン",
+      "off": "オフ"
+    },
+    "quit": "終了",
+    "rule_mode": "ルールモード",
+    "script_mode": "スクリプトモード",
+    "system_proxy": "システムプロキシ",
+    "tun_mode": "TUNモード"
+  },
+  "dialog": {
+    "panic": "Githubのissueトラッカーにこの問題を報告してください。",
+    "migrate": "古いバージョンの設定ファイルが検出されました。新しいバージョンに移行しますか？\n警告：これにより、既存の現在の設定が上書きされます",
+    "custom_app_dir_migrate": "カスタムアプリディレクトリを %{path} に設定しようとしています\n現在のアプリディレクトリを新しい場所に移動しますか？",
+    "warning": {
+      "enable_tun_with_no_permission": "TUNモードには管理者権限またはサービスモードが必要ですが、どちらも有効になっていません。TUNモードは正しく機能しません。"
+    },
+    "info": {
+      "grant_core_permission": "ClashコアはTUNモードを正しく機能させるために管理者権限が必要です。許可しますか？\nこの操作にはパスワードの入力が必要です。"
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "プロキシ変更時に接続を中断する"
+        },
+        "profile": {
+          "label": "プロファイル変更時に接続を中断する"
+        },
+        "mode": {
+          "label": "モード変更時に接続を中断する"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "プロキシ変更時に接続を中断する",
+  "break_when_profile_change": "プロファイル変更時に接続を中断する",
+  "break_when_mode_change": "モード変更時に接続を中断する"
+}

@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopjo Env (CMD)",
+      "ps": "Kopjo Env (PS)",
+      "sh": "Kopjo Env (sh)"
+    },
+    "no_proxies": "Pa Proxy",
+    "select_proxies": "Zgjidh Proxy",
+    "dashboard": "Paneli",
+    "direct_mode": "Modaliteti Direkt",
+    "global_mode": "Modaliteti Global",
+    "more": {
+      "menu": "Më shumë",
+      "restart_app": "Rinis Aplikacionin",
+      "restart_clash": "Rinis Clash"
+    },
+    "open_dir": {
+      "menu": "Hap Dosjen",
+      "app_config_dir": "Dosja e Konfigurimit",
+      "app_data_dir": "Dosja e Të Dhënave",
+      "core_dir": "Dosja Core",
+      "log_dir": "Dosja e Log"
+    },
+    "proxy_action": {
+      "on": "Ndezur",
+      "off": "Fikur"
+    },
+    "quit": "Dil",
+    "rule_mode": "Modaliteti i Rregullave",
+    "script_mode": "Modaliteti i Skriptit",
+    "system_proxy": "Proxy i Sistemit",
+    "tun_mode": "Modaliteti TUN"
+  },
+  "dialog": {
+    "panic": "Ju lutemi raportoni këtë problem në gjurmuesin e problemeve të Github.",
+    "migrate": "U zbulua skedari i konfigurimit të versionit të vjetër. Të migrohet në versionin e ri?\nPARALAJMËRIM: Kjo do të mbishkruajë konfigurimin tuaj aktual nëse ekziston",
+    "custom_app_dir_migrate": "Ju do të vendosni dosjen e personalizuar të aplikacionit në %{path}\nA duhet ta zhvendosim dosjen aktuale të aplikacionit në atë të re?",
+    "warning": {
+      "enable_tun_with_no_permission": "Modaliteti TUN kërkon leje administratori ose modalitet shërbimi, asnjëra nuk është e aktivizuar, modaliteti TUN nuk do të funksionojë siç duhet."
+    },
+    "info": {
+      "grant_core_permission": "Clash core ka nevojë për leje administratori që modaliteti TUN të funksionojë siç duhet, t'i jepet?\nJu lutemi vini re se ky operacion kërkon futjen e fjalëkalimit."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Ndërprit lidhjet kur ndryshon proxy"
+        },
+        "profile": {
+          "label": "Ndërprit lidhjet kur ndryshon profili"
+        },
+        "mode": {
+          "label": "Ndërprit lidhjet kur ndryshon modaliteti"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Ndërprit lidhjet kur ndryshon proxy",
+  "break_when_profile_change": "Ndërprit lidhjet kur ndryshon profili",
+  "break_when_mode_change": "Ndërprit lidhjet kur ndryshon modaliteti"
+}

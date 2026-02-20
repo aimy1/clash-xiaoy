@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopieer Env (CMD)",
+      "ps": "Kopieer Env (PS)",
+      "sh": "Kopieer Env (sh)"
+    },
+    "no_proxies": "Geen gevolmagtigdes",
+    "select_proxies": "Kies gevolmagtigdes",
+    "dashboard": "Paneelbord",
+    "direct_mode": "Direkte modus",
+    "global_mode": "Globale modus",
+    "more": {
+      "menu": "Meer",
+      "restart_app": "Herbegin toepassing",
+      "restart_clash": "Herbegin Clash"
+    },
+    "open_dir": {
+      "menu": "Maak gids oop",
+      "app_config_dir": "Konfigurasiegids",
+      "app_data_dir": "Datagids",
+      "core_dir": "Kerngids",
+      "log_dir": "Loggids"
+    },
+    "proxy_action": {
+      "on": "Aan",
+      "off": "Af"
+    },
+    "quit": "Sluit",
+    "rule_mode": "Reëlmodus",
+    "script_mode": "Skripmodus",
+    "system_proxy": "Stelselgevolmagtigde",
+    "tun_mode": "TUN-modus"
+  },
+  "dialog": {
+    "panic": "Rapporteer asseblief hierdie probleem by die Github-kwessie-spoorsnyer.",
+    "migrate": "Ou weergawe konfigurasielêer bespeur. Migreer na nuwe weergawe?\nWAARSKUWING: Dit sal jou huidige konfigurasie oorskryf indien dit bestaan",
+    "custom_app_dir_migrate": "Jy gaan die pasgemaakte toepassingsgids stel na %{path}\nMoet ons die huidige toepassingsgids na die nuwe een skuif?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN-modus vereis admin-toestemming of diensmodus, nie een is geaktiveer nie, TUN-modus sal nie behoorlik werk nie."
+    },
+    "info": {
+      "grant_core_permission": "Clash-kern benodig admin-toestemming om TUN-modus behoorlik te laat werk, toestaan?\nLet asseblief daarop dat hierdie bewerking wagwoordinvoer vereis."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Onderbreek verbindings wanneer gevolmagtigde verander"
+        },
+        "profile": {
+          "label": "Onderbreek verbindings wanneer profiel verander"
+        },
+        "mode": {
+          "label": "Onderbreek verbindings wanneer modus verander"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Onderbreek verbindings wanneer gevolmagtigde verander",
+  "break_when_profile_change": "Onderbreek verbindings wanneer profiel verander",
+  "break_when_mode_change": "Onderbreek verbindings wanneer modus verander"
+}

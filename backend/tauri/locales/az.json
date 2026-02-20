@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Env Kopyala (CMD)",
+      "ps": "Env Kopyala (PS)",
+      "sh": "Env Kopyala (sh)"
+    },
+    "no_proxies": "Proksi Yoxdur",
+    "select_proxies": "Proksi Seç",
+    "dashboard": "İdarə Paneli",
+    "direct_mode": "Birbaşa Rejim",
+    "global_mode": "Qlobal Rejim",
+    "more": {
+      "menu": "Daha Çox",
+      "restart_app": "Tətbiqi Yenidən Başlat",
+      "restart_clash": "Clash-ı Yenidən Başlat"
+    },
+    "open_dir": {
+      "menu": "Qovluğu Aç",
+      "app_config_dir": "Konfiq Qovluğu",
+      "app_data_dir": "Məlumat Qovluğu",
+      "core_dir": "Nüvə Qovluğu",
+      "log_dir": "Log Qovluğu"
+    },
+    "proxy_action": {
+      "on": "Açıq",
+      "off": "Bağlı"
+    },
+    "quit": "Çıxış",
+    "rule_mode": "Qayda Rejimi",
+    "script_mode": "Skript Rejimi",
+    "system_proxy": "Sistem Proksisi",
+    "tun_mode": "TUN Rejimi"
+  },
+  "dialog": {
+    "panic": "Zəhmət olmasa bu problemi Github issue tracker-də bildirin.",
+    "migrate": "Köhnə versiya konfiqurasiya faylı aşkar edildi. Yeni versiyaya miqrasiya edilsin?\nXƏBƏRDARLIQ: Bu, mövcud konfiqurasiyanızı (əgər varsa) üzərinə yazacaq",
+    "custom_app_dir_migrate": "Xüsusi tətbiq qovluğunu %{path} olaraq təyin edəcəksiniz\nMövcud tətbiq qovluğunu yenisinə köçürəkmi?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN rejimi admin icazəsi və ya xidmət rejimi tələb edir, heç biri aktiv deyil, TUN rejimi düzgün işləməyəcək."
+    },
+    "info": {
+      "grant_core_permission": "Clash nüvəsi TUN rejiminin düzgün işləməsi üçün admin icazəsinə ehtiyac duyur, verilsin?\nNəzərə alın ki, bu əməliyyat parol daxil edilməsini tələb edir."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Proksi dəyişdikdə əlaqələri kəs"
+        },
+        "profile": {
+          "label": "Profil dəyişdikdə əlaqələri kəs"
+        },
+        "mode": {
+          "label": "Rejim dəyişdikdə əlaqələri kəs"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Proksi dəyişdikdə əlaqələri kəs",
+  "break_when_profile_change": "Profil dəyişdikdə əlaqələri kəs",
+  "break_when_mode_change": "Rejim dəyişdikdə əlaqələri kəs"
+}

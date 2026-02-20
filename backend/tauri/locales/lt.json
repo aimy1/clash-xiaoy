@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopijuoti Env (CMD)",
+      "ps": "Kopijuoti Env (PS)",
+      "sh": "Kopijuoti Env (sh)"
+    },
+    "no_proxies": "Nėra įgaliotųjų serverių",
+    "select_proxies": "Pasirinkti įgaliotuosius serverius",
+    "dashboard": "Prietaisų skydelis",
+    "direct_mode": "Tiesioginis režimas",
+    "global_mode": "Globalus režimas",
+    "more": {
+      "menu": "Daugiau",
+      "restart_app": "Iš naujo paleisti programą",
+      "restart_clash": "Iš naujo paleisti Clash"
+    },
+    "open_dir": {
+      "menu": "Atidaryti katalogą",
+      "app_config_dir": "Konfigūracijos katalogas",
+      "app_data_dir": "Duomenų katalogas",
+      "core_dir": "Core katalogas",
+      "log_dir": "Žurnalų katalogas"
+    },
+    "proxy_action": {
+      "on": "Įjungta",
+      "off": "Išjungta"
+    },
+    "quit": "Išeiti",
+    "rule_mode": "Taisyklių režimas",
+    "script_mode": "Skriptų režimas",
+    "system_proxy": "Sistemos įgaliotasis serveris",
+    "tun_mode": "TUN režimas"
+  },
+  "dialog": {
+    "panic": "Prašome pranešti apie šią problemą Github problemų sekiklyje.",
+    "migrate": "Aptiktas senos versijos konfigūracijos failas. Migruoti į naują versiją?\nĮSPĖJIMAS: Tai perrašys jūsų dabartinę konfigūraciją, jei ji egzistuoja",
+    "custom_app_dir_migrate": "Jūs nustatysite pasirinktinį programos katalogą į %{path}\nAr perkelti dabartinį programos katalogą į naują?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN režimui reikalingas administratoriaus leidimas arba paslaugos režimas, nei vienas nėra įjungtas, TUN režimas neveiks tinkamai."
+    },
+    "info": {
+      "grant_core_permission": "Clash core reikia administratoriaus leidimo, kad TUN režimas veiktų tinkamai, suteikti?\nAtkreipkite dėmesį, kad šiai operacijai reikalingas slaptažodžio įvedimas."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Nutraukti ryšius pasikeitus įgaliotajam serveriui"
+        },
+        "profile": {
+          "label": "Nutraukti ryšius pasikeitus profiliui"
+        },
+        "mode": {
+          "label": "Nutraukti ryšius pasikeitus režimui"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Nutraukti ryšius pasikeitus įgaliotajam serveriui",
+  "break_when_profile_change": "Nutraukti ryšius pasikeitus profiliui",
+  "break_when_mode_change": "Nutraukti ryšius pasikeitus režimui"
+}

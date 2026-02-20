@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopieer Env (CMD)",
+      "ps": "Kopieer Env (PS)",
+      "sh": "Kopieer Env (sh)"
+    },
+    "no_proxies": "Geen Proxy's",
+    "select_proxies": "Selecteer Proxy's",
+    "dashboard": "Dashboard",
+    "direct_mode": "Directe Modus",
+    "global_mode": "Globale Modus",
+    "more": {
+      "menu": "Meer",
+      "restart_app": "Herstart App",
+      "restart_clash": "Herstart Clash"
+    },
+    "open_dir": {
+      "menu": "Open Map",
+      "app_config_dir": "Config Map",
+      "app_data_dir": "Data Map",
+      "core_dir": "Core Map",
+      "log_dir": "Log Map"
+    },
+    "proxy_action": {
+      "on": "Aan",
+      "off": "Uit"
+    },
+    "quit": "Afsluiten",
+    "rule_mode": "Regel Modus",
+    "script_mode": "Script Modus",
+    "system_proxy": "Systeem Proxy",
+    "tun_mode": "TUN Modus"
+  },
+  "dialog": {
+    "panic": "Meld dit probleem aub aan de Github issue tracker.",
+    "migrate": "Oude versie configuratiebestand gedetecteerd. Migreren naar nieuwe versie?\nWAARSCHUWING: Dit overschrijft uw huidige configuratie indien aanwezig",
+    "custom_app_dir_migrate": "U stelt een aangepaste app-map in op %{path}\nZullen we de huidige app-map naar de nieuwe verplaatsen?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN modus vereist beheerdersrechten of servicemodus, geen van beide is ingeschakeld, TUN modus zal niet goed werken."
+    },
+    "info": {
+      "grant_core_permission": "Clash core heeft beheerdersrechten nodig om TUN modus goed te laten werken, toestaan?\nHoud er rekening mee dat voor deze bewerking een wachtwoord vereist is."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Verbindingen verbreken wanneer proxy wijzigt"
+        },
+        "profile": {
+          "label": "Verbindingen verbreken wanneer profiel wijzigt"
+        },
+        "mode": {
+          "label": "Verbindingen verbreken wanneer modus wijzigt"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Verbindingen verbreken wanneer proxy wijzigt",
+  "break_when_profile_change": "Verbindingen verbreken wanneer profiel wijzigt",
+  "break_when_mode_change": "Verbindingen verbreken wanneer modus wijzigt"
+}
