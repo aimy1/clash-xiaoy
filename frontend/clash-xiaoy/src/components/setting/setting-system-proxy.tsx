@@ -1,7 +1,6 @@
 import { useLockFn } from 'ahooks'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Notice } from '@/components/base'
 import { formatError } from '@/utils'
 import { message } from '@/utils/notification'
 import { InputAdornment, List, ListItem } from '@mui/material'

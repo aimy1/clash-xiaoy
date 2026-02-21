@@ -1,7 +1,6 @@
 import { useLockFn } from 'ahooks'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Notice } from '@/components/base'
 import { formatError } from '@/utils'
 import { message } from '@/utils/notification'
 import { NetworkPing, SettingsEthernet } from '@mui/icons-material'
