@@ -6,6 +6,17 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release Tag (e.g. v2.7.16)'
+        required: true
+        type: string
+      nightly:
+        description: 'Nightly build'
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,7 +24,8 @@ permissions:
 env:
   CARGO_INCREMENTAL: 0
   RUST_BACKTRACE: short
-  RELEASE_TAG: ${{ github.event_name == 'release' && github.event.release.tag_name || github.ref_name }}
+  RELEASE_TAG: ${{ github.event_name == 'release' && github.event.release.tag_name || github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+  NIGHTLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.nightly || 'false' }}
 
 jobs:
   ensure_release:
@@ -34,7 +46,7 @@ jobs:
     with:
       portable: true
       fixed-webview: false
-      nightly: false
+      nightly: ${{ env.NIGHTLY == 'true' }}
       tag: ${{ env.RELEASE_TAG }}
       arch: 'x86_64'
     secrets: inherit
@@ -44,7 +56,7 @@ jobs:
     needs: [ensure_release]
     uses: ./.github/workflows/deps-build-linux.yaml
     with:
-      nightly: false
+      nightly: ${{ env.NIGHTLY == 'true' }}
       tag: ${{ env.RELEASE_TAG }}
       arch: 'x86_64'
     secrets: inherit
@@ -54,7 +66,7 @@ jobs:
     needs: [ensure_release]
     uses: ./.github/workflows/deps-build-macos.yaml
     with:
-      nightly: false
+      nightly: ${{ env.NIGHTLY == 'true' }}
       aarch64: false
       tag: ${{ env.RELEASE_TAG }}
     secrets: inherit
@@ -64,7 +76,7 @@ jobs:
     needs: [ensure_release]
     uses: ./.github/workflows/deps-build-macos.yaml
     with:
-      nightly: false
+      nightly: ${{ env.NIGHTLY == 'true' }}
       aarch64: true
       tag: ${{ env.RELEASE_TAG }}
     secrets: inherit
