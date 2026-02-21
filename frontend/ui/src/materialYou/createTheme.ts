@@ -127,7 +127,8 @@ export const createMDYTheme = (color: string, fontFamily?: string) => {
                 borderColor: 'var(--color-md-outline)',
               },
               '&.Mui-focused': {
-                boxShadow: '0 0 0 4px var(--primary-soft, rgba(0, 122, 255, 0.16))',
+                boxShadow:
+                  '0 0 0 4px var(--primary-soft, rgba(0, 122, 255, 0.16))',
               },
               '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                 borderColor: 'var(--primary-main, var(--color-md-primary))',

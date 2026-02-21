@@ -81,7 +81,8 @@ body {
 .ios-motion {
   transition-timing-function: var(--motion-ease-ios);
   transition-duration: var(--motion-duration-medium);
-  transition-property: transform, box-shadow, background-color, border-color, opacity, filter;
+  transition-property:
+    transform, box-shadow, background-color, border-color, opacity, filter;
   will-change: transform;
 }
 

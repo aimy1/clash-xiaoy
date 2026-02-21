@@ -16,7 +16,8 @@ export const LogFilter = () => {
       color: theme.palette.text.primary,
       transition: 'all 0.3s ease',
       '&:hover': {
-        backgroundColor: alpha(theme.palette.primary.main, 0.15) + ' !important',
+        backgroundColor:
+          alpha(theme.palette.primary.main, 0.15) + ' !important',
         borderColor: theme.palette.primary.main,
         boxShadow: `0 0 5px ${alpha(theme.palette.primary.main, 0.3)}`,
       },

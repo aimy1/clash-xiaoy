@@ -27,7 +27,12 @@ export const Dataline: FC<DatalineProps> = ({
   const { t } = useTranslation()
 
   return (
-    <Paper className={cn('relative overflow-hidden !rounded-3xl p-4 cyber-glass', className)}>
+    <Paper
+      className={cn(
+        'cyber-glass relative overflow-hidden !rounded-3xl p-4',
+        className,
+      )}
+    >
       <Sparkline
         data={data}
         className="absolute inset-0 opacity-40"
@@ -46,7 +51,7 @@ export const Dataline: FC<DatalineProps> = ({
           </div>
         </div>
 
-        <div className="text-2xl font-semibold tabular-nums text-[var(--text-title)]">
+        <div className="text-2xl font-semibold text-[var(--text-title)] tabular-nums">
           {type === 'raw' ? data.at(-1) : parseTraffic(data.at(-1)).join(' ')}
           {type === 'speed' && '/s'}
         </div>

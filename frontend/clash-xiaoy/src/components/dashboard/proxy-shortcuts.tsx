@@ -71,7 +71,7 @@ export const ProxyShortcuts = () => {
 
   const handleSystemProxy = useLockFn(async () => {
     try {
-      const next = !Boolean(systemProxy.value)
+      const next = !systemProxy.value
       await systemProxy.upsert(next)
       // Notice.success(`${t('System Proxy')} ${next ? '已开启' : '已关闭'}`)
     } catch (error) {
@@ -86,7 +86,7 @@ export const ProxyShortcuts = () => {
 
   const handleTunMode = useLockFn(async () => {
     try {
-      const next = !Boolean(tunMode.value)
+      const next = !tunMode.value
       await tunMode.upsert(next)
       // Notice.success(`${t('TUN Mode')} ${next ? '已开启' : '已关闭'}`)
     } catch (error) {
@@ -98,7 +98,7 @@ export const ProxyShortcuts = () => {
   })
 
   return (
-    <Paper className="flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3 cyber-glass">
+    <Paper className="cyber-glass flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3">
       <TitleComp />
 
       <div className="grid grid-cols-2 gap-3">
@@ -119,10 +119,10 @@ export const ProxyShortcuts = () => {
               {t('System Proxy')}
             </div>
             <span
-              className={`absolute right-0 top-0 inline-flex h-5 min-w-10 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-mono tracking-wider select-none shadow-sm transition-colors ${
+              className={`absolute top-0 right-0 inline-flex h-5 min-w-10 items-center justify-center gap-1 rounded-full border px-2 font-mono text-[10px] tracking-wider shadow-sm transition-colors select-none ${
                 systemProxy.value
-                  ? 'bg-transparent text-[var(--cyber-primary)] border-[rgba(0,255,255,0.40)] shadow-[0_0_14px_rgba(0,255,255,0.10)]'
-                  : 'bg-transparent text-[var(--cyber-text-muted)] border-[rgba(255,255,255,0.14)]'
+                  ? 'border-[rgba(0,255,255,0.40)] bg-transparent text-[var(--cyber-primary)] shadow-[0_0_14px_rgba(0,255,255,0.10)]'
+                  : 'border-[rgba(255,255,255,0.14)] bg-transparent text-[var(--cyber-text-muted)]'
               }`}
             >
               <span
@@ -143,7 +143,9 @@ export const ProxyShortcuts = () => {
           sxPaper={{
             borderRadius: 16,
             border: '1px solid var(--border)',
-            backgroundColor: tunMode.value ? 'var(--primary-soft)' : 'transparent',
+            backgroundColor: tunMode.value
+              ? 'var(--primary-soft)'
+              : 'transparent',
           }}
         >
           <div className="relative flex w-full flex-col gap-1.5">
@@ -152,10 +154,10 @@ export const ProxyShortcuts = () => {
               {t('TUN Mode')}
             </div>
             <span
-              className={`absolute right-0 top-0 inline-flex h-5 min-w-10 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-mono tracking-wider select-none shadow-sm transition-colors ${
+              className={`absolute top-0 right-0 inline-flex h-5 min-w-10 items-center justify-center gap-1 rounded-full border px-2 font-mono text-[10px] tracking-wider shadow-sm transition-colors select-none ${
                 tunMode.value
-                  ? 'bg-transparent text-[var(--cyber-primary)] border-[rgba(0,255,255,0.40)] shadow-[0_0_14px_rgba(0,255,255,0.10)]'
-                  : 'bg-transparent text-[var(--cyber-text-muted)] border-[rgba(255,255,255,0.14)]'
+                  ? 'border-[rgba(0,255,255,0.40)] bg-transparent text-[var(--cyber-primary)] shadow-[0_0_14px_rgba(0,255,255,0.10)]'
+                  : 'border-[rgba(255,255,255,0.14)] bg-transparent text-[var(--cyber-text-muted)]'
               }`}
             >
               <span

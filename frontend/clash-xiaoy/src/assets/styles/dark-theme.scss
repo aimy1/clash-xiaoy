@@ -10,8 +10,8 @@
 
   --text-title: rgba(255, 255, 255, 0.92);
   --text-main: rgba(255, 255, 255, 0.86);
-  --text-sub: rgba(235, 235, 245, 0.60);
-  --text-disable: rgba(235, 235, 245, 0.30);
+  --text-sub: rgba(235, 235, 245, 0.6);
+  --text-disable: rgba(235, 235, 245, 0.3);
 
   --primary: var(--primary-main, #00fff0);
   --primary-soft: rgba(0, 255, 240, 0.15);
@@ -103,7 +103,7 @@ html.dark .MuiButton-containedPrimary,
 html[data-theme='dark'] .MuiButton-containedPrimary {
   background-color: var(--primary);
   color: var(--color-md-on-primary);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.40);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 }
 
 html.dark .MuiButton-containedPrimary:hover,

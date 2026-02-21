@@ -37,10 +37,11 @@ function LatencyTag({ name, value }: { name: string; value: number }) {
 
   return (
     <div className="flex items-center justify-between gap-2">
-      <div className="text-xs font-medium text-[var(--text-title)]">
-        {name}
-      </div>
-      <Box className="min-w-0 flex-1 truncate text-right text-xs tabular-nums" sx={sx}>
+      <div className="text-xs font-medium text-[var(--text-title)]">{name}</div>
+      <Box
+        className="min-w-0 flex-1 truncate text-right text-xs tabular-nums"
+        sx={sx}
+      >
         {value ? `${value.toFixed(0)} ms` : t('Timeout')}
       </Box>
     </div>
@@ -54,7 +55,10 @@ export interface CombinedInfoPanelProps {
   refreshCount: number
 }
 
-export const CombinedInfoPanel = ({ timingData, refreshCount }: CombinedInfoPanelProps) => {
+export const CombinedInfoPanel = ({
+  timingData,
+  refreshCount,
+}: CombinedInfoPanelProps) => {
   const { t } = useTranslation()
   const { data, mutate, isValidating } = useIPSB()
   const [showIPAddress, setShowIPAddress] = useState(false)
@@ -64,14 +68,14 @@ export const CombinedInfoPanel = ({ timingData, refreshCount }: CombinedInfoPane
   }
 
   return (
-    <Paper className="relative flex !h-full gap-4 !rounded-3xl p-4 select-text cyber-glass overflow-hidden">
-      <div className="flex-1 flex flex-col gap-3">
+    <Paper className="cyber-glass relative flex !h-full gap-4 overflow-hidden !rounded-3xl p-4 select-text">
+      <div className="flex flex-1 flex-col gap-3">
         {data ? (
           <div className="flex gap-4">
             {data.country_code && (
               <EmojiCounty countryCode={data.country_code} />
             )}
-            <div className="flex flex-col gap-1 flex-1 min-w-0">
+            <div className="flex min-w-0 flex-1 flex-col gap-1">
               <div className="flex items-end justify-between text-lg font-semibold text-[var(--text-title)]">
                 <div className="truncate">{data.country}</div>
                 <Tooltip title={t('Click to Refresh Now')}>
@@ -96,11 +100,13 @@ export const CombinedInfoPanel = ({ timingData, refreshCount }: CombinedInfoPane
                 </Tooltip>
               </div>
 
-              <div className="truncate text-sm text-[var(--text-sub)]">{data.organization}</div>
+              <div className="truncate text-sm text-[var(--text-sub)]">
+                {data.organization}
+              </div>
               <div className="text-xs text-[var(--text-sub)]">AS{data.asn}</div>
 
-              <div className="flex items-center justify-between gap-2 mt-1">
-                <div className="relative font-mono flex-1 min-w-0">
+              <div className="mt-1 flex items-center justify-between gap-2">
+                <div className="relative min-w-0 flex-1 font-mono">
                   <span
                     className={cn(
                       'block truncate text-sm tabular-nums transition-opacity',
@@ -111,7 +117,7 @@ export const CombinedInfoPanel = ({ timingData, refreshCount }: CombinedInfoPane
                   </span>
                   <span
                     className={cn(
-                      'absolute top-0 left-0 block h-full w-full rounded-lg bg-surface-variant transition-opacity',
+                      'bg-surface-variant absolute top-0 left-0 block h-full w-full rounded-lg transition-opacity',
                       showIPAddress ? 'opacity-0' : 'animate-pulse opacity-100',
                     )}
                   />
@@ -128,12 +134,12 @@ export const CombinedInfoPanel = ({ timingData, refreshCount }: CombinedInfoPane
           </div>
         ) : (
           <div className="flex gap-4">
-            <div className="h-9 w-12 animate-pulse rounded-lg bg-surface-variant" />
+            <div className="bg-surface-variant h-9 w-12 animate-pulse rounded-lg" />
             <div className="flex flex-1 animate-pulse flex-col gap-1">
-              <div className="h-6 w-20 rounded-full bg-surface-variant" />
-              <div className="h-5 w-44 rounded-full bg-surface-variant" />
-              <div className="h-5 w-16 rounded-full bg-surface-variant" />
-              <div className="h-6 w-32 rounded-lg bg-surface-variant" />
+              <div className="bg-surface-variant h-6 w-20 rounded-full" />
+              <div className="bg-surface-variant h-5 w-44 rounded-full" />
+              <div className="bg-surface-variant h-5 w-16 rounded-full" />
+              <div className="bg-surface-variant h-6 w-32 rounded-lg" />
             </div>
           </div>
         )}
@@ -141,7 +147,7 @@ export const CombinedInfoPanel = ({ timingData, refreshCount }: CombinedInfoPane
 
       <div className="w-px bg-[var(--border)]" />
 
-      <div className="w-40 flex flex-col justify-center gap-1.5">
+      <div className="flex w-40 flex-col justify-center gap-1.5">
         {Object.entries(timingData).map(([name, value]) => (
           <LatencyTag key={name} name={name} value={value} />
         ))}

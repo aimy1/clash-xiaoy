@@ -124,9 +124,12 @@ export const SettingSystemService = () => {
     <BaseCard label={t('System Service')}>
       <ServerManualPromptDialogWrapper />
       <Typography gutterBottom sx={{ whiteSpace: 'pre-wrap' }}>
-        {t('Service Mode allows you to run the clash-xiaoy core as a background system service.', {
-          appName: 'clash-xiaoy',
-        })}
+        {t(
+          'Service Mode allows you to run the clash-xiaoy core as a background system service.',
+          {
+            appName: 'clash-xiaoy',
+          },
+        )}
       </Typography>
       <List disablePadding>
         <SwitchItem
@@ -139,10 +142,10 @@ export const SettingSystemService = () => {
         {isDisabled && (
           <ListItem sx={{ pl: 0, pr: 0 }}>
             <Typography>
-                {t(
-                  'Information: To enable service mode, make sure the clash-xiaoy service is installed and started',
-                )}
-              </Typography>
+              {t(
+                'Information: To enable service mode, make sure the clash-xiaoy service is installed and started',
+              )}
+            </Typography>
           </ListItem>
         )}
 

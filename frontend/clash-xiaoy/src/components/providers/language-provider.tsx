@@ -1,9 +1,16 @@
 import { locale } from 'dayjs'
-import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react'
+import { changeLanguage } from 'i18next'
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { useLockFn } from '@/hooks/use-lock-fn'
 import { getLocale, Locale, locales, setLocale } from '@/paraglide/runtime'
 import { useSetting } from '@nyanpasu/interface'
-import { changeLanguage } from 'i18next'
 
 const LanguageContext = createContext<{
   language?: Locale
@@ -25,7 +32,8 @@ export const LanguageProvider = ({ children }: PropsWithChildren) => {
 
   const canonicalizeLocale = (value: string) => {
     const lower = value.toLowerCase()
-    if (lower === 'zh' || lower === 'zh-cn' || lower === 'zh-hans') return 'zh-cn'
+    if (lower === 'zh' || lower === 'zh-cn' || lower === 'zh-hans')
+      return 'zh-cn'
     if (lower === 'zh-tw' || lower === 'zh-hant') return 'zh-tw'
     return lower
   }

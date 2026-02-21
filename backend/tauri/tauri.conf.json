@@ -11,16 +11,9 @@
         "type": "embedBootstrapper"
       },
       "wix": {
-        "language": [
-          "en-US",
-          "ru-RU",
-          "zh-CN",
-          "zh-TW"
-        ],
+        "language": ["en-US", "ru-RU", "zh-CN", "zh-TW"],
         "template": "./templates/installer.wxs",
-        "fragmentPaths": [
-          "./templates/cleanup.wxs"
-        ]
+        "fragmentPaths": ["./templates/cleanup.wxs"]
       },
       "nsis": {
         "displayLanguageSelector": true,
@@ -104,9 +97,7 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": [
-      "resources"
-    ],
+    "resources": ["resources"],
     "externalBin": [
       "sidecar/clash",
       "sidecar/mihomo",
@@ -156,9 +147,7 @@
     "windows": [],
     "security": {
       "csp": "script-src 'unsafe-eval' 'self'; default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self'; img-src 'self' data: asset: blob: http://localhost:* https:; connect-src ipc: http://ipc.localhost http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:* wss://*",
-      "capabilities": [
-        "main-capability"
-      ]
+      "capabilities": ["main-capability"]
     }
   }
 }

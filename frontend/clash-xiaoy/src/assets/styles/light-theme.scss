@@ -20,9 +20,9 @@
   --warning: #f59e0b;
   --danger: #ef4444;
 
-  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.10);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.1);
   --shadow-card-hover: 0 16px 44px rgba(0, 0, 0, 0.14);
-  --shadow-card-active: 0 10px 24px rgba(0, 0, 0, 0.10);
+  --shadow-card-active: 0 10px 24px rgba(0, 0, 0, 0.1);
   --glow-primary: 0 0 14px rgba(235, 0, 255, 0.18);
 
   --background-color: var(--bg-main);
@@ -41,7 +41,7 @@
   --cyber-glass-bg: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.86) 0%,
-    rgba(255, 255, 255, 0.70) 100%
+    rgba(255, 255, 255, 0.7) 100%
   );
   --cyber-glass-border: rgba(60, 60, 67, 0.12);
   --cyber-glass-blur: 18px;

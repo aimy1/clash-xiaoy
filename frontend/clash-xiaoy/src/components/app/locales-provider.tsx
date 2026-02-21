@@ -9,7 +9,13 @@ export const LocalesProvider = () => {
   useEffect(() => {
     if (value) {
       const dayjsLocale =
-        value === 'zh' ? 'zh-cn' : value === 'zh-CN' ? 'zh-cn' : value === 'zh-TW' ? 'zh-tw' : value
+        value === 'zh'
+          ? 'zh-cn'
+          : value === 'zh-CN'
+            ? 'zh-cn'
+            : value === 'zh-TW'
+              ? 'zh-tw'
+              : value
       locale(dayjsLocale)
 
       changeLanguage(value)

@@ -1,5 +1,6 @@
 import { useMemoizedFn } from 'ahooks'
 import { useEffect, useRef } from 'react'
+import { appWindow } from '@/utils/tauri-window'
 import {
   CloseRounded,
   CropSquareRounded,
@@ -13,7 +14,6 @@ import { commands, useSetting } from '@nyanpasu/interface'
 import { alpha, cn } from '@nyanpasu/ui'
 import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query'
 import { listen, TauriEvent, UnlistenFn } from '@tauri-apps/api/event'
-import { appWindow } from '@/utils/tauri-window'
 import { platform as getPlatform } from '@tauri-apps/plugin-os'
 
 const safeGetPlatform = () => {
@@ -27,7 +27,7 @@ const safeGetPlatform = () => {
 const CtrlButton = (props: ButtonProps) => {
   return (
     <Button
-      className="!size-7 !min-w-0 !p-0 ios-motion ios-pressable"
+      className="ios-motion ios-pressable !size-7 !min-w-0 !p-0"
       sx={(theme) => ({
         backgroundColor: 'transparent',
         borderRadius: 'var(--radius-squircle)',

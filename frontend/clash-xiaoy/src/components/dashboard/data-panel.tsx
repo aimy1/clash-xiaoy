@@ -2,12 +2,11 @@ import { useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import Dataline, { DatalineProps } from '@/components/dashboard/dataline'
-import TrafficCard, { TrafficCardProps } from '@/components/dashboard/traffic-card'
+import TrafficCard, {
+  TrafficCardProps,
+} from '@/components/dashboard/traffic-card'
 import { atomIsDrawer } from '@/store'
-import {
-  MemoryOutlined,
-  SettingsEthernet,
-} from '@mui/icons-material'
+import { MemoryOutlined, SettingsEthernet } from '@mui/icons-material'
 import Grid from '@mui/material/Grid'
 import {
   MAX_CONNECTIONS_HISTORY,
@@ -19,7 +18,11 @@ import {
   useSetting,
 } from '@nyanpasu/interface'
 
-export const useDataPanelItems = ({ visible = true }: { visible?: boolean }) => {
+export const useDataPanelItems = ({
+  visible = true,
+}: {
+  visible?: boolean
+}) => {
   const { t } = useTranslation()
 
   const { data: clashTraffic } = useClashTraffic()
@@ -104,17 +107,20 @@ export const DataPanel = ({ visible = true }: { visible?: boolean }) => {
 
   return items.map((props) => {
     if (props.type === 'combined') {
-        const combinedGridLayout = {
-            sm: 12,
-            md: 12,
-            lg: gridLayout.lg * 2,
-            xl: gridLayout.xl * 2,
-        }
-        return (
-            <Grid key={props.id} size={combinedGridLayout}>
-                <TrafficCard {...(props as TrafficCardProps)} className="max-h-1/8 min-h-40" />
-            </Grid>
-        )
+      const combinedGridLayout = {
+        sm: 12,
+        md: 12,
+        lg: gridLayout.lg * 2,
+        xl: gridLayout.xl * 2,
+      }
+      return (
+        <Grid key={props.id} size={combinedGridLayout}>
+          <TrafficCard
+            {...(props as TrafficCardProps)}
+            className="max-h-1/8 min-h-40"
+          />
+        </Grid>
+      )
     }
 
     const { id, ...rest } = props as DatalineProps & { id: string }

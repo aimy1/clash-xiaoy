@@ -17,7 +17,7 @@ export const DrawerContent = ({
   return (
     <Box
       className={cn(
-        'p-4 cyber-glass animate-float',
+        'cyber-glass animate-float p-4',
         getSystem() === 'macos' ? 'pt-14' : 'pt-8',
         'w-full',
         'h-full',
@@ -28,14 +28,14 @@ export const DrawerContent = ({
       )}
       data-tauri-drag-region
     >
-      <div className="mx-2 flex flex-col items-center justify-center gap-2 mb-2">
+      <div className="mx-2 mb-2 flex flex-col items-center justify-center gap-2">
         <div className="h-20 w-20" data-tauri-drag-region>
           <AnimatedLogo className="h-full w-full" data-tauri-drag-region />
         </div>
 
         {!onlyIcon && (
           <div
-            className="text-lg font-bold cyber-text-glow text-center tracking-widest uppercase font-mono"
+            className="cyber-text-glow text-center font-mono text-lg font-bold tracking-widest uppercase"
             data-tauri-drag-region
           >
             {'clash-xiaoy'}

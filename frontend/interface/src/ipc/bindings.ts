@@ -1,8 +1,8 @@
 /** tauri-specta globals **/
 
 import {
-  Channel as TAURI_CHANNEL,
   invoke as REAL_TAURI_INVOKE,
+  Channel as TAURI_CHANNEL,
 } from '@tauri-apps/api/core'
 import * as REAL_TAURI_API_EVENT from '@tauri-apps/api/event'
 import { type WebviewWindow as __WebviewWindow__ } from '@tauri-apps/api/webviewWindow'
@@ -26,10 +26,13 @@ const TAURI_INVOKE = async <T>(cmd: string, args?: any): Promise<T> => {
     if (cmd === 'get_profiles') return { items: [] } as unknown as T
     if (cmd === 'get_proxies')
       return { proxies: [], groups: [], global: null } as unknown as T
-    if (cmd === 'get_sys_proxy') return { enable: false, server: '', bypass: '' } as unknown as T
-    if (cmd === 'get_core_status') return [{ Stopped: 'Browser Mode' }, 0, 'normal'] as unknown as T
-    if (cmd === 'status_service') return { status: 'not_installed' } as unknown as T
-    
+    if (cmd === 'get_sys_proxy')
+      return { enable: false, server: '', bypass: '' } as unknown as T
+    if (cmd === 'get_core_status')
+      return [{ Stopped: 'Browser Mode' }, 0, 'normal'] as unknown as T
+    if (cmd === 'status_service')
+      return { status: 'not_installed' } as unknown as T
+
     // For void returns or others, return null/undefined
     return null as T
   }
@@ -58,7 +61,7 @@ const TAURI_API_EVENT = {
     } catch (e) {
       // ignore
     }
-  }
+  },
 }
 
 /* eslint-disable */

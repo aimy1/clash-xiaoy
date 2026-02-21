@@ -37,25 +37,35 @@ export const NodeCard = memo(function NodeCard({
       elevation={0}
       style={style}
       className={cn(
-        'relative flex flex-col justify-between p-3 cursor-pointer overflow-hidden cyber-glass ios-motion ios-pressable',
+        'cyber-glass ios-motion ios-pressable relative flex cursor-pointer flex-col justify-between overflow-hidden p-3',
         checked ? 'cyber-box-glow' : undefined,
         styles.Card,
       )}
       sx={{
-        borderColor: checked ? 'var(--primary) !important' : 'var(--cyber-glass-border) !important',
+        borderColor: checked
+          ? 'var(--primary) !important'
+          : 'var(--cyber-glass-border) !important',
         boxShadow: checked
           ? '0 1px 0 rgba(255, 255, 255, 0.14) inset, var(--shadow-card-hover), var(--glow-primary)'
           : undefined,
       }}
       onClick={!disabled ? handleClick : undefined}
     >
-      <div className="flex justify-between items-start w-full mb-2">
-        <div className="font-bold text-sm truncate pr-2 cyber-text-glow w-full" title={node.name}>
+      <div className="mb-2 flex w-full items-start justify-between">
+        <div
+          className="cyber-text-glow w-full truncate pr-2 text-sm font-bold"
+          title={node.name}
+        >
           {node.name}
         </div>
       </div>
 
-      <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
+      <Box
+        width="100%"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <div className="flex gap-1">
           <FeatureChip label={node.type} />
           {node.udp && <FeatureChip label="UDP" />}
@@ -67,14 +77,17 @@ export const NodeCard = memo(function NodeCard({
           onClick={handleDelayClick}
         />
       </Box>
-      
+
       {/* Signal Bar Visual */}
       <div
-        className="mt-2 h-1 w-full rounded-full overflow-hidden"
+        className="mt-2 h-1 w-full overflow-hidden rounded-full"
         style={{ backgroundColor: 'var(--bg-active)' }}
       >
         <div
-          className={cn('h-full ios-signal-fill', delay > 0 ? undefined : 'opacity-0')}
+          className={cn(
+            'ios-signal-fill h-full',
+            delay > 0 ? undefined : 'opacity-0',
+          )}
           style={{
             width: delay > 0 ? '100%' : '0%',
             backgroundColor:

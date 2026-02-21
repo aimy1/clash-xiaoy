@@ -39,7 +39,10 @@ export const AppDrawer = () => {
           <AnimatedLogo className="h-full w-full" data-tauri-drag-region />
         </div>
 
-        <div className="text-lg tracking-widest font-mono font-bold cyber-text-glow" data-tauri-drag-region>
+        <div
+          className="cyber-text-glow font-mono text-lg font-bold tracking-widest"
+          data-tauri-drag-region
+        >
           clash-xiaoy
         </div>
       </div>

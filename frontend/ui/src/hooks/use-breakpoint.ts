@@ -60,7 +60,7 @@ export const useBreakpointValue = <T>(
     } catch (e) {
       // ignore
     }
-    
+
     if (appWindow && !(await appWindow.isMinimized())) {
       if (result !== calculateValue) {
         setResult(calculateValue)

@@ -7,9 +7,12 @@ import {
 import { CSSProperties } from 'react'
 import LogoPng from '@/assets/image/logo.png'
 import LogoDarkPng from '@/assets/image/win-tray-icon-blue.png'
+import {
+  ThemeMode,
+  useExperimentalThemeContext,
+} from '@/components/providers/theme-provider'
 import { useSetting } from '@nyanpasu/interface'
 import { cn } from '@nyanpasu/ui'
-import { useExperimentalThemeContext, ThemeMode } from '@/components/providers/theme-provider'
 import styles from './animated-logo.module.scss'
 
 const Logo = motion.img

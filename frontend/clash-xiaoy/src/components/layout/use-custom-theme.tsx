@@ -1,11 +1,11 @@
 import { useAtomValue, useSetAtom } from 'jotai'
 import { PropsWithChildren, useEffect, useMemo } from 'react'
 import { themeMode as themeModeAtom } from '@/store'
+import { appWindow } from '@/utils/tauri-window'
 import { alpha, darken, lighten, Theme, useColorScheme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { useSetting } from '@nyanpasu/interface'
 import { cn, createMDYTheme } from '@nyanpasu/ui'
-import { appWindow } from '@/utils/tauri-window'
 
 export const DEFAULT_COLOR = '#eb00ff'
 export const DEFAULT_DARK_COLOR = '#00fff0'
@@ -48,9 +48,12 @@ export const CustomTheme = ({ children }: PropsWithChildren) => {
   const { value: backgroundImage } = useSetting('background_image')
 
   const theme = useMemo(() => {
-    const isOldDefault = !themeColor || themeColor.toLowerCase() === OLD_DEFAULT_COLOR.toLowerCase()
-    
-    const defaultColor = themeMode === 'dark' ? DEFAULT_DARK_COLOR : DEFAULT_COLOR
+    const isOldDefault =
+      !themeColor ||
+      themeColor.toLowerCase() === OLD_DEFAULT_COLOR.toLowerCase()
+
+    const defaultColor =
+      themeMode === 'dark' ? DEFAULT_DARK_COLOR : DEFAULT_COLOR
     const color = isOldDefault ? defaultColor : themeColor
 
     const mergedTheme = createMDYTheme(color, DEFAULT_FONT_FAMILY)

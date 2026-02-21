@@ -90,7 +90,7 @@ async function main() {
   // 3. update package version
   consola.debug('Write tauri version to package.json')
   packageJson.version = version
-  await fs.writeJSON(NYANPASU_PACKAGE_JSON_PATH, packageJson, { spaces: 2 })
+  await fs.writeJSON(CLASH_XIAOY_PACKAGE_JSON_PATH, packageJson, { spaces: 2 })
   rootPackageJson.version = version
   await fs.writeJSON(ROOT_PACKAGE_JSON_PATH, rootPackageJson, { spaces: 2 })
   consola.debug('package.json updated')

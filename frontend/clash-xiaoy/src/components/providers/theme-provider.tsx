@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react'
 import { insertStyle } from '@/utils/styled'
+import { appWindow } from '@/utils/tauri-window'
 import {
   argbFromHex,
   hexFromArgb,
@@ -15,7 +16,6 @@ import {
   themeFromSourceColor,
 } from '@material/material-color-utilities'
 import { useSetting } from '@nyanpasu/interface'
-import { appWindow } from '@/utils/tauri-window'
 import { useLocalStorage } from '@uidotdev/usehooks'
 
 export const DEFAULT_COLOR = '#eb00ff'
@@ -56,7 +56,7 @@ const generateThemeCssVars = ({ schemes }: Theme) => {
 
     Object.entries(inputScheme).forEach(([key, value]) => {
       const cssVar = `--color-md-${kebabCase(key)}: ${hexFromArgb(value)};`
-      
+
       if (mode === 'light') {
         lightCssVars += cssVar
         if (key === 'primary') {
@@ -151,7 +151,8 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
   }, [themeMode.value])
 
   const isUsingDefault =
-    !themeColorValue || themeColorValue.toLowerCase() === OLD_DEFAULT_COLOR.toLowerCase()
+    !themeColorValue ||
+    themeColorValue.toLowerCase() === OLD_DEFAULT_COLOR.toLowerCase()
 
   const [cachedThemePalette, setCachedThemePalette] = useLocalStorage<Theme>(
     THEME_PALETTE_KEY,
@@ -159,7 +160,9 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
       // use default color if theme color is not set or is old default
       argbFromHex(
         isUsingDefault
-          ? (resolvedThemeMode === ThemeMode.DARK ? DEFAULT_DARK_COLOR : DEFAULT_COLOR)
+          ? resolvedThemeMode === ThemeMode.DARK
+            ? DEFAULT_DARK_COLOR
+            : DEFAULT_COLOR
           : themeColorValue,
       ),
     ),
@@ -180,7 +183,10 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
     localStorage.removeItem('theme-css-vars-v2')
 
     // Auto-migrate old default color to empty (so new defaults apply)
-    if (themeColor.value && themeColor.value.toLowerCase() === OLD_DEFAULT_COLOR.toLowerCase()) {
+    if (
+      themeColor.value &&
+      themeColor.value.toLowerCase() === OLD_DEFAULT_COLOR.toLowerCase()
+    ) {
       themeColor.upsert('')
     }
   }, [themeColor.value])
@@ -233,9 +239,9 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
         // use default color if theme color is not set
         argbFromHex(
           isUsingDefault
-            ? (resolvedThemeMode === ThemeMode.DARK
+            ? resolvedThemeMode === ThemeMode.DARK
               ? DEFAULT_DARK_COLOR
-              : DEFAULT_COLOR)
+              : DEFAULT_COLOR
             : color,
         ),
       )
@@ -274,18 +280,20 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
           if (!themeColorValue || themeColorValue === OLD_DEFAULT_COLOR) {
             const newDefaultColor =
               newMode === ThemeMode.DARK ? DEFAULT_DARK_COLOR : DEFAULT_COLOR
-            const materialColor = themeFromSourceColor(argbFromHex(newDefaultColor))
-            
+            const materialColor = themeFromSourceColor(
+              argbFromHex(newDefaultColor),
+            )
+
             // We need to use function form of state setter here because this runs in an event listener
             // where cachedThemePalette might be stale closure
             setCachedThemePalette((current) => {
-                if (!isEqual(materialColor, current)) {
-                    // Side effect: update CSS vars
-                    const themeCssVars = generateThemeCssVars(materialColor)
-                    setCachedThemeCssVars(themeCssVars)
-                    return materialColor
-                }
-                return current
+              if (!isEqual(materialColor, current)) {
+                // Side effect: update CSS vars
+                const themeCssVars = generateThemeCssVars(materialColor)
+                setCachedThemeCssVars(themeCssVars)
+                return materialColor
+              }
+              return current
             })
           }
         }
@@ -323,7 +331,9 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
 
       if (!themeColorValue || themeColorValue === OLD_DEFAULT_COLOR) {
         const newDefaultColor =
-          newResolvedMode === ThemeMode.DARK ? DEFAULT_DARK_COLOR : DEFAULT_COLOR
+          newResolvedMode === ThemeMode.DARK
+            ? DEFAULT_DARK_COLOR
+            : DEFAULT_COLOR
         const materialColor = themeFromSourceColor(argbFromHex(newDefaultColor))
 
         if (!isEqual(materialColor, cachedThemePalette)) {
@@ -347,10 +357,11 @@ export function ExperimentalThemeProvider({ children }: PropsWithChildren) {
       value={{
         themePalette: cachedThemePalette,
         themeCssVars: cachedThemeCssVars,
-        themeColor:
-          (isUsingDefault
-            ? (resolvedThemeMode === ThemeMode.DARK ? DEFAULT_DARK_COLOR : DEFAULT_COLOR)
-            : themeColorValue),
+        themeColor: isUsingDefault
+          ? resolvedThemeMode === ThemeMode.DARK
+            ? DEFAULT_DARK_COLOR
+            : DEFAULT_COLOR
+          : themeColorValue,
         setThemeColor,
         themeMode: themeMode.value as ThemeMode,
         setThemeMode,

@@ -45,7 +45,7 @@ export const languageOptions = {
   ga: 'Gaeilge',
   cy: 'Cymraeg',
   af: 'Afrikaans',
-  sw: 'Kiswahili'
+  sw: 'Kiswahili',
 }
 
 export const languageQuirks: {
@@ -89,7 +89,7 @@ export const languageQuirks: {
 }
 
 // Default quirks for new languages
-Object.keys(languageOptions).forEach(key => {
+Object.keys(languageOptions).forEach((key) => {
   if (!languageQuirks[key]) {
     languageQuirks[key] = {
       drawer: {

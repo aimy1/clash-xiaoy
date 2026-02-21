@@ -5,8 +5,16 @@ html[data-theme='dark'] body,
 html[data-theme='dark'] #root {
   background:
     var(--app-wallpaper, none) center / cover no-repeat fixed,
-    radial-gradient(900px 600px at 20% 0%, rgba(0, 255, 240, 0.10), transparent 60%),
-    radial-gradient(800px 520px at 100% 10%, rgba(0, 255, 240, 0.06), transparent 55%),
+    radial-gradient(
+      900px 600px at 20% 0%,
+      rgba(0, 255, 240, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 520px at 100% 10%,
+      rgba(0, 255, 240, 0.06),
+      transparent 55%
+    ),
     var(--bg-main);
   color: var(--text-main);
 }
@@ -17,7 +25,11 @@ html[data-theme='light'] body,
 html[data-theme='light'] #root {
   background:
     var(--app-wallpaper, none) center / cover no-repeat fixed,
-    radial-gradient(820px 560px at 20% 0%, rgba(0, 122, 255, 0.10), transparent 60%),
+    radial-gradient(
+      820px 560px at 20% 0%,
+      rgba(0, 122, 255, 0.1),
+      transparent 60%
+    ),
     var(--bg-main);
   color: var(--text-main);
 }
@@ -66,13 +78,13 @@ html[data-wallpaper='1'] .bg-on-primary {
 html.dark .cyber-box-glow,
 html[data-theme='dark'] .cyber-box-glow {
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.10) inset,
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
     var(--shadow-card);
 }
 
 html.light .cyber-box-glow,
 html[data-theme='light'] .cyber-box-glow {
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.20) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
     var(--shadow-card);
 }

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { isMacOS } from '@/consts'
+import { appWindow } from '@/utils/tauri-window'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { listen, TauriEvent, UnlistenFn } from '@tauri-apps/api/event'
-import { appWindow } from '@/utils/tauri-window'
 
 const IS_MAXIMIZED_QUERY_KEY = 'isMaximized'
 

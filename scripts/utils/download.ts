@@ -51,7 +51,9 @@ export const downloadFile = async (url: string, path: string) => {
         })
 
         if (!response.ok) {
-          throw new Error(`download failed: ${response.status} ${response.statusText} (${u})`)
+          throw new Error(
+            `download failed: ${response.status} ${response.statusText} (${u})`,
+          )
         }
 
         const buffer = await response.arrayBuffer()
@@ -64,7 +66,9 @@ export const downloadFile = async (url: string, path: string) => {
       } catch (error) {
         lastError = error
         if (attempt < 1) {
-          await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)))
+          await new Promise((resolve) =>
+            setTimeout(resolve, 1000 * (attempt + 1)),
+          )
         }
       }
     }

@@ -103,7 +103,7 @@ export const ServiceShortcuts = () => {
   }, [coreStatusSWR.data, t])
 
   return (
-    <Paper className="flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3 cyber-glass">
+    <Paper className="cyber-glass flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3">
       {serviceStatus ? (
         <>
           <div className="px-1 text-center text-sm font-semibold text-[var(--text-title)]">

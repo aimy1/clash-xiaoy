@@ -16,15 +16,22 @@ const invoke = async <T>(cmd: string, args?: any): Promise<T> => {
   try {
     return await tauriInvoke<T>(cmd, args)
   } catch (e) {
-    console.warn(`[Mock] Invoke command '${cmd}' failed or not available in browser:`, e)
+    console.warn(
+      `[Mock] Invoke command '${cmd}' failed or not available in browser:`,
+      e,
+    )
     // Return appropriate mock data based on command
     if (cmd === 'get_verge_config') return {} as T
     if (cmd === 'get_clash_info') return null as T
     if (cmd === 'get_profiles') return { items: [] } as unknown as T
-    if (cmd === 'get_proxies') return { proxies: {}, groups: {}, global: null } as unknown as T
-    if (cmd === 'get_sys_proxy') return { enable: false, server: '', bypass: '' } as unknown as T
-    if (cmd === 'get_core_status') return [{ Stopped: 'Browser Mode' }, 0, 'normal'] as unknown as T
-    if (cmd === 'status_service') return { status: 'not_installed' } as unknown as T
+    if (cmd === 'get_proxies')
+      return { proxies: {}, groups: {}, global: null } as unknown as T
+    if (cmd === 'get_sys_proxy')
+      return { enable: false, server: '', bypass: '' } as unknown as T
+    if (cmd === 'get_core_status')
+      return [{ Stopped: 'Browser Mode' }, 0, 'normal'] as unknown as T
+    if (cmd === 'status_service')
+      return { status: 'not_installed' } as unknown as T
     if (cmd === 'get_runtime_logs') return {} as T
     if (cmd === 'get_ipsb_asn') {
       return {

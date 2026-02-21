@@ -5,7 +5,7 @@ import { coreTypeAtom } from '@/store/clash'
 import { useSetting } from '@nyanpasu/interface'
 import { listen, UnlistenFn } from '@tauri-apps/api/event'
 
-const safeListen = <T,>(
+const safeListen = <T>(
   event: string,
   handler: Parameters<typeof listen<T>>[1],
 ): Promise<UnlistenFn> => {

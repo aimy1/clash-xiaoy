@@ -1,9 +1,9 @@
-import { RouterOutlined, Speed } from '@mui/icons-material'
-import { Box, CircularProgress, Paper, Chip, Typography } from '@mui/material'
-import { useClashProxies, useProxyMode } from '@nyanpasu/interface'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useColorSxForDelay } from '@/hooks/theme'
+import { RouterOutlined, Speed } from '@mui/icons-material'
+import { Box, Chip, CircularProgress, Paper, Typography } from '@mui/material'
+import { useClashProxies, useProxyMode } from '@nyanpasu/interface'
 import { useNavigate } from '@tanstack/react-router'
 
 export const CurrentNodeStatusPanel = () => {
@@ -39,7 +39,7 @@ export const CurrentNodeStatusPanel = () => {
 
   return (
     <Paper
-      className="flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3 cyber-glass cursor-pointer ios-motion ios-pressable"
+      className="cyber-glass ios-motion ios-pressable flex !h-full cursor-pointer flex-col justify-between gap-2 !rounded-3xl p-3"
       onClick={() => navigate({ to: '/proxies' })}
     >
       <div className="flex items-center justify-between px-1">
@@ -80,14 +80,17 @@ export const CurrentNodeStatusPanel = () => {
                 {delay} ms
               </Box>
             ) : (
-              <Box component="span" sx={{ color: 'error.main', fontWeight: 600 }}>
+              <Box
+                component="span"
+                sx={{ color: 'error.main', fontWeight: 600 }}
+              >
                 Timeout
               </Box>
             )}
           </div>
         </div>
       ) : data ? (
-        <div className="flex flex-1 items-center justify-center text-[var(--text-sub)] text-sm">
+        <div className="flex flex-1 items-center justify-center text-sm text-[var(--text-sub)]">
           {t('No Node Selected')}
         </div>
       ) : (

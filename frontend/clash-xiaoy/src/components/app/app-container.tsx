@@ -1,7 +1,7 @@
 import getSystem from '@/utils/get-system'
+import { appWindow } from '@/utils/tauri-window'
 import { Box } from '@mui/material'
 import Paper from '@mui/material/Paper'
-import { appWindow } from '@/utils/tauri-window'
 import 'allotment/dist/style.css'
 import { useAtomValue } from 'jotai'
 import { ReactNode, useEffect, useRef } from 'react'
@@ -74,9 +74,14 @@ export const AppContainer = ({
         </div>
       )}
 
-      <div className={cn(styles.container, 'cyber-glass rounded-3xl border border-[var(--cyber-glass-border)] bg-scanline animate-pulse-neon flex flex-col overflow-hidden')}>
+      <div
+        className={cn(
+          styles.container,
+          'cyber-glass bg-scanline animate-pulse-neon flex flex-col overflow-hidden rounded-3xl border border-[var(--cyber-glass-border)]',
+        )}
+      >
         {OS === 'windows' && (
-          <LayoutControl className="!z-top absolute top-2 right-4 hover-glitch z-50" />
+          <LayoutControl className="!z-top hover-glitch absolute top-2 right-4 z-50" />
         )}
         {/* TODO: add a framer motion animation to toggle the maximized state */}
         {OS === 'macos' && !isMaximized && (
@@ -91,14 +96,14 @@ export const AppContainer = ({
         <div
           className={cn(
             OS === 'macos' ? 'h-[2.75rem]' : 'h-12',
-            'shrink-0 border-b border-[var(--cyber-glass-border)] bg-[rgba(0,0,0,0.2)]'
+            'shrink-0 border-b border-[var(--cyber-glass-border)] bg-[rgba(0,0,0,0.2)]',
           )}
         >
           <TopBar />
         </div>
 
-        <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 scrollbar-custom relative z-0">
-           {children}
+        <div className="scrollbar-custom relative z-0 flex-1 overflow-x-hidden overflow-y-auto p-4">
+          {children}
         </div>
       </div>
     </Paper>

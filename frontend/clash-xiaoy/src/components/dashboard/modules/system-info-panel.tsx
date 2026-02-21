@@ -40,7 +40,7 @@ export const SystemInfoPanel = () => {
   }, [])
 
   return (
-    <Paper className="flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3 cyber-glass">
+    <Paper className="cyber-glass flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3">
       <div className="flex items-center gap-2 px-1">
         <ComputerOutlined sx={{ fontSize: 20, color: 'var(--primary)' }} />
         <div className="text-sm font-semibold text-[var(--text-title)]">
@@ -51,12 +51,11 @@ export const SystemInfoPanel = () => {
       {envs ? (
         <div className="flex flex-col gap-2">
           <InfoItem label="OS" value={envs.os} />
-          {envs.device.kernel && <InfoItem label="Kernel" value={envs.device.kernel} />}
+          {envs.device.kernel && (
+            <InfoItem label="Kernel" value={envs.device.kernel} />
+          )}
           <InfoItem label="Arch" value={envs.arch} />
-          <InfoItem
-            label="CPU"
-            value={envs.device.cpu[0] || 'Unknown'}
-          />
+          <InfoItem label="CPU" value={envs.device.cpu[0] || 'Unknown'} />
           {envs.device.gpu && envs.device.gpu.length > 0 && (
             <InfoItem label="GPU" value={envs.device.gpu[0]} />
           )}

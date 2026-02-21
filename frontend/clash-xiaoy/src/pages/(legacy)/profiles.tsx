@@ -260,7 +260,7 @@ function ProfilePage() {
       </AnimatePresence>
 
       <AddProfileContext.Provider value={addProfileCtxValue}>
-        <div className="!fixed right-8 bottom-8 flex flex-col gap-2 items-center">
+        <div className="!fixed right-8 bottom-8 flex flex-col items-center gap-2">
           <FloatingButton
             className="!static flex size-11 !min-w-fit"
             sx={

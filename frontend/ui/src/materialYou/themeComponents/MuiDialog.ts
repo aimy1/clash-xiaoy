@@ -7,7 +7,8 @@ export const MuiDialog: Components<Theme>['MuiDialog'] = {
       borderRadius: 20,
       backgroundImage: 'none',
       background: 'var(--cyber-glass-bg, var(--color-md-surface))',
-      border: '1px solid var(--cyber-glass-border, var(--color-md-outline-variant))',
+      border:
+        '1px solid var(--cyber-glass-border, var(--color-md-outline-variant))',
       backdropFilter: 'blur(var(--cyber-glass-blur, 16px))',
       WebkitBackdropFilter: 'blur(var(--cyber-glass-blur, 16px))',
     },

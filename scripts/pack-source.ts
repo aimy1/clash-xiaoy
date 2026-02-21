@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename)
 async function packSource() {
   const rootDir = path.resolve(__dirname, '..')
   const zip = new AdmZip()
-  
+
   consola.info('Scanning files...')
 
   // 定义要忽略的目录名称（完全匹配）
@@ -24,7 +24,7 @@ async function packSource() {
     '.idea',
     'coverage',
     '.tools', // 包含工具链，可能很大，视情况排除
-    '.tooling'
+    '.tooling',
   ])
 
   // 定义要忽略的文件扩展名
@@ -36,7 +36,7 @@ async function packSource() {
     '.lib',
     '.pdb',
     '.exp',
-    '.node'
+    '.node',
   ])
 
   let fileCount = 0
@@ -53,10 +53,13 @@ async function packSource() {
           continue
         }
         // 特殊处理：如果是 release 目录，通常包含构建产物，也排除
-        if (entry.name === 'release' && (relativePath.includes('target') || relativePath.includes('out'))) {
-           continue
+        if (
+          entry.name === 'release' &&
+          (relativePath.includes('target') || relativePath.includes('out'))
+        ) {
+          continue
         }
-        
+
         await traverse(fullPath)
       } else if (entry.isFile()) {
         const ext = path.extname(entry.name).toLowerCase()
@@ -85,10 +88,10 @@ async function packSource() {
 
   const outputName = 'clash-xiaoy-source-code.zip'
   const outputPath = path.join(rootDir, outputName)
-  
+
   consola.info(`Writing zip to ${outputPath}...`)
   zip.writeZip(outputPath)
-  
+
   consola.success(`Source code packed successfully: ${outputName}`)
 }
 

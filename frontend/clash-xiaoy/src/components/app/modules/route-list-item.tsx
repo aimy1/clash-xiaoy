@@ -31,16 +31,20 @@ export const RouteListItem = ({
   const listItemButton = (
     <ListItemButton
       className={cn(
-        onlyIcon ? '!mx-auto !size-12 !rounded-xl !p-0 !min-h-0' : '!rounded-xl !py-2.5 !px-4',
+        onlyIcon
+          ? '!mx-auto !size-12 !min-h-0 !rounded-xl !p-0'
+          : '!rounded-xl !px-4 !py-2.5',
         match && 'cyber-box-glow',
-        'ios-motion'
+        'ios-motion',
       )}
       sx={[
         (theme) => ({
           backgroundColor: match
             ? alpha(theme.vars.palette.primary.main, 0.15)
             : 'transparent',
-          border: match ? `1px solid ${theme.vars.palette.primary.main}` : '1px solid transparent',
+          border: match
+            ? `1px solid ${theme.vars.palette.primary.main}`
+            : '1px solid transparent',
           justifyContent: onlyIcon ? 'center' : 'flex-start',
           transition:
             'transform var(--motion-duration-medium) var(--motion-ease-ios), background-color var(--motion-duration-medium) var(--motion-ease-ios), box-shadow var(--motion-duration-medium) var(--motion-ease-ios)',

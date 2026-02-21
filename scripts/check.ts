@@ -49,7 +49,12 @@ const tasks: {
     retry: 5,
     required: false,
   },
-  { name: 'clash-rs', func: () => resolve.clashRust(), retry: 5, required: true },
+  {
+    name: 'clash-rs',
+    func: () => resolve.clashRust(),
+    retry: 5,
+    required: true,
+  },
   {
     name: 'clash-rs-alpha',
     func: () => resolve.clashRustAlpha(),

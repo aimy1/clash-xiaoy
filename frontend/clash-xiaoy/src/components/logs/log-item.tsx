@@ -35,7 +35,10 @@ export const LogItem = ({
 
   return (
     <div
-      className={cn('w-full p-4 pt-2 pb-0 font-mono select-text cyber-text-glow hover:bg-white/5 transition-colors', className)}
+      className={cn(
+        'cyber-text-glow w-full p-4 pt-2 pb-0 font-mono transition-colors select-text hover:bg-white/5',
+        className,
+      )}
     >
       <div className="flex gap-2">
         <span className="font-thin">{value.time}</span>

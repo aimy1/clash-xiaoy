@@ -2,6 +2,7 @@ import { useMount } from 'ahooks'
 import dayjs from 'dayjs'
 import { ThemeModeProvider } from '@/components/layout/use-custom-theme'
 import { useNyanpasuStorageSubscribers } from '@/hooks/use-store'
+import { appWindow } from '@/utils/tauri-window'
 import { CssBaseline } from '@mui/material'
 import { StyledEngineProvider } from '@mui/material/styles'
 import { cn } from '@nyanpasu/ui'
@@ -11,7 +12,6 @@ import {
   Outlet,
 } from '@tanstack/react-router'
 import { emit } from '@tauri-apps/api/event'
-import { appWindow } from '@/utils/tauri-window'
 import 'dayjs/locale/ru'
 import 'dayjs/locale/ja'
 import 'dayjs/locale/ko'
@@ -79,7 +79,9 @@ export default function App() {
       try {
         emit('react_app_mounted').catch(() => {})
       } catch (e) {
-        console.warn('Failed to emit react_app_mounted, likely running in browser mode')
+        console.warn(
+          'Failed to emit react_app_mounted, likely running in browser mode',
+        )
       }
     })
   })

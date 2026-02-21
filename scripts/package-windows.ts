@@ -1,5 +1,5 @@
-import path from 'node:path'
 import { execSync } from 'node:child_process'
+import path from 'node:path'
 import fs from 'fs-extra'
 import packageJson from '../package.json'
 import { colorize, consola } from './utils/logger'
@@ -74,22 +74,30 @@ async function packageWindows() {
   await fs.ensureDir(outputDir)
 
   const version = packageJson.version
-  
+
   // If RUST_ARCH is set, build only that. Otherwise build all supported architectures.
-  const archs = process.env.RUST_ARCH ? [process.env.RUST_ARCH] : ['x86_64', 'i686', 'aarch64']
+  const archs = process.env.RUST_ARCH
+    ? [process.env.RUST_ARCH]
+    : ['x86_64', 'i686', 'aarch64']
 
   for (const arch of archs) {
     consola.info(colorize`Packaging for architecture: {cyan ${arch}}`)
-    
+
     process.env.RUST_ARCH = arch
     const targetTriple = getRustTargetTriple(arch)
 
     // Check if sidecars exist for this architecture
-    const sidecarCheckPath = path.resolve(`backend/tauri/sidecar/clash-${targetTriple}.exe`)
+    const sidecarCheckPath = path.resolve(
+      `backend/tauri/sidecar/clash-${targetTriple}.exe`,
+    )
     if (!(await fs.pathExists(sidecarCheckPath))) {
-        consola.warn(colorize`Sidecar binary not found: {yellow ${sidecarCheckPath}}`)
-        consola.warn(colorize`Skipping architecture {cyan ${arch}} due to missing sidecars.`)
-        continue
+      consola.warn(
+        colorize`Sidecar binary not found: {yellow ${sidecarCheckPath}}`,
+      )
+      consola.warn(
+        colorize`Skipping architecture {cyan ${arch}} due to missing sidecars.`,
+      )
+      continue
     }
 
     const portableZipName = `clash-xiaoy_${version}_${arch}${fixedWebview ? '_fixed-webview' : ''}_portable.zip`
@@ -100,7 +108,9 @@ async function packageWindows() {
       try {
         run(`pnpm build -- --target ${targetTriple}`)
       } catch (e) {
-        consola.error(colorize`Build failed for {cyan ${arch}}. Skipping packaging for this arch.`)
+        consola.error(
+          colorize`Build failed for {cyan ${arch}}. Skipping packaging for this arch.`,
+        )
         continue
       }
     }
@@ -110,34 +120,34 @@ async function packageWindows() {
     }
 
     try {
-        run(`pnpm portable${fixedWebview ? ' --fixed-webview' : ''}`)
+      run(`pnpm portable${fixedWebview ? ' --fixed-webview' : ''}`)
     } catch (e) {
-        consola.error(colorize`Portable packaging failed for {cyan ${arch}}.`)
-        continue
+      consola.error(colorize`Portable packaging failed for {cyan ${arch}}.`)
+      continue
     }
 
     const strictTargetDir = path.resolve(`backend/target/${targetTriple}`)
     const searchDirs = [strictTargetDir]
     if (arch === 'x86_64') {
-        searchDirs.push(path.resolve('backend/target'))
+      searchDirs.push(path.resolve('backend/target'))
     }
 
     let nsisInstallerPath: string | undefined
 
     for (const dir of searchDirs) {
-        nsisInstallerPath = await findBestFile(
-            dir,
-            (p) => {
-                const normalized = p.replaceAll('\\', '/')
-                return (
-                normalized.includes('/bundle/nsis/') &&
-                normalized.endsWith('.exe') &&
-                normalized.toLowerCase().includes('setup')
-                )
-            },
-            (p) => p.includes(`_${version}_`),
-        )
-        if (nsisInstallerPath) break
+      nsisInstallerPath = await findBestFile(
+        dir,
+        (p) => {
+          const normalized = p.replaceAll('\\', '/')
+          return (
+            normalized.includes('/bundle/nsis/') &&
+            normalized.endsWith('.exe') &&
+            normalized.toLowerCase().includes('setup')
+          )
+        },
+        (p) => p.includes(`_${version}_`),
+      )
+      if (nsisInstallerPath) break
     }
 
     const copiedFiles: string[] = []
@@ -148,7 +158,9 @@ async function packageWindows() {
       await fs.copyFile(nsisInstallerPath, target)
       copiedFiles.push(target)
     } else {
-      consola.warn(`NSIS installer exe not found for ${arch} in ${searchDirs.join(', ')}.`)
+      consola.warn(
+        `NSIS installer exe not found for ${arch} in ${searchDirs.join(', ')}.`,
+      )
     }
 
     if (await fs.pathExists(portableZipPath)) {

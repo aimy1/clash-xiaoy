@@ -1,12 +1,17 @@
 # clash-xiaoy
+
 ## 联系作者反馈bug：aisaniya12@proton.me
+
 ## 欢迎加入：https://t.me/clashxiaoy
+
 ## clash-xiaoy 是一个基于 Clash Nyanpasu 的深度 UI 增强分支版本。
+
 在完全不修改 Clash 核心代理逻辑的前提下，对用户界面、内核下载与安装流程、视觉标识系统进行系统性重构，提升整体稳定性、可用性与完成度。
 
 本项目定位为：
+
 > 工程级 UI 重构 + 安装体验优化版本
-而不是简单的“换皮”或功能魔改。
+> 而不是简单的“换皮”或功能魔改。
 
 ---
 
@@ -62,6 +67,7 @@
 ---
 
 ## 📸 界面预览
+
 <img width="1725" height="989" alt="image" src="https://github.com/user-attachments/assets/07e6e615-6993-4c14-9ac8-9b3abf1769bd" />
 
 ---

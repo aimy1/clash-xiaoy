@@ -14,6 +14,7 @@ import { getGithubUrl, getProxyAgent } from './'
 import { SIDECAR_HOST } from './consts'
 import { GITHUB_TOKEN } from './env'
 import { consola } from './logger'
+
 const SERVICE_REPO = 'libnyanpasu/nyanpasu-service'
 
 type NodeArch = NodeJS.Architecture | 'armel'
@@ -358,7 +359,9 @@ export const getNyanpasuServiceLatestVersion = async () => {
           ...opts,
           headers: {
             Accept: 'application/vnd.github+json',
-            ...(GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {}),
+            ...(GITHUB_TOKEN
+              ? { Authorization: `Bearer ${GITHUB_TOKEN}` }
+              : {}),
           },
         })
 

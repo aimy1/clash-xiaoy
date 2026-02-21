@@ -16,14 +16,14 @@ async function main() {
         stdio: 'pipe', // Suppress stderr
       },
     ).toString()
-    
+
     if (output) {
-        const parts = output.replace(/'/g, '').split(',')
-        if (parts.length >= 3) {
-            hash = parts[0]
-            author = parts[1]
-            time = parts[2]
-        }
+      const parts = output.replace(/'/g, '').split(',')
+      if (parts.length >= 3) {
+        hash = parts[0]
+        author = parts[1]
+        time = parts[2]
+      }
     }
   } catch (e) {
     consola.warn('Failed to get git info, using default values')

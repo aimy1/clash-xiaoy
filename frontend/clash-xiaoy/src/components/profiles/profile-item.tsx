@@ -217,8 +217,8 @@ export const ProfileItem = memo(function ProfileItem({
     <>
       <Paper
         className={cn(
-          "relative transition-all cyber-glass",
-          selected && "cyber-box-glow border-neon-primary"
+          'cyber-glass relative transition-all',
+          selected && 'cyber-box-glow border-neon-primary',
         )}
         sx={[
           {
@@ -229,7 +229,9 @@ export const ProfileItem = memo(function ProfileItem({
             backgroundColor: selected
               ? alpha(theme.vars.palette.primary.main, 0.15)
               : 'transparent',
-            borderColor: selected ? 'var(--cyber-primary) !important' : 'var(--cyber-glass-border) !important',
+            borderColor: selected
+              ? 'var(--cyber-primary) !important'
+              : 'var(--cyber-glass-border) !important',
           }),
         ]}
       >
@@ -278,7 +280,9 @@ export const ProfileItem = memo(function ProfileItem({
           </div>
 
           <div>
-            <p className="truncate text-lg font-bold cyber-text-glow">{item.name}</p>
+            <p className="cyber-text-glow truncate text-lg font-bold">
+              {item.name}
+            </p>
             <p className="truncate opacity-70">{item.desc}</p>
           </div>
 

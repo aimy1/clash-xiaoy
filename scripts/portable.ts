@@ -64,7 +64,9 @@ async function resolvePortable() {
 
   const mainEntryPath = (
     await Promise.all(
-      mainEntryCandidates.map(async (p) => ((await fs.pathExists(p)) ? p : null)),
+      mainEntryCandidates.map(async (p) =>
+        (await fs.pathExists(p)) ? p : null,
+      ),
     )
   ).find(Boolean)
 

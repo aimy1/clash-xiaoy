@@ -140,4 +140,3 @@ createSourceZip().catch((err) => {
   consola.error(err)
   process.exit(1)
 })
-

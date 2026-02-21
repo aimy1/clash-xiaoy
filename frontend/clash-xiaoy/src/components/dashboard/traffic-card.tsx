@@ -25,7 +25,12 @@ export const TrafficCard: FC<TrafficCardProps> = ({
   const { t } = useTranslation()
 
   return (
-    <Paper className={cn('relative overflow-hidden !rounded-3xl p-4 cyber-glass', className)}>
+    <Paper
+      className={cn(
+        'cyber-glass relative overflow-hidden !rounded-3xl p-4',
+        className,
+      )}
+    >
       <div className="absolute inset-0 opacity-40">
         <Sparkline
           data={downData}
@@ -49,7 +54,7 @@ export const TrafficCard: FC<TrafficCardProps> = ({
               {t('Download')}
             </div>
           </div>
-          <div className="text-2xl font-semibold tabular-nums text-[var(--text-title)]">
+          <div className="text-2xl font-semibold text-[var(--text-title)] tabular-nums">
             {parseTraffic(downData.at(-1)).join(' ')}/s
           </div>
           <div className="text-xs text-[var(--text-sub)]">
@@ -64,7 +69,7 @@ export const TrafficCard: FC<TrafficCardProps> = ({
               {t('Upload')}
             </div>
           </div>
-          <div className="text-2xl font-semibold tabular-nums text-[var(--text-title)]">
+          <div className="text-2xl font-semibold text-[var(--text-title)] tabular-nums">
             {parseTraffic(upData.at(-1)).join(' ')}/s
           </div>
           <div className="text-xs text-[var(--text-sub)]">

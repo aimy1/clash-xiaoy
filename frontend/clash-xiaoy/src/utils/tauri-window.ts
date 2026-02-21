@@ -7,10 +7,12 @@ let appWindow: ReturnType<typeof getCurrentWebviewWindow>
 try {
   appWindow = getCurrentWebviewWindow()
 } catch (e) {
-  console.warn('Tauri API not available, running in browser mode with mock window')
-  
+  console.warn(
+    'Tauri API not available, running in browser mode with mock window',
+  )
+
   // Mock implementation of the Tauri window API for browser preview
-  appWindow = ({
+  appWindow = {
     theme: async () => 'dark',
     onThemeChanged: async () => () => {},
     listen: async () => () => {},
@@ -30,7 +32,7 @@ try {
     onScaleChanged: async () => () => {},
     onCloseRequested: async () => () => {},
     onFileDropEvent: async () => () => {},
-  } as unknown) as ReturnType<typeof getCurrentWebviewWindow>
+  } as unknown as ReturnType<typeof getCurrentWebviewWindow>
 }
 
 export { appWindow }

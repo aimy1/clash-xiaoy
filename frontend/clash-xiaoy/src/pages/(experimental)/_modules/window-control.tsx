@@ -8,15 +8,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ComponentProps, useCallback } from 'react'
 import { Button, ButtonProps } from '@/components/ui/button'
 import useWindowMaximized from '@/hooks/use-window-maximized'
+import { appWindow } from '@/utils/tauri-window'
 import { useSetting } from '@nyanpasu/interface'
 import { cn } from '@nyanpasu/ui'
-import { appWindow } from '@/utils/tauri-window'
 
 const CtrlButton = ({ className, ...props }: ButtonProps) => {
   return (
     <Button
       className={cn(
-        'bg-transparent hover:bg-primary-container dark:hover:bg-on-primary size-7',
+        'hover:bg-primary-container dark:hover:bg-on-primary size-7 bg-transparent',
         className,
       )}
       icon

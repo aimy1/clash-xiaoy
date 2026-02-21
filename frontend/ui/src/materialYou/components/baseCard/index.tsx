@@ -31,7 +31,11 @@ export const BaseCard = ({
             alignItems="center"
             sx={{ pb: 1 }}
           >
-            <Typography variant="h5" component="div" className="cyber-text-glow">
+            <Typography
+              variant="h5"
+              component="div"
+              className="cyber-text-glow"
+            >
               {label}
             </Typography>
 
