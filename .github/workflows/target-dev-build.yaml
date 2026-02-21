@@ -185,6 +185,9 @@ jobs:
     name: Create Updater
     needs: [update_tag]
     uses: ./.github/workflows/deps-create-updater.yaml
+    permissions:
+      contents: write
+      id-token: write
     with:
       nightly: true
     secrets: inherit
