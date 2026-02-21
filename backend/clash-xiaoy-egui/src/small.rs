@@ -3,7 +3,7 @@
 #![allow(rustdoc::missing_crate_level_docs)] // it's an example
 
 use eframe::egui;
-use clash_xiaoy_egui::widget::XiaoyNetworkStatisticSmallWidget;
+use nyanpasu_egui::widget::NyanpasuNetworkStatisticSmallWidget;
 
 fn main() -> eframe::Result {
     let options = eframe::NativeOptions {
@@ -20,6 +20,6 @@ fn main() -> eframe::Result {
     eframe::run_native(
         "egui example: custom style",
         options,
-        Box::new(|cc| Ok(Box::new(XiaoyNetworkStatisticSmallWidget::new(cc)))),
+        Box::new(|cc| Ok(Box::new(NyanpasuNetworkStatisticSmallWidget::new(cc)))),
     )
 }
