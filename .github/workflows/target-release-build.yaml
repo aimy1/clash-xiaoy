@@ -7,61 +7,64 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 env:
   CARGO_INCREMENTAL: 0
   RUST_BACKTRACE: short
+  RELEASE_TAG: ${{ github.event_name == 'release' && github.event.release.tag_name || github.ref_name }}
 
 jobs:
+  ensure_release:
+    name: Ensure GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create release if missing
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ env.RELEASE_TAG }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$TAG" --notes ""
+
   windows_build:
     name: Windows Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-windows-nsis.yaml
     with:
       portable: true
       fixed-webview: false
       nightly: false
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ env.RELEASE_TAG }}
       arch: 'x86_64'
     secrets: inherit
 
   linux_build:
     name: Linux Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-linux.yaml
     with:
       nightly: false
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ env.RELEASE_TAG }}
       arch: 'x86_64'
     secrets: inherit
 
   macos_amd64_build:
     name: macOS amd64 Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-macos.yaml
     with:
       nightly: false
       aarch64: false
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ env.RELEASE_TAG }}
     secrets: inherit
 
   macos_aarch64_build:
     name: macOS aarch64 Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-macos.yaml
     with:
       nightly: false
       aarch64: true
-      tag: ${{ github.event.release.tag_name }}
-    secrets: inherit
-
-  updater:
-    name: Create Updater
-    uses: ./.github/workflows/deps-create-updater.yaml
-    needs: [windows_build, linux_build, macos_amd64_build, macos_aarch64_build]
-    with:
-      nightly: false
-
-  telegram:
-    name: Send Release Message to Telegram
-    if: startsWith(github.repository, 'libnyanpasu')
-    needs: [windows_build, linux_build, macos_amd64_build, macos_aarch64_build]
-    uses: ./.github/workflows/deps-message-telegram.yaml
-    with:
-      nightly: false
+      tag: ${{ env.RELEASE_TAG }}
     secrets: inherit
