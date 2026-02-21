@@ -14,8 +14,10 @@ jobs:
     uses: ./.github/workflows/deps-build-windows-nsis.yaml
     with:
       portable: true
+      fixed-webview: false
       nightly: false
       tag: ${{ github.event.release.tag_name }}
+      arch: 'x86_64'
     secrets: inherit
 
   linux_build:
