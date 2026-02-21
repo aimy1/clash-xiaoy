@@ -3,6 +3,9 @@ name: '[Entire] Build Release Version'
 on:
   release:
     types: [published]
+  push:
+    tags:
+      - 'v*'
 
 env:
   CARGO_INCREMENTAL: 0
