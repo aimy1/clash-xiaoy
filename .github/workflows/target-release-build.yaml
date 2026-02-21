@@ -26,6 +26,7 @@ jobs:
     with:
       nightly: false
       tag: ${{ github.event.release.tag_name }}
+      arch: 'x86_64'
     secrets: inherit
 
   macos_amd64_build:
