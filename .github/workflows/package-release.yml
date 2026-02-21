@@ -1,0 +1,209 @@
+name: '[Entire] Package Release Artifacts'
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release Tag (e.g. v2.7.16)'
+        required: true
+        type: string
+      nightly:
+        description: 'Nightly build'
+        required: true
+        type: boolean
+        default: false
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+env:
+  CARGO_INCREMENTAL: 0
+  RUST_BACKTRACE: short
+  NODE_OPTIONS: '--max_old_space_size=4096'
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+  NIGHTLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.nightly || 'false' }}
+
+jobs:
+  ensure_release:
+    name: Ensure GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create release if missing
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ env.RELEASE_TAG }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$TAG" --notes ""
+
+  build_windows:
+    name: Windows x86_64
+    runs-on: windows-latest
+    needs: [ensure_release]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Rust
+        run: |
+          rustup toolchain install nightly --profile minimal --no-self-update
+          rustup default nightly
+          rustup component add rustfmt clippy
+      - name: Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - name: Install deps
+        run: pnpm i
+      - name: Prepare sidecars/resources
+        run: pnpm prepare:check
+      - name: Prepare release config
+        run: pnpm prepare:release --nsis
+      - name: Build UI
+        run: pnpm -F ui build
+      - name: Build (Tauri)
+        run: pnpm tauri build -f default-meta
+        env:
+          NIGHTLY: ${{ env.NIGHTLY }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: clash-xiaoy-windows-x86_64
+          path: |
+            backend/target/**/bundle/**/*
+      - name: Upload to release (best effort)
+        continue-on-error: true
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ env.RELEASE_TAG }}
+        run: |
+          $files = Get-ChildItem -Path "./backend/target" -Recurse -Include "*.exe", "*.msi", "*.zip", "*.sig" | Where-Object { $_.FullName -like "*\bundle\*" }
+          foreach ($file in $files) {
+            gh release upload $env:TAG "$file" --clobber
+          }
+
+  build_linux:
+    name: Linux x86_64
+    runs-on: ubuntu-24.04
+    needs: [ensure_release]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Rust
+        run: |
+          rustup toolchain install nightly --profile minimal --no-self-update
+          rustup default nightly
+          rustup component add rustfmt clippy
+      - name: System deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libgtk-3-dev \
+            libgtk-3-bin \
+            libayatana-appindicator3-dev \
+            libwebkit2gtk-4.1-dev \
+            librsvg2-dev \
+            libxdo-dev \
+            libssl-dev \
+            patchelf
+      - name: Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - name: Install deps
+        run: pnpm i
+      - name: Prepare sidecars/resources
+        run: pnpm prepare:check
+      - name: Build UI
+        run: pnpm -F ui build
+      - name: Build (Tauri)
+        run: pnpm tauri build -f default-meta
+        env:
+          NIGHTLY: ${{ env.NIGHTLY }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: clash-xiaoy-linux-x86_64
+          path: |
+            backend/target/**/bundle/**/*
+      - name: Upload to release (best effort)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ env.RELEASE_TAG }}
+        run: |
+          shopt -s globstar
+          for f in backend/target/**/bundle/**/*; do
+            [ -f "$f" ] || continue
+            gh release upload "$TAG" "$f" --clobber || true
+          done
+
+  build_macos:
+    name: macOS (${{ matrix.arch }})
+    runs-on: macos-latest
+    needs: [ensure_release]
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - aarch64
+          - x86_64
+    steps:
+      - uses: actions/checkout@v5
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      - name: Rust
+        run: |
+          rustup toolchain install nightly --profile minimal --no-self-update
+          rustup default nightly
+          rustup component add rustfmt clippy
+          rustup target add ${{ matrix.arch }}-apple-darwin
+      - name: Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - name: Install deps
+        run: pnpm i
+      - name: Prepare sidecars/resources
+        run: |
+          if [ "${{ matrix.arch }}" = "aarch64" ]; then
+            pnpm prepare:check --arch arm64 --sidecar-host aarch64-apple-darwin
+          else
+            pnpm prepare:check --arch x64 --sidecar-host x86_64-apple-darwin
+          fi
+      - name: Build UI
+        run: pnpm -F ui build
+      - name: Build (Tauri)
+        run: pnpm tauri build -f default-meta --target ${{ matrix.arch }}-apple-darwin
+        env:
+          NIGHTLY: ${{ env.NIGHTLY }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: clash-xiaoy-macos-${{ matrix.arch }}
+          path: |
+            backend/target/**/bundle/**/*
+      - name: Upload to release (best effort)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ env.RELEASE_TAG }}
+        run: |
+          shopt -s globstar
+          for f in backend/target/**/bundle/**/*; do
+            [ -f "$f" ] || continue
+            gh release upload "$TAG" "$f" --clobber || true
+          done
