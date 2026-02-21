@@ -38,7 +38,9 @@ pub(super) fn get_download_path(core_type: CoreTypeMeta, artifact: &str) -> Stri
             format!("https://github.com/MetaCubeX/mihomo/releases/download/{tag}/{artifact}")
         }
         CoreTypeMeta::MihomoAlpha => {
-            format!("https://github.com/MetaCubeX/mihomo/releases/download/Prerelease-Alpha/{artifact}")
+            format!(
+                "https://github.com/MetaCubeX/mihomo/releases/download/Prerelease-Alpha/{artifact}"
+            )
         }
         CoreTypeMeta::ClashRs(tag) => {
             format!("https://github.com/Watfaq/clash-rs/releases/download/{tag}/{artifact}")
@@ -47,7 +49,9 @@ pub(super) fn get_download_path(core_type: CoreTypeMeta, artifact: &str) -> Stri
             format!("https://github.com/Watfaq/clash-rs/releases/download/latest/{artifact}")
         }
         CoreTypeMeta::ClashPremium(tag) => {
-            format!("https://github.com/zhongfly/Clash-premium-backup/releases/download/{tag}/{artifact}")
+            format!(
+                "https://github.com/zhongfly/Clash-premium-backup/releases/download/{tag}/{artifact}"
+            )
         }
     }
 }

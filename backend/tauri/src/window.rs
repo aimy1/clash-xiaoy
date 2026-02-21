@@ -144,7 +144,10 @@ pub trait AppWindow {
                         height: state.height,
                     })
                     .unwrap();
-                    tray_debug_log::log_webview_window_state("AppWindow.create after set_position/size", &win);
+                    tray_debug_log::log_webview_window_state(
+                        "AppWindow.create after set_position/size",
+                        &win,
+                    );
                 }
 
                 if let Some(state) = win_state {

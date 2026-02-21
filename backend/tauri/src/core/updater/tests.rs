@@ -1,5 +1,7 @@
-use super::super::super::config::{Config, xiaoy::ClashCore};
-use super::UpdaterManager;
+use super::{
+    super::super::config::{Config, xiaoy::ClashCore},
+    UpdaterManager,
+};
 use crate::utils::dirs;
 use std::time::Duration;
 

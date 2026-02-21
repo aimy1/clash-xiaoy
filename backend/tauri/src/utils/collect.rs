@@ -51,13 +51,13 @@ fn get_gpu_info() -> Vec<String> {
     }
 
     // Attempt to create WMI connection directly.
-    // Note: This requires COM to be initialized. In a typical Windows app, 
+    // Note: This requires COM to be initialized. In a typical Windows app,
     // the runtime or winit might have already initialized it.
-    // If not, we might need unsafe { CoInitializeEx(...) } or similar, 
+    // If not, we might need unsafe { CoInitializeEx(...) } or similar,
     // but wmi crate usually handles this or provides helpers.
     // Given the error history, we'll try the simplest WMIConnection::new() first.
     let wmi_con = WMIConnection::new().ok();
-    
+
     if let Some(wmi_con) = wmi_con {
         let results: Result<Vec<VideoController>, _> = wmi_con.query();
         if let Ok(results) = results {
