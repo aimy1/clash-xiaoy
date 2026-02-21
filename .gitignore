@@ -26,3 +26,5 @@ manifest/site/updater/*
 /backend/tauri/tmp/
 # release artifacts / archives (keep repo under upload limits)
 clash-*_portable.zip
+
+Microsoft.WebView2.FixedVersionRuntime.127.0.2651.105.x64.cab
