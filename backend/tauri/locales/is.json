@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Afrita Env (CMD)",
+      "ps": "Afrita Env (PS)",
+      "sh": "Afrita Env (sh)"
+    },
+    "no_proxies": "Engir Proxies",
+    "select_proxies": "Velja Proxies",
+    "dashboard": "Mælaborð",
+    "direct_mode": "Bein Stilling",
+    "global_mode": "Hnattræn Stilling",
+    "more": {
+      "menu": "Meira",
+      "restart_app": "Endurræsa Forrit",
+      "restart_clash": "Endurræsa Clash"
+    },
+    "open_dir": {
+      "menu": "Opna Möppu",
+      "app_config_dir": "Stillingamappa",
+      "app_data_dir": "Gagnamappa",
+      "core_dir": "Kjarnamappa",
+      "log_dir": "Annálamappa"
+    },
+    "proxy_action": {
+      "on": "Á",
+      "off": "Af"
+    },
+    "quit": "Hætta",
+    "rule_mode": "Reglustilling",
+    "script_mode": "Handritsstilling",
+    "system_proxy": "Kerfisproxy",
+    "tun_mode": "TUN Stilling"
+  },
+  "dialog": {
+    "panic": "Vinsamlegast tilkynntu þetta vandamál á Github issue tracker.",
+    "migrate": "Gömul útgáfa af stillingaskrá fannst. Flytja yfir í nýja útgáfu?\nAÐVÖRUN: Þetta mun skrifa yfir núverandi stillingar þínar ef þær eru til staðar",
+    "custom_app_dir_migrate": "Þú munt stilla sérsniðna forritsmöppu á %{path}\nEigum við að færa núverandi forritsmöppu yfir í þá nýju?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN stilling krefst stjórnandaréttinda eða þjónustustillingar, hvorugt er virkt, TUN stilling mun ekki virka rétt."
+    },
+    "info": {
+      "grant_core_permission": "Clash kjarninn þarf stjórnandaréttindi til að TUN stilling virki rétt, veita þau?\nVinsamlegast athugaðu að þessi aðgerð krefst lykilorðs."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Rjúfa tengingar þegar proxy breytist"
+        },
+        "profile": {
+          "label": "Rjúfa tengingar þegar snið breytist"
+        },
+        "mode": {
+          "label": "Rjúfa tengingar þegar stilling breytist"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Rjúfa tengingar þegar proxy breytist",
+  "break_when_profile_change": "Rjúfa tengingar þegar snið breytist",
+  "break_when_mode_change": "Rjúfa tengingar þegar stilling breytist"
+}

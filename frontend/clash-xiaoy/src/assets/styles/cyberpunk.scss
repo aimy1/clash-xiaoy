@@ -1,0 +1,78 @@
+/* Global Background */
+html.dark body,
+html.dark #root,
+html[data-theme='dark'] body,
+html[data-theme='dark'] #root {
+  background:
+    var(--app-wallpaper, none) center / cover no-repeat fixed,
+    radial-gradient(900px 600px at 20% 0%, rgba(0, 255, 240, 0.10), transparent 60%),
+    radial-gradient(800px 520px at 100% 10%, rgba(0, 255, 240, 0.06), transparent 55%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+html.light body,
+html.light #root,
+html[data-theme='light'] body,
+html[data-theme='light'] #root {
+  background:
+    var(--app-wallpaper, none) center / cover no-repeat fixed,
+    radial-gradient(820px 560px at 20% 0%, rgba(0, 122, 255, 0.10), transparent 60%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Glassmorphism Utility Class */
+.cyber-glass {
+  background: var(--cyber-glass-bg) !important;
+  backdrop-filter: blur(var(--cyber-glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--cyber-glass-blur)) !important;
+  border: 1px solid var(--cyber-glass-border) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    var(--shadow-card, 0 10px 30px rgba(0, 0, 0, 0.12)) !important;
+  border-radius: var(--radius-card, 24px);
+}
+
+.cyber-glass.ios-motion:hover {
+  border-color: var(--border-light, var(--cyber-glass-border)) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    var(--shadow-card-hover, var(--shadow-card)) !important;
+}
+
+.cyber-glass.ios-motion:active {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    var(--shadow-card-active, var(--shadow-card)) !important;
+}
+
+html[data-wallpaper='1'] .cyber-glass,
+html[data-wallpaper='1'] .MuiCard-root.cyber-glass,
+html[data-wallpaper='1'] .MuiPaper-root.cyber-glass {
+  background-color: transparent !important;
+}
+
+html[data-wallpaper='1'] .MuiCard-root {
+  background-color: transparent !important;
+}
+
+html[data-wallpaper='1'] .bg-surface,
+html[data-wallpaper='1'] .bg-primary-container,
+html[data-wallpaper='1'] .bg-on-primary {
+  background-color: transparent !important;
+}
+
+html.dark .cyber-box-glow,
+html[data-theme='dark'] .cyber-box-glow {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.10) inset,
+    var(--shadow-card);
+}
+
+html.light .cyber-box-glow,
+html[data-theme='light'] .cyber-box-glow {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.20) inset,
+    var(--shadow-card);
+}

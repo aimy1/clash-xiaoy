@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "composite": true,
+    "paths": {
+      "@root/*": ["../../*"],
+      "@/*": ["./src/*"],
+      "~/*": ["./*"],
+    },
+    "jsxImportSource": "@emotion/react",
+    "types": ["unplugin-icons/types/react"],
+  },
+  "include": ["src", "./auto-imports.d.ts"],
+  "references": [
+    { "path": "../interface" },
+    { "path": "../ui" },
+    { "path": "./tsconfig.node.json" },
+  ],
+}

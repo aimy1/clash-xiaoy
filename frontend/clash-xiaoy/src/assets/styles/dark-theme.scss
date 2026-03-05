@@ -1,0 +1,155 @@
+:root[data-theme='dark'],
+:root.dark {
+  --bg-main: #0b0b0f;
+  --bg-card: #1c1c1e;
+  --bg-hover: #242426;
+  --bg-active: #2c2c2e;
+
+  --border: rgba(84, 84, 88, 0.65);
+  --border-light: rgba(84, 84, 88, 0.45);
+
+  --text-title: rgba(255, 255, 255, 0.92);
+  --text-main: rgba(255, 255, 255, 0.86);
+  --text-sub: rgba(235, 235, 245, 0.60);
+  --text-disable: rgba(235, 235, 245, 0.30);
+
+  --primary: var(--primary-main, #00fff0);
+  --primary-soft: rgba(0, 255, 240, 0.15);
+  --primary-strong: rgba(0, 255, 240, 0.25);
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 20px 56px rgba(0, 0, 0, 0.62);
+  --shadow-card-active: 0 14px 34px rgba(0, 0, 0, 0.52);
+  --glow-primary: 0 0 16px rgba(0, 255, 240, 0.28);
+
+  --background-color: var(--bg-main);
+  --selection-color: rgba(0, 255, 240, 0.22);
+  --scroller-color: rgba(235, 235, 245, 0.22);
+  --text-primary: var(--text-sub);
+
+  --cyber-primary: var(--primary);
+  --cyber-secondary: var(--primary);
+  --cyber-accent: var(--primary);
+  --cyber-warning: var(--warning);
+  --cyber-bg-start: var(--bg-main);
+  --cyber-bg-end: var(--bg-main);
+
+  --cyber-glass-bg: linear-gradient(
+    180deg,
+    rgba(28, 28, 30, 0.82) 0%,
+    rgba(28, 28, 30, 0.62) 100%
+  );
+  --cyber-glass-border: rgba(84, 84, 88, 0.45);
+  --cyber-glass-blur: 22px;
+
+  --cyber-text-main: var(--text-main);
+  --cyber-text-muted: var(--text-sub);
+  --cyber-text-highlight: var(--text-title);
+
+  --color-md-primary: var(--primary);
+  --color-md-on-primary: #061221;
+  --color-md-primary-container: var(--bg-active);
+  --color-md-on-primary-container: var(--text-title);
+
+  --color-md-secondary: var(--text-sub);
+  --color-md-on-secondary: #0f1115;
+  --color-md-secondary-container: var(--bg-hover);
+  --color-md-on-secondary-container: var(--text-title);
+
+  --color-md-tertiary: var(--text-sub);
+  --color-md-on-tertiary: #0f1115;
+  --color-md-tertiary-container: var(--bg-hover);
+  --color-md-on-tertiary-container: var(--text-title);
+
+  --color-md-error: var(--danger);
+  --color-md-on-error: #1a0b0b;
+  --color-md-error-container: rgba(239, 68, 68, 0.18);
+  --color-md-on-error-container: var(--text-title);
+
+  --color-md-background: var(--bg-main);
+  --color-md-on-background: var(--text-main);
+
+  --color-md-surface: var(--bg-card);
+  --color-md-on-surface: var(--text-main);
+  --color-md-surface-variant: var(--bg-hover);
+  --color-md-on-surface-variant: var(--text-sub);
+
+  --color-md-outline: var(--border);
+  --color-md-outline-variant: var(--border-light);
+  --color-md-shadow: rgba(0, 0, 0, 0.85);
+  --color-md-scrim: rgba(0, 0, 0, 0.8);
+  --color-md-inverse-surface: #e5e7eb;
+  --color-md-inverse-on-surface: #0f1115;
+  --color-md-inverse-primary: var(--primary);
+}
+
+html.dark .MuiPaper-root.MuiPaper-rounded,
+html[data-theme='dark'] .MuiPaper-root.MuiPaper-rounded {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+html.dark .MuiButton-root,
+html[data-theme='dark'] .MuiButton-root {
+  text-transform: none;
+}
+
+html.dark .MuiButton-containedPrimary,
+html[data-theme='dark'] .MuiButton-containedPrimary {
+  background-color: var(--primary);
+  color: var(--color-md-on-primary);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.40);
+}
+
+html.dark .MuiButton-containedPrimary:hover,
+html[data-theme='dark'] .MuiButton-containedPrimary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.46);
+}
+
+html.dark .MuiButton-outlinedPrimary,
+html[data-theme='dark'] .MuiButton-outlinedPrimary {
+  border-color: var(--border-light);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+html.dark .MuiButton-outlinedPrimary:hover,
+html[data-theme='dark'] .MuiButton-outlinedPrimary:hover,
+html.dark .MuiButton-textPrimary:hover,
+html[data-theme='dark'] .MuiButton-textPrimary:hover {
+  background-color: var(--primary-strong);
+}
+
+html.dark .MuiListItemButton-root,
+html[data-theme='dark'] .MuiListItemButton-root {
+  color: var(--text-main);
+}
+
+html.dark .MuiListItemButton-root:hover,
+html[data-theme='dark'] .MuiListItemButton-root:hover {
+  background-color: var(--bg-hover) !important;
+  box-shadow: none !important;
+}
+
+html.dark .MuiListItemButton-root.cyber-box-glow,
+html[data-theme='dark'] .MuiListItemButton-root.cyber-box-glow {
+  background-color: var(--bg-active) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--glow-primary) !important;
+}
+
+html.dark .bg-\[rgba\(0\,0\,0\,0\.2\)\],
+html[data-theme='dark'] .bg-\[rgba\(0\,0\,0\,0\.2\)\] {
+  background-color: rgba(22, 26, 34, 0.72) !important;
+}
+
+html.dark .bg-\[rgba\(0\,0\,0\,0\.3\)\],
+html[data-theme='dark'] .bg-\[rgba\(0\,0\,0\,0\.3\)\] {
+  background-color: rgba(22, 26, 34, 0.82) !important;
+}

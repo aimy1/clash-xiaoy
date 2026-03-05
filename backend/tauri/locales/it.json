@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copia Env (CMD)",
+      "ps": "Copia Env (PS)",
+      "sh": "Copia Env (sh)"
+    },
+    "no_proxies": "Nessun Proxy",
+    "select_proxies": "Seleziona Proxy",
+    "dashboard": "Dashboard",
+    "direct_mode": "Modalità Diretta",
+    "global_mode": "Modalità Globale",
+    "more": {
+      "menu": "Altro",
+      "restart_app": "Riavvia App",
+      "restart_clash": "Riavvia Clash"
+    },
+    "open_dir": {
+      "menu": "Apri Cartella",
+      "app_config_dir": "Cartella Config",
+      "app_data_dir": "Cartella Dati",
+      "core_dir": "Cartella Core",
+      "log_dir": "Cartella Log"
+    },
+    "proxy_action": {
+      "on": "Attivo",
+      "off": "Disattivo"
+    },
+    "quit": "Esci",
+    "rule_mode": "Modalità Regole",
+    "script_mode": "Modalità Script",
+    "system_proxy": "Proxy di Sistema",
+    "tun_mode": "Modalità TUN"
+  },
+  "dialog": {
+    "panic": "Si prega di segnalare questo problema sul tracker dei problemi di Github.",
+    "migrate": "Rilevato file di configurazione della vecchia versione. Migrare alla nuova versione?\nATTENZIONE: Questo sovrascriverà la tua configurazione attuale se esistente",
+    "custom_app_dir_migrate": "Imposterai la cartella personalizzata dell'app su %{path}\nSpostare l'attuale cartella dell'app nella nuova?",
+    "warning": {
+      "enable_tun_with_no_permission": "La modalità TUN richiede permessi di amministratore o la modalità servizio, nessuno dei due è abilitato, la modalità TUN non funzionerà correttamente."
+    },
+    "info": {
+      "grant_core_permission": "Il core Clash richiede permessi di amministratore per far funzionare correttamente la modalità TUN, concederli?\nNota che questa operazione richiede l'inserimento della password."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Interrompi connessioni quando cambia il proxy"
+        },
+        "profile": {
+          "label": "Interrompi connessioni quando cambia il profilo"
+        },
+        "mode": {
+          "label": "Interrompi connessioni quando cambia la modalità"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Interrompi connessioni quando cambia il proxy",
+  "break_when_profile_change": "Interrompi connessioni quando cambia il profilo",
+  "break_when_mode_change": "Interrompi connessioni quando cambia la modalità"
+}

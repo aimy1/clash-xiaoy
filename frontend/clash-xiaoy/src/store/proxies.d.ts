@@ -1,0 +1,1 @@
+export declare const proxiesFilterAtom: import("jotai").WritableAtom<string | null, [string | typeof import("jotai/utils").RESET | ((prev: string | null) => string | typeof import("jotai/utils").RESET | null) | null], void>;

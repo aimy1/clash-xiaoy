@@ -1,0 +1,26 @@
+:root {
+  --focus-border: transparent !important;
+  --separator-border: transparent !important;
+}
+
+.layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background-color);
+  box-sizing: border-box;
+
+  .container {
+    position: relative;
+    flex: 1 1 75%;
+    height: 100%;
+    // background-color: var(--background-color-alpha); // Removed to allow cyber-glass to take precedence
+  }
+}
+
+:global(html[data-wallpaper='1']) {
+  .layout {
+    background-color: transparent;
+  }
+}

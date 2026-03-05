@@ -1,0 +1,103 @@
+name: '[Single] Create Updater'
+
+on:
+  workflow_dispatch:
+    inputs:
+      nightly:
+        description: 'Nightly'
+        required: true
+        type: boolean
+        default: false
+      release_body:
+        description: 'Release Body'
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      nightly:
+        description: 'Nightly'
+        required: true
+        type: boolean
+        default: false
+      release_body:
+        description: 'Release Body'
+        required: false
+        type: string
+    secrets:
+      SURGE_TOKEN:
+        required: true
+
+jobs:
+  updater:
+    name: Update Updater
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref }}
+          # blocked by https://github.com/actions/checkout/issues/1467
+      - name: Fetch git tags
+        run: git fetch --tags
+      - name: Install Node latest
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Pnpm install
+        run: pnpm i
+
+      - name: Update Nightly Updater
+        if: ${{ inputs.nightly == true }}
+        run: pnpm updater:nightly
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update Nightly Fixed Webview Updater
+        if: ${{ inputs.nightly == true }}
+        run: pnpm updater:nightly --fixed-webview
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Stable Updater
+        if: ${{ inputs.nightly == false }}
+        run: pnpm updater
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BODY: ${{ inputs.release_body || github.event.release.body }}
+
+      - name: Update Stable Fixed Webview Updater
+        if: ${{ inputs.nightly == false }}
+        run: pnpm updater --fixed-webview
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BODY: ${{ inputs.release_body || github.event.release.body }}
+
+      - name: Download updater files from Github release
+        uses: robinraju/release-downloader@v1
+        with:
+          tag: updater
+          repository: libnyanpasu/clash-nyanpasu
+          fileName: '*.json'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          out-file-path: manifest/site/updater
+      - name: Upload updater to surge.sh
+        run: |
+          pnpm i -g surge
+          surge manifest/site surge.elaina.moe
+          surge manifest/site nyanpasu.surge.sh
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      - name: Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: clash-nyanpasu-manifest
+          entrypoint: jsr:@std/http/file-server
+          root: manifest/site

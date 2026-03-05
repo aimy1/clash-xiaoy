@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Env Nusxalash (CMD)",
+      "ps": "Env Nusxalash (PS)",
+      "sh": "Env Nusxalash (sh)"
+    },
+    "no_proxies": "Proksilar Yo'q",
+    "select_proxies": "Proksilarni Tanlash",
+    "dashboard": "Boshqaruv Paneli",
+    "direct_mode": "To'g'ridan-to'g'ri Rejim",
+    "global_mode": "Global Rejim",
+    "more": {
+      "menu": "Ko'proq",
+      "restart_app": "Ilovani Qayta Ishga Tushirish",
+      "restart_clash": "Clashni Qayta Ishga Tushirish"
+    },
+    "open_dir": {
+      "menu": "Papkani Ochish",
+      "app_config_dir": "Konfig Papkasi",
+      "app_data_dir": "Ma'lumotlar Papkasi",
+      "core_dir": "Yadro Papkasi",
+      "log_dir": "Log Papkasi"
+    },
+    "proxy_action": {
+      "on": "Yoqilgan",
+      "off": "O'chirilgan"
+    },
+    "quit": "Chiqish",
+    "rule_mode": "Qoida Rejimi",
+    "script_mode": "Skript Rejimi",
+    "system_proxy": "Tizim Proksisi",
+    "tun_mode": "TUN Rejimi"
+  },
+  "dialog": {
+    "panic": "Iltimos, ushbu muammoni Github issue tracker-ga xabar bering.",
+    "migrate": "Eski versiya konfiguratsiya fayli aniqlandi. Yangi versiyaga o'tkazilsinmi?\nOGOHLANTIRISH: Bu mavjud konfiguratsiyangizni (agar mavjud bo'lsa) ustiga yozadi",
+    "custom_app_dir_migrate": "Siz maxsus ilova katalogini %{path} ga o'rnatmoqchisiz\nJoriy ilova katalogini yangisiga ko'chiramizmi?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN rejimi admin ruxsati yoki xizmat rejimini talab qiladi, hech biri yoqilmagan, TUN rejimi to'g'ri ishlamaydi."
+    },
+    "info": {
+      "grant_core_permission": "Clash yadrosi TUN rejimi to'g'ri ishlashi uchun admin ruxsatiga muhtoj, berilsinmi?\nShuni yodda tutingki, ushbu operatsiya parol kiritishni talab qiladi."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Proksi o'zgarganda ulanishlarni uzish"
+        },
+        "profile": {
+          "label": "Profil o'zgarganda ulanishlarni uzish"
+        },
+        "mode": {
+          "label": "Rejim o'zgarganda ulanishlarni uzish"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Proksi o'zgarganda ulanishlarni uzish",
+  "break_when_profile_change": "Profil o'zgarganda ulanishlarni uzish",
+  "break_when_mode_change": "Rejim o'zgarganda ulanishlarni uzish"
+}

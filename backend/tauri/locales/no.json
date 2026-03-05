@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopier Env (CMD)",
+      "ps": "Kopier Env (PS)",
+      "sh": "Kopier Env (sh)"
+    },
+    "no_proxies": "Ingen Proxyer",
+    "select_proxies": "Velg Proxyer",
+    "dashboard": "Dashbord",
+    "direct_mode": "Direkte Modus",
+    "global_mode": "Global Modus",
+    "more": {
+      "menu": "Mer",
+      "restart_app": "Start App På Nytt",
+      "restart_clash": "Start Clash På Nytt"
+    },
+    "open_dir": {
+      "menu": "Åpne Mappe",
+      "app_config_dir": "Konfigurasjonsmappe",
+      "app_data_dir": "Datamappe",
+      "core_dir": "Kjernemappe",
+      "log_dir": "Loggmappe"
+    },
+    "proxy_action": {
+      "on": "På",
+      "off": "Av"
+    },
+    "quit": "Avslutt",
+    "rule_mode": "Regel Modus",
+    "script_mode": "Skript Modus",
+    "system_proxy": "Systemproxy",
+    "tun_mode": "TUN Modus"
+  },
+  "dialog": {
+    "panic": "Vennligst rapporter dette problemet til Github issue tracker.",
+    "migrate": "Gammel konfigurasjonsfil oppdaget. Migrere til ny versjon?\nADVARSEL: Dette vil overskrive din nåværende konfigurasjon hvis den eksisterer",
+    "custom_app_dir_migrate": "Du vil sette tilpasset app-mappe til %{path}\nSkal vi flytte den nåværende app-mappen til den nye?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN-modus krever administratorrettigheter eller tjenestemodus, ingen er aktivert, TUN-modus vil ikke fungere ordentlig."
+    },
+    "info": {
+      "grant_core_permission": "Clash core trenger administratorrettigheter for at TUN-modus skal fungere ordentlig, gi det?\nVær oppmerksom på at denne operasjonen krever passordinntasting."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Avbryt tilkoblinger når proxy endres"
+        },
+        "profile": {
+          "label": "Avbryt tilkoblinger når profil endres"
+        },
+        "mode": {
+          "label": "Avbryt tilkoblinger når modus endres"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Avbryt tilkoblinger når proxy endres",
+  "break_when_profile_change": "Avbryt tilkoblinger når profil endres",
+  "break_when_mode_change": "Avbryt tilkoblinger når modus endres"
+}

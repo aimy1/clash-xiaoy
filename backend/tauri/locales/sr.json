@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopiraj Env (CMD)",
+      "ps": "Kopiraj Env (PS)",
+      "sh": "Kopiraj Env (sh)"
+    },
+    "no_proxies": "Bez proksija",
+    "select_proxies": "Izaberi proksije",
+    "dashboard": "Kontrolna tabla",
+    "direct_mode": "Direktni režim",
+    "global_mode": "Globalni režim",
+    "more": {
+      "menu": "Više",
+      "restart_app": "Ponovo pokreni aplikaciju",
+      "restart_clash": "Ponovo pokreni Clash"
+    },
+    "open_dir": {
+      "menu": "Otvori direktorijum",
+      "app_config_dir": "Konfiguracioni direktorijum",
+      "app_data_dir": "Direktorijum podataka",
+      "core_dir": "Jezgro direktorijum",
+      "log_dir": "Direktorijum evidencije"
+    },
+    "proxy_action": {
+      "on": "Uklj.",
+      "off": "Isklj."
+    },
+    "quit": "Izađi",
+    "rule_mode": "Režim pravila",
+    "script_mode": "Režim skripte",
+    "system_proxy": "Sistemski proksi",
+    "tun_mode": "TUN režim"
+  },
+  "dialog": {
+    "panic": "Prijavite ovaj problem na Github issue tracker.",
+    "migrate": "Otkrivena je stara verzija konfiguracione datoteke. Migrirati na novu verziju?\nUPOZORENJE: Ovo će prebrisati vašu trenutnu konfiguraciju ako postoji",
+    "custom_app_dir_migrate": "Postavićete prilagođeni direktorijum aplikacije na %{path}\nDa li da premestimo trenutni direktorijum aplikacije u novi?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN režim zahteva dozvolu administratora ili režim servisa, nijedno nije omogućeno, TUN režim neće raditi ispravno."
+    },
+    "info": {
+      "grant_core_permission": "Clash jezgro treba dozvolu administratora da bi TUN režim radio ispravno, dodeliti?\nImajte na umu da ova operacija zahteva unos lozinke."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Prekini veze kada se promeni proksi"
+        },
+        "profile": {
+          "label": "Prekini veze kada se promeni profil"
+        },
+        "mode": {
+          "label": "Prekini veze kada se promeni režim"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Prekini veze kada se promeni proksi",
+  "break_when_profile_change": "Prekini veze kada se promeni profil",
+  "break_when_mode_change": "Prekini veze kada se promeni režim"
+}
