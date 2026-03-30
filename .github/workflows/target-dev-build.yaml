@@ -12,7 +12,6 @@ env:
 jobs:
   delete_current_releases:
     name: Delete Current Releases
-    if: ${{ github.event_name == 'workflow_dispatch' || startsWith(github.repository, 'libnyanpasu') }}
     uses: ./.github/workflows/deps-delete-releases.yaml
     with:
       tag: 'pre-release'
