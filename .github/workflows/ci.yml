@@ -96,10 +96,6 @@ jobs:
       - name: Prepare sidecar and resources
         run: pnpm prepare:check
       - name: Lint
-        if: startsWith(matrix.targets.os, 'ubuntu-')
-        run: pnpm lint # Lint
-      - name: Lint
-        if: startsWith(matrix.targets.os, 'ubuntu-') == false
         run: pnpm run-p lint:clippy lint:rustfmt # Lint
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
