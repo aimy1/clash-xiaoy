@@ -25,7 +25,7 @@ on:
         type: string
     secrets:
       SURGE_TOKEN:
-        required: true
+        required: false
 
 jobs:
   updater:
@@ -89,6 +89,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           out-file-path: manifest/site/updater
       - name: Upload updater to surge.sh
+        if: ${{ secrets.SURGE_TOKEN != '' }}
         run: |
           pnpm i -g surge
           surge manifest/site surge.elaina.moe
