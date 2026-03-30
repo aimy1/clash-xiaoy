@@ -235,7 +235,13 @@ impl<F: Fn(DownloaderState)> Downloader<F> {
 
     // get file status, get remote content size, and return server filename
     async fn confirm_file_status(&self) -> Result<(String, u64), DownloaderError> {
-        let mut filename = self.url.path_segments().unwrap().next_back().unwrap().to_string();
+        let mut filename = self
+            .url
+            .path_segments()
+            .unwrap()
+            .next_back()
+            .unwrap()
+            .to_string();
         let mut total_size = 0u64;
         let mut allow_multi_thread = true;
 
@@ -441,7 +447,11 @@ impl<F: Fn(DownloaderState)> Downloader<F> {
         self.dispatch_event(DownloaderState::Downloading);
 
         for chunk in 0..counts {
-            let start = if use_range { (chunk * chunk_size) as usize } else { 0 };
+            let start = if use_range {
+                (chunk * chunk_size) as usize
+            } else {
+                0
+            };
             let end = if use_range {
                 if chunk == counts - 1 {
                     total_size.saturating_sub(1) as usize

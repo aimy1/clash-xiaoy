@@ -50,8 +50,9 @@ pub fn get_portable_flag() -> bool {
 
 #[cfg(target_os = "windows")]
 fn appdata_root_dir() -> Result<PathBuf> {
-    let appdata = std::env::var_os("APPDATA")
-        .ok_or(anyhow::anyhow!("failed to get APPDATA environment variable"))?;
+    let appdata = std::env::var_os("APPDATA").ok_or(anyhow::anyhow!(
+        "failed to get APPDATA environment variable"
+    ))?;
     Ok(PathBuf::from(appdata).join(APP_NAME))
 }
 
@@ -143,7 +144,10 @@ fn migrate_legacy_windows_dirs(new_root: &PathBuf) -> Result<()> {
         )?;
         move_dir_if_absent(&old_root.join("profiles"), &new_config_dir.join("profiles"))?;
 
-        move_file_if_absent(&old_root.join("storage.db"), &new_data_dir.join("storage.db"))?;
+        move_file_if_absent(
+            &old_root.join("storage.db"),
+            &new_data_dir.join("storage.db"),
+        )?;
         move_file_if_absent(&old_root.join("clash.pid"), &new_data_dir.join("clash.pid"))?;
         move_dir_if_absent(&old_root.join("logs"), &new_data_dir.join("logs"))?;
         move_dir_if_absent(&old_root.join("cache"), &new_data_dir.join("cache"))?;

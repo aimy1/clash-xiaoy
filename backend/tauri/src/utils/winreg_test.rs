@@ -22,9 +22,7 @@ mod tests {
         let placeholder = placeholder.unwrap();
         assert!(!placeholder.is_empty());
         // Should contain the app name
-        assert!(
-            placeholder.contains("clash-xiaoy") || placeholder.contains("clash-xiaoy-dev")
-        );
+        assert!(placeholder.contains("clash-xiaoy") || placeholder.contains("clash-xiaoy-dev"));
         println!("Single instance placeholder: {}", placeholder);
     }
 }

@@ -31,7 +31,10 @@ pub fn log(msg: impl AsRef<str>) {
 }
 
 pub fn log_webview_window_state<R: Runtime>(prefix: &str, window: &WebviewWindow<R>) {
-    let visible = window.is_visible().map(|v| v.to_string()).unwrap_or_else(|e| e.to_string());
+    let visible = window
+        .is_visible()
+        .map(|v| v.to_string())
+        .unwrap_or_else(|e| e.to_string());
     let size = window
         .outer_size()
         .map(|s| format!("{}x{}", s.width, s.height))
@@ -56,4 +59,3 @@ pub fn log_window_lookup<R: Runtime>(prefix: &str, app_handle: &AppHandle<R>, la
         }
     }
 }
-

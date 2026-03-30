@@ -247,13 +247,19 @@ impl Tray {
                         "open_app_data_dir",
                         tray_menu_text(t!("tray.open_dir.app_data_dir")),
                     )
-                    .text("open_core_dir", tray_menu_text(t!("tray.open_dir.core_dir")))
+                    .text(
+                        "open_core_dir",
+                        tray_menu_text(t!("tray.open_dir.core_dir")),
+                    )
                     .text("open_logs_dir", tray_menu_text(t!("tray.open_dir.log_dir")))
                     .build()?,
             )
             .item(
                 &SubmenuBuilder::new(app_handle, tray_menu_text(t!("tray.more.menu")))
-                    .text("restart_clash", tray_menu_text(t!("tray.more.restart_clash")))
+                    .text(
+                        "restart_clash",
+                        tray_menu_text(t!("tray.more.restart_clash")),
+                    )
                     .text("restart_app", tray_menu_text(t!("tray.more.restart_app")))
                     .item(
                         &MenuItemBuilder::new(format!("Version {version}"))
