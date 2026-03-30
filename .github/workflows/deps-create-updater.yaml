@@ -89,8 +89,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           out-file-path: manifest/site/updater
       - name: Upload updater to surge.sh
-        if: ${{ secrets.SURGE_TOKEN != '' }}
         run: |
+          if [ -z "${SURGE_TOKEN}" ]; then
+            echo "SURGE_TOKEN is empty, skip surge deploy"
+            exit 0
+          fi
           pnpm i -g surge
           surge manifest/site surge.elaina.moe
           surge manifest/site nyanpasu.surge.sh
