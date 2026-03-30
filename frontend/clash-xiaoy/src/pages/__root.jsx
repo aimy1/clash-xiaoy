@@ -15,7 +15,7 @@ import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-tw';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { BlockTaskProvider } from '@/components/providers/block-task-provider';
 import { LanguageProvider } from '@/components/providers/language-provider';
 import { ExperimentalThemeProvider } from '@/components/providers/theme-provider';
@@ -80,7 +80,9 @@ export default function App() {
             </StyledEngineProvider>
           </ExperimentalThemeProvider>
 
-          <TanStackRouterDevtools />
+          <Suspense fallback={null}>
+            <TanStackRouterDevtools />
+          </Suspense>
         </LanguageProvider>
       </BlockTaskProvider>
     </NyanpasuProvider>);

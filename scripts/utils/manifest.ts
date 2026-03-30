@@ -46,12 +46,27 @@ export const resolveMihomo = async (): LatestVersionResolver => {
 }
 
 export const resolveMihomoAlpha = async (): LatestVersionResolver => {
-  const resp = await fetch(
-    'https://github.com/MetaCubeX/mihomo/releases/download/Prerelease-Alpha/version.txt',
-    { dispatcher: getProxyAgent() },
-  )
-
-  const alphaReleaseHash = (await resp.text()).trim()
+  let alphaReleaseHash = ''
+  try {
+    const resp = await fetch(
+      'https://github.com/MetaCubeX/mihomo/releases/download/Prerelease-Alpha/version.txt',
+      { dispatcher: getProxyAgent() },
+    )
+    alphaReleaseHash = (await resp.text()).trim()
+  } catch {
+    const preRelease = await octokit.rest.repos.getReleaseByTag(
+      applyProxy({
+        owner: 'MetaCubeX',
+        repo: 'mihomo',
+        tag: 'Prerelease-Alpha',
+      }),
+    )
+    const assetName = preRelease.data.assets
+      .map((asset: { name: string }) => asset.name)
+      .find((name: string) => name.includes('-alpha-'))
+    const matched = assetName?.match(/alpha-[a-zA-Z0-9]+/)
+    alphaReleaseHash = matched?.[0] ?? 'alpha-unknown'
+  }
 
   consola.debug(`mihomo alpha release: ${alphaReleaseHash}`)
 
@@ -86,16 +101,17 @@ export const resolveClashRs = async (): LatestVersionResolver => {
   consola.debug(`clash-rs latest release: ${latestRelease.data.tag_name}`)
 
   const archMapping: ArchMapping = {
-    [SupportedArch.WindowsX86_32]: 'clash-i686-pc-windows-msvc-static-crt.exe',
-    [SupportedArch.WindowsX86_64]: 'clash-x86_64-pc-windows-msvc.exe',
-    [SupportedArch.WindowsArm64]: 'clash-aarch64-pc-windows-msvc.exe',
-    [SupportedArch.LinuxAarch64]: 'clash-aarch64-unknown-linux-gnu',
-    [SupportedArch.LinuxAmd64]: 'clash-x86_64-unknown-linux-gnu-static-crt',
-    [SupportedArch.LinuxI386]: 'clash-i686-unknown-linux-gnu',
-    [SupportedArch.DarwinArm64]: 'clash-aarch64-apple-darwin',
-    [SupportedArch.DarwinX64]: 'clash-x86_64-apple-darwin',
-    [SupportedArch.LinuxArmv7]: 'clash-armv7-unknown-linux-gnueabi',
-    [SupportedArch.LinuxArmv7hf]: 'clash-armv7-unknown-linux-gnueabihf',
+    [SupportedArch.WindowsX86_32]:
+      'clash-rs-i686-pc-windows-msvc-static-crt.exe',
+    [SupportedArch.WindowsX86_64]: 'clash-rs-x86_64-pc-windows-msvc.exe',
+    [SupportedArch.WindowsArm64]: 'clash-rs-aarch64-pc-windows-msvc.exe',
+    [SupportedArch.LinuxAarch64]: 'clash-rs-aarch64-unknown-linux-gnu',
+    [SupportedArch.LinuxAmd64]: 'clash-rs-x86_64-unknown-linux-gnu-static-crt',
+    [SupportedArch.LinuxI386]: 'clash-rs-i686-unknown-linux-gnu',
+    [SupportedArch.DarwinArm64]: 'clash-rs-aarch64-apple-darwin',
+    [SupportedArch.DarwinX64]: 'clash-rs-x86_64-apple-darwin',
+    [SupportedArch.LinuxArmv7]: 'clash-rs-armv7-unknown-linux-gnueabi',
+    [SupportedArch.LinuxArmv7hf]: 'clash-rs-armv7-unknown-linux-gnueabihf',
   } satisfies ArchMapping
 
   return {
@@ -106,28 +122,49 @@ export const resolveClashRs = async (): LatestVersionResolver => {
 }
 
 export const resolveClashRsAlpha = async (): LatestVersionResolver => {
-  const resp = await fetch(
-    'https://github.com/Watfaq/clash-rs/releases/download/latest/version.txt',
-    { dispatcher: getProxyAgent() },
-  )
+  let alphaVersion = 'latest'
+  try {
+    const resp = await fetch(
+      'https://github.com/Watfaq/clash-rs/releases/download/latest/version.txt',
+      { dispatcher: getProxyAgent() },
+    )
 
-  const alphaVersion = resp.ok
-    ? (await resp.text()).trim().split(' ').pop()!
-    : 'latest'
+    if (resp.ok) {
+      alphaVersion = (await resp.text()).trim().split(' ').pop()!
+    }
+  } catch {
+    const [stable, alphaRelease] = await Promise.all([
+      octokit.rest.repos.getLatestRelease(
+        applyProxy({
+          owner: 'Watfaq',
+          repo: 'clash-rs',
+        }),
+      ),
+      octokit.rest.repos.getReleaseByTag(
+        applyProxy({
+          owner: 'Watfaq',
+          repo: 'clash-rs',
+          tag: 'latest',
+        }),
+      ),
+    ])
+    alphaVersion = `${stable.data.tag_name.replace(/^v/, '')}-alpha+sha.${alphaRelease.data.target_commitish.slice(0, 7)}`
+  }
 
   consola.debug(`clash-rs alpha latest release: ${alphaVersion}`)
 
   const archMapping: ArchMapping = {
-    [SupportedArch.WindowsX86_32]: 'clash-i686-pc-windows-msvc-static-crt.exe',
-    [SupportedArch.WindowsX86_64]: 'clash-x86_64-pc-windows-msvc.exe',
-    [SupportedArch.WindowsArm64]: 'clash-aarch64-pc-windows-msvc.exe',
-    [SupportedArch.LinuxAarch64]: 'clash-aarch64-unknown-linux-gnu',
-    [SupportedArch.LinuxAmd64]: 'clash-x86_64-unknown-linux-gnu-static-crt',
-    [SupportedArch.LinuxI386]: 'clash-i686-unknown-linux-gnu',
-    [SupportedArch.DarwinArm64]: 'clash-aarch64-apple-darwin',
-    [SupportedArch.DarwinX64]: 'clash-x86_64-apple-darwin',
-    [SupportedArch.LinuxArmv7]: 'clash-armv7-unknown-linux-gnueabi',
-    [SupportedArch.LinuxArmv7hf]: 'clash-armv7-unknown-linux-gnueabihf',
+    [SupportedArch.WindowsX86_32]:
+      'clash-rs-i686-pc-windows-msvc-static-crt.exe',
+    [SupportedArch.WindowsX86_64]: 'clash-rs-x86_64-pc-windows-msvc.exe',
+    [SupportedArch.WindowsArm64]: 'clash-rs-aarch64-pc-windows-msvc.exe',
+    [SupportedArch.LinuxAarch64]: 'clash-rs-aarch64-unknown-linux-gnu',
+    [SupportedArch.LinuxAmd64]: 'clash-rs-x86_64-unknown-linux-gnu-static-crt',
+    [SupportedArch.LinuxI386]: 'clash-rs-i686-unknown-linux-gnu',
+    [SupportedArch.DarwinArm64]: 'clash-rs-aarch64-apple-darwin',
+    [SupportedArch.DarwinX64]: 'clash-rs-x86_64-apple-darwin',
+    [SupportedArch.LinuxArmv7]: 'clash-rs-armv7-unknown-linux-gnueabi',
+    [SupportedArch.LinuxArmv7hf]: 'clash-rs-armv7-unknown-linux-gnueabihf',
   } satisfies ArchMapping
 
   return {

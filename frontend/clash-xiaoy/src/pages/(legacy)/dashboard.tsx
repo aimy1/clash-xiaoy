@@ -15,7 +15,7 @@ import {
   rectSortingStrategy,
 } from '@dnd-kit/sortable'
 import { useAtomValue, useAtom } from 'jotai'
-import { useEffect, useState, useMemo } from 'react'
+import { useCallback, useEffect, useState, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDataPanelItems } from '@/components/dashboard/data-panel'
 import Dataline from '@/components/dashboard/dataline'
@@ -29,14 +29,105 @@ import ServiceShortcuts from '@/components/dashboard/service-shortcuts'
 import { useHealthPanelData } from '@/components/dashboard/health-panel'
 import { useVisibility } from '@/hooks/use-visibility'
 import { atomIsDrawer, atomDashboardLayout } from '@/store'
+import { OpenInNewRounded } from '@mui/icons-material'
+import { Button, Paper } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import { useClashWSContext } from '@nyanpasu/interface'
+import { openThat, useClashWSContext } from '@nyanpasu/interface'
 import { BasePage } from '@nyanpasu/ui'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/(legacy)/dashboard')({
   component: Dashboard,
 })
+
+type GithubRelease = {
+  tag_name: string
+  name?: string
+  html_url: string
+  published_at: string
+}
+
+const RELEASES_URL = 'https://github.com/aimy1/clash-xiaoy/releases'
+const CURRENT_APP_VERSION = '2.7.17'
+
+function SoftwareUpdatePanel() {
+  const [latestRelease, setLatestRelease] = useState<GithubRelease | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const refreshRelease = useCallback(async () => {
+    setLoading(true)
+    setError('')
+    try {
+      const resp = await fetch(
+        'https://api.github.com/repos/aimy1/clash-xiaoy/releases/latest',
+      )
+      if (!resp.ok) {
+        throw new Error(`HTTP ${resp.status}`)
+      }
+      setLatestRelease((await resp.json()) as GithubRelease)
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'unknown')
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    refreshRelease()
+  }, [refreshRelease])
+
+  return (
+    <Paper className="flex !h-full flex-col gap-3 !rounded-3xl p-3 cyber-glass">
+      <div className="flex items-center justify-between gap-2">
+        <div className="text-sm font-semibold text-[var(--text-title)]">
+          软件更新
+        </div>
+        <div className="rounded-full bg-[var(--chip-bg)] px-2 py-0.5 text-xs text-[var(--text-sub)]">
+          {latestRelease?.tag_name ?? '--'}
+        </div>
+      </div>
+
+      <div className="rounded-2xl bg-[var(--surface-2)] px-3 py-2 text-sm">
+        <div className="text-xs text-[var(--text-sub)]">
+          当前版本: v{CURRENT_APP_VERSION}
+        </div>
+        <div className="truncate text-[var(--text-primary)]">
+          {latestRelease?.name || latestRelease?.tag_name || '-'}
+        </div>
+        <div className="mt-1 text-xs text-[var(--text-sub)]">
+          {latestRelease?.published_at
+            ? new Date(latestRelease.published_at).toLocaleString('zh-CN', {
+                hour12: false,
+              })
+            : '未获取到发布时间'}
+        </div>
+        {!!error && <div className="mt-1 text-xs text-red-500">获取失败: {error}</div>}
+      </div>
+
+      <div className="grid grid-cols-1 gap-2">
+        <Button
+          size="small"
+          variant="outlined"
+          className="!rounded-xl"
+          disabled={loading}
+          onClick={refreshRelease}
+        >
+          {loading ? '检查中...' : '检查最新版本'}
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          className="!rounded-xl"
+          endIcon={<OpenInNewRounded />}
+          onClick={() => openThat(latestRelease?.html_url ?? RELEASES_URL)}
+        >
+          前往 GitHub 下载更新
+        </Button>
+      </div>
+    </Paper>
+  )
+}
 
 function Dashboard() {
   const { t } = useTranslation()
@@ -65,6 +156,7 @@ function Dashboard() {
         'info-combined',
         'proxy-shortcuts',
         'service-shortcuts',
+        'software-update',
         'system-info',
       ]
       
@@ -127,6 +219,13 @@ function Dashboard() {
                     } else {
                         currentItems.push(id);
                     }
+                } else if (id === 'software-update') {
+                    const serviceIndex = currentItems.indexOf('service-shortcuts');
+                    if (serviceIndex !== -1) {
+                        currentItems.splice(serviceIndex + 1, 0, id);
+                    } else {
+                        currentItems.push(id);
+                    }
                 } else {
                     currentItems.push(id);
                 }
@@ -185,6 +284,14 @@ function Dashboard() {
             xl: 6,
         }
     }
+    if (id === 'software-update') {
+        return {
+            sm: 12,
+            md: 6,
+            lg: 4,
+            xl: 3,
+        }
+    }
     switch (id) {
         case 'proxy-shortcuts':
         case 'service-shortcuts':
@@ -219,6 +326,8 @@ function Dashboard() {
               return <ProxyShortcuts />
           case 'service-shortcuts':
               return <ServiceShortcuts />
+          case 'software-update':
+              return <SoftwareUpdatePanel />
           case 'system-info':
               return <SystemInfoPanel />
           case 'current-node-status':
