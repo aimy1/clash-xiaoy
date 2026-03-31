@@ -13,7 +13,6 @@ env:
 
 permissions:
   contents: write
-  id-token: write
 
 jobs:
   ensure_release:
@@ -73,20 +72,4 @@ jobs:
       nightly: false
       aarch64: true
       tag: ${{ needs.ensure_release.outputs.tag }}
-    secrets: inherit
-
-  updater:
-    name: Create Updater
-    uses: ./.github/workflows/deps-create-updater.yaml
-    needs: [windows_build, linux_build, macos_amd64_build, macos_aarch64_build]
-    with:
-      nightly: false
-
-  telegram:
-    name: Send Release Message to Telegram
-    if: startsWith(github.repository, 'libnyanpasu')
-    needs: [windows_build, linux_build, macos_amd64_build, macos_aarch64_build]
-    uses: ./.github/workflows/deps-message-telegram.yaml
-    with:
-      nightly: false
     secrets: inherit
