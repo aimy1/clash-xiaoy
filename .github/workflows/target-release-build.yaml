@@ -17,6 +17,10 @@ env:
   CARGO_INCREMENTAL: 0
   RUST_BACKTRACE: short
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   ensure_release:
     name: Ensure Release Exists
