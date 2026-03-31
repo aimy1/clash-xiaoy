@@ -31,8 +31,8 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "release" ]; then
             echo "tag=${{ github.event.release.tag_name }}" >> "$GITHUB_OUTPUT"
-          elif [ -n "${{ inputs.tag }}" ]; then
-            echo "tag=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${{ github.event.inputs.tag || '' }}" ]; then
+            echo "tag=${{ github.event.inputs.tag }}" >> "$GITHUB_OUTPUT"
           else
             echo "tag=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
           fi
