@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-  release:
-    types: [published]
 
 env:
   CARGO_INCREMENTAL: 0
@@ -41,8 +39,10 @@ jobs:
     uses: ./.github/workflows/deps-build-windows-nsis.yaml
     with:
       portable: true
+      fixed-webview: false
       nightly: false
       tag: ${{ needs.ensure_release.outputs.tag }}
+      arch: x86_64
     secrets: inherit
 
   linux_build:
@@ -52,6 +52,7 @@ jobs:
     with:
       nightly: false
       tag: ${{ needs.ensure_release.outputs.tag }}
+      arch: x86_64
     secrets: inherit
 
   macos_amd64_build:
