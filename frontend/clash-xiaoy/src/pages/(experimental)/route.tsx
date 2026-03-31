@@ -15,6 +15,7 @@ const AppContent = () => {
         'h-[calc(100vh-40px-64px)]',
         'sm:h-[calc(100vh-40px-48px)]',
         'overflow-hidden',
+        'transition-all duration-300 ease-in-out',
       )}
       data-slot="app-content"
     />
@@ -24,7 +25,10 @@ const AppContent = () => {
 function RouteComponent() {
   return (
     <div
-      className={cn('flex max-h-dvh min-h-dvh flex-col', 'bg-background/30')}
+      className={cn(
+        'flex max-h-dvh min-h-dvh flex-col',
+        'bg-background/30 backdrop-blur-sm',
+      )}
       onContextMenu={(e) => {
         e.preventDefault()
       }}
@@ -32,7 +36,7 @@ function RouteComponent() {
       <Header />
 
       <div
-        className="flex flex-1 flex-col sm:flex-col-reverse"
+        className="flex flex-1 flex-col sm:flex-col-reverse overflow-hidden"
         data-slot="app-content-container"
       >
         <AppContent />

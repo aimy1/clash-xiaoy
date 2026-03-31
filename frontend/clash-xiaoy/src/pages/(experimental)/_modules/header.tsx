@@ -32,8 +32,11 @@ export function DefaultHeader({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       className={cn(
-        'dark:bg-primary-container bg-inverse-primary flex h-10 w-full items-center px-3',
+        'dark:bg-primary-container/95 bg-inverse-primary/95',
+        'flex h-10 w-full items-center px-3',
         'justify-between',
+        'backdrop-blur-md border-b border-outline/10',
+        'transition-all duration-300',
         className,
       )}
       data-slot="app-header"
@@ -56,8 +59,11 @@ export function MacOSHeader({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       className={cn(
-        'bg-primary-container relative flex h-10 w-full items-center px-3',
+        'bg-primary-container/95 backdrop-blur-md',
+        'relative flex h-10 w-full items-center px-3',
         'justify-center',
+        'border-b border-outline/10',
+        'transition-all duration-300',
         className,
       )}
       data-slot="app-header"

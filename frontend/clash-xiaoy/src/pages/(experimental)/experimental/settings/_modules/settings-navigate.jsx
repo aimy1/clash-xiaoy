@@ -1,7 +1,6 @@
 import ComputerOutlineRounded from '~icons/material-symbols/computer-outline-rounded';
 import DisplayExternalInput from '~icons/material-symbols/display-external-input-rounded';
 import FrameBugOutlineRounded from '~icons/material-symbols/frame-bug-outline-rounded';
-import ListsRounded from '~icons/material-symbols/lists-rounded';
 import NetworkNode from '~icons/material-symbols/network-node';
 import SettingsBoltRounded from '~icons/material-symbols/settings-b-roll-rounded';
 import SettingsEthernet from '~icons/material-symbols/settings-ethernet-rounded';
@@ -56,34 +55,10 @@ const ROUTES = [
         icon: StyleClashMeta,
     },
     {
-        label: 'Clash Filed',
-        description: 'Configure the clash filed',
-        href: '/experimental/settings/clash-filed',
-        icon: ListsRounded,
-    },
-    {
-        label: 'System Behavior',
-        description: 'Configure the system behavior',
-        href: '/experimental/settings/system-behavior',
-        icon: ComputerOutlineRounded,
-    },
-    {
-        label: 'System Service',
-        description: 'Configure the system service',
-        href: '/experimental/settings/system-service',
-        icon: NetworkNode,
-    },
-    {
         label: 'clash-xiaoy Config',
         description: 'Configure the clash-xiaoy config',
         href: '/experimental/settings/nyanpasu-config',
         icon: StyleLogo,
-    },
-    {
-        label: 'Debug Utils',
-        description: 'Configure the debug utils',
-        href: '/experimental/settings/debug-utils',
-        icon: FrameBugOutlineRounded,
     },
     {
         label: 'About',

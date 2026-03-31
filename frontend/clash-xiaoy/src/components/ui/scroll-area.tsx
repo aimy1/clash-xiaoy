@@ -143,30 +143,43 @@ export function ScrollBar({
       data-slot="scroll-area-scrollbar"
       orientation={orientation}
       className={cn(
-        'z-50 flex touch-none p-px select-none',
-        'transition-opacity duration-300 ease-out',
+        'z-50 flex touch-none select-none',
+        'transition-all duration-200 ease-out',
         'data-[state=hidden]:opacity-0 data-[state=visible]:opacity-100',
+        'hover:bg-surface-variant/10',
         orientation === 'vertical' &&
-          'h-full w-2.5 border-l border-l-transparent py-1',
+          'h-full w-2 border-l-[6px] border-l-transparent',
         orientation === 'horizontal' &&
-          'h-2.5 flex-col border-t border-t-transparent px-1',
+          'h-2 flex-col border-t-[6px] border-t-transparent',
         className,
       )}
       {...props}
     >
       <ScrollAreaPrimitive.ScrollAreaThumb
         data-slot="scroll-area-thumb"
-        className="bg-surface-variant relative flex-1 rounded-full"
+        className={cn(
+          'relative flex-1 rounded-full',
+          'bg-zinc-400/60 dark:bg-zinc-500/60',
+          'transition-all duration-200',
+          'hover:bg-zinc-500/80 dark:hover:bg-zinc-400/80',
+          'active:bg-zinc-600 dark:active:bg-zinc-300',
+        )}
       />
     </ScrollAreaPrimitive.ScrollAreaScrollbar>
   )
 }
 
+interface AppContentScrollAreaProps
+  extends React.ComponentProps<typeof ScrollAreaPrimitive.Root> {
+  showGradientMask?: boolean
+}
+
 export function AppContentScrollArea({
   className,
   children,
+  showGradientMask = true,
   ...props
-}: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
+}: AppContentScrollAreaProps) {
   const viewportRef = useRef<HTMLDivElement>(null)
 
   const { isTop, isBottom, scrollDirection, handleScroll, isScrolling } =
@@ -186,24 +199,54 @@ export function AppContentScrollArea({
         className={cn(
           'relative',
           'flex flex-1 flex-col',
+          'overflow-hidden',
           'max-h-[calc(100vh-40px-64px)]',
           'min-h-[calc(100vh-40px-64px)]',
           'sm:max-h-[calc(100vh-40px-48px)]',
           'sm:min-h-[calc(100vh-40px-48px)]',
+          'transition-all duration-300 ease-in-out',
           className,
         )}
         data-slot="app-content-scroll-area"
         type="scroll"
-        scrollHideDelay={600}
+        scrollHideDelay={800}
         data-scrolling={String(isScrolling)}
         data-top={String(isTop)}
         data-bottom={String(isBottom)}
         data-scroll-direction={scrollDirection}
         {...props}
       >
-        <Viewport ref={viewportRef} onScroll={handleScroll}>
-          {children}
+        {showGradientMask && !isTop && (
+          <div
+            className={cn(
+              'pointer-events-none absolute top-0 left-0 right-0 z-[1]',
+              'h-8 bg-gradient-to-b from-background to-transparent',
+              'transition-opacity duration-300',
+              isScrolling ? 'opacity-100' : 'opacity-0',
+            )}
+          />
+        )}
+
+        <Viewport
+          ref={viewportRef}
+          onScroll={handleScroll}
+          className="scroll-smooth"
+        >
+          <div className="min-h-full">
+            {children}
+          </div>
         </Viewport>
+
+        {showGradientMask && !isBottom && (
+          <div
+            className={cn(
+              'pointer-events-none absolute bottom-0 left-0 right-0 z-[1]',
+              'h-8 bg-gradient-to-t from-background to-transparent',
+              'transition-opacity duration-300',
+              isScrolling ? 'opacity-100' : 'opacity-0',
+            )}
+          />
+        )}
 
         <ScrollBar />
         <Corner />

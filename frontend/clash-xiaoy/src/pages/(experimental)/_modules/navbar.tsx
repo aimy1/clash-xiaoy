@@ -36,21 +36,33 @@ const NavbarButton = ({
       <TooltipTrigger asChild>
         <Button
           className={cn(
-            'flex items-center justify-center gap-1',
+            'flex items-center justify-center gap-2',
             'lg:w-fit lg:px-3',
-            'sm:h-8!',
-            'hover:bg-primary-container dark:hover:bg-primary-container min-w-0',
+            'sm:h-9!',
+            'min-w-0 transition-all duration-200 ease-in-out',
+            'hover:scale-105',
             'dark:data-[active=true]:bg-primary-container! data-[active=true]:bg-inverse-primary!',
+            'data-[active=true]:shadow-sm',
+            'rounded-lg',
           )}
           data-active={String(Boolean(isActive))}
           asChild
         >
           <Link {...props}>
-            <span className="size-5" data-slot="navbar-button-icon">
+            <span
+              className={cn(
+                'size-5 transition-transform duration-200',
+                isActive && 'scale-110',
+              )}
+              data-slot="navbar-button-icon"
+            >
               {icon}
             </span>
 
-            <span className="hidden lg:block" data-slot="navbar-button-label">
+            <span
+              className="hidden lg:block font-medium"
+              data-slot="navbar-button-label"
+            >
               {label}
             </span>
           </Link>
@@ -77,10 +89,14 @@ export default function Navbar({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       className={cn(
-        'dark:bg-on-primary bg-primary-container flex items-center px-3',
+        'dark:bg-on-primary/95 bg-primary-container/95',
+        'flex items-center px-3',
         'h-16 sm:h-12',
         'justify-between sm:justify-start',
         'gap-2 lg:gap-1',
+        'backdrop-blur-md border-t border-outline/10',
+        'transition-all duration-300',
+        'shadow-sm',
         className,
       )}
       data-slot="app-navbar"

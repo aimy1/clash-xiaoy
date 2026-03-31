@@ -1,7 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router';
+import SettingSystemBehavior from '@/components/setting/setting-system-behavior';
+import { SettingsTitle, SettingsTitlePlaceholder, } from '../_modules/settings-title';
 export const Route = createFileRoute('/(experimental)/experimental/settings/system-behavior')({
     component: RouteComponent,
 });
 function RouteComponent() {
-    return <div>Hello "/(experimental)/experimental/settings/about"!</div>;
+    return (<>
+      <SettingsTitlePlaceholder />
+      <SettingsTitle>System Behavior</SettingsTitle>
+
+      <SettingSystemBehavior />
+    </>);
 }

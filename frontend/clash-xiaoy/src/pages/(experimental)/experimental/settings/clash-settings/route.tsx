@@ -22,7 +22,7 @@ function RouteComponent() {
   return (
     <>
       <SettingsTitlePlaceholder />
-      <SettingsTitle>{m.settings_system_proxy_title()}</SettingsTitle>
+      <SettingsTitle>{m.settings_clash_settings_title()}</SettingsTitle>
 
       <AllowLanSwitch />
 

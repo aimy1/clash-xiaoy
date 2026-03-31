@@ -128,14 +128,28 @@ impl Proxies {
         // 3. generate the proxies groups
         let groups: Vec<ProxyGroupItem> = match global {
             Some(api::ProxyItem { all: Some(all), .. }) => {
-                let all = all.clone();
-                all.into_iter()
+                let mut group_names: Vec<String> = all
+                    .iter()
                     .filter(|name| {
                         matches!(
-                            inner_proxies.get(name),
+                            inner_proxies.get(*name),
                             Some(api::ProxyItem { all: Some(_), .. })
                         )
                     })
+                    .cloned()
+                    .collect();
+
+                for item in inner_proxies.values() {
+                    if item.name != "GLOBAL"
+                        && item.all.is_some()
+                        && !group_names.iter().any(|name| name == &item.name)
+                    {
+                        group_names.push(item.name.clone());
+                    }
+                }
+
+                group_names
+                    .into_iter()
                     .map(|name| {
                         let item = inner_proxies
                             .get(&name)
@@ -155,7 +169,7 @@ impl Proxies {
                 let mut groups: Vec<ProxyGroupItem> = inner_proxies
                     .clone()
                     .into_values()
-                    .filter(|v| v.name == "GLOBAL" && v.all.is_some())
+                    .filter(|v| v.name != "GLOBAL" && v.all.is_some())
                     .map(|v| {
                         let all = v.all.clone().unwrap_or_default();
                         let mut item: ProxyGroupItem = v.clone().into();
@@ -171,7 +185,7 @@ impl Proxies {
         // 4. generate the proxies
         let mut proxies: Vec<api::ProxyItem> = vec![direct.clone(), reject];
         proxies.extend(inner_proxies.clone().into_values().filter(|v| {
-            matches!(v.name.as_str(), "DIRECT" | "REJECT")
+            !matches!(v.name.as_str(), "DIRECT" | "REJECT")
                 && (v.all.is_none() || v.all.as_ref().unwrap().is_empty())
         }));
 
