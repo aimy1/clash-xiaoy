@@ -28,10 +28,23 @@ jobs:
       - name: Create draft release when missing
         shell: bash
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
           TAG: ${{ steps.resolve_tag.outputs.tag }}
         run: |
-          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --draft --title "Clash Nyanpasu $TAG" --notes ""
+          RELEASE_API="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
+          TAG_API="${RELEASE_API}/tags/${TAG}"
+
+          if curl -fsSL -H "Authorization: Bearer ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" "${TAG_API}" >/dev/null; then
+            echo "Release ${TAG} already exists"
+            exit 0
+          fi
+
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "${RELEASE_API}" \
+            -d "{\"tag_name\":\"${TAG}\",\"name\":\"Clash Nyanpasu ${TAG}\",\"body\":\"\",\"draft\":true,\"prerelease\":false}" >/dev/null
 
   windows_build:
     name: Windows Build
