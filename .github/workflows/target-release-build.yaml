@@ -25,26 +25,16 @@ jobs:
         shell: bash
         run: |
           echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
-      - name: Create draft release when missing
-        shell: bash
+      - name: Create or update draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.resolve_tag.outputs.tag }}
+          name: Clash Nyanpasu ${{ steps.resolve_tag.outputs.tag }}
+          body: ''
+          draft: true
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          TAG: ${{ steps.resolve_tag.outputs.tag }}
-        run: |
-          RELEASE_API="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
-          TAG_API="${RELEASE_API}/tags/${TAG}"
-
-          if curl -fsSL -H "Authorization: Bearer ${GITHUB_TOKEN}" -H "Accept: application/vnd.github+json" "${TAG_API}" >/dev/null; then
-            echo "Release ${TAG} already exists"
-            exit 0
-          fi
-
-          curl -fsSL -X POST \
-            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "${RELEASE_API}" \
-            -d "{\"tag_name\":\"${TAG}\",\"name\":\"Clash Nyanpasu ${TAG}\",\"body\":\"\",\"draft\":true,\"prerelease\":false}" >/dev/null
 
   windows_build:
     name: Windows Build
