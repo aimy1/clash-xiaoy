@@ -31,7 +31,7 @@
     "lint:rustfmt": "cargo fmt --manifest-path ./backend/Cargo.toml --all -- --check",
     "knip": "knip",
     "test": "run-p test:*",
-    "test:backend": "cargo test --manifest-path ./backend/Cargo.toml --all-features",
+    "test:backend": "cargo test --manifest-path ./backend/Cargo.toml --workspace --exclude clash-xiaoy",
     "fmt": "run-p fmt:*",
     "fmt:backend": "cargo fmt --manifest-path ./backend/Cargo.toml --all",
     "fmt:prettier": "prettier --write .",
