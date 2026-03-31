@@ -1,6 +1,15 @@
 name: '[Entire] Build Release Version'
 
 on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v2.7.18). Leave empty to use current ref.'
+        required: false
+        type: string
+  push:
+    tags:
+      - 'v*'
   release:
     types: [published]
 
@@ -9,39 +18,69 @@ env:
   RUST_BACKTRACE: short
 
 jobs:
+  ensure_release:
+    name: Ensure Release Exists
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      tag: ${{ steps.resolve_tag.outputs.tag }}
+    steps:
+      - id: resolve_tag
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            echo "tag=${{ github.event.release.tag_name }}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${{ inputs.tag }}" ]; then
+            echo "tag=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Create draft release when missing
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.resolve_tag.outputs.tag }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --draft --title "Clash Nyanpasu $TAG" --notes ""
+
   windows_build:
     name: Windows Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-windows-nsis.yaml
     with:
       portable: true
       nightly: false
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ needs.ensure_release.outputs.tag }}
     secrets: inherit
 
   linux_build:
     name: Linux Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-linux.yaml
     with:
       nightly: false
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ needs.ensure_release.outputs.tag }}
     secrets: inherit
 
   macos_amd64_build:
     name: macOS amd64 Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-macos.yaml
     with:
       nightly: false
       aarch64: false
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ needs.ensure_release.outputs.tag }}
     secrets: inherit
 
   macos_aarch64_build:
     name: macOS aarch64 Build
+    needs: [ensure_release]
     uses: ./.github/workflows/deps-build-macos.yaml
     with:
       nightly: false
       aarch64: true
-      tag: ${{ github.event.release.tag_name }}
+      tag: ${{ needs.ensure_release.outputs.tag }}
     secrets: inherit
 
   updater:
