@@ -1,12 +1,6 @@
 name: '[Entire] Build Release Version'
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Release tag (e.g. v2.7.18). Leave empty to use current ref.'
-        required: false
-        type: string
   push:
     tags:
       - 'v*'
@@ -33,13 +27,7 @@ jobs:
       - id: resolve_tag
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "release" ]; then
-            echo "tag=${{ github.event.release.tag_name }}" >> "$GITHUB_OUTPUT"
-          elif [ -n "${{ github.event.inputs.tag || '' }}" ]; then
-            echo "tag=${{ github.event.inputs.tag }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "tag=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
-          fi
+          echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
       - name: Create draft release when missing
         shell: bash
         env:
