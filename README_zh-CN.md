@@ -1,170 +1,224 @@
-# Clash-Xiaoy
+# 🚀 Clash-Xiaoy
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" alt="Clash-Xiaoy Interface" width="80%" />
-  <br />
-  <p>🚀 基于 Clash Nyanpasu 的现代化 UI 增强版本</p>
-  <br />
-  <a href="https://t.me/clashxiaoy"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
-  <a href="https://github.com/aimy1/clash-xiaoy/releases"><img src="https://img.shields.io/github/v/release/aimy1/clash-xiaoy?style=for-the-badge" alt="GitHub Release" /></a>
-  <a href="https://github.com/aimy1/clash-xiaoy/blob/main/LICENSE"><img src="https://img.shields.io/github/license/aimy1/clash-xiaoy?style=for-the-badge" alt="License" /></a>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527">
+    <img src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" alt="Clash-Xiaoy 界面" width="85%" style="border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+  </picture>
 </div>
 
-## 📖 项目简介
+<br />
 
-Clash-Xiaoy 是一个基于 Clash Nyanpasu 的深度 UI 增强分支版本，在完全不修改 Clash 核心代理逻辑的前提下，对用户界面、内核下载与安装流程、视觉标识系统进行系统性重构，提升整体稳定性、可用性与完成度。
+<div align="center">
 
-本项目定位为：**工程级 UI 重构 + 安装体验优化版本**，而不是简单的"换皮"或功能魔改。
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/clashxiaoy)
+[![GitHub 发布](https://img.shields.io/github/v/release/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/releases)
+[![许可证](https://img.shields.io/github/license/aimy1/clash-xiaoy?style=for-the-badge&logo=gnu)](https://github.com/aimy1/clash-xiaoy/blob/main/LICENSE)
+[![星标](https://img.shields.io/github/stars/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/stargazers)
+[![复刻](https://img.shields.io/github/forks/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/network/members)
 
-## ✨ 核心特性
+**基于 Clash Nyanpasu 的现代化 UI 增强版本**
+
+*[English](./README.md) • [繁體中文](./README_zh-TW.md)*
+
+</div>
+
+---
+
+## ✨ 为什么选择 Clash-Xiaoy?
+
+> 🎯 **工程级 UI 重构 + 安装体验优化**
+
+Clash-Xiaoy 是一个现代化的 UI 增强分支，它彻底重新构想了 Clash Nyanpasu 的使用体验。在不修改核心代理逻辑的前提下，我们系统性地重构了用户界面、内核管理和视觉标识，提供了前所未有的精美程度和可靠性。
+
+与简单的"换皮"或表面修改不同，Clash-Xiaoy 代表了专注于**稳定性**、**可用性**和**完整性**的真正工程努力。
+
+---
+
+## 🎨 功能特点
 
 ### 🔧 内核管理
-- 使用更稳定的下载源
-- 安装流程更自动化
-- 下载失败提示更清晰
-- 提高整体成功率与可靠性
+
+| 功能 | 描述 |
+|------|------|
+| 🚀 **稳定下载** | 使用更可靠下载源，成功率更高 |
+| ⚡ **自动化安装** | 简化安装流程，清晰进度指示 |
+| 🎯 **清晰错误提示** | 下载失败更容易诊断和解决 |
+| ✅ **高可靠性** | 显著提高整体成功率 |
 
 ### 🎨 现代化界面
-- 全新界面结构与布局
-- 现代化深色主题
-- 更清晰的信息层级
-- 更高的视觉完成度与一致性
-- 响应式设计，适配不同屏幕尺寸
 
-### 🖼 品牌标识
-- 全新 Logo 设计
-- 与 UI 风格统一
-- 适配窗口、托盘、启动图标
-- 增强品牌识别度
+| 功能 | 描述 |
+|------|------|
+| 🌙 **深色主题** | 针对长时间使用优化的现代化深色主题 |
+| 📐 **清晰布局** | 重新设计的界面结构，信息层级更清晰 |
+| 📱 **响应式设计** | 完美适配不同屏幕尺寸 |
+| ✨ **视觉一致性** | 所有组件具有更高的视觉完整性 |
+
+### 🖼️ 品牌标识
+
+| 功能 | 描述 |
+|------|------|
+| 🎨 **全新 Logo** | 全新设计的 Logo |
+| 🎯 **统一风格** | 贯穿始终的视觉语言 |
+| 🖥️ **多平台图标** | 适配窗口、托盘和启动图标 |
 
 ### 🔗 链接与资源
-- 所有链接已验证
-- 内核下载链接可用
-- 更新与资源地址稳定
-- 确保用户体验的连续性
+
+| 功能 | 描述 |
+|------|------|
+| ✔️ **已验证链接** | 所有链接均已测试确认可用 |
+| 📦 **内核下载** | 稳定可靠的内核下载源 |
+| 🔄 **自动更新** | 无缝的更新检查和安装 |
+
+---
 
 ## 📸 界面预览
 
+<div align="center">
+
 ### 仪表盘
-![Dashboard](https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3)
+![仪表盘预览](https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3)
 
 ### 代理管理
-![Proxies](https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527)
+![代理预览](https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527)
 
-## 🚀 安装方法
+</div>
+
+---
+
+## 📥 安装
 
 ### Windows
-1. 从 [GitHub Releases](https://github.com/aimy1/clash-xiaoy/releases) 下载最新的安装包
-2. 运行安装程序并按照提示完成安装
-3. 启动 Clash-Xiaoy 即可使用
+```powershell
+# 从 GitHub Releases 下载
+# 运行安装程序并按提示完成
+# 启动 Clash-Xiaoy
+```
 
 ### macOS
-1. 从 [GitHub Releases](https://github.com/aimy1/clash-xiaoy/releases) 下载最新的 DMG 包
-2. 打开 DMG 文件并将 Clash-Xiaoy 拖入 Applications 文件夹
-3. 启动 Clash-Xiaoy 即可使用
+```bash
+# 从 GitHub Releases 下载 DMG
+# 拖到应用程序文件夹
+# 启动 Clash-Xiaoy
+```
 
 ### Linux
-1. 从 [GitHub Releases](https://github.com/aimy1/clash-xiaoy/releases) 下载最新的 AppImage 或 DEB 包
-2. 对于 AppImage：添加执行权限并运行
-   ```bash
-   chmod +x Clash-Xiaoy-*.AppImage
-   ./Clash-Xiaoy-*.AppImage
-   ```
-3. 对于 DEB 包：使用 dpkg 安装
-   ```bash
-   sudo dpkg -i clash-xiaoy_*.deb
-   ```
+```bash
+# AppImage
+chmod +x Clash-Xiaoy-*.AppImage
+./Clash-Xiaoy-*.AppImage
 
-## 🧠 设计原则
+# DEB 包
+sudo dpkg -i clash-xiaoy_*.deb
+```
 
-> 只增强体验，不破坏原有功能。
+[![下载最新版本](https://img.shields.io/badge/下载-最新版本-2CA5E0?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aimy1/clash-xiaoy/releases)
 
-- ✅ 不修改 Clash 核心行为
-- ✅ 不修改规则系统
-- ✅ 不修改策略组逻辑
-- ✅ 不改变配置文件格式
-- ✅ 完全兼容 Clash 原生态
+---
 
-## 📦 功能完整性
-
-以下功能全部保持与原版一致：
-
-| 功能 | 状态 |
-|------|------|
-| 节点管理与切换 | ✅ 完整支持 |
-| 策略组 | ✅ 完整支持 |
-| 配置加载 | ✅ 完整支持 |
-| 订阅更新 | ✅ 完整支持 |
-| 流量统计 | ✅ 完整支持 |
-| 系统托盘 | ✅ 完整支持 |
-| 开机启动 | ✅ 完整支持 |
-| 启动 / 停止代理 | ✅ 完整支持 |
-
-## ⚠️ 免责声明
-
-- 本项目不提供任何代理服务
-- 不包含任何节点资源
-- 不对网络内容进行推荐或引导
-- 仅对 Clash-Xiaoy 的界面与使用体验进行增强
-- 请遵守当地法律法规使用
-
-## 🔧 开发与构建
+## 🛠️ 开发
 
 ### 前置要求
 - Node.js 16+
 - Rust 1.60+
 - Tauri CLI
 
-### 开发流程
-1. 克隆仓库
-   ```bash
-   git clone https://github.com/aimy1/clash-xiaoy.git
-   cd clash-xiaoy
-   ```
+### 快速开始
+```bash
+# 克隆仓库
+git clone https://github.com/aimy1/clash-xiaoy.git
+cd clash-xiaoy
 
-2. 安装依赖
-   ```bash
-   # 前端依赖
-   cd frontend/clash-xiaoy
-   npm install
-   
-   # 后端依赖
-   cd ../../backend/tauri
-   cargo install
-   ```
+# 安装前端依赖
+cd frontend/clash-xiaoy
+npm install
 
-3. 启动开发服务器
-   ```bash
-   # 前端开发服务器
-   cd frontend/clash-xiaoy
-   npm run dev
-   
-   # 后端开发
-   cd ../../backend/tauri
-   cargo tauri dev
-   ```
+# 启动开发服务器
+npm run dev
+```
 
-4. 构建发布版本
-   ```bash
-   cd backend/tauri
-   cargo tauri build
-   ```
+### 从源码构建
+```bash
+# 构建后端
+cd ../../backend/tauri
+cargo tauri build
+```
 
-## ❤️ 鸣谢
+---
 
-- [Clash](https://github.com/Dreamacro/clash) - 核心代理引擎
-- [Clash Nyanpasu](https://github.com/keiko233/clash-nyanpasu) - 基础项目
-- [Tauri](https://tauri.app/) - 跨平台应用框架
-- [React](https://react.dev/) - 前端 UI 库
-- 所有开源贡献者
+## 💡 设计理念
+
+> **"只增强体验，不破坏原有功能。"**
+
+- ✅ 核心 Clash 行为保持不变
+- ✅ 规则系统兼容性已维护
+- ✅ 策略组逻辑已保留
+- ✅ 配置文件格式未改变
+- ✅ 100% 兼容 Clash 生态系统
+
+---
+
+## 📊 功能矩阵
+
+| 功能 | 状态 |
+|------|:----:|
+| 节点管理与切换 | ✅ |
+| 策略组 | ✅ |
+| 配置加载 | ✅ |
+| 订阅更新 | ✅ |
+| 流量统计 | ✅ |
+| 系统托盘 | ✅ |
+| 开机启动 | ✅ |
+| 代理启动/停止 | ✅ |
+
+---
+
+## ⚠️ 免责声明
+
+- 本项目不提供任何代理服务
+- 不包含任何节点资源
+- 不对网络内容进行推荐或引导
+- 仅增强 Clash-Xiaoy 的界面和用户体验
+- 请遵守当地法律法规使用
+
+---
+
+## 🙏 鸣谢
+
+<div align="center">
+
+| 项目 | 描述 |
+|------|------|
+| [Clash](https://github.com/Dreamacro/clash) | 核心代理引擎 |
+| [Clash Nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 基础项目 |
+| [Tauri](https://tauri.app/) | 跨平台框架 |
+| [React](https://react.dev/) | UI 库 |
+| [MUI](https://mui.com/) | 组件库 |
+
+*以及所有开源贡献者*
+
+</div>
+
+---
 
 ## 📞 联系方式
 
-- 反馈 bug：aisaniya12@proton.me
-- 加入社区：[Telegram 群组](https://t.me/clashxiaoy)
+<div align="center">
+
+[![邮箱](https://img.shields.io/badge/邮箱-aisaniya12@proton.me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:aisaniya12@proton.me)
+[![Telegram](https://img.shields.io/badge/Telegram-加入社区-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/clashxiaoy)
+
+</div>
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by the Clash-Xiaoy team</p>
+  <p>
+    <strong>由 ❤️ 为 Clash-Xiaoy 团队打造</strong>
+  </p>
+  <p>
+    <sub>© 2024 Clash-Xiaoy. 保留所有权利。</sub>
+  </p>
 </div>

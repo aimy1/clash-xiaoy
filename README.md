@@ -1,64 +1,220 @@
-# Clash-Xiaoy
+# 🚀 Clash-Xiaoy
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" alt="Clash-Xiaoy Interface" width="80%" />
-  <br />
-  <p>🚀 A Modern UI Enhancement Fork Based on Clash Nyanpasu</p>
-  <br />
-  <a href="https://t.me/clashxiaoy"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
-  <a href="https://github.com/aimy1/clash-xiaoy/releases"><img src="https://img.shields.io/github/v/release/aimy1/clash-xiaoy?style=for-the-badge" alt="GitHub Release" /></a>
-  <a href="https://github.com/aimy1/clash-xiaoy/blob/main/LICENSE"><img src="https://img.shields.io/github/license/aimy1/clash-xiaoy?style=for-the-badge" alt="License" /></a>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527">
+    <img src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" alt="Clash-Xiaoy Interface" width="85%" style="border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+  </picture>
 </div>
 
-## 🌐 Language / 语言 / 語言
+<br />
 
-Please select your language:
+<div align="center">
 
-| Language | 文件 |
-|----------|------|
-| 简体中文 | [README_zh-CN.md](README_zh-CN.md) |
-| English | [README_en.md](README_en.md) |
-| 繁體中文 | [README_zh-TW.md](README_zh-TW.md) |
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/clashxiaoy)
+[![GitHub Release](https://img.shields.io/github/v/release/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/releases)
+[![License](https://img.shields.io/github/license/aimy1/clash-xiaoy?style=for-the-badge&logo=gnu)](https://github.com/aimy1/clash-xiaoy/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/stargazers)
+[![Forks](https://img.shields.io/github/forks/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/network/members)
+
+**A Modern UI Enhancement Fork Based on Clash Nyanpasu**
+
+*[简体中文](./README_zh-CN.md) • [繁體中文](./README_zh-TW.md)*
+
+</div>
 
 ---
 
-## 📖 Quick Introduction
+## ✨ Why Clash-Xiaoy?
 
-Clash-Xiaoy is a modern UI enhancement fork based on Clash Nyanpasu. Without modifying the core proxy logic of Clash, it systematically reconstructs the user interface, kernel download and installation process, and visual identification system to improve overall stability, usability, and completeness.
+> 🎯 **Engineering-level UI Reconstruction + Installation Experience Optimization**
 
-**Key Features:**
-- 🔧 Stable kernel download sources
-- 🎨 Modern dark theme interface
-- 🖼️ Unified brand identity
-- 🔗 Verified and stable links
+Clash-Xiaoy is a modern UI enhancement fork that completely reimagines the Clash Nyanpasu experience. Without modifying the core proxy logic, we've systematically reconstructed the user interface, kernel management, and visual identity to deliver an unparalleled level of polish and reliability.
 
-## � Quick Start
+Unlike simple "skins" or superficial modifications, Clash-Xiaoy represents a genuine engineering effort focused on **stability**, **usability**, and **completeness**.
 
-### Installation
-Download the latest release from [GitHub Releases](https://github.com/aimy1/clash-xiaoy/releases)
+---
 
-### Development
+## 🎨 Features
+
+### 🔧 Kernel Management
+| Feature | Description |
+|---------|-------------|
+| 🚀 **Stable Downloads** | Use more reliable download sources with higher success rates |
+| ⚡ **Automated Installation** | Streamlined installation process with clear progress indicators |
+| 🎯 **Clear Error Messages** | Download failures are now easier to diagnose and resolve |
+| ✅ **High Reliability** | Significantly improved overall success rate |
+
+### 🎨 Modern Interface
+| Feature | Description |
+|---------|-------------|
+| 🌙 **Dark Theme** | Modern dark theme optimized for extended use |
+| 📐 **Clean Layout** | Revamped interface structure with better information hierarchy |
+| 📱 **Responsive Design** | Adapts seamlessly to different screen sizes |
+| ✨ **Visual Consistency** | Higher visual completeness across all components |
+
+### 🖼️ Brand Identity
+| Feature | Description |
+|---------|-------------|
+| 🎨 **New Logo** | Completely redesigned logo |
+| 🎯 **Unified Style** | Consistent visual language throughout |
+| 🖥️ **Multi-platform Icons** | Adapted for window, tray, and startup |
+
+### 🔗 Links & Resources
+| Feature | Description |
+|---------|-------------|
+| ✔️ **Verified Links** | All links tested and confirmed working |
+| 📦 **Kernel Downloads** | Stable and reliable kernel download sources |
+| 🔄 **Auto Updates** | Seamless update checking and installation |
+
+---
+
+## 📸 Interface Preview
+
+<div align="center">
+
+### Dashboard
+![Dashboard Preview](https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3)
+
+### Proxy Management
+![Proxy Preview](https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527)
+
+</div>
+
+---
+
+## 📥 Installation
+
+### Windows
+```powershell
+# Download from GitHub Releases
+# Run the installer and follow the prompts
+# Launch Clash-Xiaoy
+```
+
+### macOS
 ```bash
+# Download DMG from GitHub Releases
+# Drag to Applications folder
+# Launch Clash-Xiaoy
+```
+
+### Linux
+```bash
+# AppImage
+chmod +x Clash-Xiaoy-*.AppImage
+./Clash-Xiaoy-*.AppImage
+
+# DEB Package
+sudo dpkg -i clash-xiaoy_*.deb
+```
+
+[![Download Latest](https://img.shields.io/badge/Download-Latest%20Release-2CA5E0?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aimy1/clash-xiaoy/releases)
+
+---
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js 16+
+- Rust 1.60+
+- Tauri CLI
+
+### Quick Start
+```bash
+# Clone the repository
 git clone https://github.com/aimy1/clash-xiaoy.git
 cd clash-xiaoy
-cd frontend/clash-xiaoy && npm install
+
+# Install frontend dependencies
+cd frontend/clash-xiaoy
+npm install
+
+# Start development server
 npm run dev
 ```
 
-## � Contact
+### Build from Source
+```bash
+# Build backend
+cd ../../backend/tauri
+cargo tauri build
+```
 
-- Bug feedback: aisaniya12@proton.me
-- Join community: [Telegram Group](https://t.me/clashxiaoy)
+---
 
-## ❤️ Acknowledgments
+## 💡 Design Philosophy
 
-- [Clash](https://github.com/Dreamacro/clash) - Core proxy engine
-- [Clash Nyanpasu](https://github.com/keiko233/clash-nyanpasu) - Base project
-- [Tauri](https://tauri.app/) - Cross-platform application framework
-- [React](https://react.dev/) - Frontend UI library
+> **"Only enhance experience, not break original functionality."**
+
+- ✅ Core Clash behavior remains unchanged
+- ✅ Rule system compatibility maintained
+- ✅ Policy group logic preserved
+- ✅ Configuration file format unchanged
+- ✅ 100% compatible with Clash ecosystem
+
+---
+
+## 📊 Feature Matrix
+
+| Feature | Status |
+|---------|:------:|
+| Node Management & Switching | ✅ |
+| Policy Groups | ✅ |
+| Configuration Loading | ✅ |
+| Subscription Updates | ✅ |
+| Traffic Statistics | ✅ |
+| System Tray | ✅ |
+| Startup on Boot | ✅ |
+| Proxy Start/Stop | ✅ |
+
+---
+
+## ⚠️ Disclaimer
+
+- This project does not provide proxy services
+- No node resources included
+- No network content recommendation or guidance
+- Only enhances Clash-Xiaoy's interface and user experience
+- Please comply with local laws and regulations
+
+---
+
+## 🙏 Acknowledgments
+
+<div align="center">
+
+| Project | Description |
+|---------|-------------|
+| [Clash](https://github.com/Dreamacro/clash) | Core proxy engine |
+| [Clash Nyanpasu](https://github.com/keiko233/clash-nyanpasu) | Base project |
+| [Tauri](https://tauri.app/) | Cross-platform framework |
+| [React](https://react.dev/) | UI library |
+| [MUI](https://mui.com/) | Component library |
+
+*And all open source contributors*
+
+</div>
+
+---
+
+## 📞 Contact
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-aisaniya12@proton.me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:aisaniya12@proton.me)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Community-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/clashxiaoy)
+
+</div>
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by the Clash-Xiaoy team</p>
+  <p>
+    <strong>Made with ❤️ by the Clash-Xiaoy Team</strong>
+  </p>
+  <p>
+    <sub>© 2024 Clash-Xiaoy. All rights reserved.</sub>
+  </p>
 </div>
