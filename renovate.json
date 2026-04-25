@@ -1,0 +1,66 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "default:automergeMinor",
+    "default:prConcurrentLimit10",
+    "default:prHourlyLimitNone",
+    "default:preserveSemverRanges",
+    "default:rebaseStalePrs",
+    "group:monorepos"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "rangeStrategy": "pin"
+    },
+    {
+      "matchManagers": ["cargo"],
+      "rangeStrategy": "update-lockfile",
+      "platformAutomerge": false
+    },
+    {
+      "groupName": "Oxc packages",
+      "matchPackageNames": ["/oxc/"]
+    },
+    {
+      "groupName": "Bundler packages",
+      "matchPackageNames": ["/vite/", "/unplugin/"]
+    },
+    {
+      "groupName": "Typescript packages",
+      "matchPackageNames": ["/@types/", "/ts-/", "/tsx/", "/typescript/"]
+    },
+    {
+      "groupName": "Lint packages",
+      "matchPackageNames": [
+        "/eslint/",
+        "/prettier/",
+        "/commitlint/",
+        "/stylelint/",
+        "/husky/",
+        "/lint-staged/"
+      ]
+    },
+    {
+      "groupName": "Tauri packages",
+      "matchPackageNames": ["/tauri/"]
+    },
+    {
+      "groupName": "Windows packages",
+      "matchPackageNames": ["/windows/", "/webview2-com/", "winreg"]
+    },
+    {
+      "groupName": "Object-C packages",
+      "matchPackageNames": ["/objc2/"]
+    },
+    {
+      "groupName": "egui packages",
+      "matchPackageNames": ["/egui/", "/eframe/"]
+    },
+    {
+      "groupName": "Testing packages",
+      "matchPackageNames": ["/vitest/", "/cypress/", "/wdio/"]
+    }
+  ]
+}

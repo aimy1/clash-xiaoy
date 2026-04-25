@@ -1,0 +1,79 @@
+name: '[Entire] Build Release Version'
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  CARGO_INCREMENTAL: 0
+  RUST_BACKTRACE: short
+
+permissions:
+  contents: write
+
+jobs:
+  ensure_release:
+    name: Ensure Release Exists
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      tag: ${{ steps.resolve_tag.outputs.tag }}
+    steps:
+      - id: resolve_tag
+        shell: bash
+        run: |
+          echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+      - name: Create or update draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.resolve_tag.outputs.tag }}
+          name: Clash Nyanpasu ${{ steps.resolve_tag.outputs.tag }}
+          body: ''
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  windows_build:
+    name: Windows Build
+    needs: [ensure_release]
+    uses: ./.github/workflows/deps-build-windows-nsis.yaml
+    with:
+      portable: true
+      fixed-webview: false
+      nightly: false
+      tag: ${{ needs.ensure_release.outputs.tag }}
+      arch: x86_64
+    secrets: inherit
+
+  linux_build:
+    name: Linux Build
+    needs: [ensure_release]
+    uses: ./.github/workflows/deps-build-linux.yaml
+    with:
+      nightly: false
+      tag: ${{ needs.ensure_release.outputs.tag }}
+      arch: x86_64
+    secrets: inherit
+
+  macos_amd64_build:
+    name: macOS amd64 Build
+    needs: [ensure_release]
+    uses: ./.github/workflows/deps-build-macos.yaml
+    with:
+      nightly: false
+      aarch64: false
+      tag: ${{ needs.ensure_release.outputs.tag }}
+    secrets: inherit
+
+  macos_aarch64_build:
+    name: macOS aarch64 Build
+    needs: [ensure_release]
+    uses: ./.github/workflows/deps-build-macos.yaml
+    with:
+      nightly: false
+      aarch64: true
+      tag: ${{ needs.ensure_release.outputs.tag }}
+    secrets: inherit

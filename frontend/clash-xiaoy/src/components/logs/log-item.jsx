@@ -1,0 +1,42 @@
+import { useAsyncEffect } from 'ahooks';
+import { useState } from 'react';
+import { formatAnsi } from '@/utils/shiki';
+import { Box, useColorScheme } from '@mui/material';
+import { cn } from '@nyanpasu/ui';
+import styles from './log-item.module.scss';
+const colorMapping = {
+    error: (theme) => ({
+        color: theme.vars.palette.error.main,
+    }),
+    warning: (theme) => ({
+        color: theme.vars.palette.warning.main,
+    }),
+    info: (theme) => ({
+        color: theme.vars.palette.info.main,
+    }),
+};
+export const LogItem = ({ value, className, }) => {
+    const [payload, setPayload] = useState(value.payload);
+    const { mode } = useColorScheme();
+    useAsyncEffect(async () => {
+        setPayload(await formatAnsi(value.payload));
+    }, [value.payload]);
+    return (<div className={cn('w-full p-4 pt-2 pb-0 font-mono select-text cyber-text-glow hover:bg-white/5 transition-colors', className)}>
+      <div className="flex gap-2">
+        <span className="font-thin">{value.time}</span>
+
+        <Box component="span" className="inline-block font-semibold uppercase" sx={colorMapping[value.type]}>
+          {value.type}
+        </Box>
+      </div>
+
+      <div className="pb-2 text-wrap">
+        <div className={cn(styles.item, mode === 'dark' && styles.dark)} style={{
+            '--item-font': 'var(--font-mono)',
+        }} dangerouslySetInnerHTML={{
+            __html: payload,
+        }}/>
+      </div>
+    </div>);
+};
+export default LogItem;

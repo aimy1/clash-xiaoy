@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "composite": true,
+    "paths": {
+      "@nyanpasu/ui/*": ["./frontend/ui/*"],
+      "clash-xiaoy/*": ["./frontend/clash-xiaoy/*"],
+      "@nyanpasu/interface/*": ["./frontend/interface/*"],
+    },
+  },
+  "references": [
+    { "path": "./frontend/ui" },
+    { "path": "./frontend/clash-xiaoy" },
+    { "path": "./frontend/interface" },
+    { "path": "./scripts" },
+  ],
+}

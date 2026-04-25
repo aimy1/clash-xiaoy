@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../node_modules/@tauri-apps/cli/config.schema.json",
+  "bundle": {
+    "windows": {
+      "webviewInstallMode": {
+        "type": "fixedRuntime",
+        "path": "SHOULD_BE_REPLACED_WITH_THE_PATH_TO_THE_FIXED_WEBVIEW"
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "endpoints": [
+        "https://deno.elaina.moe/updater/update-fixed-webview-proxy.json",
+        "https://nyanpasu.surge.sh/updater/update-fixed-webview-proxy.json",
+        "https://gh-proxy.com/https://github.com/libnyanpasu/clash-nyanpasu/releases/download/updater/update-fixed-webview-proxy.json",
+        "https://github.com/libnyanpasu/clash-nyanpasu/releases/download/updater/update-fixed-webview.json"
+      ]
+    }
+  }
+}

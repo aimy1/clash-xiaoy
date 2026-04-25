@@ -1,0 +1,10 @@
+import { ErrorComponentProps } from '@tanstack/react-router';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/ja';
+import 'dayjs/locale/ko';
+import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-tw';
+export declare const Catch: ({ error }: ErrorComponentProps) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const Pending: () => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const Route: import("@tanstack/react-router").RootRoute<import("@tanstack/react-router").Register, undefined, {}, import("@tanstack/router-core").AnyContext, import("@tanstack/router-core").AnyContext, {}, undefined, unknown, unknown, unknown, unknown, undefined>;
+export default function App(): import("@emotion/react/jsx-runtime").JSX.Element;

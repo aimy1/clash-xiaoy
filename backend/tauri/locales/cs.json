@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopírovat Env (CMD)",
+      "ps": "Kopírovat Env (PS)",
+      "sh": "Kopírovat Env (sh)"
+    },
+    "no_proxies": "Žádné Proxy",
+    "select_proxies": "Vybrat Proxy",
+    "dashboard": "Řídicí Panel",
+    "direct_mode": "Přímý Režim",
+    "global_mode": "Globální Režim",
+    "more": {
+      "menu": "Více",
+      "restart_app": "Restartovat App",
+      "restart_clash": "Restartovat Clash"
+    },
+    "open_dir": {
+      "menu": "Otevřít Složku",
+      "app_config_dir": "Konfigurační Složka",
+      "app_data_dir": "Datová Složka",
+      "core_dir": "Jádro Složka",
+      "log_dir": "Log Složka"
+    },
+    "proxy_action": {
+      "on": "Zap",
+      "off": "Vyp"
+    },
+    "quit": "Ukončit",
+    "rule_mode": "Režim Pravidel",
+    "script_mode": "Režim Skriptu",
+    "system_proxy": "Systémové Proxy",
+    "tun_mode": "Režim TUN"
+  },
+  "dialog": {
+    "panic": "Nahlaste prosím tento problém na Github issue tracker.",
+    "migrate": "Byla zjištěna stará verze konfiguračního souboru. Přejít na novou verzi?\nVAROVÁNÍ: Toto přepíše vaši stávající konfiguraci, pokud existuje",
+    "custom_app_dir_migrate": "Chystáte se nastavit vlastní adresář aplikace na %{path}\nMáme přesunout aktuální adresář aplikace do nového?",
+    "warning": {
+      "enable_tun_with_no_permission": "Režim TUN vyžaduje oprávnění správce nebo režim služby, ani jedno není povoleno, režim TUN nebude fungovat správně."
+    },
+    "info": {
+      "grant_core_permission": "Jádro Clash potřebuje oprávnění správce, aby režim TUN fungoval správně, udělit?\nUpozorňujeme, že tato operace vyžaduje zadání hesla."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Přerušit spojení při změně proxy"
+        },
+        "profile": {
+          "label": "Přerušit spojení při změně profilu"
+        },
+        "mode": {
+          "label": "Přerušit spojení při změně režimu"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Přerušit spojení při změně proxy",
+  "break_when_profile_change": "Přerušit spojení při změně profilu",
+  "break_when_mode_change": "Přerušit spojení při změně režimu"
+}

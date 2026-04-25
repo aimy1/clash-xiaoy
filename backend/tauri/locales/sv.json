@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopiera Env (CMD)",
+      "ps": "Kopiera Env (PS)",
+      "sh": "Kopiera Env (sh)"
+    },
+    "no_proxies": "Inga Proxys",
+    "select_proxies": "Välj Proxys",
+    "dashboard": "Instrumentpanel",
+    "direct_mode": "Direktläge",
+    "global_mode": "Globalt Läge",
+    "more": {
+      "menu": "Mer",
+      "restart_app": "Starta Om App",
+      "restart_clash": "Starta Om Clash"
+    },
+    "open_dir": {
+      "menu": "Öppna Mapp",
+      "app_config_dir": "Konfigurationsmapp",
+      "app_data_dir": "Datamapp",
+      "core_dir": "Kärnmapp",
+      "log_dir": "Loggmapp"
+    },
+    "proxy_action": {
+      "on": "På",
+      "off": "Av"
+    },
+    "quit": "Avsluta",
+    "rule_mode": "Regelläge",
+    "script_mode": "Skriptläge",
+    "system_proxy": "Systemproxy",
+    "tun_mode": "TUN-läge"
+  },
+  "dialog": {
+    "panic": "Vänligen rapportera detta problem till Github issue tracker.",
+    "migrate": "Gammal konfigurationsfil upptäckt. Migrera till ny version?\nVARNING: Detta kommer att skriva över din nuvarande konfiguration om den finns",
+    "custom_app_dir_migrate": "Du kommer att ställa in anpassad appmapp till %{path}\nSka vi flytta den nuvarande appmappen till den nya?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN-läge kräver administratörsbehörighet eller serviceläge, inget är aktiverat, TUN-läge kommer inte att fungera korrekt."
+    },
+    "info": {
+      "grant_core_permission": "Clash core behöver administratörsbehörighet för att TUN-läge ska fungera korrekt, bevilja?\nObservera att denna åtgärd kräver lösenordsinmatning."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Avbryt anslutningar när proxy ändras"
+        },
+        "profile": {
+          "label": "Avbryt anslutningar när profil ändras"
+        },
+        "mode": {
+          "label": "Avbryt anslutningar när läge ändras"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Avbryt anslutningar när proxy ändras",
+  "break_when_profile_change": "Avbryt anslutningar när profil ändras",
+  "break_when_mode_change": "Avbryt anslutningar när läge ändras"
+}
