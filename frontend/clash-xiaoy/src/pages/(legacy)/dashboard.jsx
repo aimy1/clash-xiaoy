@@ -25,7 +25,7 @@ export const Route = createFileRoute('/(legacy)/dashboard')({
     component: Dashboard,
 });
 const RELEASES_URL = 'https://github.com/aimy1/clash-xiaoy/releases';
-const CURRENT_APP_VERSION = '2.7.17';
+const CURRENT_APP_VERSION = '2.7.20';
 function SoftwareUpdatePanel() {
     const [latestRelease, setLatestRelease] = useState(null);
     const [loading, setLoading] = useState(false);

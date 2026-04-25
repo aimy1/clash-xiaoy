@@ -99,10 +99,10 @@ async function resolvePortable() {
       ],
     },
     {
-      zipName: 'nyanpasu-service.exe',
+      zipName: 'clash-xiaoy-service.exe',
       candidates: [
-        path.join(buildDir, 'nyanpasu-service.exe'),
-        path.join(sidecarDir, `nyanpasu-service-${triple}.exe`),
+        path.join(buildDir, 'clash-xiaoy-service.exe'),
+        path.join(sidecarDir, `clash-xiaoy-service-${triple}.exe`),
       ],
     },
     {

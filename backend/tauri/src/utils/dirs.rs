@@ -33,11 +33,11 @@ pub static APP_DIR_PLACEHOLDER: Lazy<Cow<'static, str>> = Lazy::new(|| {
 });
 
 pub const CLASH_CFG_GUARD_OVERRIDES: &str = "clash-guard-overrides.yaml";
-pub const NYANPASU_CONFIG: &str = "nyanpasu-config.yaml";
+pub const CLASH_XIAOY_CONFIG: &str = "clash-xiaoy-config.yaml";
 pub const PROFILE_YAML: &str = "profiles.yaml";
 pub const STORAGE_DB: &str = "storage.db";
 
-pub static APP_VERSION: &str = env!("NYANPASU_VERSION");
+pub static APP_VERSION: &str = env!("CLASH_XIAOY_VERSION");
 
 pub fn get_app_version() -> &'static str {
     APP_VERSION
@@ -323,7 +323,7 @@ pub fn clash_guard_overrides_path() -> Result<PathBuf> {
 }
 
 pub fn clash_xiaoy_config_path() -> Result<PathBuf> {
-    Ok(app_config_dir()?.join(NYANPASU_CONFIG))
+    Ok(app_config_dir()?.join(CLASH_XIAOY_CONFIG))
 }
 
 pub fn profiles_path() -> Result<PathBuf> {

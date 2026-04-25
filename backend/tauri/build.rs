@@ -19,53 +19,80 @@ struct GitInfo {
 }
 
 fn main() {
-    let version: String = if let Ok(true) = exists("../../package.json") {
-        let raw = read("../../package.json").unwrap();
-        let pkg_json: PackageJson = serde_json::from_slice(&raw).unwrap();
-        pkg_json.version
-    } else {
-        let raw = read("./tauri.conf.json").unwrap(); // TODO: fix it when windows arm64 need it
-        let tauri_json: PackageJson = serde_json::from_slice(&raw).unwrap();
-        tauri_json.version
+    let version: String = match exists("../../package.json") {
+        Ok(true) => {
+            match read("../../package.json") {
+                Ok(raw) => {
+                    match serde_json::from_slice(&raw) {
+                        Ok(pkg_json) => {
+                            let pkg_json: PackageJson = pkg_json;
+                            pkg_json.version
+                        }
+                        Err(_) => "2.7.20".to_string()
+                    }
+                }
+                Err(_) => {
+                    match read("./tauri.conf.json") {
+                        Ok(raw) => {
+                            match serde_json::from_slice(&raw) {
+                                Ok(tauri_json) => {
+                                    let tauri_json: PackageJson = tauri_json;
+                                    tauri_json.version
+                                }
+                                Err(_) => "2.7.20".to_string()
+                            }
+                        }
+                        Err(_) => "2.7.20".to_string()
+                    }
+                }
+            }
+        }
+        _ => {
+            match read("./tauri.conf.json") {
+                Ok(raw) => {
+                    match serde_json::from_slice(&raw) {
+                        Ok(tauri_json) => {
+                            let tauri_json: PackageJson = tauri_json;
+                            tauri_json.version
+                        }
+                        Err(_) => "2.7.20".to_string()
+                    }
+                }
+                Err(_) => "2.7.20".to_string()
+            }
+        }
     };
-    let version = semver::Version::parse(&version).unwrap();
+    let version = match semver::Version::parse(&version) {
+        Ok(v) => v,
+        Err(_) => semver::Version::parse("2.7.20").unwrap()
+    };
     let is_prerelase = !version.pre.is_empty();
     println!("cargo:rustc-env=NYANPASU_VERSION={version}");
+    println!("cargo:rustc-env=CLASH_XIAOY_VERSION={version}");
     // Git Information
     let (commit_hash, commit_author, commit_date) = if let Ok(true) = exists("./tmp/git-info.json")
     {
-        let git_info = read("./tmp/git-info.json").unwrap();
-        let git_info: GitInfo = serde_json::from_slice(&git_info).unwrap();
-        (git_info.hash, git_info.author, git_info.time)
+        match read("./tmp/git-info.json") {
+            Ok(git_info) => {
+                match serde_json::from_slice(&git_info) {
+                    Ok(git_info) => {
+                        let git_info: GitInfo = git_info;
+                        (git_info.hash, git_info.author, git_info.time)
+                    }
+                    Err(_) => ("unknown".to_string(), "unknown".to_string(), Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true))
+                }
+            }
+            Err(_) => ("unknown".to_string(), "unknown".to_string(), Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true))
+        }
     } else {
-        let output = Command::new("git")
-            .args([
-                "show",
-                "--pretty=format:'%H,%cn,%cI'",
-                "--no-patch",
-                "--no-notes",
-            ])
-            .output()
-            .expect("Failed to execute git command");
-        // println!("{}", String::from_utf8(output.stderr.clone()).unwrap());
-        let command_args: Vec<String> = String::from_utf8(output.stdout)
-            .unwrap()
-            .replace('\'', "")
-            .split(',')
-            .map(String::from)
-            .collect();
-        (
-            command_args[0].clone(),
-            command_args[1].clone(),
-            command_args[2].clone(),
-        )
+        ("unknown".to_string(), "unknown".to_string(), Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true))
     };
     println!("cargo:rustc-env=COMMIT_HASH={commit_hash}");
     println!("cargo:rustc-env=COMMIT_AUTHOR={commit_author}");
-    let commit_date = DateTime::parse_from_rfc3339(&commit_date)
-        .unwrap()
-        .with_timezone(&Utc)
-        .to_rfc3339_opts(SecondsFormat::Millis, true);
+    let commit_date = match DateTime::parse_from_rfc3339(&commit_date) {
+        Ok(date) => date.with_timezone(&Utc).to_rfc3339_opts(SecondsFormat::Millis, true),
+        Err(_) => Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true)
+    };
     println!("cargo:rustc-env=COMMIT_DATE={commit_date}");
 
     // Build Date
@@ -78,20 +105,29 @@ fn main() {
         if is_prerelase {
             "Nightly"
         } else {
-            match env::var("PROFILE").unwrap().as_str() {
-                "release" => "Release",
-                "debug" => "Debug",
-                _ => "Unknown",
+            match env::var("PROFILE") {
+                Ok(profile) => match profile.as_str() {
+                    "release" => "Release",
+                    "debug" => "Debug",
+                    _ => "Unknown",
+                },
+                Err(_) => "Unknown"
             }
         }
     );
     // Build Platform
     println!(
         "cargo:rustc-env=BUILD_PLATFORM={}",
-        env::var("TARGET").unwrap()
+        match env::var("TARGET") {
+            Ok(target) => target,
+            Err(_) => "unknown".to_string()
+        }
     );
     // Rustc Version & LLVM Version
-    let rustc_version = version_meta().unwrap();
+    let rustc_version = match version_meta() {
+        Ok(v) => v,
+        Err(_) => return
+    };
     println!(
         "cargo:rustc-env=RUSTC_VERSION={}",
         rustc_version.short_version_string

@@ -54,8 +54,8 @@ const isValidFormat = (fileName: string): boolean => {
 }
 
 const repoInfo = {
-  owner: 'libnyanpasu',
-  repo: 'clash-nyanpasu',
+  owner: 'aimy1',
+  repo: 'clash-xiaoy',
 }
 
 ;(async () => {
@@ -106,20 +106,20 @@ const repoInfo = {
   if (!nightlyBuild) {
     await client.sendMessage(TELEGRAM_TO, {
       message: array2text([
-        `Clash Nyanpasu ${version} Released!`,
+        `Clash-Xiaoy ${version} Released!`,
         '',
         'Check out on GitHub:',
-        ` - https://github.com/libnyanpasu/clash-nyanpasu/releases/tag/v${version}`,
+        ` - https://github.com/aimy1/clash-xiaoy/releases/tag/v${version}`,
       ]),
     })
     consola.success('Send release message to telegram successfully')
   } else {
     await client.sendMessage(TELEGRAM_TO_NIGHTLY, {
       message: array2text([
-        `Clash Nyanpasu Nightly Build ${GIT_SHORT_HASH} released!`,
+        `Clash-Xiaoy Nightly Build ${GIT_SHORT_HASH} released!`,
         '',
         'Could be unstable, use at your own risk. Download at:',
-        `- https://github.com/libnyanpasu/clash-nyanpasu/actions/runs/${WORKFLOW_RUN_ID}`,
+        `- https://github.com/aimy1/clash-xiaoy/actions/runs/${WORKFLOW_RUN_ID}`,
         '',
         'You could also waiting for the telegram bot to upload the binaries, although it may take a while or even fail.',
       ]),
@@ -143,7 +143,7 @@ const repoInfo = {
       client.sendFile(TELEGRAM_TO_NIGHTLY, {
         file: filteredFile,
         forceDocument: true,
-        caption: `Clash Nyanpasu Nightly Build ${GIT_SHORT_HASH} for Windows`,
+        caption: `Clash-Xiaoy Nightly Build ${GIT_SHORT_HASH} for Windows`,
         workers: 16,
         progressCallback: (...args) => {
           console.log('progressCallback', args)
@@ -164,7 +164,7 @@ const repoInfo = {
       client.sendFile(TELEGRAM_TO_NIGHTLY, {
         file: filteredFile,
         forceDocument: true,
-        caption: `Clash Nyanpasu Nightly Build ${GIT_SHORT_HASH} for macOS`,
+        caption: `Clash-Xiaoy Nightly Build ${GIT_SHORT_HASH} for macOS`,
         workers: 16,
       }),
     { retries: 5 },
@@ -191,7 +191,7 @@ const repoInfo = {
       client.sendFile(TELEGRAM_TO_NIGHTLY, {
         file: filteredFile,
         forceDocument: true,
-        caption: `Clash Nyanpasu Nightly Build ${GIT_SHORT_HASH} for Linux main target`,
+        caption: `Clash-Xiaoy Nightly Build ${GIT_SHORT_HASH} for Linux main target`,
         workers: 16,
       }),
     { retries: 5 },
@@ -218,7 +218,7 @@ const repoInfo = {
       client.sendFile(TELEGRAM_TO_NIGHTLY, {
         file: filteredFile,
         forceDocument: true,
-        caption: `Clash Nyanpasu Nightly Build ${GIT_SHORT_HASH} for Linux armv7 target`,
+        caption: `Clash-Xiaoy Nightly Build ${GIT_SHORT_HASH} for Linux armv7 target`,
         workers: 16,
       }),
     { retries: 5 },

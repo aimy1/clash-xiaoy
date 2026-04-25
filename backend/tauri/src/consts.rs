@@ -19,7 +19,7 @@ pub struct BuildInfo {
 pub static BUILD_INFO: Lazy<BuildInfo> = Lazy::new(|| BuildInfo {
     app_name: env!("CARGO_PKG_NAME"),
     app_version: env!("CARGO_PKG_VERSION"),
-    pkg_version: env!("NYANPASU_VERSION"),
+    pkg_version: env!("CLASH_XIAOY_VERSION"),
     commit_hash: env!("COMMIT_HASH"),
     commit_author: env!("COMMIT_AUTHOR"),
     commit_date: env!("COMMIT_DATE"),
