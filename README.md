@@ -1,16 +1,5 @@
 # 🚀 Clash-Xiaoy
 
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527">
-    <img src="https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3" alt="Clash-Xiaoy Interface" width="85%" style="border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
-  </picture>
-</div>
-
-<br />
-
-<div align="center">
 
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/clashxiaoy)
 [![GitHub Release](https://img.shields.io/github/v/release/aimy1/clash-xiaoy?style=for-the-badge&logo=github)](https://github.com/aimy1/clash-xiaoy/releases)
@@ -70,19 +59,6 @@ Unlike simple "skins" or superficial modifications, Clash-Xiaoy represents a gen
 
 ---
 
-## 📸 Interface Preview
-
-<div align="center">
-
-### Dashboard
-![Dashboard Preview](https://github.com/user-attachments/assets/cd080422-a3f5-4fa0-817c-233b49fb31d3)
-
-### Proxy Management
-![Proxy Preview](https://github.com/user-attachments/assets/262a8e94-16d6-4917-b5c9-43522910d527)
-
-</div>
-
----
 
 ## 📥 Installation
 
