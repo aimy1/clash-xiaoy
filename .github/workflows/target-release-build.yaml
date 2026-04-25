@@ -29,7 +29,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.resolve_tag.outputs.tag }}
-          name: Clash Nyanpasu ${{ steps.resolve_tag.outputs.tag }}
+          name: Clash-Xiaoy ${{ steps.resolve_tag.outputs.tag }}
           body: ''
           draft: true
           prerelease: false
