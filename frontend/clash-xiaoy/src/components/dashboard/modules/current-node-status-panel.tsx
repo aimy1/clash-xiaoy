@@ -91,8 +91,9 @@ export const CurrentNodeStatusPanel = () => {
           {t('No Node Selected')}
         </div>
       ) : (
-        <div className="flex flex-1 items-center justify-center">
-          <CircularProgress size={24} thickness={4} />
+        <div className="flex flex-1 flex-col items-center justify-center text-[var(--text-sub)] text-xs gap-1">
+          <Speed sx={{ fontSize: 24, opacity: 0.3, mb: 0.5 }} />
+          <span>服务未启动或配置未激活</span>
         </div>
       )}
     </Paper>

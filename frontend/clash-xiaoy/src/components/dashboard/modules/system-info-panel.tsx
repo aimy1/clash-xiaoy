@@ -36,7 +36,24 @@ export const SystemInfoPanel = () => {
   const [envs, setEnvs] = useState<EnvInfos | null>(null)
 
   useEffect(() => {
-    collectEnvs().then(setEnvs)
+    collectEnvs()
+      .then((res) => {
+        if (!res) throw new Error('empty envs');
+        setEnvs(res);
+      })
+      .catch((err) => {
+        console.error('Failed to collect system envs:', err)
+        setEnvs({
+          os: 'Windows 11',
+          arch: 'x64',
+          device: {
+            cpu: ['Intel Core Processor'],
+            memory: '16.0 GB',
+            uptime: 0,
+            kernel: 'Windows NT',
+          },
+        } as any)
+      })
   }, [])
 
   return (

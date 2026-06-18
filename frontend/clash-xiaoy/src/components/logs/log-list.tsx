@@ -2,6 +2,7 @@ import { useDebounceEffect } from 'ahooks'
 import { RefObject, useDeferredValue, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Virtualizer, VirtualizerHandle } from 'virtua'
+import { ArticleOutlined } from '@mui/icons-material'
 import { cn } from '@nyanpasu/ui'
 import ContentDisplay from '../base/content-display'
 import LogItem from './log-item'
@@ -69,6 +70,10 @@ export const LogList = ({
       })}
     </Virtualizer>
   ) : (
-    <ContentDisplay className="absolute" message={t('No Logs')} />
+    <ContentDisplay
+      className="absolute"
+      message={t('No Logs')}
+      icon={<ArticleOutlined sx={{ fontSize: 56 }} />}
+    />
   )
 }

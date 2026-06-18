@@ -25,7 +25,7 @@ export const Route = createFileRoute('/(legacy)/dashboard')({
     component: Dashboard,
 });
 const RELEASES_URL = 'https://github.com/aimy1/clash-xiaoy/releases';
-const CURRENT_APP_VERSION = '2.7.20';
+const CURRENT_APP_VERSION = '2.7.22';
 function SoftwareUpdatePanel() {
     const [latestRelease, setLatestRelease] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -51,40 +51,40 @@ function SoftwareUpdatePanel() {
         refreshRelease();
     }, [refreshRelease]);
     return (<Paper className="flex !h-full flex-col gap-3 !rounded-3xl p-3 cyber-glass">
-      <div className="flex items-center justify-between gap-2">
-        <div className="text-sm font-semibold text-[var(--text-title)]">
-          软件更新
+        <div className="flex items-center justify-between gap-2">
+            <div className="text-sm font-semibold text-[var(--text-title)]">
+                软件更新
+            </div>
+            <div className="rounded-full bg-[var(--chip-bg)] px-2 py-0.5 text-xs text-[var(--text-sub)]">
+                {latestRelease?.tag_name ?? '--'}
+            </div>
         </div>
-        <div className="rounded-full bg-[var(--chip-bg)] px-2 py-0.5 text-xs text-[var(--text-sub)]">
-          {latestRelease?.tag_name ?? '--'}
-        </div>
-      </div>
 
-      <div className="rounded-2xl bg-[var(--surface-2)] px-3 py-2 text-sm">
-        <div className="text-xs text-[var(--text-sub)]">
-          当前版本: v{CURRENT_APP_VERSION}
+        <div className="rounded-2xl bg-[var(--surface-2)] px-3 py-2 text-sm">
+            <div className="text-xs text-[var(--text-sub)]">
+                当前版本: v{CURRENT_APP_VERSION}
+            </div>
+            <div className="truncate text-[var(--text-primary)]">
+                {latestRelease?.name || latestRelease?.tag_name || '-'}
+            </div>
+            <div className="mt-1 text-xs text-[var(--text-sub)]">
+                {latestRelease?.published_at
+                    ? new Date(latestRelease.published_at).toLocaleString('zh-CN', {
+                        hour12: false,
+                    })
+                    : '未获取到发布时间'}
+            </div>
+            {!!error && <div className="mt-1 text-xs text-red-500">获取失败: {error}</div>}
         </div>
-        <div className="truncate text-[var(--text-primary)]">
-          {latestRelease?.name || latestRelease?.tag_name || '-'}
-        </div>
-        <div className="mt-1 text-xs text-[var(--text-sub)]">
-          {latestRelease?.published_at
-            ? new Date(latestRelease.published_at).toLocaleString('zh-CN', {
-                hour12: false,
-            })
-            : '未获取到发布时间'}
-        </div>
-        {!!error && <div className="mt-1 text-xs text-red-500">获取失败: {error}</div>}
-      </div>
 
-      <div className="grid grid-cols-1 gap-2">
-        <Button size="small" variant="outlined" className="!rounded-xl" disabled={loading} onClick={refreshRelease}>
-          {loading ? '检查中...' : '检查最新版本'}
-        </Button>
-        <Button size="small" variant="contained" className="!rounded-xl" endIcon={<OpenInNewRounded />} onClick={() => openThat(latestRelease?.html_url ?? RELEASES_URL)}>
-          前往 GitHub 下载更新
-        </Button>
-      </div>
+        <div className="grid grid-cols-1 gap-2">
+            <Button size="small" variant="outlined" className="!rounded-xl" disabled={loading} onClick={refreshRelease}>
+                {loading ? '检查中...' : '检查最新版本'}
+            </Button>
+            <Button size="small" variant="contained" className="!rounded-xl" endIcon={<OpenInNewRounded />} onClick={() => openThat(latestRelease?.html_url ?? RELEASES_URL)}>
+                前往 GitHub 下载更新
+            </Button>
+        </div>
     </Paper>);
 }
 function Dashboard() {
@@ -263,14 +263,14 @@ function Dashboard() {
         const dataItem = dataItems.find(i => i.id === id);
         if (dataItem) {
             if (dataItem.type === 'combined') {
-                return <TrafficCard {...dataItem} className="max-h-1/8 min-h-40"/>;
+                return <TrafficCard {...dataItem} className="max-h-1/8 min-h-40" />;
             }
             const { id: _, ...rest } = dataItem;
-            return <Dataline {...rest} className="max-h-1/8 min-h-40"/>;
+            return <Dataline {...rest} className="max-h-1/8 min-h-40" />;
         }
         switch (id) {
             case 'info-combined':
-                return <CombinedInfoPanel timingData={health} refreshCount={refreshCount}/>;
+                return <CombinedInfoPanel timingData={health} refreshCount={refreshCount} />;
             case 'proxy-shortcuts':
                 return <ProxyShortcuts />;
             case 'service-shortcuts':
@@ -286,21 +286,21 @@ function Dashboard() {
         }
     };
     return (<BasePage title={t('Dashboard')}>
-      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-        <SortableContext items={items} strategy={rectSortingStrategy}>
-          <Grid container spacing={2}>
-            {items.map((id) => (<DraggableGridItem key={id} id={id} size={getGridSize(id)}>
-                {renderContent(id)}
-              </DraggableGridItem>))}
-          </Grid>
-        </SortableContext>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+            <SortableContext items={items} strategy={rectSortingStrategy}>
+                <Grid container spacing={2}>
+                    {items.map((id) => (<DraggableGridItem key={id} id={id} size={getGridSize(id)}>
+                        {renderContent(id)}
+                    </DraggableGridItem>))}
+                </Grid>
+            </SortableContext>
 
-        <DragOverlay>
-          {activeId ? (<div style={{ transform: 'scale(1.05)', cursor: 'grabbing' }}>
-                {/* Wrap in a dummy Grid to maintain sizing appearance if possible, or just render content */}
-                 {renderContent(activeId)}
-            </div>) : null}
-        </DragOverlay>
-      </DndContext>
+            <DragOverlay>
+                {activeId ? (<div style={{ transform: 'scale(1.05)', cursor: 'grabbing' }}>
+                    {/* Wrap in a dummy Grid to maintain sizing appearance if possible, or just render content */}
+                    {renderContent(activeId)}
+                </div>) : null}
+            </DragOverlay>
+        </DndContext>
     </BasePage>);
 }

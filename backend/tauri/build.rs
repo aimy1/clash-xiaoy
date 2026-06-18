@@ -28,7 +28,7 @@ fn main() {
                             let pkg_json: PackageJson = pkg_json;
                             pkg_json.version
                         }
-                        Err(_) => "2.7.20".to_string()
+                        Err(_) => "2.7.22".to_string()
                     }
                 }
                 Err(_) => {
@@ -39,10 +39,10 @@ fn main() {
                                     let tauri_json: PackageJson = tauri_json;
                                     tauri_json.version
                                 }
-                                Err(_) => "2.7.20".to_string()
+                                Err(_) => "2.7.22".to_string()
                             }
                         }
-                        Err(_) => "2.7.20".to_string()
+                        Err(_) => "2.7.22".to_string()
                     }
                 }
             }
@@ -55,16 +55,16 @@ fn main() {
                             let tauri_json: PackageJson = tauri_json;
                             tauri_json.version
                         }
-                        Err(_) => "2.7.20".to_string()
+                        Err(_) => "2.7.22".to_string()
                     }
                 }
-                Err(_) => "2.7.20".to_string()
+                Err(_) => "2.7.22".to_string()
             }
         }
     };
     let version = match semver::Version::parse(&version) {
         Ok(v) => v,
-        Err(_) => semver::Version::parse("2.7.20").unwrap()
+        Err(_) => semver::Version::parse("2.7.22").unwrap()
     };
     let is_prerelase = !version.pre.is_empty();
     println!("cargo:rustc-env=NYANPASU_VERSION={version}");

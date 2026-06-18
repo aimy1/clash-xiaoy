@@ -1,0 +1,112 @@
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  fallback:
+  - 8.8.8.8
+  - 1.1.1.1
+  - https://dns.cloudflare.com/dns-query
+proxies:
+- type: ss
+  name: 测试Shadowsocks节点
+  server: 127.0.0.1
+  port: 1080
+  cipher: aes-256-gcm
+  password: password
+- type: vmess
+  name: 测试VMess⣢
+  server: 127.0.0.1
+  port: 10086
+  uuid: a8b9-c89d-48e3-a1b2-c3d4
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /watch
+- type: vless
+  name: 测试VLESSReality节点
+  server: 127.0.0.1
+  port: 443
+  uuid: uuid-vless-1234
+  cipher: none
+  tls: true
+  reality-opts:
+    public-key: hDdu2MxcfCcba5G7zrw4Ar9y8Jgd3A9B2v9011Jgd0w
+    short-id: 8f2a4e
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-vless
+  servername: target.com
+- type: trojan
+  name: 测试Trojan节点
+  server: 127.0.0.1
+  port: 1088
+  password: password123
+  sni: trojan.com
+- type: hysteria2
+  name: 测试Hysteria2节点
+  server: 127.0.0.1
+  port: 2000
+  password: auth123
+  sni: hy2.com
+  skip-cert-verify: true
+- type: tuic
+  name: 测试TUIC节点
+  server: 127.0.0.1
+  port: 3000
+  uuid: uuid-tuic
+  password: pass-tuic
+  sni: tuic.com
+  alpn:
+  - h3
+proxy-groups:
+- name: Proxy
+  type: select
+  proxies:
+  - AUTO
+  - FALLBACK
+  - DIRECT
+  - 测试Shadowsocks节点
+  - 测试VMess⣢
+  - 测试VLESSReality节点
+  - 测试Trojan节点
+  - 测试Hysteria2节点
+  - 测试TUIC节点
+- name: AUTO
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 测试Shadowsocks节点
+  - 测试VMess⣢
+  - 测试VLESSReality节点
+  - 测试Trojan节点
+  - 测试Hysteria2节点
+  - 测试TUIC节点
+- name: FALLBACK
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 测试Shadowsocks节点
+  - 测试VMess⣢
+  - 测试VLESSReality节点
+  - 测试Trojan节点
+  - 测试Hysteria2节点
+  - 测试TUIC节点
+rules:
+- GEOIP,CN,DIRECT
+- GEOSITE,CN,DIRECT
+- MATCH,Proxy

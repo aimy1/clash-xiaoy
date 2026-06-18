@@ -279,9 +279,9 @@ function RouteComponent() {
                     <div className="truncate text-sm font-medium tabular-nums">
                       {latestRelease?.published_at
                         ? new Date(latestRelease.published_at).toLocaleString(
-                            'zh-CN',
-                            { hour12: false },
-                          )
+                          'zh-CN',
+                          { hour12: false },
+                        )
                         : '-'}
                     </div>
                   </div>
@@ -311,7 +311,7 @@ function RouteComponent() {
                     onClick={() => {
                       openThat(
                         latestRelease?.html_url ??
-                          'https://github.com/aimy1/clash-xiaoy/releases',
+                        'https://github.com/aimy1/clash-xiaoy/releases',
                       )
                     }}
                   >

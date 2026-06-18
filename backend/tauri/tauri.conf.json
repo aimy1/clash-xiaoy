@@ -141,7 +141,7 @@
     "devUrl": "http://localhost:3000/"
   },
   "productName": "clash-xiaoy",
-  "version": "2.7.20",
+  "version": "2.7.22",
   "identifier": "com.clash-xiaoy.app",
   "plugins": {
     "updater": {

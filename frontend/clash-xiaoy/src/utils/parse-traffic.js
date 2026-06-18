@@ -1,9 +1,12 @@
 const UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 const parseTraffic = (num) => {
+    if (num === undefined || num === null || num === '') {
+        return ['0', 'B'];
+    }
     if (typeof num !== 'number') {
         const tmp = Number(num);
         if (isNaN(tmp))
-            return ['NaN', ''];
+            return ['0', 'B'];
         num = tmp;
     }
     // 处理负数或零的情况

@@ -22,13 +22,22 @@ if (resources['zh-tw']) {
   resources['zh-TW'] = resources['zh-tw']
 }
 
+const defaultLanguage = navigator.language.toLowerCase().startsWith('zh') ? 'zh-cn' : 'en'
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en',
+  lng: defaultLanguage,
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
   },
 })
+
+if (typeof document !== 'undefined') {
+  document.documentElement.lang = defaultLanguage
+  i18n.on('languageChanged', (lng) => {
+    document.documentElement.lang = lng
+  })
+}
 
 export default i18n

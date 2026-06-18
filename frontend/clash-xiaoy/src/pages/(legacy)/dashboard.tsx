@@ -48,7 +48,7 @@ type GithubRelease = {
 }
 
 const RELEASES_URL = 'https://github.com/aimy1/clash-xiaoy/releases'
-const CURRENT_APP_VERSION = '2.7.20'
+const CURRENT_APP_VERSION = '2.7.22'
 
 function SoftwareUpdatePanel() {
   const [latestRelease, setLatestRelease] = useState<GithubRelease | null>(null)
@@ -98,8 +98,8 @@ function SoftwareUpdatePanel() {
         <div className="mt-1 text-xs text-[var(--text-sub)]">
           {latestRelease?.published_at
             ? new Date(latestRelease.published_at).toLocaleString('zh-CN', {
-                hour12: false,
-              })
+              hour12: false,
+            })
             : '未获取到发布时间'}
         </div>
         {!!error && <div className="mt-1 text-xs text-red-500">获取失败: {error}</div>}
@@ -144,7 +144,7 @@ function Dashboard() {
 
   // Initial Items Order
   const [items, setItems] = useAtom(atomDashboardLayout)
-  
+
   // Initialize items when supportMemory changes or on mount
   useEffect(() => {
     setItems((prev) => {
@@ -159,81 +159,81 @@ function Dashboard() {
         'software-update',
         'system-info',
       ]
-      
+
       // If we already have items, we try to preserve the order
       if (prev.length > 0) {
         // Filter out items that are no longer supported (e.g. memory disabled)
         // Also handle migration from old traffic cards to combined card
         // And migrate timing/ipasn to info-combined
         let currentItems = prev.filter(id => {
-           if (id === 'memory' && !supportMemory) return false;
-           if (id === 'traffic-down' || id === 'traffic-up') return false;
-           if (id === 'timing' || id === 'ipasn') return false;
-           return true;
+          if (id === 'memory' && !supportMemory) return false;
+          if (id === 'traffic-down' || id === 'traffic-up') return false;
+          if (id === 'timing' || id === 'ipasn') return false;
+          return true;
         });
 
         // Add traffic-combined if it's missing (migration or new install)
         if (!currentItems.includes('traffic-combined')) {
-             // Try to insert at the beginning or where traffic-down was
-             const oldTrafficIndex = prev.indexOf('traffic-down');
-             if (oldTrafficIndex !== -1) {
-                 currentItems.splice(oldTrafficIndex, 0, 'traffic-combined');
-             } else {
-                 currentItems.unshift('traffic-combined');
-             }
+          // Try to insert at the beginning or where traffic-down was
+          const oldTrafficIndex = prev.indexOf('traffic-down');
+          if (oldTrafficIndex !== -1) {
+            currentItems.splice(oldTrafficIndex, 0, 'traffic-combined');
+          } else {
+            currentItems.unshift('traffic-combined');
+          }
         }
 
         // Add info-combined if it's missing (migration)
         if (!currentItems.includes('info-combined')) {
-            const oldTimingIndex = prev.indexOf('timing');
-            if (oldTimingIndex !== -1) {
-                currentItems.splice(oldTimingIndex, 0, 'info-combined');
+          const oldTimingIndex = prev.indexOf('timing');
+          if (oldTimingIndex !== -1) {
+            currentItems.splice(oldTimingIndex, 0, 'info-combined');
+          } else {
+            // Try to find a good spot
+            const sysInfoIndex = currentItems.indexOf('system-info');
+            if (sysInfoIndex !== -1) {
+              currentItems.splice(sysInfoIndex, 0, 'info-combined');
             } else {
-                // Try to find a good spot
-                const sysInfoIndex = currentItems.indexOf('system-info');
-                if (sysInfoIndex !== -1) {
-                    currentItems.splice(sysInfoIndex, 0, 'info-combined');
-                } else {
-                    currentItems.push('info-combined');
-                }
+              currentItems.push('info-combined');
             }
+          }
         }
 
         // Add new items that might be missing
         defaultOrder.forEach(id => {
-            if (!currentItems.includes(id)) {
-                // Find appropriate position or append
-                if (id === 'memory') {
-                    // Insert memory after connections if possible
-                    const connIndex = currentItems.indexOf('connections');
-                    if (connIndex !== -1) {
-                        currentItems.splice(connIndex + 1, 0, id);
-                    } else {
-                        currentItems.push(id);
-                    }
-                } else if (id === 'current-node-status') {
-                    // Insert after system-info if possible
-                    const sysInfoIndex = currentItems.indexOf('system-info');
-                    if (sysInfoIndex !== -1) {
-                        currentItems.splice(sysInfoIndex + 1, 0, id);
-                    } else {
-                        currentItems.push(id);
-                    }
-                } else if (id === 'software-update') {
-                    const serviceIndex = currentItems.indexOf('service-shortcuts');
-                    if (serviceIndex !== -1) {
-                        currentItems.splice(serviceIndex + 1, 0, id);
-                    } else {
-                        currentItems.push(id);
-                    }
-                } else {
-                    currentItems.push(id);
-                }
+          if (!currentItems.includes(id)) {
+            // Find appropriate position or append
+            if (id === 'memory') {
+              // Insert memory after connections if possible
+              const connIndex = currentItems.indexOf('connections');
+              if (connIndex !== -1) {
+                currentItems.splice(connIndex + 1, 0, id);
+              } else {
+                currentItems.push(id);
+              }
+            } else if (id === 'current-node-status') {
+              // Insert after system-info if possible
+              const sysInfoIndex = currentItems.indexOf('system-info');
+              if (sysInfoIndex !== -1) {
+                currentItems.splice(sysInfoIndex + 1, 0, id);
+              } else {
+                currentItems.push(id);
+              }
+            } else if (id === 'software-update') {
+              const serviceIndex = currentItems.indexOf('service-shortcuts');
+              if (serviceIndex !== -1) {
+                currentItems.splice(serviceIndex + 1, 0, id);
+              } else {
+                currentItems.push(id);
+              }
+            } else {
+              currentItems.push(id);
             }
+          }
         });
         return currentItems;
       }
-      
+
       return defaultOrder
     })
   }, [supportMemory])
@@ -266,75 +266,75 @@ function Dashboard() {
   // Grid Sizes Logic
   const getGridSize = (id: string) => {
     if (['connections', 'memory'].includes(id)) {
-        return dataPanelGridLayout;
+      return dataPanelGridLayout;
     }
     if (id === 'traffic-combined') {
-        return {
-            sm: 12,
-            md: 12,
-            lg: (supportMemory ? 3 : 4) * 2,
-            xl: (supportMemory ? 3 : 4) * 2,
-        }
+      return {
+        sm: 12,
+        md: 12,
+        lg: (supportMemory ? 3 : 4) * 2,
+        xl: (supportMemory ? 3 : 4) * 2,
+      }
     }
     if (id === 'info-combined') {
-        return {
-            sm: 12,
-            md: 12,
-            lg: 8,
-            xl: 6,
-        }
+      return {
+        sm: 12,
+        md: 12,
+        lg: 8,
+        xl: 6,
+      }
     }
     if (id === 'software-update') {
-        return {
-            sm: 12,
-            md: 6,
-            lg: 4,
-            xl: 3,
-        }
+      return {
+        sm: 12,
+        md: 6,
+        lg: 4,
+        xl: 3,
+      }
     }
     switch (id) {
-        case 'proxy-shortcuts':
-        case 'service-shortcuts':
-        case 'system-info':
-        case 'current-node-status':
-            return {
-                sm: isDrawer ? 6 : 12,
-                md: 6,
-                lg: 4,
-                xl: 3,
-            }
-        default:
-            return { xs: 12 }
+      case 'proxy-shortcuts':
+      case 'service-shortcuts':
+      case 'system-info':
+      case 'current-node-status':
+        return {
+          sm: isDrawer ? 6 : 12,
+          md: 6,
+          lg: 4,
+          xl: 3,
+        }
+      default:
+        return { xs: 12 }
     }
   }
 
   const renderContent = (id: string) => {
-      // Check Data Items
-      const dataItem = dataItems.find(i => i.id === id);
-      if (dataItem) {
-          if (dataItem.type === 'combined') {
-              return <TrafficCard {...(dataItem as TrafficCardProps)} className="max-h-1/8 min-h-40" />
-          }
-          const { id: _, ...rest } = dataItem;
-          return <Dataline {...rest} className="max-h-1/8 min-h-40" />
+    // Check Data Items
+    const dataItem = dataItems.find(i => i.id === id);
+    if (dataItem) {
+      if (dataItem.type === 'combined') {
+        return <TrafficCard {...(dataItem as TrafficCardProps)} className="max-h-1/8 min-h-40" />
       }
+      const { id: _, ...rest } = dataItem;
+      return <Dataline {...rest} className="max-h-1/8 min-h-40" />
+    }
 
-      switch (id) {
-          case 'info-combined':
-              return <CombinedInfoPanel timingData={health} refreshCount={refreshCount} />
-          case 'proxy-shortcuts':
-              return <ProxyShortcuts />
-          case 'service-shortcuts':
-              return <ServiceShortcuts />
-          case 'software-update':
-              return <SoftwareUpdatePanel />
-          case 'system-info':
-              return <SystemInfoPanel />
-          case 'current-node-status':
-              return <CurrentNodeStatusPanel />
-          default:
-              return null;
-      }
+    switch (id) {
+      case 'info-combined':
+        return <CombinedInfoPanel timingData={health} refreshCount={refreshCount} />
+      case 'proxy-shortcuts':
+        return <ProxyShortcuts />
+      case 'service-shortcuts':
+        return <ServiceShortcuts />
+      case 'software-update':
+        return <SoftwareUpdatePanel />
+      case 'system-info':
+        return <SystemInfoPanel />
+      case 'current-node-status':
+        return <CurrentNodeStatusPanel />
+      default:
+        return null;
+    }
   }
 
   return (
@@ -358,8 +358,8 @@ function Dashboard() {
         <DragOverlay>
           {activeId ? (
             <div style={{ transform: 'scale(1.05)', cursor: 'grabbing' }}>
-                {/* Wrap in a dummy Grid to maintain sizing appearance if possible, or just render content */}
-                 {renderContent(activeId)}
+              {/* Wrap in a dummy Grid to maintain sizing appearance if possible, or just render content */}
+              {renderContent(activeId)}
             </div>
           ) : null}
         </DragOverlay>

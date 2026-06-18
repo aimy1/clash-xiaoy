@@ -2,7 +2,7 @@ import { createElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import { languageQuirks } from '@/utils/language'
 import { SvgIconComponent } from '@mui/icons-material'
-import { Box, ListItemButton, ListItemIcon } from '@mui/material'
+import { Box, ListItemButton, ListItemIcon, Tooltip } from '@mui/material'
 import { useSetting } from '@nyanpasu/interface'
 import { alpha, cn } from '@nyanpasu/ui'
 import { useLocation, useMatch, useNavigate } from '@tanstack/react-router'
@@ -87,6 +87,14 @@ export const RouteListItem = ({
       )}
     </ListItemButton>
   )
+
+  if (onlyIcon) {
+    return (
+      <Tooltip title={t(`label_${name}`)} placement="right" arrow>
+        {listItemButton}
+      </Tooltip>
+    )
+  }
 
   return listItemButton
 }

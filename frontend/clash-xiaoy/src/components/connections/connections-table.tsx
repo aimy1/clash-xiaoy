@@ -29,6 +29,8 @@ export interface TableMessage extends Omit<ClashConnection, 'connections'> {
   connections: TableConnection[]
 }
 
+import { CloudOffOutlined } from '@mui/icons-material'
+
 export const ConnectionsTable = ({ searchTerm }: { searchTerm?: string }) => {
   const { t, i18n } = useTranslation()
 
@@ -209,6 +211,7 @@ export const ConnectionsTable = ({ searchTerm }: { searchTerm?: string }) => {
     <ContentDisplay
       className="!absolute !h-full !w-full"
       message={t('No Connections')}
+      icon={<CloudOffOutlined sx={{ fontSize: 56 }} />}
     />
   )
 }

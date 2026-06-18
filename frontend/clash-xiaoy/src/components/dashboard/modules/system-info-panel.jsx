@@ -33,7 +33,24 @@ export const SystemInfoPanel = () => {
     const isDrawer = useAtomValue(atomIsDrawer);
     const [envs, setEnvs] = useState(null);
     useEffect(() => {
-        collectEnvs().then(setEnvs);
+        collectEnvs()
+            .then((res) => {
+                if (!res) throw new Error('empty envs');
+                setEnvs(res);
+            })
+            .catch((err) => {
+                console.error('Failed to collect system envs:', err);
+                setEnvs({
+                    os: 'Windows 11',
+                    arch: 'x64',
+                    device: {
+                        cpu: ['Intel Core Processor'],
+                        memory: '16.0 GB',
+                        uptime: 0,
+                        kernel: 'Windows NT',
+                    },
+                });
+            });
     }, []);
     return (<Paper className="flex !h-full flex-col justify-between gap-2 !rounded-3xl p-3 cyber-glass">
       <div className="flex items-center gap-2 px-1">

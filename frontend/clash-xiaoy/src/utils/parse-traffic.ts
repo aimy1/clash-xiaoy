@@ -1,9 +1,13 @@
 const UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
 const parseTraffic = (num?: string | number) => {
+  if (num === undefined || num === null || num === '') {
+    return ['0', 'B']
+  }
+
   if (typeof num !== 'number') {
     const tmp = Number(num)
-    if (isNaN(tmp)) return ['NaN', '']
+    if (isNaN(tmp)) return ['0', 'B']
     num = tmp
   }
 

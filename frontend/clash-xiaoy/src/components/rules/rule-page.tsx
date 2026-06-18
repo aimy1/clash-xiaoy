@@ -1,6 +1,7 @@
 import { useAtomValue } from 'jotai'
 import { useTranslation } from 'react-i18next'
 import { Virtualizer } from 'virtua'
+import { RuleFolderOutlined } from '@mui/icons-material'
 import ContentDisplay from '../base/content-display'
 import { atomRulePage } from './modules/store'
 import RuleItem from './rule-item'
@@ -17,7 +18,11 @@ export const RulePage = () => {
       })}
     </Virtualizer>
   ) : (
-    <ContentDisplay className="absolute" message={t('No Rules')} />
+    <ContentDisplay
+      className="absolute"
+      message={t('No Rules')}
+      icon={<RuleFolderOutlined sx={{ fontSize: 56 }} />}
+    />
   )
 }
 

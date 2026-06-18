@@ -6,6 +6,7 @@ use anyhow::{Context, Result, bail};
 use nyanpasu_macro::EnumWrapperCombined;
 use std::{borrow::Borrow, fmt::Debug, fs, io::Write};
 
+mod convert;
 mod local;
 mod merge;
 pub mod prelude;
@@ -13,6 +14,7 @@ mod remote;
 mod script;
 mod shared;
 mod utils; // private use utils
+pub use convert::*;
 
 pub use local::*;
 pub use merge::*;

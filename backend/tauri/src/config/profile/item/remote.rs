@@ -232,10 +232,10 @@ async fn subscribe_url(
     // process the charset "UTF-8 with BOM"
     let data = data.trim_start_matches('\u{feff}');
 
-    // check the data whether the valid yaml format
-    let yaml = serde_yaml::from_str::<Mapping>(data).map_err(|e| SubscribeError::Parse {
+    // check and convert/sanitize the data
+    let yaml = super::try_convert_and_sanitize(data).map_err(|e| SubscribeError::Parse {
         url: url.to_string(),
-        source: e,
+        source: serde::de::Error::custom(e.to_string()),
     })?;
 
     if !yaml.contains_key("proxies") && !yaml.contains_key("proxy-providers") {
