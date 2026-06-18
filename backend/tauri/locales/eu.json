@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopiatu Env (CMD)",
+      "ps": "Kopiatu Env (PS)",
+      "sh": "Kopiatu Env (sh)"
+    },
+    "no_proxies": "Proxyrik Ez",
+    "select_proxies": "Hautatu Proxyak",
+    "dashboard": "Aginte-panela",
+    "direct_mode": "Modu Zuzena",
+    "global_mode": "Modu Globala",
+    "more": {
+      "menu": "Gehiago",
+      "restart_app": "Berrabiarazi Aplikazioa",
+      "restart_clash": "Berrabiarazi Clash"
+    },
+    "open_dir": {
+      "menu": "Ireki Direktorioa",
+      "app_config_dir": "Konfigurazio Direktorioa",
+      "app_data_dir": "Datu Direktorioa",
+      "core_dir": "Nukleo Direktorioa",
+      "log_dir": "Log Direktorioa"
+    },
+    "proxy_action": {
+      "on": "Piztuta",
+      "off": "Itzalita"
+    },
+    "quit": "Irten",
+    "rule_mode": "Arau Modua",
+    "script_mode": "Script Modua",
+    "system_proxy": "Sistema Proxy",
+    "tun_mode": "TUN Modua"
+  },
+  "dialog": {
+    "panic": "Mesedez, jakinarazi arazo hau Github-eko arazoen jarraipenean.",
+    "migrate": "Bertsio zaharreko konfigurazio fitxategia atzeman da. Bertsio berrira migratu?\nOHARRA: Honek zure uneko konfigurazioa gainidatziko du existitzen bada",
+    "custom_app_dir_migrate": "Aplikazioaren direktorio pertsonalizatua %{path} ezarriko duzu\nUneko aplikazioaren direktorioa berrira eraman behar al dugu?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN moduak administratzaile baimena edo zerbitzu modua behar du, ez bata ez bestea ez dago gaituta, TUN moduak ez du behar bezala funtzionatuko."
+    },
+    "info": {
+      "grant_core_permission": "Clash nukleoak administratzaile baimena behar du TUN moduak behar bezala funtziona dezan, eman?\nKontuan izan eragiketa honek pasahitza sartzea eskatzen duela."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Moztu konexioak proxy-a aldatzean"
+        },
+        "profile": {
+          "label": "Moztu konexioak profila aldatzean"
+        },
+        "mode": {
+          "label": "Moztu konexioak modua aldatzean"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Moztu konexioak proxy-a aldatzean",
+  "break_when_profile_change": "Moztu konexioak profila aldatzean",
+  "break_when_mode_change": "Moztu konexioak modua aldatzean"
+}

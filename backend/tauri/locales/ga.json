@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Cóipeáil Env (CMD)",
+      "ps": "Cóipeáil Env (PS)",
+      "sh": "Cóipeáil Env (sh)"
+    },
+    "no_proxies": "Gan Seachvótálaithe",
+    "select_proxies": "Roghnaigh Seachvótálaithe",
+    "dashboard": "Deais",
+    "direct_mode": "Mód Díreach",
+    "global_mode": "Mód Domhanda",
+    "more": {
+      "menu": "Níos Mó",
+      "restart_app": "Atosaigh Aip",
+      "restart_clash": "Atosaigh Clash"
+    },
+    "open_dir": {
+      "menu": "Oscail Fillteán",
+      "app_config_dir": "Fillteán Cumraíochta",
+      "app_data_dir": "Fillteán Sonraí",
+      "core_dir": "Fillteán Croí",
+      "log_dir": "Fillteán Loga"
+    },
+    "proxy_action": {
+      "on": "Ar Siúl",
+      "off": "As"
+    },
+    "quit": "Scoir",
+    "rule_mode": "Mód Rialach",
+    "script_mode": "Mód Scripte",
+    "system_proxy": "Seachvótálaí Córais",
+    "tun_mode": "Mód TUN"
+  },
+  "dialog": {
+    "panic": "Tuairiscigh an cheist seo le do thoil chuig rianaire ceisteanna Github.",
+    "migrate": "Braitheadh comhad cumraíochta seanleagan. Aistriú go dtí an leagan nua?\nRABHADH: Déanfaidh sé seo forscríobh ar do chumraíocht reatha má tá sé ann",
+    "custom_app_dir_migrate": "Tá tú chun eolaire aipe saincheaptha a shocrú go %{path}\nAn mbogfaimid an t-eolaire aipe reatha go dtí an ceann nua?",
+    "warning": {
+      "enable_tun_with_no_permission": "Teastaíonn cead riarthóra nó mód seirbhíse ó mhód TUN, níl ceachtar acu cumasaithe, ní oibreoidh mód TUN i gceart."
+    },
+    "info": {
+      "grant_core_permission": "Teastaíonn cead riarthóra ó chroí Clash chun go n-oibreoidh mód TUN i gceart, é a thabhairt?\nTabhair faoi deara le do thoil go n-éilíonn an oibríocht seo pasfhocal a chur isteach."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Cuir isteach ar naisc nuair a athraíonn seachvótálaí"
+        },
+        "profile": {
+          "label": "Cuir isteach ar naisc nuair a athraíonn próifíl"
+        },
+        "mode": {
+          "label": "Cuir isteach ar naisc nuair a athraíonn mód"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Cuir isteach ar naisc nuair a athraíonn seachvótálaí",
+  "break_when_profile_change": "Cuir isteach ar naisc nuair a athraíonn próifíl",
+  "break_when_mode_change": "Cuir isteach ar naisc nuair a athraíonn mód"
+}

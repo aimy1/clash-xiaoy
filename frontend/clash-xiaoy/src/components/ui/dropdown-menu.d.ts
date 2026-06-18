@@ -1,0 +1,16 @@
+import { ComponentProps } from 'react';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+export declare const DropdownMenu: ({ open: inputOpen, defaultOpen, onOpenChange, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Root>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuTrigger: import("react").ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuTriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
+export declare const DropdownMenuGroup: import("react").ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuGroupProps & import("react").RefAttributes<HTMLDivElement>>;
+export declare const DropdownMenuPortal: import("react").FC<DropdownMenuPrimitive.DropdownMenuPortalProps>;
+export declare const DropdownMenuSub: import("react").FC<DropdownMenuPrimitive.DropdownMenuSubProps>;
+export declare const DropdownMenuRadioGroup: ({ value: inputValue, defaultValue, onValueChange, ...props }: ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuSubTrigger: import("react").ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuSubTriggerProps & import("react").RefAttributes<HTMLDivElement>>;
+export declare const DropdownMenuSubContent: import("react").ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuSubContentProps & import("react").RefAttributes<HTMLDivElement>>;
+export declare const DropdownMenuContent: ({ children, className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Content>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuItem: ({ className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Item>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuCheckboxItem: ({ children, className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuRadioItem: ({ value, children, className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuLabel: ({ className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Label>) => import("@emotion/react/jsx-runtime").JSX.Element;
+export declare const DropdownMenuSeparator: ({ className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Separator>) => import("@emotion/react/jsx-runtime").JSX.Element;

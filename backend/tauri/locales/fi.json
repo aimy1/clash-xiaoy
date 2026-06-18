@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopioi Env (CMD)",
+      "ps": "Kopioi Env (PS)",
+      "sh": "Kopioi Env (sh)"
+    },
+    "no_proxies": "Ei Välityspalvelimia",
+    "select_proxies": "Valitse Välityspalvelimet",
+    "dashboard": "Kojelauta",
+    "direct_mode": "Suora Tila",
+    "global_mode": "Maailmanlaajuinen Tila",
+    "more": {
+      "menu": "Lisää",
+      "restart_app": "Käynnistä Sovellus Uudelleen",
+      "restart_clash": "Käynnistä Clash Uudelleen"
+    },
+    "open_dir": {
+      "menu": "Avaa Kansio",
+      "app_config_dir": "Konfiguraatiokansio",
+      "app_data_dir": "Datakansio",
+      "core_dir": "Ydinkansio",
+      "log_dir": "Lokikansio"
+    },
+    "proxy_action": {
+      "on": "Päällä",
+      "off": "Pois"
+    },
+    "quit": "Lopeta",
+    "rule_mode": "Sääntötila",
+    "script_mode": "Käsikirjoitustila",
+    "system_proxy": "Järjestelmän Välityspalvelin",
+    "tun_mode": "TUN-tila"
+  },
+  "dialog": {
+    "panic": "Ilmoita tästä ongelmasta Githubin ongelmanseurantaan.",
+    "migrate": "Vanha versio konfiguraatiosta havaittu. Siirry uuteen versioon?\nVAROITUS: Tämä korvaa nykyisen konfiguraatiosi, jos sellainen on",
+    "custom_app_dir_migrate": "Aiot asettaa mukautetun sovelluskansion polkuun %{path}\nSiirretäänkö nykyinen sovelluskansio uuteen?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN-tila vaatii järjestelmänvalvojan oikeudet tai palvelutilan, kumpikaan ei ole käytössä, TUN-tila ei toimi oikein."
+    },
+    "info": {
+      "grant_core_permission": "Clash-ydin tarvitsee järjestelmänvalvojan oikeudet toimiakseen oikein TUN-tilassa, myönnetäänkö?\nHuomaa, että tämä toimenpide vaatii salasanan syöttämistä."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Katkaise yhteydet kun välityspalvelin muuttuu"
+        },
+        "profile": {
+          "label": "Katkaise yhteydet kun profiili muuttuu"
+        },
+        "mode": {
+          "label": "Katkaise yhteydet kun tila muuttuu"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Katkaise yhteydet kun välityspalvelin muuttuu",
+  "break_when_profile_change": "Katkaise yhteydet kun profiili muuttuu",
+  "break_when_mode_change": "Katkaise yhteydet kun tila muuttuu"
+}

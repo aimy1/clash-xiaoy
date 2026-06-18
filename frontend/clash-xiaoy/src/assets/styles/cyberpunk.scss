@@ -1,0 +1,61 @@
+/* Global Background */
+html.dark body,
+html.dark #root,
+html[data-theme='dark'] body,
+html[data-theme='dark'] #root {
+  background:
+    var(--app-wallpaper, none) center / cover no-repeat fixed,
+    radial-gradient(900px 600px at 20% 0%, rgba(0, 255, 240, 0.10), transparent 60%),
+    radial-gradient(800px 520px at 100% 10%, rgba(0, 255, 240, 0.06), transparent 55%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+html.light body,
+html.light #root,
+html[data-theme='light'] body,
+html[data-theme='light'] #root {
+  background:
+    var(--app-wallpaper, none) center / cover no-repeat fixed,
+    radial-gradient(820px 560px at 20% 0%, rgba(0, 122, 255, 0.10), transparent 60%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Glassmorphism Utility Class (Fluent fallback) */
+.cyber-glass {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-card) !important;
+  border-radius: var(--radius-card, 12px);
+}
+
+.cyber-glass.ios-motion:hover {
+  border-color: var(--border-light) !important;
+  box-shadow: var(--shadow-card-hover) !important;
+}
+
+.cyber-glass.ios-motion:active {
+  box-shadow: var(--shadow-card-active) !important;
+}
+
+html[data-wallpaper='1'] .cyber-glass,
+html[data-wallpaper='1'] .MuiCard-root.cyber-glass,
+html[data-wallpaper='1'] .MuiPaper-root.cyber-glass {
+  background-color: transparent !important;
+}
+
+html[data-wallpaper='1'] .MuiCard-root {
+  background-color: transparent !important;
+}
+
+html[data-wallpaper='1'] .bg-surface,
+html[data-wallpaper='1'] .bg-primary-container,
+html[data-wallpaper='1'] .bg-on-primary {
+  background-color: transparent !important;
+}
+
+/* Fluent box glow fallback */
+.cyber-box-glow {
+  box-shadow: var(--shadow-card-hover) !important;
+}

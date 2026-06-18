@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Salin Env (CMD)",
+      "ps": "Salin Env (PS)",
+      "sh": "Salin Env (sh)"
+    },
+    "no_proxies": "Tanpa Proxy",
+    "select_proxies": "Pilih Proxy",
+    "dashboard": "Dasbor",
+    "direct_mode": "Mode Langsung",
+    "global_mode": "Mode Global",
+    "more": {
+      "menu": "Lainnya",
+      "restart_app": "Mulai Ulang App",
+      "restart_clash": "Mulai Ulang Clash"
+    },
+    "open_dir": {
+      "menu": "Buka Folder",
+      "app_config_dir": "Folder Konfig",
+      "app_data_dir": "Folder Data",
+      "core_dir": "Folder Inti",
+      "log_dir": "Folder Log"
+    },
+    "proxy_action": {
+      "on": "Nyala",
+      "off": "Mati"
+    },
+    "quit": "Keluar",
+    "rule_mode": "Mode Aturan",
+    "script_mode": "Mode Skrip",
+    "system_proxy": "Proxy Sistem",
+    "tun_mode": "Mode TUN"
+  },
+  "dialog": {
+    "panic": "Harap laporkan masalah ini ke pelacak masalah Github.",
+    "migrate": "Terdeteksi file konfigurasi versi lama. Migrasi ke versi baru?\nPERINGATAN: Ini akan menimpa konfigurasi Anda saat ini jika ada",
+    "custom_app_dir_migrate": "Anda akan mengatur direktori aplikasi kustom ke %{path}\nHaruskah kami memindahkan direktori aplikasi saat ini ke yang baru?",
+    "warning": {
+      "enable_tun_with_no_permission": "Mode TUN memerlukan izin admin atau mode layanan, keduanya tidak diaktifkan, mode TUN tidak akan berfungsi dengan baik."
+    },
+    "info": {
+      "grant_core_permission": "Inti Clash memerlukan izin admin agar mode TUN berfungsi dengan baik, berikan?\nHarap dicatat bahwa operasi ini memerlukan input kata sandi."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Putuskan koneksi saat proxy berubah"
+        },
+        "profile": {
+          "label": "Putuskan koneksi saat profil berubah"
+        },
+        "mode": {
+          "label": "Putuskan koneksi saat mode berubah"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Putuskan koneksi saat proxy berubah",
+  "break_when_profile_change": "Putuskan koneksi saat profil berubah",
+  "break_when_mode_change": "Putuskan koneksi saat mode berubah"
+}

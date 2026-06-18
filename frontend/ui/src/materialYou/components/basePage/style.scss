@@ -1,0 +1,25 @@
+.MDYBasePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  > header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 56px;
+    padding-bottom: 0;
+    margin: 0 auto;
+  }
+
+  .MDYBasePage-container {
+    background-color: var(--background-color);
+
+    .ScrollArea-Thumb {
+      background-color: var(--scroller-color);
+    }
+  }
+}

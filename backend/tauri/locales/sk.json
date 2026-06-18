@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopírovať Env (CMD)",
+      "ps": "Kopírovať Env (PS)",
+      "sh": "Kopírovať Env (sh)"
+    },
+    "no_proxies": "Žiadne Proxy",
+    "select_proxies": "Vybrať Proxy",
+    "dashboard": "Informačný panel",
+    "direct_mode": "Priamy režim",
+    "global_mode": "Globálny režim",
+    "more": {
+      "menu": "Viac",
+      "restart_app": "Reštartovať aplikáciu",
+      "restart_clash": "Reštartovať Clash"
+    },
+    "open_dir": {
+      "menu": "Otvoriť priečinok",
+      "app_config_dir": "Priečinok konfigurácie",
+      "app_data_dir": "Priečinok dát",
+      "core_dir": "Priečinok Core",
+      "log_dir": "Priečinok logov"
+    },
+    "proxy_action": {
+      "on": "Zap.",
+      "off": "Vyp."
+    },
+    "quit": "Ukončiť",
+    "rule_mode": "Režim pravidiel",
+    "script_mode": "Režim skriptu",
+    "system_proxy": "Systémové Proxy",
+    "tun_mode": "Režim TUN"
+  },
+  "dialog": {
+    "panic": "Nahláste tento problém na Github issue tracker.",
+    "migrate": "Zistený konfiguračný súbor starej verzie. Migrovať na novú verziu?\nVAROVANIE: Toto prepíše vašu aktuálnu konfiguráciu, ak existuje",
+    "custom_app_dir_migrate": "Nastavíte vlastný priečinok aplikácie na %{path}\nPresunúť aktuálny priečinok aplikácie do nového?",
+    "warning": {
+      "enable_tun_with_no_permission": "Režim TUN vyžaduje oprávnenie správcu alebo režim služby, ani jedno nie je povolené, režim TUN nebude fungovať správne."
+    },
+    "info": {
+      "grant_core_permission": "Clash core potrebuje oprávnenie správcu, aby režim TUN fungoval správne, udeliť?\nUpozorňujeme, že táto operácia vyžaduje zadanie hesla."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Prerušiť pripojenia pri zmene proxy"
+        },
+        "profile": {
+          "label": "Prerušiť pripojenia pri zmene profilu"
+        },
+        "mode": {
+          "label": "Prerušiť pripojenia pri zmene režimu"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Prerušiť pripojenia pri zmene proxy",
+  "break_when_profile_change": "Prerušiť pripojenia pri zmene profilu",
+  "break_when_mode_change": "Prerušiť pripojenia pri zmene režimu"
+}

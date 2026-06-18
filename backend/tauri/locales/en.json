@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copy Env (CMD)",
+      "ps": "Copy Env (PS)",
+      "sh": "Copy Env (sh)"
+    },
+    "no_proxies": "No Proxies",
+    "select_proxies": "Select Proxies",
+    "dashboard": "Dashboard",
+    "direct_mode": "Direct Mode",
+    "global_mode": "Global Mode",
+    "more": {
+      "menu": "More",
+      "restart_app": "Restart App",
+      "restart_clash": "Restart Clash"
+    },
+    "open_dir": {
+      "menu": "Open Dir",
+      "app_config_dir": "Config Dir",
+      "app_data_dir": "Data Dir",
+      "core_dir": "Core Dir",
+      "log_dir": "Log Dir"
+    },
+    "proxy_action": {
+      "on": "On",
+      "off": "Off"
+    },
+    "quit": "Quit",
+    "rule_mode": "Rule Mode",
+    "script_mode": "Script Mode",
+    "system_proxy": "System Proxy",
+    "tun_mode": "TUN Mode"
+  },
+  "dialog": {
+    "panic": "Please report this issue to Github issue tracker.",
+    "migrate": "Old version config file detected. Migrate to new version or not?\nWARNING: This will override your current config if exists",
+    "custom_app_dir_migrate": "You will set custom app dir to %{path}\nShall we move the current app dir to the new one?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN mode requires admin permission or service mode, neither is enabled, TUN mode will not work properly."
+    },
+    "info": {
+      "grant_core_permission": "Clash core needs admin permission to make TUN mode work properly, grant it?\nPlease note that this operation requires password input."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Interrupt connections when proxy changes"
+        },
+        "profile": {
+          "label": "Interrupt connections when profile changes"
+        },
+        "mode": {
+          "label": "Interrupt connections when mode changes"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Interrupt connections when proxy changes",
+  "break_when_profile_change": "Interrupt connections when profile changes",
+  "break_when_mode_change": "Interrupt connections when mode changes"
+}

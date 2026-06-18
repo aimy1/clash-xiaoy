@@ -1,0 +1,11 @@
+import { ComponentProps } from 'react';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { type ButtonProps } from './button';
+export declare const ModalPortal: import("react").FC<DialogPrimitive.DialogPortalProps>;
+export declare const ModalTitle: import("react").ForwardRefExoticComponent<DialogPrimitive.DialogTitleProps & import("react").RefAttributes<HTMLHeadingElement>>;
+export declare const ModalDescription: import("react").ForwardRefExoticComponent<DialogPrimitive.DialogDescriptionProps & import("react").RefAttributes<HTMLParagraphElement>>;
+export declare function ModalTrigger({ className, children, asChild, ...props }: ComponentProps<typeof DialogPrimitive.Trigger>): import("@emotion/react/jsx-runtime").JSX.Element;
+export declare function ModalClose({ children, ...props }: ComponentProps<typeof DialogPrimitive.Close> & (ComponentProps<typeof DialogPrimitive.Close>['asChild'] extends true ? object : ButtonProps)): import("@emotion/react/jsx-runtime").JSX.Element;
+export declare function ModalOverlay({ className, ...props }: ComponentProps<typeof DialogPrimitive.Overlay>): import("@emotion/react/jsx-runtime").JSX.Element;
+export declare function ModalContent({ className, children, ...props }: ComponentProps<typeof DialogPrimitive.Content>): import("@emotion/react/jsx-runtime").JSX.Element;
+export declare function Modal({ open: inputOpen, defaultOpen, onOpenChange, ...props }: ComponentProps<typeof DialogPrimitive.Root>): import("@emotion/react/jsx-runtime").JSX.Element;

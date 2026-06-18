@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopēt Env (CMD)",
+      "ps": "Kopēt Env (PS)",
+      "sh": "Kopēt Env (sh)"
+    },
+    "no_proxies": "Nav starpniekserveru",
+    "select_proxies": "Izvēlēties starpniekserverus",
+    "dashboard": "Informācijas panelis",
+    "direct_mode": "Tiešais režīms",
+    "global_mode": "Globālais režīms",
+    "more": {
+      "menu": "Vairāk",
+      "restart_app": "Pārstartēt lietotni",
+      "restart_clash": "Pārstartēt Clash"
+    },
+    "open_dir": {
+      "menu": "Atvērt mapi",
+      "app_config_dir": "Konfigurācijas mape",
+      "app_data_dir": "Datu mape",
+      "core_dir": "Core mape",
+      "log_dir": "Žurnālu mape"
+    },
+    "proxy_action": {
+      "on": "Ieslēgts",
+      "off": "Izslēgts"
+    },
+    "quit": "Iziet",
+    "rule_mode": "Noteikumu režīms",
+    "script_mode": "Skripta režīms",
+    "system_proxy": "Sistēmas starpniekserveris",
+    "tun_mode": "TUN režīms"
+  },
+  "dialog": {
+    "panic": "Lūdzu, ziņojiet par šo problēmu Github problēmu izsekotājā.",
+    "migrate": "Atrasts vecās versijas konfigurācijas fails. Migrēt uz jauno versiju?\nBRĪDINĀJUMS: Tas pārrakstīs jūsu pašreizējo konfigurāciju, ja tāda pastāv",
+    "custom_app_dir_migrate": "Jūs iestatīsiet pielāgotu lietotnes mapi uz %{path}\nVai pārvietot pašreizējo lietotnes mapi uz jauno?",
+    "warning": {
+      "enable_tun_with_no_permission": "TUN režīmam nepieciešama administratora atļauja vai pakalpojuma režīms, neviens nav iespējots, TUN režīms nedarbosies pareizi."
+    },
+    "info": {
+      "grant_core_permission": "Clash core nepieciešama administratora atļauja, lai TUN režīms darbotos pareizi, piešķirt to?\nLūdzu, ņemiet vērā, ka šai darbībai nepieciešama paroles ievade."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Pārtraukt savienojumus, mainoties starpniekserverim"
+        },
+        "profile": {
+          "label": "Pārtraukt savienojumus, mainoties profilam"
+        },
+        "mode": {
+          "label": "Pārtraukt savienojumus, mainoties režīmam"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Pārtraukt savienojumus, mainoties starpniekserverim",
+  "break_when_profile_change": "Pārtraukt savienojumus, mainoties profilam",
+  "break_when_mode_change": "Pārtraukt savienojumus, mainoties režīmam"
+}

@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Kopisha Env (CMD)",
+      "ps": "Kopisha Env (PS)",
+      "sh": "Kopisha Env (sh)"
+    },
+    "no_proxies": "Awekho Ama-Proxy",
+    "select_proxies": "Khetha Ama-Proxy",
+    "dashboard": "Ideshibhodi",
+    "direct_mode": "Imodi Eqondile",
+    "global_mode": "Imodi Yomhlaba Wonke",
+    "more": {
+      "menu": "Okuningi",
+      "restart_app": "Qala Kabusha Uhlelo",
+      "restart_clash": "Qala Kabusha Clash"
+    },
+    "open_dir": {
+      "menu": "Vula Ifolda",
+      "app_config_dir": "Ifolda Yokumisa",
+      "app_data_dir": "Ifolda Yedatha",
+      "core_dir": "Ifolda Yomongo",
+      "log_dir": "Ifolda Yelogi"
+    },
+    "proxy_action": {
+      "on": "Vuliwe",
+      "off": "Cishiwe"
+    },
+    "quit": "Phuma",
+    "rule_mode": "Imodi Yomthetho",
+    "script_mode": "Imodi Yesikripthi",
+    "system_proxy": "I-Proxy Yesistimu",
+    "tun_mode": "Imodi ye-TUN"
+  },
+  "dialog": {
+    "panic": "Sicela ubike le nkinga ku-Github issue tracker.",
+    "migrate": "Kutholwe ifayela lokumisa lenguqulo endala. Thuthela enguqulweni entsha?\nISEXWAYISO: Lokhu kuzobhala phezu kokumisa kwakho kwamanje uma kukhona",
+    "custom_app_dir_migrate": "Uzosetha uhla lwemibhalo lohlelo lokusebenza olungokwezifiso lube ngu-%{path}\nIngabe kufanele sihambise uhla lwemibhalo lohlelo lokusebenza lwamanje siye kolusha?",
+    "warning": {
+      "enable_tun_with_no_permission": "Imodi ye-TUN idinga imvume yomlawuli noma imodi yesevisi, akukho okunikwe amandla, imodi ye-TUN ngeke isebenze kahle."
+    },
+    "info": {
+      "grant_core_permission": "Umongo we-Clash udinga imvume yomlawuli ukuze imodi ye-TUN isebenze kahle, uyanikeza?\nSicela uqaphele ukuthi lo msebenzi udinga ukufakwa kwephasiwedi."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Phazamisa ukuxhumana uma i-proxy ishintsha"
+        },
+        "profile": {
+          "label": "Phazamisa ukuxhumana uma iphrofayili ishintsha"
+        },
+        "mode": {
+          "label": "Phazamisa ukuxhumana uma imodi ishintsha"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Phazamisa ukuxhumana uma i-proxy ishintsha",
+  "break_when_profile_change": "Phazamisa ukuxhumana uma iphrofayili ishintsha",
+  "break_when_mode_change": "Phazamisa ukuxhumana uma imodi ishintsha"
+}

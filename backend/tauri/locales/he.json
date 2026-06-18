@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "העתק Env (CMD)",
+      "ps": "העתק Env (PS)",
+      "sh": "העתק Env (sh)"
+    },
+    "no_proxies": "ללא פרוקסי",
+    "select_proxies": "בחר פרוקסי",
+    "dashboard": "לוח בקרה",
+    "direct_mode": "מצב ישיר",
+    "global_mode": "מצב גלובלי",
+    "more": {
+      "menu": "עוד",
+      "restart_app": "הפעל מחדש אפליקציה",
+      "restart_clash": "הפעל מחדש Clash"
+    },
+    "open_dir": {
+      "menu": "פתח תיקייה",
+      "app_config_dir": "תיקיית הגדרות",
+      "app_data_dir": "תיקיית נתונים",
+      "core_dir": "תיקיית ליבה",
+      "log_dir": "תיקיית לוגים"
+    },
+    "proxy_action": {
+      "on": "פעיל",
+      "off": "כבוי"
+    },
+    "quit": "יציאה",
+    "rule_mode": "מצב כלל",
+    "script_mode": "מצב סקריפט",
+    "system_proxy": "פרוקסי מערכת",
+    "tun_mode": "מצב TUN"
+  },
+  "dialog": {
+    "panic": "אנא דווח על בעיה זו במעקב הבעיות של Github.",
+    "migrate": "זוהה קובץ הגדרות מגרסה ישנה. לעבור לגרסה החדשה?\nאזהרה: פעולה זו תדרוס את ההגדרות הנוכחיות שלך אם קיימות",
+    "custom_app_dir_migrate": "אתה עומד להגדיר תיקיית אפליקציה מותאמת אישית ל-%{path}\nהאם להעביר את תיקיית האפליקציה הנוכחית לחדשה?",
+    "warning": {
+      "enable_tun_with_no_permission": "מצב TUN דורש הרשאת מנהל או מצב שירות, אף אחד מהם אינו מופעל, מצב TUN לא יפעל כראוי."
+    },
+    "info": {
+      "grant_core_permission": "ליבת Clash זקוקה להרשאת מנהל כדי שמצב TUN יפעל כראוי, להעניק?\nשים לב שפעולה זו דורשת הזנת סיסמה."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "נתק חיבורים בעת שינוי פרוקסי"
+        },
+        "profile": {
+          "label": "נתק חיבורים בעת שינוי פרופיל"
+        },
+        "mode": {
+          "label": "נתק חיבורים בעת שינוי מצב"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "נתק חיבורים בעת שינוי פרוקסי",
+  "break_when_profile_change": "נתק חיבורים בעת שינוי פרופיל",
+  "break_when_mode_change": "נתק חיבורים בעת שינוי מצב"
+}

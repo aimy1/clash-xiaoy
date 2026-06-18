@@ -1,0 +1,88 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 22 * * *' # 每天 06:15 UTC+8 自动构建
+
+name: Daily
+
+jobs:
+  generate_manifest:
+    name: Generate Manifest
+    runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'libnyanpasu')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+      - name: Install dependencies
+        run: pnpm install
+      - name: Generate Manifest
+        run: pnpm generate:manifest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # if nothing changed, skip commit
+      - name: Check for changes
+        id: git-check
+        run: echo ::set-output name=has-changes::$(if git diff --quiet; then echo "false"; else echo "true"; fi)
+      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        if: steps.git-check.outputs.has-changes == 'true'
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          name: 'github-actions[bot]'
+          email: '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit Manifest
+        if: steps.git-check.outputs.has-changes == 'true'
+        run: |
+          git add .
+          git commit -m "chore(manifest): update manifest [skip ci]"
+          git push
+  generate_manifest_v1:
+    name: Generate Manifest V1
+    runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'libnyanpasu')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: dev
+      - name: Install Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+      - name: Install dependencies
+        run: pnpm install
+      - name: Generate Manifest
+        run: pnpm generate:manifest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # if nothing changed, skip commit
+      - name: Check for changes
+        id: git-check
+        run: echo ::set-output name=has-changes::$(if git diff --quiet; then echo "false"; else echo "true"; fi)
+      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        if: steps.git-check.outputs.has-changes == 'true'
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          name: 'github-actions[bot]'
+          email: '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit Manifest
+        if: steps.git-check.outputs.has-changes == 'true'
+        run: |
+          git add .
+          git commit -m "chore(manifest): update manifest [skip ci]"
+          git push

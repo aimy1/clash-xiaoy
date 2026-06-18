@@ -1,0 +1,65 @@
+{
+  "_version": 1,
+  "tray": {
+    "copy_env": {
+      "cmd": "Copiar Env (CMD)",
+      "ps": "Copiar Env (PS)",
+      "sh": "Copiar Env (sh)"
+    },
+    "no_proxies": "Sen Proxies",
+    "select_proxies": "Seleccionar Proxies",
+    "dashboard": "Taboleiro",
+    "direct_mode": "Modo Directo",
+    "global_mode": "Modo Global",
+    "more": {
+      "menu": "Máis",
+      "restart_app": "Reiniciar App",
+      "restart_clash": "Reiniciar Clash"
+    },
+    "open_dir": {
+      "menu": "Abrir Cartafol",
+      "app_config_dir": "Cartafol Config",
+      "app_data_dir": "Cartafol Datos",
+      "core_dir": "Cartafol Núcleo",
+      "log_dir": "Cartafol Rexistros"
+    },
+    "proxy_action": {
+      "on": "Acendido",
+      "off": "Apagado"
+    },
+    "quit": "Saír",
+    "rule_mode": "Modo Regra",
+    "script_mode": "Modo Script",
+    "system_proxy": "Proxy do Sistema",
+    "tun_mode": "Modo TUN"
+  },
+  "dialog": {
+    "panic": "Por favor, informe deste problema no rastreador de problemas de Github.",
+    "migrate": "Detectouse un ficheiro de configuración de versión antiga. Migrar á nova versión?\nAVISO: Isto sobrescribirá a súa configuración actual se existe",
+    "custom_app_dir_migrate": "Vai establecer o directorio de aplicación personalizado en %{path}\nDebemos mover o directorio actual da aplicación ao novo?",
+    "warning": {
+      "enable_tun_with_no_permission": "O modo TUN require permiso de administrador ou modo servizo, ningún está habilitado, o modo TUN non funcionará correctamente."
+    },
+    "info": {
+      "grant_core_permission": "O núcleo Clash necesita permiso de administrador para que o modo TUN funcione correctamente, concedelo?\nTeña en conta que esta operación require introducir o contrasinal."
+    }
+  },
+  "setting": {
+    "connection": {
+      "interrupt": {
+        "proxy": {
+          "label": "Interromper conexións ao cambiar proxy"
+        },
+        "profile": {
+          "label": "Interromper conexións ao cambiar perfil"
+        },
+        "mode": {
+          "label": "Interromper conexións ao cambiar modo"
+        }
+      }
+    }
+  },
+  "break_when_proxy_change": "Interromper conexións ao cambiar proxy",
+  "break_when_profile_change": "Interromper conexións ao cambiar perfil",
+  "break_when_mode_change": "Interromper conexións ao cambiar modo"
+}
